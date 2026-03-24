@@ -25,14 +25,14 @@ import AccreditationBar from '../components/AccreditationBar.astro';
   <!-- ═══════ Introduction ═══════ -->
   <section class="section-pad px-6">
     <SectionIntro
-      label="British International School · South Jakarta"
+      label="British International School · Pondok Indah, South Jakarta"
       heading="A British Education in the Heart of Jakarta"
     >
       <p>
-        ISJ is a British international school in the heart of Pondok Indah, offering the English National Curriculum from age 2 through to A-Levels. Our teachers come from the UK's leading independent schools. Every child is known by name.
+        Your child's teacher knows what they had for breakfast, which friendships are thriving, and exactly where they are in long division. At ISJ, every child is known — by name, by character, and by what they need to flourish.
       </p>
       <p>
-        We are part of The Schools Trust, a UK-registered charity that has founded 16 schools across 11 countries since 2004 — all rated "Excellent" in every category of their government-accredited inspections.
+        We follow the English National Curriculum from age 2 through to A-Levels, taught by teachers recruited from the UK's leading independent schools. We are part of The Schools Trust — a UK charity whose schools are ranked 1st and 2nd across 200+ British schools internationally for A-Level and GCSE results.
       </p>
     </SectionIntro>
   </section>
@@ -41,7 +41,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
   <StatBar stats={[
     { value: '30+', label: 'Nationalities' },
     { value: '1:9', label: 'Staff-Pupil Ratio' },
-    { value: '94%', label: 'Outperform UK Average' },
+    { value: 'Top 10%', label: 'Of International Schools Globally' },
   ]} />
 
   <!-- ═══════ Full-bleed image break ═══════ -->
@@ -97,6 +97,44 @@ import AccreditationBar from '../components/AccreditationBar.astro';
     variant="dark"
   />
 
+  <!-- ═══════ Head's Profile ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div class="overflow-hidden">
+          <img
+            src="/images/eileen-fisher.jpg"
+            alt="Eileen Fisher, Academic Director of ISJ, with two pupils"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover object-top"
+          />
+        </div>
+        <div>
+          <p class="label mb-5">Our Head</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Eileen Fisher</h2>
+          <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-5">
+            Edinburgh-born, with 31 years in education and experience leading schools across three continents. An accredited ISI and Penta Inspector, Eileen joined ISJ in 2024 and knows every child and every family in the school.
+          </p>
+          <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+            Her door is open to every parent — and she means it.
+          </p>
+          <a href="/about/our-head" class="whisper-link">Read Eileen's full profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed image break ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="/images/prep-engineering.jpg"
+      alt="Prep School pupils proudly holding their mini projectors after an engineering project"
+      aspect="wide"
+      loading="lazy"
+    />
+  </div>
+
   <!-- ═══════ School Life editorial ═══════ -->
   <section class="section-pad px-6">
     <SectionIntro
@@ -104,27 +142,18 @@ import AccreditationBar from '../components/AccreditationBar.astro';
       heading="Life at ISJ"
     >
       <p>
-        A campus in Pondok Indah with a swimming pool, football pitch, theatre, and dedicated creative arts spaces. Swimming from age 2. Sport, music, drama, and art are part of every child's week — not optional extras.
+        On a typical Wednesday, a five-year-old finishes swimming and heads to Mandarin. A Year 6 pupil rehearses for the school play. A Year 8 is on the football pitch before an afternoon of science in the lab. Sport, music, drama, and art are part of every child's week — not optional extras.
       </p>
       <p>
-        Each year, our older pupils travel to Woolverstone Hall in Suffolk, England — an 87-acre estate where they experience British boarding school life first-hand.
+        Our Pondok Indah campus has a 25-metre swimming pool, a full-size football pitch, a theatre, and dedicated creative arts spaces. Each year, our older pupils travel to Woolverstone Hall in Suffolk, England — an 87-acre estate where they experience British boarding school life first-hand.
       </p>
     </SectionIntro>
 
-    <div class="mt-[var(--space-element)]">
-      <a href="/school-life/campus" class="whisper-link block text-center">Explore Our Campus</a>
+    <div class="mt-[var(--space-element)] flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a href="/school-life/campus" class="whisper-link">Explore our campus</a>
+      <a href="/admissions/virtual-tour" class="whisper-link">Take the virtual tour</a>
     </div>
   </section>
-
-  <!-- ═══════ Full-bleed image break ═══════ -->
-  <div class="my-4">
-    <ImageBlock
-      src="/images/woolverstone-hall.jpg"
-      alt="Woolverstone Hall in Suffolk, England — ISJ's residential trip destination"
-      aspect="wide"
-      loading="lazy"
-    />
-  </div>
 
   <!-- ═══════ Second testimonial ═══════ -->
   <Testimonial
@@ -135,6 +164,5 @@ import AccreditationBar from '../components/AccreditationBar.astro';
 
   <!-- ═══════ Accreditation ═══════ -->
   <AccreditationBar />
-
 
 </BaseLayout>
