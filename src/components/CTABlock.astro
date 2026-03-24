@@ -17,18 +17,18 @@ const { heading, description, primaryText, primaryHref, secondaryText, secondary
 
 <section class="section-pad">
   <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
-    <h2 class="font-heading text-[var(--text-2xl)] font-light text-navy leading-[1.1]">
+    <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">
       {heading}
     </h2>
     {description && (
-      <p class="text-[var(--text-base)] text-charcoal-light mt-4 leading-relaxed">
+      <p class="text-[length:var(--text-base)] text-charcoal-light mt-4 leading-relaxed">
         {description}
       </p>
     )}
     <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
       <a
         href={primaryHref}
-        class="inline-flex items-center px-8 py-3 border border-navy bg-navy text-cream text-[var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
+        class="inline-flex items-center px-8 py-3 border border-navy bg-navy text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
       >
         {primaryText}
       </a>

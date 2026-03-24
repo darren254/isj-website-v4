@@ -17,10 +17,10 @@ const { label, heading, class: className = '' } = Astro.props;
   {label && (
     <p class="label mb-5">{label}</p>
   )}
-  <h2 class="font-heading text-[var(--text-2xl)] font-light text-navy mb-6 leading-[1.1]">
+  <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy mb-6 leading-[1.1]">
     {heading}
   </h2>
-  <div class="space-y-5 text-[var(--text-base)] leading-relaxed text-charcoal-light">
+  <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
     <slot />
   </div>
 </div>

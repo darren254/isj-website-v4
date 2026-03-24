@@ -15,7 +15,7 @@ const { stats } = Astro.props;
     <div class="flex flex-wrap justify-center gap-y-8 reveal-stagger">
       {stats.map((stat, i) => (
         <div class={`reveal flex-1 min-w-[140px] max-w-[220px] text-center ${i > 0 ? 'border-l border-charcoal/10' : ''}`}>
-          <p class="font-heading text-[var(--text-2xl)] font-light text-navy leading-none">
+          <p class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-none">
             {stat.value}
           </p>
           <p class="label mt-3">{stat.label}</p>

@@ -19,14 +19,14 @@ const attrClass = variant === 'dark' ? 'text-white/50' : 'text-charcoal-muted';
 <section class={`section-pad ${bgClass}`}>
   <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
     <blockquote>
-      <p class={`font-heading text-[var(--text-xl)] font-light leading-snug italic ${textClass}`}>
+      <p class={`font-heading text-[length:var(--text-xl)] font-light leading-snug italic ${textClass}`}>
         "{quote}"
       </p>
     </blockquote>
     <div class="mt-6">
-      <p class={`text-[var(--text-sm)] font-medium ${attrClass}`}>{attribution}</p>
+      <p class={`text-[length:var(--text-sm)] font-medium ${attrClass}`}>{attribution}</p>
       {detail && (
-        <p class={`text-[var(--text-xs)] mt-1 ${attrClass}`}>{detail}</p>
+        <p class={`text-[length:var(--text-xs)] mt-1 ${attrClass}`}>{detail}</p>
       )}
     </div>
   </div>
