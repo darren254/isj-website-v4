@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════
+   ISJ Design System — Aman-Inspired
+   
+   Key principles:
+   - One continuous warm background (cream) — no alternating sections
+   - Generous whitespace as the primary design tool
+   - Narrow centred text columns (~620px) for editorial feel
+   - All-caps tracked labels for category markers
+   - Whisper CTAs — underlined text, minimal borders
+   - Full-bleed photography with no text overlays on heroes
+   - Warm charcoal text, never pure black
+   ══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Brand Colours ── */
+  --color-navy: #1B2A4A;
+  --color-navy-light: #2A3D66;
+  --color-navy-dark: #111C33;
+  --color-gold: #FFC43D;
+  --color-gold-muted: #D4A84A;
+  --color-gold-pale: #F0E6CC;
+
+  /* ── Surface & Background ── */
+  --color-cream: #F7F5F0;
+  --color-cream-dark: #EDE8DD;
+  --color-linen: #F0EDE6;
+
+  /* ── Text ── */
+  --color-charcoal: #2C2B29;
+  --color-charcoal-light: #5A5650;
+  --color-charcoal-muted: #8A8780;
+
+  /* ── Typography ── */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* ── Fluid Type Scale ── */
+  --text-xs: clamp(0.6875rem, 0.65rem + 0.15vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.775rem + 0.2vw, 0.9375rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --text-2xl: clamp(2rem, 1.5rem + 1.75vw, 3rem);
+  --text-3xl: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  --text-hero: clamp(3rem, 1.5rem + 4.5vw, 5.5rem);
+
+  /* ── Spacing ── */
+  --space-section: clamp(5rem, 4rem + 4vw, 9rem);
+  --space-section-sm: clamp(3rem, 2.5rem + 2vw, 5rem);
+  --space-element: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
+
+  /* ── Content Widths ── */
+  --content-narrow: 620px;
+  --content-default: 900px;
+  --content-wide: 1200px;
+  --content-max: 1440px;
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-glacial: 800ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Base Styles — all in @layer base so Tailwind utilities win
+   ══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    hanging-punctuation: first last;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    background-color: var(--color-cream);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    font-weight: 300;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p, li, figcaption {
+    text-wrap: pretty;
+    max-width: 72ch;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-base), opacity var(--transition-base);
+  }
+
+  img, picture, video, canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-pale);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Screen Reader Only ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Aman-Inspired Utility Classes
+   ══════════════════════════════════════════════════════════════ */
+
+/* Label style — all-caps tracked, small, charcoal-muted */
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-charcoal-muted);
+}
+
+/* Label variant — gold */
+.label-gold {
+  color: var(--color-gold-muted);
+}
+
+/* Label variant — on dark backgrounds */
+.label-light {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Whisper link — understated CTA */
+.whisper-link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  color: var(--color-charcoal);
+  transition: color var(--transition-base);
+}
+
+.whisper-link:hover {
+  color: var(--color-navy);
+}
+
+/* Whisper link on dark */
+.whisper-link-light {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+.whisper-link-light:hover {
+  color: white;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Narrow centred text column */
+.text-column {
+  max-width: var(--content-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Section spacing */
+.section-pad {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+.section-pad-sm {
+  padding-top: var(--space-section-sm);
+  padding-bottom: var(--space-section-sm);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Scroll-Reveal Animation
+   ══════════════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-glacial), transform var(--transition-glacial);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 120ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 240ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 360ms; }

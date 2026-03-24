@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isj.id/sitemap-index.xml

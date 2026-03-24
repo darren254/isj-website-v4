@@ -1,0 +1,144 @@
+---
+/**
+ * Footer — Aman-style content-rich site index.
+ * Same cream background, no dark footer.
+ * Four columns of links + contact block.
+ */
+const footerLinks = {
+  'About ISJ': [
+    { label: 'Why ISJ', href: '/about/why-isj' },
+    { label: 'Our Head', href: '/about/our-head' },
+    { label: 'The Schools Trust', href: '/about/the-schools-trust' },
+    { label: 'Campus & Facilities', href: '/school-life/campus' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
+  ],
+  'Academics': [
+    { label: 'Pre-Prep (Ages 2–6)', href: '/academics/pre-prep' },
+    { label: 'Prep School (Ages 7–13)', href: '/academics/prep-school' },
+    { label: 'Senior School (Ages 14–18)', href: '/academics/senior-school' },
+    { label: 'Curriculum', href: '/academics/curriculum' },
+    { label: 'Results & Outcomes', href: '/academics/results' },
+  ],
+  'Admissions': [
+    { label: 'How to Apply', href: '/admissions/how-to-apply' },
+    { label: 'Arrange a Tour', href: '/admissions/arrange-a-tour' },
+    { label: 'Tuition Fees', href: '/admissions/fees' },
+    { label: 'Age Guide', href: '/admissions/age-guide' },
+    { label: 'Scholarships & Bursaries', href: '/admissions/scholarships' },
+    { label: 'FAQs', href: '/faqs' },
+  ],
+  'Resources': [
+    { label: 'News & Events', href: '/news' },
+    { label: 'Insights', href: '/insights' },
+    { label: 'School Policies', href: '/policies' },
+    { label: 'School Calendar', href: '/school-life/calendar' },
+    { label: 'Virtual Tour', href: '/admissions/virtual-tour' },
+  ],
+};
+
+const socialLinks = [
+  { label: 'Instagram', href: 'https://instagram.com/isj.id', icon: 'instagram' },
+  { label: 'Facebook', href: 'https://facebook.com/isjjakarta', icon: 'facebook' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/school/isjjakarta', icon: 'linkedin' },
+  { label: 'YouTube', href: 'https://youtube.com/@isjjakarta', icon: 'youtube' },
+];
+---
+
+<footer class="border-t border-charcoal/10">
+  <!-- CTA row above footer links -->
+  <div class="section-pad-sm px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center">
+      <h2 class="font-heading text-[var(--text-xl)] font-light text-navy">Begin Your Journey</h2>
+      <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/admissions/arrange-a-tour"
+          class="inline-flex items-center px-7 py-2.5 border border-navy bg-navy text-cream text-[var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
+        >
+          Arrange a Tour
+        </a>
+        <a href="/contact" class="whisper-link">Contact Admissions</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link columns -->
+  <div class="border-t border-charcoal/5 px-6 py-12 lg:py-16">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        {Object.entries(footerLinks).map(([heading, links]) => (
+          <div>
+            <p class="label mb-4">{heading}</p>
+            <ul class="space-y-2">
+              {links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-[var(--text-sm)] text-charcoal-light hover:text-navy transition-colors duration-[var(--transition-base)]"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- Contact block -->
+      <div class="mt-12 pt-8 border-t border-charcoal/5 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="label mb-3">Reception</p>
+          <p class="text-[var(--text-sm)] text-charcoal-light">+62 21-2782-6788</p>
+          <a href="mailto:info@isj.id" class="text-[var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">info@isj.id</a>
+        </div>
+        <div>
+          <p class="label mb-3">Admissions</p>
+          <p class="text-[var(--text-sm)] text-charcoal-light">+62 811 1000 7672 (WhatsApp)</p>
+          <a href="mailto:admissions@isj.id" class="text-[var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">admissions@isj.id</a>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="mt-8 pt-8 border-t border-charcoal/5">
+        <p class="text-[var(--text-xs)] text-charcoal-muted leading-relaxed">
+          Jl. R.A. Kartini No. Kav. 12, Pondok Indah, South Jakarta 12310, Indonesia
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-charcoal/5 px-6 py-6">
+    <div class="mx-auto max-w-[var(--content-wide)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-6">
+        <span class="text-[var(--text-xs)] text-charcoal-muted">
+          &copy; {new Date().getFullYear()} The Independent School of Jakarta
+        </span>
+        <span class="text-[var(--text-xs)] text-charcoal-muted">
+          Part of <a href="https://theschoolstrust.com" target="_blank" rel="noopener noreferrer" class="hover:text-navy transition-colors">The Schools Trust</a>
+        </span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="/privacy" class="text-[var(--text-xs)] text-charcoal-muted hover:text-navy transition-colors">Privacy</a>
+        <a href="/terms" class="text-[var(--text-xs)] text-charcoal-muted hover:text-navy transition-colors">Terms</a>
+        <a href="/cookies" class="text-[var(--text-xs)] text-charcoal-muted hover:text-navy transition-colors">Cookies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        {socialLinks.map((social) => (
+          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-charcoal-muted hover:text-navy transition-colors" aria-label={social.label}>
+            <span class="text-[var(--text-xs)] uppercase tracking-wider">{social.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-charcoal/5 px-6 py-4">
+    <div class="mx-auto max-w-[var(--content-wide)] text-center">
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="text-[var(--text-xs)] text-charcoal-muted/50 hover:text-charcoal-muted transition-colors">
+        Created with Perplexity Computer
+      </a>
+    </div>
+  </div>
+</footer>

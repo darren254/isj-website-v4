@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import ImageBlock from '../components/ImageBlock.astro';
+import EditorialCard from '../components/EditorialCard.astro';
+import StatBar from '../components/StatBar.astro';
+import Testimonial from '../components/Testimonial.astro';
+import AccreditationBar from '../components/AccreditationBar.astro';
+---
+
+<BaseLayout
+  title="ISJ | British International School Jakarta | Ages 2–18"
+  description="The Independent School of Jakarta offers a world-class British education for ages 2 to 18 in Pondok Indah, South Jakarta. English National Curriculum, GCSEs and A-Levels."
+  canonicalUrl="/"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80"
+    imageAlt="Students at The Independent School of Jakarta"
+    aspectRatio="tall"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="British International School · South Jakarta"
+      heading="A British Education Without Compromise"
+    >
+      <p>
+        ISJ is a British international school in the heart of Pondok Indah, offering the English National Curriculum from age 2 through to A-Levels. Our teachers come from the UK's leading independent schools. Every child is known by name.
+      </p>
+      <p>
+        We are part of The Schools Trust, a UK-registered charity that has founded 16 schools across 11 countries since 2004 — all rated "Excellent" in every category of their government-accredited inspections.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Stats ═══════ -->
+  <StatBar stats={[
+    { value: '30+', label: 'Nationalities' },
+    { value: '1:5', label: 'Early Years Ratio' },
+    { value: '16', label: 'Schools Founded' },
+    { value: '94%', label: 'Outperform UK Average' },
+  ]} />
+
+  <!-- ═══════ Full-bleed image break ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80"
+      alt="Children learning in the classroom at ISJ"
+      aspect="wide"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- ═══════ Academic Phases ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center mb-[var(--space-element)] reveal">
+      <p class="label mb-5">Ages 2 to 18 · English National Curriculum</p>
+      <h2 class="font-heading text-[var(--text-2xl)] font-light text-navy leading-[1.1]">Three Schools, One Journey</h2>
+    </div>
+
+    <div class="mx-auto max-w-[var(--content-wide)] grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 reveal-stagger">
+      <EditorialCard
+        imageSrc="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=800&q=80"
+        imageAlt="Young children learning through play at ISJ Pre-Prep"
+        label="Pre-Prep"
+        title="Early Years & Foundation Stage"
+        description="Ages 2–6. Learning through play, curiosity, and structured exploration. Maximum 15 children per class."
+        href="/academics/pre-prep"
+      />
+      <EditorialCard
+        imageSrc="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
+        imageAlt="Prep School pupils at ISJ"
+        label="Prep School"
+        title="The English National Curriculum"
+        description="Ages 7–13. Specialist teaching, co-curricular breadth, residential trips, and a house system."
+        href="/academics/prep-school"
+      />
+      <EditorialCard
+        imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80"
+        imageAlt="Senior School students studying at ISJ"
+        label="Senior School"
+        title="GCSEs & A-Levels in Jakarta"
+        description="Ages 14–18. The only school in Jakarta offering both GCSEs and A-Levels through the English National Curriculum."
+        href="/academics/senior-school"
+      />
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="High-calibre teaching staff with strong subject knowledge and a real commitment to pupils' learning and wellbeing."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+    variant="dark"
+  />
+
+  <!-- ═══════ School Life editorial ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Beyond the Classroom"
+      heading="Life at ISJ"
+    >
+      <p>
+        A campus in Pondok Indah with a swimming pool, football pitch, theatre, and dedicated creative arts spaces. Swimming from age 2. Sport, music, drama, and art are part of every child's week — not optional extras.
+      </p>
+      <p>
+        Each year, our older pupils travel to Woolverstone Hall in Suffolk, England — an 87-acre estate where they experience British boarding school life first-hand.
+      </p>
+    </SectionIntro>
+
+    <div class="mt-[var(--space-element)]">
+      <a href="/school-life/campus" class="whisper-link block text-center">Explore Our Campus</a>
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed image break ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1920&q=80"
+      alt="ISJ campus swimming pool and outdoor facilities"
+      aspect="wide"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- ═══════ Second testimonial ═══════ -->
+  <Testimonial
+    quote="A warm, family-like environment. The school's strength lies in the kindness of the teachers. My children love all the staff."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ Insights teaser ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center mb-[var(--space-element)] reveal">
+      <p class="label mb-5">Insights</p>
+      <h2 class="font-heading text-[var(--text-2xl)] font-light text-navy leading-[1.1]">Resources for Families</h2>
+    </div>
+
+    <div class="mx-auto max-w-[var(--content-wide)] grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 reveal-stagger">
+      <EditorialCard
+        imageSrc="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80"
+        imageAlt="Jakarta skyline"
+        label="Guide"
+        title="GCSEs and A-Levels in Jakarta"
+        description="Everything families need to know about studying for British qualifications in Indonesia's capital."
+        href="/insights/gcses-a-levels-jakarta"
+        linkText="Read the guide"
+      />
+      <EditorialCard
+        imageSrc="https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=800&q=80"
+        imageAlt="Family exploring Jakarta"
+        label="Guide"
+        title="The Expat Family Guide to Jakarta"
+        description="Neighbourhoods, schools, healthcare, and settling in — everything you need for the move."
+        href="/insights/expat-guide-jakarta"
+        linkText="Read the guide"
+      />
+    </div>
+  </section>
+
+  <!-- ═══════ Accreditation ═══════ -->
+  <AccreditationBar />
+
+
+
+</BaseLayout>

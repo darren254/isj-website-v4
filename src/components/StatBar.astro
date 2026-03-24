@@ -1,0 +1,26 @@
+---
+/**
+ * StatBar — Horizontal row of key figures.
+ * Clean dividers between stats, centred text.
+ */
+interface Props {
+  stats: Array<{ value: string; label: string }>;
+}
+
+const { stats } = Astro.props;
+---
+
+<section class="section-pad-sm">
+  <div class="mx-auto max-w-[var(--content-wide)] px-6">
+    <div class="flex flex-wrap justify-center gap-y-8 reveal-stagger">
+      {stats.map((stat, i) => (
+        <div class={`reveal flex-1 min-w-[140px] max-w-[220px] text-center ${i > 0 ? 'border-l border-charcoal/10' : ''}`}>
+          <p class="font-heading text-[var(--text-2xl)] font-light text-navy leading-none">
+            {stat.value}
+          </p>
+          <p class="label mt-3">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

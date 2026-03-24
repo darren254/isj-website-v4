@@ -1,0 +1,26 @@
+---
+/**
+ * AccreditationBar — Row of accreditation/partner logos.
+ * Muted, quiet — not competing with content.
+ */
+const logos = [
+  { name: 'Cambridge International', abbr: 'Cambridge' },
+  { name: 'Edexcel', abbr: 'Edexcel' },
+  { name: 'Pearson', abbr: 'Pearson' },
+  { name: 'BSO Inspected', abbr: 'BSO' },
+  { name: 'Good Schools Guide', abbr: 'GSG' },
+];
+---
+
+<section class="section-pad-sm border-t border-charcoal/5">
+  <div class="mx-auto max-w-[var(--content-wide)] px-6">
+    <p class="label text-center mb-8">Accredited & Recognised</p>
+    <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+      {logos.map((logo) => (
+        <span class="text-[var(--text-sm)] text-charcoal-muted/60 font-medium tracking-wide uppercase">
+          {logo.abbr}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

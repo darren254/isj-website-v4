@@ -1,0 +1,51 @@
+---
+/**
+ * Hero — Aman-style full-bleed visual with NO text overlay.
+ * Text appears below the image in a centred column.
+ *
+ * Props:
+ *   imageSrc    - fallback image (required)
+ *   imageAlt    - alt text (required)
+ *   videoSrc?   - optional video (mp4)
+ *   aspectRatio - 'full' (100vh) | 'tall' (85vh) | 'standard' (70vh)
+ */
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  videoSrc?: string;
+  aspectRatio?: 'full' | 'tall' | 'standard';
+}
+
+const { imageSrc, imageAlt, videoSrc, aspectRatio = 'tall' } = Astro.props;
+
+const heightClass = {
+  full: 'h-screen',
+  tall: 'h-[85vh]',
+  standard: 'h-[70vh]',
+}[aspectRatio];
+---
+
+<section class={`relative w-full ${heightClass} overflow-hidden`}>
+  {videoSrc ? (
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster={imageSrc}
+      class="absolute inset-0 w-full h-full object-cover"
+    >
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+  ) : (
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      decoding="async"
+    />
+  )}
+  <!-- Subtle gradient at top for header readability -->
+  <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/15 to-transparent pointer-events-none"></div>
+</section>

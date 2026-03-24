@@ -1,0 +1,217 @@
+---
+const navItems = [
+  {
+    label: 'About',
+    children: [
+      { label: 'Why ISJ', href: '/about/why-isj' },
+      { label: 'Our Head', href: '/about/our-head' },
+      { label: 'The Schools Trust', href: '/about/the-schools-trust' },
+    ],
+  },
+  {
+    label: 'Academics',
+    children: [
+      { label: 'Pre-Prep (Ages 2–6)', href: '/academics/pre-prep' },
+      { label: 'Prep School (Ages 7–13)', href: '/academics/prep-school' },
+      { label: 'Senior School (Ages 14–18)', href: '/academics/senior-school' },
+      { label: 'Curriculum', href: '/academics/curriculum' },
+      { label: 'Results & Outcomes', href: '/academics/results' },
+    ],
+  },
+  {
+    label: 'Admissions',
+    children: [
+      { label: 'How to Apply', href: '/admissions/how-to-apply' },
+      { label: 'Arrange a Tour', href: '/admissions/arrange-a-tour' },
+      { label: 'Fees', href: '/admissions/fees' },
+      { label: 'Age Guide', href: '/admissions/age-guide' },
+      { label: 'Scholarships & Bursaries', href: '/admissions/scholarships' },
+    ],
+  },
+  {
+    label: 'School Life',
+    children: [
+      { label: 'Campus & Facilities', href: '/school-life/campus' },
+      { label: 'Sport', href: '/school-life/sport' },
+      { label: 'Arts, Music & Drama', href: '/school-life/arts-music' },
+      { label: 'Character & Values', href: '/school-life/character' },
+    ],
+  },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50" id="site-header">
+  <!-- Transparent header that becomes solid on scroll -->
+  <div class="header-bg absolute inset-0 bg-cream/95 backdrop-blur-sm border-b border-charcoal/5 opacity-0 transition-opacity duration-[var(--transition-slow)]"></div>
+
+  <div class="relative mx-auto max-w-[var(--content-max)] px-6 lg:px-10">
+    <div class="flex items-center justify-between h-20 lg:h-24">
+
+      <!-- Menu Toggle -->
+      <button
+        id="menu-toggle"
+        class="flex items-center gap-2.5 text-navy hover:opacity-70 transition-opacity duration-[var(--transition-base)]"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        <span class="text-[var(--text-xs)] font-[var(--font-body)] tracking-[0.2em] uppercase font-medium">Menu</span>
+      </button>
+
+      <!-- Wordmark (centred) -->
+      <a href="/" class="absolute left-1/2 -translate-x-1/2" aria-label="The Independent School of Jakarta — Home">
+        <span class="hidden lg:block text-center leading-tight">
+          <span class="block font-heading text-navy text-[1.1rem] tracking-[0.25em] uppercase font-light">The Independent</span>
+          <span class="block font-heading text-navy text-[1.1rem] tracking-[0.25em] uppercase font-light">School of Jakarta</span>
+        </span>
+        <span class="lg:hidden font-heading text-navy text-xl tracking-[0.25em] uppercase font-light">ISJ</span>
+      </a>
+
+      <!-- CTA -->
+      <a
+        href="/admissions/arrange-a-tour"
+        class="hidden sm:inline-flex items-center px-6 py-2.5 border border-navy text-navy text-[var(--text-xs)] tracking-[0.15em] uppercase font-medium font-[var(--font-body)] hover:bg-navy hover:text-cream transition-all duration-[var(--transition-base)]"
+      >
+        Arrange a Tour
+      </a>
+
+      <!-- Mobile: just show a small CTA icon -->
+      <a href="/admissions/arrange-a-tour" class="sm:hidden text-navy" aria-label="Arrange a Tour">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Full-screen overlay menu -->
+<div id="menu-overlay" class="fixed inset-0 z-40 bg-navy opacity-0 pointer-events-none transition-opacity duration-[var(--transition-slow)]">
+  <div class="flex h-full overflow-y-auto">
+    <!-- Nav content -->
+    <div class="flex flex-col justify-center w-full lg:w-1/2 px-8 lg:px-16 py-24">
+      <nav>
+        <ul class="space-y-1">
+          {navItems.map((item) => (
+            <li class="nav-group">
+              {'href' in item && item.href ? (
+                <a
+                  href={item.href}
+                  class="block py-3 font-heading text-[var(--text-xl)] tracking-[0.08em] uppercase text-white/90 hover:text-gold transition-colors duration-[var(--transition-base)]"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <>
+                  <span class="block py-3 font-heading text-[var(--text-xl)] tracking-[0.08em] uppercase text-white/90">
+                    {item.label}
+                  </span>
+                  {'children' in item && item.children && (
+                    <ul class="pb-3 pl-1">
+                      {item.children.map((child) => (
+                        <li>
+                          <a
+                            href={child.href}
+                            class="block py-1.5 font-body text-[var(--text-sm)] tracking-wide text-white/50 hover:text-gold transition-colors duration-[var(--transition-base)]"
+                          >
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Contact info in nav -->
+      <div class="mt-12 pt-8 border-t border-white/10">
+        <p class="label label-light mb-3">Contact Admissions</p>
+        <a href="tel:+628111000672" class="block text-white/70 text-[var(--text-sm)] hover:text-white transition-colors">+62 811 1000 7672</a>
+        <a href="mailto:admissions@isj.id" class="block text-white/70 text-[var(--text-sm)] hover:text-white transition-colors">admissions@isj.id</a>
+      </div>
+
+      <!-- Mobile CTA -->
+      <a
+        href="/admissions/arrange-a-tour"
+        class="sm:hidden mt-8 inline-flex self-start items-center px-8 py-3 border border-white/30 text-white text-[var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-white/10 transition-colors duration-[var(--transition-base)]"
+      >
+        Arrange a Tour
+      </a>
+    </div>
+
+    <!-- Right panel — decorative (desktop only) -->
+    <div class="hidden lg:block lg:w-1/2 relative">
+      <div class="absolute inset-0 bg-navy-dark/50"></div>
+      <!-- This could hold a featured image or remain as a dark panel -->
+    </div>
+  </div>
+</div>
+
+<!-- Spacer -->
+<div class="h-20 lg:h-24"></div>
+
+<script>
+  // Menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('menu-overlay');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  function openMenu() {
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    overlay?.classList.add('opacity-100');
+    iconMenu?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    overlay?.classList.remove('opacity-100');
+    iconMenu?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', () => {
+    const isHidden = overlay?.classList.contains('pointer-events-none');
+    isHidden ? openMenu() : closeMenu();
+  });
+
+  // Close on link click
+  overlay?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Header solid on scroll
+  const header = document.getElementById('site-header');
+  const headerBg = header?.querySelector('.header-bg');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      headerBg?.classList.remove('opacity-0');
+      headerBg?.classList.add('opacity-100');
+    } else {
+      headerBg?.classList.add('opacity-0');
+      headerBg?.classList.remove('opacity-100');
+    }
+  }, { passive: true });
+</script>

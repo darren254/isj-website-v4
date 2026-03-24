@@ -1,0 +1,26 @@
+---
+/**
+ * SectionIntro — Aman-style centred text block.
+ * Label (all-caps tracked) above a heading, with body text below.
+ * All centred within the narrow column.
+ */
+interface Props {
+  label?: string;
+  heading: string;
+  class?: string;
+}
+
+const { label, heading, class: className = '' } = Astro.props;
+---
+
+<div class={`text-column reveal ${className}`}>
+  {label && (
+    <p class="label mb-5">{label}</p>
+  )}
+  <h2 class="font-heading text-[var(--text-2xl)] font-light text-navy mb-6 leading-[1.1]">
+    {heading}
+  </h2>
+  <div class="space-y-5 text-[var(--text-base)] leading-relaxed text-charcoal-light">
+    <slot />
+  </div>
+</div>

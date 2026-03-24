@@ -1,0 +1,32 @@
+---
+/**
+ * ImageBlock — Full-bleed or contained image.
+ * No borders, no shadows, no rounded corners. Aman-style.
+ */
+interface Props {
+  src: string;
+  alt: string;
+  aspect?: 'landscape' | 'portrait' | 'square' | 'wide';
+  loading?: 'eager' | 'lazy';
+  class?: string;
+}
+
+const { src, alt, aspect = 'landscape', loading = 'lazy', class: className = '' } = Astro.props;
+
+const aspectClass = {
+  landscape: 'aspect-[16/10]',
+  portrait: 'aspect-[3/4]',
+  square: 'aspect-square',
+  wide: 'aspect-[21/9]',
+}[aspect];
+---
+
+<div class={`w-full overflow-hidden reveal ${className}`}>
+  <img
+    src={src}
+    alt={alt}
+    loading={loading}
+    decoding="async"
+    class={`w-full h-full object-cover ${aspectClass}`}
+  />
+</div>
