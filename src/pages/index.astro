@@ -17,8 +17,8 @@ import AccreditationBar from '../components/AccreditationBar.astro';
 
   <!-- ═══════ Hero ═══════ -->
   <Hero
-    imageSrc="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80"
-    imageAlt="Students at The Independent School of Jakarta"
+    imageSrc="/images/pupils-prep.jpg"
+    imageAlt="Prep School pupils at The Independent School of Jakarta"
     aspectRatio="tall"
   />
 
@@ -26,7 +26,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
   <section class="section-pad px-6">
     <SectionIntro
       label="British International School · South Jakarta"
-      heading="A British Education Without Compromise"
+      heading="A British Education in the Heart of Jakarta"
     >
       <p>
         ISJ is a British international school in the heart of Pondok Indah, offering the English National Curriculum from age 2 through to A-Levels. Our teachers come from the UK's leading independent schools. Every child is known by name.
@@ -40,16 +40,15 @@ import AccreditationBar from '../components/AccreditationBar.astro';
   <!-- ═══════ Stats ═══════ -->
   <StatBar stats={[
     { value: '30+', label: 'Nationalities' },
-    { value: '1:5', label: 'Early Years Ratio' },
-    { value: '16', label: 'Schools Founded' },
+    { value: '1:9', label: 'Staff-Pupil Ratio' },
     { value: '94%', label: 'Outperform UK Average' },
   ]} />
 
   <!-- ═══════ Full-bleed image break ═══════ -->
   <div class="my-4">
     <ImageBlock
-      src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80"
-      alt="Children learning in the classroom at ISJ"
+      src="/images/campus-aerial.jpg"
+      alt="Aerial view of ISJ campus in Pondok Indah — swimming pool, football pitch, and playing fields"
       aspect="wide"
       loading="lazy"
     />
@@ -64,27 +63,27 @@ import AccreditationBar from '../components/AccreditationBar.astro';
 
     <div class="mx-auto max-w-[var(--content-wide)] grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 reveal-stagger">
       <EditorialCard
-        imageSrc="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=800&q=80"
-        imageAlt="Young children learning through play at ISJ Pre-Prep"
+        imageSrc="/images/pre-prep.jpg"
+        imageAlt="Pre-Prep children sitting together and laughing during circle time"
         label="Pre-Prep"
         title="Early Years & Foundation Stage"
         description="Ages 2–6. Learning through play, curiosity, and structured exploration. Maximum 15 children per class."
         href="/academics/pre-prep"
       />
       <EditorialCard
-        imageSrc="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
-        imageAlt="Prep School pupils at ISJ"
+        imageSrc="/images/primary-classroom.jpg"
+        imageAlt="Prep School pupils working together on a science experiment"
         label="Prep School"
         title="The English National Curriculum"
         description="Ages 7–13. Specialist teaching, co-curricular breadth, residential trips, and a house system."
         href="/academics/prep-school"
       />
       <EditorialCard
-        imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80"
-        imageAlt="Senior School students studying at ISJ"
+        imageSrc="/images/senior-school.jpg"
+        imageAlt="Senior School students in blazers and ties"
         label="Senior School"
         title="GCSEs & A-Levels in Jakarta"
-        description="Ages 14–18. The only school in Jakarta offering both GCSEs and A-Levels through the English National Curriculum."
+        description="Ages 14–18. British qualifications taught by experienced UK-trained teachers, preparing students for leading universities worldwide."
         href="/academics/senior-school"
       />
     </div>
@@ -120,8 +119,8 @@ import AccreditationBar from '../components/AccreditationBar.astro';
   <!-- ═══════ Full-bleed image break ═══════ -->
   <div class="my-4">
     <ImageBlock
-      src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1920&q=80"
-      alt="ISJ campus swimming pool and outdoor facilities"
+      src="/images/woolverstone-hall.jpg"
+      alt="Woolverstone Hall in Suffolk, England — ISJ's residential trip destination"
       aspect="wide"
       loading="lazy"
     />
@@ -134,38 +133,8 @@ import AccreditationBar from '../components/AccreditationBar.astro';
     detail="Annual Survey, November 2025"
   />
 
-  <!-- ═══════ Insights teaser ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)] text-center mb-[var(--space-element)] reveal">
-      <p class="label mb-5">Insights</p>
-      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">Resources for Families</h2>
-    </div>
-
-    <div class="mx-auto max-w-[var(--content-wide)] grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 reveal-stagger">
-      <EditorialCard
-        imageSrc="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80"
-        imageAlt="Jakarta skyline"
-        label="Guide"
-        title="GCSEs and A-Levels in Jakarta"
-        description="Everything families need to know about studying for British qualifications in Indonesia's capital."
-        href="/insights/gcses-a-levels-jakarta"
-        linkText="Read the guide"
-      />
-      <EditorialCard
-        imageSrc="https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=800&q=80"
-        imageAlt="Family exploring Jakarta"
-        label="Guide"
-        title="The Expat Family Guide to Jakarta"
-        description="Neighbourhoods, schools, healthcare, and settling in — everything you need for the move."
-        href="/insights/expat-guide-jakarta"
-        linkText="Read the guide"
-      />
-    </div>
-  </section>
-
   <!-- ═══════ Accreditation ═══════ -->
   <AccreditationBar />
-
 
 
 </BaseLayout>
