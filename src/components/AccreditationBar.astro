@@ -1,24 +1,40 @@
 ---
 /**
- * AccreditationBar — Row of accreditation/partner logos.
- * Muted, quiet — not competing with content.
+ * AccreditationBar — Row of partner/accreditation logos.
+ * Monochrome, quiet, linked. No heading text.
  */
 const logos = [
-  { name: 'Cambridge International', abbr: 'Cambridge' },
-  { name: 'Edexcel', abbr: 'Edexcel' },
-  { name: 'Pearson', abbr: 'Pearson' },
-  { name: 'BSO Inspected', abbr: 'BSO' },
+  { src: '/images/logos/uk-dfe.jpg', alt: 'UK Department for Education', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
+  { src: '/images/logos/kemendikbud.jpg', alt: 'Indonesian Ministry of Education', href: 'https://kemendikdasmen.go.id/' },
+  { src: '/images/logos/pearson.jpg', alt: 'Pearson', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
+  { src: '/images/logos/edexcel.jpg', alt: 'Edexcel', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
+  { src: '/images/logos/bso.jpg', alt: 'British Schools Overseas', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
+  { src: '/images/logos/schools-trust.jpg', alt: 'The Schools Trust', href: 'https://schoolstrust.co.uk/' },
+  { src: '/images/logos/good-schools-guide.jpg', alt: 'The Good Schools Guide', href: 'https://www.goodschoolsguide.co.uk/international/profile/the-independent-school-of-jakarta' },
+  { src: '/images/logos/britcham.jpg', alt: 'BritCham Indonesia', href: 'https://britcham.or.id/' },
+  { src: '/images/logos/education-is-great.jpg', alt: 'Education is GREAT Britain', href: 'https://www.gov.uk/government/publications/national-curriculum-in-england-english-programmes-of-study' },
 ];
 ---
 
 <section class="section-pad-sm border-t border-charcoal/5">
   <div class="mx-auto max-w-[var(--content-wide)] px-6">
-    <p class="label text-center mb-8">Accredited & Recognised</p>
-    <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 lg:gap-x-16">
       {logos.map((logo) => (
-        <span class="text-[length:var(--text-sm)] text-charcoal-muted/60 font-medium tracking-wide uppercase">
-          {logo.abbr}
-        </span>
+        <a
+          href={logo.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block opacity-40 hover:opacity-70 transition-opacity duration-[var(--transition-base)] grayscale hover:grayscale-0"
+          aria-label={logo.alt}
+        >
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            loading="lazy"
+            decoding="async"
+            class="h-8 md:h-10 w-auto object-contain"
+          />
+        </a>
       ))}
     </div>
   </div>

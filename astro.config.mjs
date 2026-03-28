@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://isj.id',
+  site: 'https://darren254.github.io',
+  base: '/isj-website-v4',
   output: 'static',
   integrations: [sitemap()],
   vite: {
