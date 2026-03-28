@@ -1,17 +1,18 @@
 ---
 /**
  * ImageBlock — Full-bleed or contained image with subtle parallax.
- * No borders, no shadows, no rounded corners. Aman-style.
+ * Optional slow zoom (Ken Burns) on scroll-into-view.
  */
 interface Props {
   src: string;
   alt: string;
   aspect?: 'landscape' | 'portrait' | 'square' | 'wide';
   loading?: 'eager' | 'lazy';
+  slowZoom?: boolean;
   class?: string;
 }
 
-const { src, alt, aspect = 'landscape', loading = 'lazy', class: className = '' } = Astro.props;
+const { src, alt, aspect = 'landscape', loading = 'lazy', slowZoom = false, class: className = '' } = Astro.props;
 
 const aspectClass = {
   landscape: 'aspect-[16/10]',
@@ -27,7 +28,7 @@ const aspectClass = {
     alt={alt}
     loading={loading}
     decoding="async"
-    class={`w-full object-cover parallax-img ${aspectClass}`}
+    class={`w-full object-cover parallax-img ${aspectClass} ${slowZoom ? 'slow-zoom' : ''}`}
     style="will-change: transform;"
   />
 </div>
@@ -37,39 +38,49 @@ const aspectClass = {
     overflow: hidden;
   }
   .parallax-img {
-    /* Slightly taller than container so there's room to shift */
     height: 110%;
     min-height: 100%;
   }
+  .slow-zoom {
+    transform: scale(1);
+    transition: transform 15s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .slow-zoom.zooming {
+    transform: scale(1.08);
+  }
 </style>
 
-<script>
-  function initParallax() {
+<script is:inline>
+  (function() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const images = document.querySelectorAll('.parallax-img');
-    
-    function onScroll() {
-      images.forEach((img) => {
-        const rect = img.parentElement!.getBoundingClientRect();
-        const viewH = window.innerHeight;
-        // Only process if in or near viewport
+    // Parallax
+    var imgs = document.querySelectorAll('.parallax-img');
+    window.addEventListener('scroll', function() {
+      imgs.forEach(function(img) {
+        var rect = img.parentElement.getBoundingClientRect();
+        var viewH = window.innerHeight;
         if (rect.bottom < -100 || rect.top > viewH + 100) return;
-        // Progress: 0 when element enters bottom, 1 when it exits top
-        const progress = (viewH - rect.top) / (viewH + rect.height);
-        // Shift by up to 5% of image height
-        const shift = (progress - 0.5) * -5;
-        (img as HTMLElement).style.transform = `translateY(${shift}%)`;
+        var progress = (viewH - rect.top) / (viewH + rect.height);
+        var shift = (progress - 0.5) * -5;
+        // Preserve zoom transform if active
+        var isZooming = img.classList.contains('zooming');
+        var scale = isZooming ? ' scale(1.08)' : '';
+        img.style.transform = 'translateY(' + shift + '%)' + scale;
       });
-    }
+    }, { passive: true });
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // Initial position
-  }
+    // Slow zoom
+    var zoomObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('zooming');
+        }
+      });
+    }, { threshold: 0.2 });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initParallax);
-  } else {
-    initParallax();
-  }
+    document.querySelectorAll('.slow-zoom').forEach(function(el) {
+      zoomObserver.observe(el);
+    });
+  })();
 </script>
