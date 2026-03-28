@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import StatBar from '../../components/StatBar.astro';
+import Testimonial from '../../components/Testimonial.astro';
+---
+
+<BaseLayout
+  title="Why ISJ | British International School Jakarta | The Independent School of Jakarta"
+  description="Why families choose ISJ — 100% UK-qualified teachers, the English National Curriculum from age 2 to A-Levels, and a campus in Pondok Indah where every child is known by name."
+  canonicalUrl="/about/why-isj"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/father-daughter.jpg"
+    imageAlt="An ISJ teacher with a pupil in the school corridor"
+    aspectRatio="standard"
+  />
+
+  <!-- ═══════ Opening ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Why ISJ"
+      heading="The School Where Every Child Is Known"
+    >
+      <p>
+        When you visit ISJ, you notice it immediately. The Head greets your child by name. The teacher knows who they sat with at lunch yesterday. The PE coach knows they're nervous about swimming but brilliant at football.
+      </p>
+      <p>
+        This isn't an accident. It's the product of deliberate choices — about the number of children we teach, the teachers we recruit, and the kind of school we set out to build.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ British Curriculum ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">Curriculum</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">The English National Curriculum, All the Way Through</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              We follow the same curriculum taught in the best independent schools in England — from the Early Years Foundation Stage through GCSEs and A-Levels. Not an adaptation. Not a hybrid. The real thing.
+            </p>
+            <p>
+              Your child can join at age 2 and leave at 18 with qualifications recognised by every university in the world. No curriculum switch at 11. No change of school at 14. One coherent journey.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src="/images/primary-classroom.jpg"
+            alt="Prep School pupils working together on a science experiment"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Teachers ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div class="overflow-hidden md:order-1">
+          <img
+            src="/images/teacher-pupils.jpg"
+            alt="An ISJ teacher working with young pupils on the classroom floor"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+        <div class="md:order-2">
+          <p class="label mb-5">Our Teachers</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">100% UK-Qualified</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Every teacher at ISJ is recruited from the UK's leading independent schools. They hold British teaching qualifications, they know the curriculum inside out, and they chose to teach at ISJ because they believe in what we're building.
+            </p>
+            <p>
+              This matters because the quality of teaching is the single biggest factor in your child's education. Not the campus. Not the brochure. The person standing in front of the class.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="A personalised teaching approach and strong support for each child."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ Personal Attention ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Personal Attention"
+      heading="Not Small. Intentional."
+    >
+      <p>
+        We don't talk about small class sizes. We talk about what they make possible. Your child's teacher can spot when they're struggling before they ask for help. The Head knows every family. Safeguarding is real, not a policy document.
+      </p>
+      <p>
+        Maximum 15 children per class in Early Years. Maximum 20 from Year 1 onwards. A staff-to-pupil ratio of 1:9 across the school. These numbers are a choice, not a constraint.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Full-bleed image ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="/images/happy-children-outdoor.jpg"
+      alt="ISJ children playing outdoors with hoops"
+      aspect="wide"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- ═══════ Location ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Location"
+      heading="Pondok Indah, South Jakarta"
+    >
+      <p>
+        ISJ sits in the heart of Pondok Indah — one of Jakarta's most established residential areas, surrounded by the restaurants, clinics, and family infrastructure that make daily life work. No 90-minute commute across the city. No industrial estate campus.
+      </p>
+      <p>
+        For families living in Pondok Indah, Cilandak, Kemang, or Kebayoran Baru, the school run is measured in minutes, not hours.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ The Schools Trust ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">Our Foundation</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Part of The Schools Trust</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              ISJ was founded by The Schools Trust, a UK-registered charity that has established 16 schools across 11 countries since 2004. Every one of those schools has been rated "Excellent" in every category of its UK government-accredited inspection.
+            </p>
+            <p>
+              The Trust's schools are ranked 1st and 2nd across a network of 200+ British schools internationally for A-Level and GCSE results. ISJ inherits that track record — the same governance, the same standards, the same expectation of excellence.
+            </p>
+          </div>
+          <a href="/about/the-schools-trust" class="whisper-link inline-block mt-6">About The Schools Trust</a>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src="/images/woolverstone-hall.jpg"
+            alt="Woolverstone Hall in Suffolk, England — ISJ's residential trip destination"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Stats ═══════ -->
+  <StatBar stats={[
+    { value: '16', label: 'Schools Founded' },
+    { value: '11', label: 'Countries' },
+    { value: '2004', label: 'Established' },
+  ]} />
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="Great teachers… an exceptional British school."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ CTA ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">See for Yourself</h2>
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+        The best way to understand ISJ is to visit. Walk the corridors, meet the teachers, watch a lesson. Arrange a personalised tour of our Pondok Indah campus.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/admissions/arrange-a-tour"
+          class="inline-flex items-center px-7 py-2.5 border border-navy bg-navy text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
+        >
+          Arrange a Tour
+        </a>
+        <a href="/admissions/virtual-tour" class="whisper-link">Take the virtual tour</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
