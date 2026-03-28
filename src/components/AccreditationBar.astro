@@ -1,24 +1,47 @@
 ---
 /**
  * AccreditationBar — Row of partner/accreditation logos.
- * Monochrome, quiet, linked. No heading text.
+ * Monochrome, quiet, linked. Education is GREAT featured first in colour.
  */
+const featuredLogo = {
+  src: '/images/logos/education-is-great.png',
+  alt: 'Education is GREAT Britain & Northern Ireland',
+  href: 'https://www.gov.uk/government/publications/national-curriculum-in-england-english-programmes-of-study',
+};
+
 const logos = [
-  { src: '/images/logos/uk-dfe.jpg', alt: 'UK Department for Education', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
-  { src: '/images/logos/kemendikbud.jpg', alt: 'Indonesian Ministry of Education', href: 'https://kemendikdasmen.go.id/' },
-  { src: '/images/logos/pearson.jpg', alt: 'Pearson', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
-  { src: '/images/logos/edexcel.jpg', alt: 'Edexcel', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
-  { src: '/images/logos/bso.jpg', alt: 'British Schools Overseas', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
-  { src: '/images/logos/schools-trust.jpg', alt: 'The Schools Trust', href: 'https://schoolstrust.co.uk/' },
-  { src: '/images/logos/good-schools-guide.jpg', alt: 'The Good Schools Guide', href: 'https://www.goodschoolsguide.co.uk/international/profile/the-independent-school-of-jakarta' },
-  { src: '/images/logos/britcham.jpg', alt: 'BritCham Indonesia', href: 'https://britcham.or.id/' },
-  { src: '/images/logos/education-is-great.jpg', alt: 'Education is GREAT Britain', href: 'https://www.gov.uk/government/publications/national-curriculum-in-england-english-programmes-of-study' },
+  { src: '/images/logos/uk-dfe.png', alt: 'UK Department for Education', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
+  { src: '/images/logos/kemendikbud.png', alt: 'Indonesian Ministry of Education', href: 'https://kemendikdasmen.go.id/' },
+  { src: '/images/logos/pearson.png', alt: 'Pearson', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
+  { src: '/images/logos/edexcel.png', alt: 'Edexcel', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
+  { src: '/images/logos/bso.png', alt: 'British Schools Overseas', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
+  { src: '/images/logos/schools-trust.png', alt: 'The Schools Trust', href: 'https://schoolstrust.co.uk/' },
+  { src: '/images/logos/good-schools-guide.svg', alt: 'The Good Schools Guide', href: 'https://www.goodschoolsguide.co.uk/international/profile/the-independent-school-of-jakarta' },
+  { src: '/images/logos/britcham.png', alt: 'BritCham Indonesia', href: 'https://britcham.or.id/' },
 ];
 ---
 
 <section class="section-pad-sm border-t border-charcoal/5">
   <div class="mx-auto max-w-[var(--content-wide)] px-6">
     <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 lg:gap-x-16">
+      <!-- Featured logo — keeps colour -->
+      <a
+        href={featuredLogo.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block opacity-70 hover:opacity-100 transition-opacity duration-[var(--transition-base)]"
+        aria-label={featuredLogo.alt}
+      >
+        <img
+          src={featuredLogo.src}
+          alt={featuredLogo.alt}
+          loading="lazy"
+          decoding="async"
+          class="h-10 md:h-12 w-auto object-contain"
+        />
+      </a>
+
+      <!-- Other logos — greyscale -->
       {logos.map((logo) => (
         <a
           href={logo.href}
