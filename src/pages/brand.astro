@@ -1,0 +1,180 @@
+---
+/**
+ * Brand Guide — Internal staff resource.
+ * Logo downloads, colour palette, and usage guidelines.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const colours = [
+  { name: 'Navy', hex: '#1B2A4A', css: '--color-navy', text: 'white' },
+  { name: 'Navy Light', hex: '#2A3D66', css: '--color-navy-light', text: 'white' },
+  { name: 'Gold', hex: '#FFC43D', css: '--color-gold', text: '#1B2A4A' },
+  { name: 'Gold Muted', hex: '#D4A84A', css: '--color-gold-muted', text: 'white' },
+  { name: 'Cream', hex: '#F7F5F0', css: '--color-cream', text: '#2C2B29' },
+  { name: 'Charcoal', hex: '#2C2B29', css: '--color-charcoal', text: 'white' },
+];
+
+const logoSets = [
+  {
+    label: 'Navy',
+    colourKey: 'blue',
+    bg: 'bg-cream',
+    border: 'border-charcoal/10',
+  },
+  {
+    label: 'White',
+    colourKey: 'white',
+    bg: 'bg-navy',
+    border: 'border-navy-light',
+  },
+  {
+    label: 'Gold',
+    colourKey: 'gold',
+    bg: 'bg-cream',
+    border: 'border-charcoal/10',
+  },
+];
+
+const sizes = [400, 800, 1600];
+---
+
+<BaseLayout
+  title="Brand Guide — ISJ"
+  description="ISJ logo assets, colour palette, and brand guidelines for staff use."
+>
+  <!-- Hero -->
+  <section class="section-pad px-6">
+    <div class="text-column">
+      <p class="label label-gold mb-4">Staff Resource</p>
+      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy">Brand Guide</h1>
+      <p class="mt-4 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+        Logo assets, colour palette, and usage guidance for The Independent School of Jakarta.
+      </p>
+    </div>
+  </section>
+
+  <!-- Logos -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <p class="label mb-8">Logo Assets</p>
+
+      {logoSets.map((set) => (
+        <div class="mb-16">
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy mb-6">{set.label}</h2>
+
+          <!-- Horizontal -->
+          <div class="mb-8">
+            <p class="label mb-3">Horizontal</p>
+            <div class={`${set.bg} ${set.border} border rounded-sm p-8 flex items-center justify-center`}>
+              <img
+                src={`/images/brand/isj-logo-horizontal-${set.colourKey}-800.png`}
+                alt={`ISJ logo horizontal — ${set.label}`}
+                width="400"
+                loading="lazy"
+                class="max-h-40"
+              />
+            </div>
+            <div class="mt-3 flex flex-wrap gap-3">
+              {sizes.map((s) => (
+                <a
+                  href={`/images/brand/isj-logo-horizontal-${set.colourKey}-${s}.png`}
+                  download={`isj-logo-horizontal-${set.colourKey}-${s}.png`}
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  {s}px
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Square -->
+          <div>
+            <p class="label mb-3">Square / Social</p>
+            <div class={`${set.bg} ${set.border} border rounded-sm p-8 flex items-center justify-center`}>
+              <img
+                src={`/images/brand/isj-logo-square-${set.colourKey}-800.png`}
+                alt={`ISJ logo square — ${set.label}`}
+                width="200"
+                loading="lazy"
+                class="max-h-48"
+              />
+            </div>
+            <div class="mt-3 flex flex-wrap gap-3">
+              {sizes.map((s) => (
+                <a
+                  href={`/images/brand/isj-logo-square-${set.colourKey}-${s}.png`}
+                  download={`isj-logo-square-${set.colourKey}-${s}.png`}
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  {s}px
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Colour Palette -->
+  <section class="border-t border-charcoal/5 px-6 section-pad">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <p class="label mb-8">Colour Palette</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {colours.map((c) => (
+          <div class="group">
+            <div
+              class="aspect-square rounded-sm border border-charcoal/10 flex items-end p-3 transition-transform duration-[var(--transition-base)] group-hover:scale-[1.02]"
+              style={`background-color: ${c.hex};`}
+            >
+              <span
+                class="text-[length:var(--text-xs)] font-medium tracking-wide opacity-80"
+                style={`color: ${c.text};`}
+              >
+                {c.hex}
+              </span>
+            </div>
+            <p class="mt-2 text-[length:var(--text-sm)] text-charcoal font-medium">{c.name}</p>
+            <p class="text-[length:var(--text-xs)] text-charcoal-muted font-mono">{c.css}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="border-t border-charcoal/5 px-6 section-pad">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <p class="label mb-8">Typography</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <p class="label mb-3">Headings</p>
+          <p class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-tight">Cormorant Garamond</p>
+          <p class="mt-2 text-[length:var(--text-sm)] text-charcoal-light">Light 300 weight. Used for all headings and display text.</p>
+        </div>
+        <div>
+          <p class="label mb-3">Body</p>
+          <p class="text-[length:var(--text-xl)] text-charcoal">DM Sans</p>
+          <p class="mt-2 text-[length:var(--text-sm)] text-charcoal-light">Regular 400 weight. Used for body copy, labels, and UI elements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage Notes -->
+  <section class="border-t border-charcoal/5 px-6 section-pad">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <p class="label mb-8 text-center">Usage Notes</p>
+      <ul class="space-y-4 text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">
+        <li>Use the <strong class="text-charcoal font-medium">navy logo</strong> on light backgrounds (cream, white).</li>
+        <li>Use the <strong class="text-charcoal font-medium">white logo</strong> on dark backgrounds (navy, photography).</li>
+        <li>Use the <strong class="text-charcoal font-medium">gold logo</strong> sparingly for accent or special applications.</li>
+        <li>Maintain clear space around the logo equal to the height of the crown.</li>
+        <li>Never stretch, rotate, recolour, or add effects to the logo.</li>
+        <li>For web use, the 400px and 800px exports are sufficient. Use 1600px for print and large-format display.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
