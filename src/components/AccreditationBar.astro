@@ -1,15 +1,10 @@
 ---
 /**
- * AccreditationBar — Row of partner/accreditation logos.
- * Monochrome, quiet, linked. Education is GREAT featured first in colour.
+ * AccreditationBar — Infinite scrolling logo marquee.
+ * Education is GREAT featured in colour, rest greyscale.
  */
-const featuredLogo = {
-  src: '/images/logos/education-is-great.png',
-  alt: 'Education is GREAT Britain & Northern Ireland',
-  href: 'https://www.gov.uk/government/publications/national-curriculum-in-england-english-programmes-of-study',
-};
-
 const logos = [
+  { src: '/images/logos/education-is-great.png', alt: 'Education is GREAT Britain & Northern Ireland', href: 'https://www.gov.uk/government/publications/national-curriculum-in-england-english-programmes-of-study', featured: true },
   { src: '/images/logos/uk-dfe.png', alt: 'UK Department for Education', href: 'https://www.gov.uk/government/publications/british-schools-overseas-inspection-reports/british-schools-overseas-accredited-schools-inspection-reports' },
   { src: '/images/logos/kemendikbud.png', alt: 'Indonesian Ministry of Education', href: 'https://kemendikdasmen.go.id/' },
   { src: '/images/logos/pearson.png', alt: 'Pearson', href: 'https://qualifications.pearson.com/en/qualifications/edexcel-a-levels.html' },
@@ -21,44 +16,95 @@ const logos = [
 ];
 ---
 
-<section class="section-pad-sm border-t border-charcoal/5">
-  <div class="mx-auto max-w-[var(--content-wide)] px-6">
-    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 lg:gap-x-16">
-      <!-- Featured logo — keeps colour -->
-      <a
-        href={featuredLogo.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="block opacity-70 hover:opacity-100 transition-opacity duration-[var(--transition-base)]"
-        aria-label={featuredLogo.alt}
-      >
-        <img
-          src={featuredLogo.src}
-          alt={featuredLogo.alt}
-          loading="lazy"
-          decoding="async"
-          class="h-10 md:h-12 w-auto object-contain"
-        />
-      </a>
-
-      <!-- Other logos — greyscale -->
-      {logos.map((logo) => (
-        <a
-          href={logo.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="block opacity-40 hover:opacity-70 transition-opacity duration-[var(--transition-base)] grayscale hover:grayscale-0"
-          aria-label={logo.alt}
-        >
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            loading="lazy"
-            decoding="async"
-            class="h-8 md:h-10 w-auto object-contain"
-          />
-        </a>
-      ))}
-    </div>
+<section class="border-t border-charcoal/5 py-8 md:py-10 overflow-hidden">
+  <div class="marquee-track">
+    <!-- Two identical sets for seamless loop -->
+    {[0, 1].map(() => (
+      <div class="marquee-set" aria-hidden="true">
+        {logos.map((logo) => (
+          <a
+            href={logo.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`marquee-logo ${logo.featured ? 'marquee-logo--featured' : ''}`}
+            aria-label={logo.alt}
+          >
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              loading="lazy"
+              decoding="async"
+              class={`h-8 md:h-10 w-auto object-contain ${logo.featured ? '' : 'grayscale'}`}
+            />
+          </a>
+        ))}
+      </div>
+    ))}
   </div>
 </section>
+
+<style>
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-set {
+    display: flex;
+    align-items: center;
+    gap: clamp(2.5rem, 4vw, 5rem);
+    padding-right: clamp(2.5rem, 4vw, 5rem);
+  }
+
+  .marquee-logo {
+    display: block;
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .marquee-logo:hover {
+    opacity: 0.7;
+  }
+
+  .marquee-logo--featured {
+    opacity: 0.7;
+  }
+
+  .marquee-logo--featured:hover {
+    opacity: 1;
+  }
+
+  .marquee-logo--featured img {
+    height: 2.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-logo--featured img {
+      height: 3rem;
+    }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: auto;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+    .marquee-set:last-child {
+      display: none;
+    }
+  }
+</style>
