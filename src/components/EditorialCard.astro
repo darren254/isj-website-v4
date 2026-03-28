@@ -23,20 +23,20 @@ const { imageSrc, imageAlt, label, title, description, href, linkText = 'Discove
       alt={imageAlt}
       loading="lazy"
       decoding="async"
-      class="w-full aspect-[16/10] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.03]"
+      class="w-full aspect-[3/4] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.03]"
     />
   </div>
-  <div class="mt-5">
+  <div class="mt-6">
     <p class="label">{label}</p>
-    <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mt-2 leading-snug">
+    <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mt-3 leading-snug">
       {title}
     </h3>
     {description && (
-      <p class="text-[length:var(--text-sm)] text-charcoal-light mt-2 leading-relaxed line-clamp-2">
+      <p class="text-[length:var(--text-sm)] text-charcoal-light mt-3 leading-relaxed line-clamp-2">
         {description}
       </p>
     )}
-    <span class="whisper-link inline-block mt-3 text-[length:var(--text-xs)]">
+    <span class="whisper-link inline-block mt-4 text-[length:var(--text-xs)]">
       {linkText}
     </span>
   </div>
