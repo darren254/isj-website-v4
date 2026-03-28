@@ -1,7 +1,7 @@
 ---
 /**
  * StatBar — Key figures with count-up animation.
- * Gold numbers, muted labels, generous spacing.
+ * Gold numbers at editorial size, thin dividers, staggered reveal.
  */
 interface Props {
   stats: Array<{ value: string; label: string; detail?: string }>;
@@ -12,21 +12,19 @@ const { stats } = Astro.props;
 
 <section class="section-pad-sm">
   <div class="mx-auto max-w-[var(--content-wide)] px-6">
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-16 text-center reveal-stagger">
-      {stats.map((stat) => (
-        <div class="reveal">
+    <div class="flex flex-wrap justify-center gap-y-8 reveal-stagger">
+      {stats.map((stat, i) => (
+        <div class={`reveal flex-1 min-w-[160px] max-w-[260px] text-center ${i > 0 ? 'border-l border-charcoal/10' : ''}`}>
           <p
-            class="font-heading font-light leading-none text-gold-muted stat-value"
-            style="font-size: clamp(3rem, 2.5rem + 2vw, 4.5rem);"
+            class="font-heading font-light text-gold-muted leading-none stat-value"
+            style="font-size: clamp(2rem, 1.5rem + 1.75vw, 3rem);"
             data-value={stat.value}
           >
             {stat.value}
           </p>
-          <p class="mt-4 text-[length:var(--text-sm)] font-medium text-navy tracking-wide uppercase" style="letter-spacing: 0.12em;">
-            {stat.label}
-          </p>
+          <p class="label mt-3">{stat.label}</p>
           {stat.detail && (
-            <p class="mt-1.5 text-[length:var(--text-xs)] text-charcoal-muted leading-relaxed">
+            <p class="mt-1.5 text-[length:var(--text-xs)] text-charcoal-muted leading-relaxed max-w-[200px] mx-auto">
               {stat.detail}
             </p>
           )}
@@ -37,7 +35,6 @@ const { stats } = Astro.props;
 </section>
 
 <script>
-  // Count-up animation for stat values
   function animateStats() {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -45,38 +42,28 @@ const { stats } = Astro.props;
           if (!entry.isIntersecting) return;
           const el = entry.target as HTMLElement;
           const raw = el.dataset.value || '';
-          
-          // Parse the numeric part
           const match = raw.match(/^(\d+)/);
-          if (!match) return; // Non-numeric like "Top 10%" — skip animation
-          
+          if (!match) return;
           const target = parseInt(match[1]);
-          const suffix = raw.slice(match[0].length); // e.g., "+" or "%"
-          const prefix = raw.slice(0, raw.indexOf(match[0])); // e.g., "" 
-          const duration = 1200;
+          const suffix = raw.slice(match[0].length);
+          const duration = 1400;
           const start = performance.now();
-          
           function tick(now: number) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(target * eased);
-            el.textContent = prefix + current + suffix;
+            el.textContent = Math.round(target * eased) + suffix;
             if (progress < 1) requestAnimationFrame(tick);
           }
-          
-          el.textContent = prefix + '0' + suffix;
+          el.textContent = '0' + suffix;
           requestAnimationFrame(tick);
           observer.unobserve(el);
         });
       },
       { threshold: 0.3 }
     );
-
     document.querySelectorAll('.stat-value').forEach((el) => observer.observe(el));
   }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', animateStats);
   } else {
