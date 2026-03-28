@@ -162,57 +162,66 @@ const navItems = [
 <!-- Spacer -->
 <div class="h-20 lg:h-24"></div>
 
-<script>
-  // Menu toggle
-  const toggle = document.getElementById('menu-toggle');
-  const overlay = document.getElementById('menu-overlay');
-  const iconMenu = document.getElementById('icon-menu');
-  const iconClose = document.getElementById('icon-close');
+<script is:inline>
+  (function() {
+    var toggle = document.getElementById('menu-toggle');
+    var overlay = document.getElementById('menu-overlay');
+    var iconMenu = document.getElementById('icon-menu');
+    var iconClose = document.getElementById('icon-close');
 
-  function openMenu() {
-    overlay?.classList.remove('opacity-0', 'pointer-events-none');
-    overlay?.classList.add('opacity-100');
-    iconMenu?.classList.add('hidden');
-    iconClose?.classList.remove('hidden');
-    toggle?.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    overlay?.classList.add('opacity-0', 'pointer-events-none');
-    overlay?.classList.remove('opacity-100');
-    iconMenu?.classList.remove('hidden');
-    iconClose?.classList.add('hidden');
-    toggle?.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  toggle?.addEventListener('click', () => {
-    const isHidden = overlay?.classList.contains('pointer-events-none');
-    isHidden ? openMenu() : closeMenu();
-  });
-
-  // Close on link click
-  overlay?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // Header solid on scroll
-  const header = document.getElementById('site-header');
-  const headerBg = header?.querySelector('.header-bg');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      headerBg?.classList.remove('opacity-0');
-      headerBg?.classList.add('opacity-100');
-    } else {
-      headerBg?.classList.add('opacity-0');
-      headerBg?.classList.remove('opacity-100');
+    function openMenu() {
+      if (!overlay) return;
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      if (iconMenu) iconMenu.classList.add('hidden');
+      if (iconClose) iconClose.classList.remove('hidden');
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
-  }, { passive: true });
+
+    function closeMenu() {
+      if (!overlay) return;
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      overlay.classList.remove('opacity-100');
+      if (iconMenu) iconMenu.classList.remove('hidden');
+      if (iconClose) iconClose.classList.add('hidden');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        var isHidden = overlay && overlay.classList.contains('pointer-events-none');
+        isHidden ? openMenu() : closeMenu();
+      });
+    }
+
+    // Close on link click
+    if (overlay) {
+      var links = overlay.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+      }
+    }
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Header solid on scroll
+    var header = document.getElementById('site-header');
+    var headerBg = header ? header.querySelector('.header-bg') : null;
+
+    window.addEventListener('scroll', function() {
+      if (!headerBg) return;
+      if (window.scrollY > 60) {
+        headerBg.classList.remove('opacity-0');
+        headerBg.classList.add('opacity-100');
+      } else {
+        headerBg.classList.add('opacity-0');
+        headerBg.classList.remove('opacity-100');
+      }
+    }, { passive: true });
+  })();
 </script>
