@@ -14,9 +14,10 @@ interface Props {
   imageAlt: string;
   videoSrc?: string;
   aspectRatio?: 'full' | 'tall' | 'standard';
+  objectPosition?: string;
 }
 
-const { imageSrc, imageAlt, videoSrc, aspectRatio = 'tall' } = Astro.props;
+const { imageSrc, imageAlt, videoSrc, aspectRatio = 'tall', objectPosition = 'center' } = Astro.props;
 
 const heightClass = {
   full: 'h-screen',
@@ -42,6 +43,7 @@ const heightClass = {
       src={imageSrc}
       alt={imageAlt}
       class="absolute inset-0 w-full h-full object-cover"
+      style={`object-position: ${objectPosition}`}
       loading="eager"
       decoding="async"
     />
