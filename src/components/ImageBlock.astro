@@ -29,7 +29,6 @@ const aspectClass = {
     loading={loading}
     decoding="async"
     class={`w-full object-cover parallax-img ${aspectClass} ${slowZoom ? 'slow-zoom' : ''}`}
-    style="will-change: transform;"
   />
 </div>
 
@@ -40,9 +39,9 @@ const aspectClass = {
   .parallax-img {
     height: 110%;
     min-height: 100%;
+    will-change: transform;
   }
   .slow-zoom {
-    transform: scale(1);
     transition: transform 15s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .slow-zoom.zooming {
@@ -53,34 +52,36 @@ const aspectClass = {
 <script is:inline>
   (function() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.__parallaxInit) return;
+    window.__parallaxInit = true;
 
-    // Parallax
+    // Parallax on scroll
     var imgs = document.querySelectorAll('.parallax-img');
     window.addEventListener('scroll', function() {
-      imgs.forEach(function(img) {
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
         var rect = img.parentElement.getBoundingClientRect();
         var viewH = window.innerHeight;
-        if (rect.bottom < -100 || rect.top > viewH + 100) return;
+        if (rect.bottom < -100 || rect.top > viewH + 100) continue;
         var progress = (viewH - rect.top) / (viewH + rect.height);
         var shift = (progress - 0.5) * -5;
-        // Preserve zoom transform if active
         var isZooming = img.classList.contains('zooming');
-        var scale = isZooming ? ' scale(1.08)' : '';
-        img.style.transform = 'translateY(' + shift + '%)' + scale;
-      });
+        img.style.transform = 'translateY(' + shift + '%)' + (isZooming ? ' scale(1.08)' : '');
+      }
     }, { passive: true });
 
-    // Slow zoom
+    // Slow zoom on enter
     var zoomObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('zooming');
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('zooming');
         }
-      });
-    }, { threshold: 0.2 });
+      }
+    }, { threshold: 0.15 });
 
-    document.querySelectorAll('.slow-zoom').forEach(function(el) {
-      zoomObserver.observe(el);
-    });
+    var zoomEls = document.querySelectorAll('.slow-zoom');
+    for (var i = 0; i < zoomEls.length; i++) {
+      zoomObserver.observe(zoomEls[i]);
+    }
   })();
 </script>
