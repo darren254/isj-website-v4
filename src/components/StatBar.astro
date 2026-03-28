@@ -1,10 +1,10 @@
 ---
 /**
  * StatBar — Key figures with count-up animation.
- * Gold numbers at editorial size, thin dividers, staggered reveal.
+ * Gold numbers, thin dividers, staggered reveal.
  */
 interface Props {
-  stats: Array<{ value: string; label: string; detail?: string }>;
+  stats: Array<{ value: string; label: string }>;
 }
 
 const { stats } = Astro.props;
@@ -23,50 +23,40 @@ const { stats } = Astro.props;
             {stat.value}
           </p>
           <p class="label mt-3">{stat.label}</p>
-          {stat.detail && (
-            <p class="mt-1.5 text-[length:var(--text-xs)] text-charcoal-muted leading-relaxed max-w-[200px] mx-auto">
-              {stat.detail}
-            </p>
-          )}
         </div>
       ))}
     </div>
   </div>
 </section>
 
-<script>
-  function animateStats() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target as HTMLElement;
-          const raw = el.dataset.value || '';
-          const match = raw.match(/^(\d+)/);
-          if (!match) return;
-          const target = parseInt(match[1]);
-          const suffix = raw.slice(match[0].length);
-          const duration = 1400;
-          const start = performance.now();
-          function tick(now: number) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.round(target * eased) + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-          }
-          el.textContent = '0' + suffix;
-          requestAnimationFrame(tick);
-          observer.unobserve(el);
-        });
-      },
-      { threshold: 0.3 }
-    );
-    document.querySelectorAll('.stat-value').forEach((el) => observer.observe(el));
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', animateStats);
-  } else {
-    animateStats();
-  }
+<script is:inline>
+  (function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var raw = el.getAttribute('data-value') || '';
+        var match = raw.match(/^(\d+)/);
+        if (!match) return;
+        var target = parseInt(match[1]);
+        var suffix = raw.slice(match[0].length);
+        var duration = 1400;
+        var start = performance.now();
+        function tick(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        el.textContent = '0' + suffix;
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.stat-value').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
 </script>
