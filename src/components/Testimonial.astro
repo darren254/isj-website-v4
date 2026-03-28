@@ -11,12 +11,12 @@ interface Props {
 
 const { quote, attribution, detail, variant = 'light' } = Astro.props;
 
-const bgClass = variant === 'dark' ? 'bg-navy' : '';
-const textClass = variant === 'dark' ? 'text-white/90' : 'text-navy';
-const attrClass = variant === 'dark' ? 'text-white/50' : 'text-charcoal-muted';
+/* Variant is kept in the interface for future use but both render the same now */
+const textClass = 'text-navy';
+const attrClass = 'text-charcoal-muted';
 ---
 
-<section class={`section-pad-sm md:section-pad ${bgClass}`}>
+<section class="section-pad-sm md:section-pad">
   <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
     <blockquote>
       <p class={`font-heading text-[length:var(--text-xl)] font-light leading-snug italic ${textClass}`}>
