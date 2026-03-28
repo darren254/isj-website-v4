@@ -180,6 +180,7 @@ const navItems = [
 
     function openMenu() {
       if (!overlay) return;
+      overlay.scrollTop = 0;
       overlay.classList.remove('opacity-0', 'pointer-events-none');
       overlay.classList.add('opacity-100');
       if (iconMenu) iconMenu.classList.add('hidden');
