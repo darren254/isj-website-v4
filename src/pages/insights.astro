@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+---
+
+<BaseLayout
+  title="Insights | Education Blog | ISJ Jakarta"
+  description="Expert insights on British education, expat life in Jakarta, and raising globally minded children. From The Independent School of Jakarta."
+  canonicalUrl="/insights"
+>
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="pt-32 lg:pt-40 section-pad px-6">
+    <SectionIntro
+      label="Insights"
+      heading="Guides and Resources"
+    >
+      <p>
+        Practical guides for families considering a British education in Jakarta.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Coming Soon ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center">
+      <p class="text-[length:var(--text-base)] text-charcoal-light">
+        Articles are on the way. In the meantime, if you have questions about ISJ or life in Jakarta, our admissions team is happy to help at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a>.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

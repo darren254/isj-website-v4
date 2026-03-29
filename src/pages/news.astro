@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+---
+
+<BaseLayout
+  title="News & Events | ISJ Jakarta"
+  description="Stay up to date with the latest news, events, and achievements from The Independent School of Jakarta."
+  canonicalUrl="/news"
+>
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="pt-32 lg:pt-40 section-pad px-6">
+    <SectionIntro
+      label="News"
+      heading="Latest from ISJ"
+    >
+      <p>
+        News, events, and stories from the school.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Coming Soon ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center">
+      <p class="text-[length:var(--text-base)] text-charcoal-light">
+        News articles are on the way. Follow us on <a href="https://instagram.com/isj.id" target="_blank" rel="noopener noreferrer" class="whisper-link">Instagram</a> for the latest updates.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>
