@@ -96,19 +96,42 @@ const moreNews = [
     </div>
   </section>
 
-  <!-- ═══════ All News List ═══════ -->
+  <!-- ═══════ All News + Highlight ═══════ -->
   <section class="section-pad px-6 border-t border-charcoal/10">
-    <div class="mx-auto max-w-lg">
-      <p class="label mb-8">All News</p>
-      {moreNews.map((item) => (
-        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5 reveal">
-          <div>
-            <p class="text-[length:var(--text-xs)] text-gold-muted uppercase tracking-wider mb-1">{item.category}</p>
-            <p class="text-[length:var(--text-base)] text-navy">{item.title}</p>
-          </div>
-          <span class="text-[length:var(--text-xs)] text-charcoal-muted ml-4 shrink-0">{item.date}</span>
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+
+        <!-- All News list -->
+        <div class="lg:col-span-2 reveal">
+          <p class="label mb-8">All News</p>
+          {moreNews.map((item) => (
+            <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+              <div>
+                <p class="text-[length:var(--text-xs)] text-gold-muted uppercase tracking-wider mb-1">{item.category}</p>
+                <p class="text-[length:var(--text-base)] text-navy">{item.title}</p>
+              </div>
+              <span class="text-[length:var(--text-xs)] text-charcoal-muted ml-4 shrink-0">{item.date}</span>
+            </div>
+          ))}
         </div>
-      ))}
+
+        <!-- Highlight article -->
+        <a href="/news/woolverstone-residential-2026" class="lg:col-span-3 group reveal flex flex-col">
+          <div class="overflow-hidden flex-1">
+            <img
+              src={asset('/images/woolverstone-hall.jpg')}
+              alt=""
+              loading="lazy"
+              class="w-full h-full min-h-[300px] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
+            />
+          </div>
+          <p class="label label-gold mt-5">School Life</p>
+          <h3 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-2 mb-3">Year 7 and 8 Return from Woolverstone Hall Residential</h3>
+          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">ISJ pupils spent a week at Woolverstone Hall in Suffolk, experiencing British boarding school life first-hand.</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3">15 Mar 2026</p>
+        </a>
+
+      </div>
     </div>
   </section>
 
