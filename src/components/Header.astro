@@ -1,4 +1,5 @@
 ---
+import { asset } from '../utils/paths';
 const navItems = [
   {
     label: 'About',
@@ -67,7 +68,7 @@ const navItems = [
 
       <!-- Wordmark (centred) -->
       <a href="/" class="absolute left-1/2 -translate-x-1/2 flex items-center gap-3" aria-label="The Independent School of Jakarta — Home">
-        <img src="/images/brand/isj-lion-gold.png" alt="" class="h-10 lg:h-12 w-auto" aria-hidden="true" />
+        <img src={asset('/images/brand/isj-lion-gold.png')} alt="" class="h-10 lg:h-12 w-auto" aria-hidden="true" />
         <span class="hidden lg:block text-center leading-tight">
           <span class="block font-heading text-navy text-[1.1rem] tracking-[0.25em] uppercase font-light">The Independent</span>
           <span class="block font-heading text-navy text-[1.1rem] tracking-[0.25em] uppercase font-light">School of Jakarta</span>
