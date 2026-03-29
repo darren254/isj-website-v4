@@ -1,16 +1,58 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionIntro from '../components/SectionIntro.astro';
 ---
 
 <BaseLayout
   title="Terms of Service | ISJ Jakarta"
-  description="Terms of Service for The Independent School of Jakarta."
+  description="Terms of Service for The Independent School of Jakarta website."
   canonicalUrl="/terms"
 >
+
   <section class="pt-32 lg:pt-40 section-pad px-6">
-    <SectionIntro label="Legal" heading="Terms of Service">
-      <p>This page is being prepared. For any questions, contact <a href="mailto:info@isj.id" class="whisper-link">info@isj.id</a>.</p>
-    </SectionIntro>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <p class="label mb-5">Legal</p>
+      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-10">Terms of Service</h1>
+      <p class="text-[length:var(--text-xs)] text-charcoal-muted mb-12">Last updated: March 2026</p>
+
+      <div class="space-y-8 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">About This Website</h2>
+          <p>This website is operated by The Independent School of Jakarta ("ISJ"), part of The Schools Trust, a UK-registered charity (No. 1176052). By using this website, you agree to these terms.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Use of Content</h2>
+          <p>All content on this website, including text, images, logos, and design, is the property of ISJ or The Schools Trust and is protected by copyright. You may not reproduce, distribute, or use any content without written permission.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Accuracy of Information</h2>
+          <p>We make reasonable efforts to ensure the information on this website is accurate and up to date. However, we do not guarantee the completeness or accuracy of any information. Fees, dates, and programme details are subject to change. The <a href="/admissions/fees" class="whisper-link">Fees</a> page reflects the current academic year and is updated annually.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">External Links</h2>
+          <p>This website may contain links to external websites. We are not responsible for the content or privacy practices of those sites.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Limitation of Liability</h2>
+          <p>ISJ and The Schools Trust accept no liability for any loss or damage arising from the use of this website or reliance on its content.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Governing Law</h2>
+          <p>These terms are governed by the laws of the Republic of Indonesia.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Contact</h2>
+          <p>Questions about these terms can be directed to <a href="mailto:info@isj.id" class="whisper-link">info@isj.id</a>.</p>
+        </div>
+
+      </div>
+    </div>
   </section>
+
 </BaseLayout>

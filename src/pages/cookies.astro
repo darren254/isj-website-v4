@@ -1,16 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionIntro from '../components/SectionIntro.astro';
 ---
 
 <BaseLayout
   title="Cookie Policy | ISJ Jakarta"
-  description="Cookie Policy for The Independent School of Jakarta."
+  description="Cookie Policy for The Independent School of Jakarta website."
   canonicalUrl="/cookies"
 >
+
   <section class="pt-32 lg:pt-40 section-pad px-6">
-    <SectionIntro label="Legal" heading="Cookie Policy">
-      <p>This page is being prepared. For any questions, contact <a href="mailto:info@isj.id" class="whisper-link">info@isj.id</a>.</p>
-    </SectionIntro>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <p class="label mb-5">Legal</p>
+      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-10">Cookie Policy</h1>
+      <p class="text-[length:var(--text-xs)] text-charcoal-muted mb-12">Last updated: March 2026</p>
+
+      <div class="space-y-8 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">What Are Cookies</h2>
+          <p>Cookies are small text files stored on your device when you visit a website. They help the website function correctly and provide information to the site owners about how the site is used.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Cookies We Use</h2>
+          <p class="font-medium text-navy mt-4 mb-2">Essential Cookies</p>
+          <p>Required for the website to function. These cannot be disabled. They include cookies that remember your preferences and enable core functionality.</p>
+
+          <p class="font-medium text-navy mt-6 mb-2">Analytics Cookies</p>
+          <p>We use Google Analytics to understand how visitors use our website. These cookies collect anonymous data about pages visited, time spent on the site, and how visitors arrived. This helps us improve the website. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="whisper-link">Google Analytics Opt-out Browser Add-on</a>.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Managing Cookies</h2>
+          <p>Most web browsers allow you to control cookies through their settings. You can set your browser to refuse cookies or to alert you when cookies are being sent. Note that disabling cookies may affect the functionality of some parts of the website.</p>
+        </div>
+
+        <div>
+          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">More Information</h2>
+          <p>For more details about how we handle your data, see our <a href="/privacy" class="whisper-link">Privacy Policy</a>. If you have questions, contact us at <a href="mailto:info@isj.id" class="whisper-link">info@isj.id</a>.</p>
+        </div>
+
+      </div>
+    </div>
   </section>
+
 </BaseLayout>
