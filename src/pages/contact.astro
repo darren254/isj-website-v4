@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+---
+
+<BaseLayout
+  title="Contact Us | ISJ Jakarta"
+  description="Get in touch with The Independent School of Jakarta. Contact our admissions team, visit our Pondok Indah campus, or send us a message."
+  canonicalUrl="/contact"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/campus-aerial.jpg"
+    imageAlt="Aerial view of ISJ campus in Pondok Indah"
+    aspectRatio="standard"
+    objectPosition="center 40%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Contact"
+      heading="Get in Touch"
+    >
+      <p>
+        Whether you are considering ISJ for your family or have a general enquiry, we are here to help.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Contact Details ═══════ -->
+  <section class="px-6 pb-24">
+    <div class="mx-auto max-w-lg">
+      <div class="space-y-0 reveal">
+
+        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">Admissions</span>
+          <a href="mailto:admissions@isj.id" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">admissions@isj.id</a>
+        </div>
+
+        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">WhatsApp</span>
+          <a href="https://wa.me/6281110007672" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">+62 811 1000 7672</a>
+        </div>
+
+        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">Reception</span>
+          <a href="tel:+622127826788" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">+62 21-2782-6788</a>
+        </div>
+
+        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">General</span>
+          <a href="mailto:info@isj.id" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">info@isj.id</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Enquiry Form ═══════ -->
+  <section id="enquiry" class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-lg">
+      <div class="text-center mb-12 reveal">
+        <p class="label mb-5">Send a Message</p>
+        <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">Enquiry Form</h2>
+      </div>
+
+      <form id="contact-form" class="space-y-6 reveal" novalidate>
+        <div>
+          <label for="contact-name" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-2">Your Name</label>
+          <input type="text" id="contact-name" name="name" required class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors" placeholder="Full name" />
+        </div>
+
+        <div>
+          <label for="contact-email" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-2">Email Address</label>
+          <input type="email" id="contact-email" name="email" required class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors" placeholder="you@example.com" />
+        </div>
+
+        <div>
+          <label for="contact-subject" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-2">Subject</label>
+          <select id="contact-subject" name="subject" class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg fill=\'none\' stroke=\'%231B2A4A\' stroke-width=\'2\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'m6 9 6 6 6-6\'/></svg>'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1rem;">
+            <option value="admissions">Admissions Enquiry</option>
+            <option value="general">General Enquiry</option>
+            <option value="careers">Careers</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="contact-message" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-2">Message</label>
+          <textarea id="contact-message" name="message" rows="5" required class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors resize-y" placeholder="How can we help?"></textarea>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="inline-flex items-center px-10 py-3.5 border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)] w-full sm:w-auto justify-center">
+            Send Message
+          </button>
+        </div>
+
+        <div id="contact-success" class="hidden bg-cream border border-gold/30 p-6 text-center">
+          <p class="text-[length:var(--text-base)] text-navy font-medium">Thank you for your message.</p>
+          <p class="text-[length:var(--text-sm)] text-charcoal-light mt-2">We will be in touch within one working day.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════ Location ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-lg">
+
+      <div class="reveal mb-12">
+        <p class="label mb-6">Our Location</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Jl. R.A. Kartini No. Kav. 12<br />
+          Pondok Indah, South Jakarta 12310<br />
+          Indonesia
+        </p>
+      </div>
+
+      <div class="reveal mb-12">
+        <p class="label mb-6">Office Hours</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Monday to Friday, 7:30am to 3:30pm<br />
+          The admissions team is available during school hours and will respond to emails within one working day.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Map -->
+    <div class="mx-auto max-w-[var(--content-wide)] reveal">
+      <div class="w-full aspect-[16/7] bg-charcoal/5 overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.783!3d-6.265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a5a5a5a5a5%3A0x0!2sJl.%20R.A.%20Kartini%20No.Kav.%2012%2C%20Pd.%20Indah%2C%20Kec.%20Pesanggrahan%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sen!2sid!4v1"
+          width="100%"
+          height="100%"
+          style="border:0; filter: saturate(0.3) contrast(1.1);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ISJ location map"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var name = form.querySelector('#contact-name').value.trim();
+      var email = form.querySelector('#contact-email').value.trim();
+      var subject = form.querySelector('#contact-subject').value;
+      var message = form.querySelector('#contact-message').value.trim();
+
+      if (!name || !email || !message) return;
+
+      var mailSubject = subject === 'admissions' ? 'Admissions Enquiry from ' + name
+        : subject === 'careers' ? 'Careers Enquiry from ' + name
+        : 'Enquiry from ' + name;
+
+      var body = 'Name: ' + name + '\n';
+      body += 'Email: ' + email + '\n';
+      body += 'Subject: ' + subject + '\n\n';
+      body += message;
+
+      var to = subject === 'admissions' ? 'admissions@isj.id' : 'info@isj.id';
+      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(mailSubject) + '&body=' + encodeURIComponent(body);
+
+      form.querySelectorAll(':scope > div').forEach(function(el) {
+        if (el.id !== 'contact-success') el.style.display = 'none';
+      });
+      document.getElementById('contact-success').classList.remove('hidden');
+    });
+  });
+</script>

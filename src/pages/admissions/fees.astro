@@ -68,17 +68,17 @@ const phases = [
     <section class="px-6 pb-20">
       <div class="mx-auto max-w-lg reveal">
         <p class="label mb-8">{name}</p>
-        <div class="space-y-0">
-          {rows.map((row) => (
-            <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-              <div>
-                <span class="text-[length:var(--text-base)] text-navy">{row.year}</span>
-                <span class="text-[length:var(--text-xs)] text-charcoal-light ml-2 hidden sm:inline">{row.ages}</span>
-              </div>
-              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">{row.annual}</span>
-            </div>
-          ))}
-        </div>
+        <table class="w-full">
+          <tbody>
+            {rows.map((row) => (
+              <tr class="border-b border-charcoal/5">
+                <td class="text-[length:var(--text-base)] text-navy py-3">{row.year}</td>
+                <td class="text-[length:var(--text-sm)] text-charcoal-light py-3 hidden sm:table-cell">{row.ages}</td>
+                <td class="text-[length:var(--text-base)] text-charcoal py-3 text-right tabular-nums">{row.annual}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         <p class="text-[length:var(--text-xs)] text-charcoal-light mt-3 text-right">IDR per year</p>
       </div>
     </section>
