@@ -3,27 +3,27 @@ import { asset } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const featured = {
-  title: 'Parent Survey 2025: What Families Say About ISJ',
-  excerpt: 'Results from the annual parent survey, covering teaching quality, pastoral care, community, and facilities.',
-  date: '9 Dec 2025',
-  category: 'Community',
-  href: '/news/parent-survey-2025',
-  image: '/images/happy-children-outdoor.jpg',
+  title: 'International Week at ISJ',
+  excerpt: 'ISJ celebrated the cultures that make up the school community, with performances, food, and traditions from around the world.',
+  date: '9 Mar 2026',
+  category: 'School Life',
+  href: '/news/international-week-2026',
+  image: '/images/news/international-week.jpg',
 };
 
 const news = [
-  { title: 'Year 7 and 8 Return from Woolverstone Hall Residential', excerpt: 'ISJ pupils spent a week at Woolverstone Hall in Suffolk, experiencing British boarding school life.', date: '15 Mar 2026', category: 'School Life', href: '/news/woolverstone-residential-2026', image: '/images/woolverstone-hall.jpg' },
-  { title: 'House Sports Day 2026', excerpt: 'Lewis, Potter, Rowling, and Tolkien compete across athletics, swimming, and team events.', date: '8 Mar 2026', category: 'Sport', href: '/news/house-sports-day-2026', image: '/images/house-sports.jpg' },
-  { title: 'ISJ Choir Performs at British Embassy Reception', excerpt: 'The ISJ choir was invited to perform at the British Ambassador\'s residence in Jakarta.', date: '22 Feb 2026', category: 'Arts', href: '/news/choir-british-embassy-2026', image: '/images/choir.jpg' },
+  { title: 'Lewis Wins the Inter-House Quiz', excerpt: 'Lewis House clinched victory for the second year in a row, earning Oswald the Owl for the 2026 academic year.', date: '10 Feb 2026', category: 'School Life', href: '/news/inter-house-quiz-2026', image: '/images/news/inter-house-quiz.jpg' },
+  { title: 'ISJ Creates British Boarding School Pathways', excerpt: 'ISJ is creating direct pathways for senior pupils to continue their education at leading British boarding schools.', date: '15 Jan 2026', category: 'School Life', href: '/news/boarding-pathways', image: '/images/news/boarding-pathways.jpg' },
+  { title: 'A Starry Night: The ISJ Christmas Concert', excerpt: 'From Glockenspiel ensembles to Coldplay, ISJ pupils filled the campus with music and joyful harmonies.', date: '19 Dec 2025', category: 'Arts', href: '/news/christmas-concert-2025', image: '/images/news/christmas-concert.jpg' },
 ];
 
 const moreNews = [
-  { title: 'New Gymnasium Construction Begins', date: '10 Feb 2026', category: 'Campus' },
-  { title: 'Term 2 Co-Curricular Programme Published', date: '15 Jan 2026', category: 'School Life' },
-  { title: 'ISJ Football Team Wins Inter-School Tournament', date: '8 Dec 2025', category: 'Sport' },
-  { title: 'Pre-Prep Nativity Performance', date: '5 Dec 2025', category: 'Arts' },
-  { title: 'Reception Class Visit Ragunan Zoo', date: '20 Nov 2025', category: 'School Life' },
-  { title: 'Year 5 Engineering Challenge', date: '14 Nov 2025', category: 'Academics' },
+  { title: 'Christmas Fair: A Celebration of Community', date: '19 Dec 2025', category: 'Community', href: '/news/christmas-fair-2025' },
+  { title: 'Learning Trip to PIK Bumbi Journey', date: '25 Nov 2025', category: 'School Life', href: '/news/mangrove-trip-2025' },
+  { title: 'Intan Dewiyani Shortlisted for Tes Awards', date: '13 Nov 2025', category: 'Achievements', href: '/news/tes-awards-2025' },
+  { title: 'Early Morning Swimming Begins', date: '13 Nov 2025', category: 'Sport', href: '/news/early-swimming-2025' },
+  { title: 'Emotional Regulation and Behaviour Workshop', date: '9 Oct 2025', category: 'Community', href: '/news/emotion-workshop-2025' },
+  { title: 'Education, Excitement and Exploration: The ISJ Residential', date: '23 May 2025', category: 'School Life', href: '/news/residential-2025' },
 ];
 ---
 
@@ -105,30 +105,30 @@ const moreNews = [
         <div class="lg:col-span-2 reveal">
           <p class="label mb-8">All News</p>
           {moreNews.map((item) => (
-            <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+            <a href={item.href} class="flex justify-between items-baseline py-4 border-b border-charcoal/5 group">
               <div>
                 <p class="text-[length:var(--text-xs)] text-gold-muted uppercase tracking-wider mb-1">{item.category}</p>
-                <p class="text-[length:var(--text-base)] text-navy">{item.title}</p>
+                <p class="text-[length:var(--text-base)] text-navy group-hover:text-navy-light transition-colors">{item.title}</p>
               </div>
               <span class="text-[length:var(--text-xs)] text-charcoal-muted ml-4 shrink-0">{item.date}</span>
-            </div>
+            </a>
           ))}
         </div>
 
         <!-- Highlight article -->
-        <a href="/news/woolverstone-residential-2026" class="lg:col-span-3 group reveal flex flex-col">
+        <a href="/news/residential-2025" class="lg:col-span-3 group reveal flex flex-col">
           <div class="overflow-hidden flex-1">
             <img
-              src={asset('/images/woolverstone-hall.jpg')}
+              src={asset('/images/news/residential.jpg')}
               alt=""
               loading="lazy"
               class="w-full h-full min-h-[300px] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
             />
           </div>
           <p class="label label-gold mt-5">School Life</p>
-          <h3 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-2 mb-3">Year 7 and 8 Return from Woolverstone Hall Residential</h3>
-          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">ISJ pupils spent a week at Woolverstone Hall in Suffolk, experiencing British boarding school life first-hand.</p>
-          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3">15 Mar 2026</p>
+          <h3 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-2 mb-3">Education, Excitement and Exploration: The ISJ Residential</h3>
+          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">Year 6 and 7 pupils experienced the best of education, adventure, and personal growth on the ISJ residential trip.</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3">23 May 2025</p>
         </a>
 
       </div>
