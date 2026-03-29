@@ -1,0 +1,179 @@
+---
+import { asset } from '../../utils/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import Testimonial from '../../components/Testimonial.astro';
+import StatBar from '../../components/StatBar.astro';
+---
+
+<BaseLayout
+  title="Senior School (Ages 14–18) | GCSEs & A-Levels | ISJ Jakarta"
+  description="ISJ Senior School offers GCSEs and A-Levels in Jakarta. British qualifications taught by subject specialists, preparing students for leading universities worldwide."
+  canonicalUrl="/academics/senior-school"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/senior-school.jpg"
+    imageAlt="Senior School students at The Independent School of Jakarta"
+    aspectRatio="standard"
+    objectPosition="center 35%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Senior School · Ages 14 to 18"
+      heading="GCSEs and A-Levels in Jakarta"
+    >
+      <p>
+        ISJ is building a Senior School for students who want a genuine British pathway through to university. GCSEs in Years 10 and 11. A-Levels in Years 12 and 13. Taught by subject specialists recruited from leading UK independent schools.
+      </p>
+      <p>
+        For families already at ISJ, it means your child can stay in a school that knows them. For families arriving in Jakarta, it means a through-school option from age 2 to 18, on one campus in Pondok Indah.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ The Pathway ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">The Pathway</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">One School, All the Way Through</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Most international schools in Jakarta ask families to change curriculum or change school at 14. ISJ offers continuity. The English National Curriculum runs from Early Years to A-Levels without interruption.
+            </p>
+            <p>
+              Your child's teachers already know their strengths, their character, and where they need to be pushed. That context doesn't start over at Year 9. It deepens.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/primary-classroom.jpg')}
+            alt="ISJ pupils working together in the classroom"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ GCSEs ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div class="overflow-hidden md:order-1">
+          <img
+            src={asset('/images/science-experiment.jpg')}
+            alt="Students conducting an experiment in the science lab"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+        <div class="md:order-2">
+          <p class="label mb-5">GCSEs · Years 10 & 11</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Qualifications That Open Doors</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              GCSEs are the gold standard of British secondary education, recognised by universities and employers worldwide. Students study a core of English, Maths, and Sciences alongside options they choose based on their strengths and interests.
+            </p>
+            <p>
+              Every subject is taught by a specialist. Classes are small enough that every student receives the challenge and support they need to achieve their best.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="Academic concept, implementation and structure are obvious strengths."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ A-Levels ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="A-Levels · Years 12 & 13"
+      heading="The Route to University"
+    >
+      <p>
+        A-Levels are the qualification that UK and international universities trust most. Two years of focused, in-depth study in subjects your child has chosen because they're genuinely interested, not because they had to.
+      </p>
+      <p>
+        Dedicated university guidance begins from the start of the programme, whether a student is aiming for the UK, the US, Europe, or Asia. The goal is the right university, not just any university.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Full-bleed image ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="/images/campus-aerial.jpg"
+      alt="Aerial view of ISJ campus in Pondok Indah"
+      aspect="wide"
+      loading="lazy"
+      slowZoom={true}
+    />
+  </div>
+
+  <!-- ═══════ New Campus ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Looking Ahead"
+      heading="A New Secondary Campus in 2028"
+    >
+      <p>
+        All secondary students will move to a dedicated new campus in 2028, 300 metres from the current site. Purpose-built for GCSEs and A-Levels, with the facilities and spaces that older students need.
+      </p>
+      <p>
+        Students currently in Year 7 will be the first to go all the way through to A-Levels at ISJ. The Senior School is being built around them.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Stats ═══════ -->
+  <StatBar stats={[
+    { value: '2-18', label: 'Through-School Pathway' },
+    { value: '2028', label: 'New Secondary Campus' },
+    { value: '1:9', label: 'Staff-Pupil Ratio' },
+  ]} />
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="High-calibre teaching staff with strong subject knowledge and a real commitment to pupils' learning and wellbeing."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ CTA ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Find Out More</h2>
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+        The Senior School is growing. If you'd like to learn more about GCSEs and A-Levels at ISJ, arrange a tour or speak with our admissions team.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/admissions/arrange-a-tour"
+          class="inline-flex items-center px-7 py-2.5 border border-navy bg-navy text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
+        >
+          Arrange a Tour
+        </a>
+        <a href="/contact" class="whisper-link">Contact Admissions</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
