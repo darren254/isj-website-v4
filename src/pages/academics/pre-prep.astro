@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import Testimonial from '../../components/Testimonial.astro';
+---
+
+<BaseLayout
+  title="Pre-Prep (Ages 2–6) | Early Years & Foundation Stage | ISJ Jakarta"
+  description="ISJ Pre-Prep offers the Early Years Foundation Stage and Key Stage 1 for children aged 2 to 6 in Pondok Indah, Jakarta. 15 children per class, specialist teaching, swimming from age 2."
+  canonicalUrl="/academics/pre-prep"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/pre-prep.jpg"
+    imageAlt="Pre-Prep children laughing together during circle time at ISJ"
+    aspectRatio="standard"
+    objectPosition="top"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Pre-Prep · Ages 2 to 6"
+      heading="Where It All Begins"
+    >
+      <p>
+        Pre-Nursery, Nursery, Reception, Year 1, and Year 2. The years that shape how your child feels about learning, about school, and about themselves. We take them seriously.
+      </p>
+      <p>
+        ISJ Pre-Prep follows the Early Years Foundation Stage and Key Stage 1 of the English National Curriculum. Children learn through structured play, curiosity, and exploration, with specialist teaching in music, art, drama, PE, swimming, Bahasa Indonesia, and Mandarin Chinese.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ A Typical Day ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">The Day</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">7:50am to 2:00pm</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              The school day runs from 7:50am to 2:00pm, with co-curricular activities available until 4:00pm. Morning drop-off is calm and structured. Children are greeted by name.
+            </p>
+            <p>
+              A typical morning might move from phonics to swimming to free play in the garden. Afternoons bring art, music, or Mandarin with specialist teachers. Every day is varied, every day has rhythm.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src="/images/playground.jpg"
+            alt="Young children playing on the outdoor climbing structure at ISJ"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="The delicate care shown to preschool children is a real strength."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ Personal Attention ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div class="overflow-hidden md:order-1">
+          <img
+            src="/images/happy-children-outdoor.jpg"
+            alt="Pre-Prep children playing with hoops outdoors"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+        <div class="md:order-2">
+          <p class="label mb-5">Personal Attention</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">15 Children Per Class</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              With a staff-to-pupil ratio of 1:5 in Early Years, every child gets the attention they need. Teachers know who is confident and who needs encouragement. They notice when something is off before a parent does.
+            </p>
+            <p>
+              This is the age where children form their relationship with learning. We make sure that relationship starts well.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed image ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="/images/prep-engineering.jpg"
+      alt="Pre-Prep and Prep pupils proudly showing their engineering projects"
+      aspect="wide"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- ═══════ Specialist Teaching ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Specialist Teaching"
+      heading="More Than Just a Classroom Teacher"
+    >
+      <p>
+        From the earliest years, children at ISJ are taught by specialists in music, art, drama, PE, and swimming. They also begin Bahasa Indonesia and Mandarin Chinese, building language skills that serve them throughout their time at the school and beyond.
+      </p>
+      <p>
+        Swimming starts at age 2 in our on-campus 25-metre pool. By the time children leave Pre-Prep, they are confident in the water.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="Clean facilities, friendly teachers, and a good balance of learning and play."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ What Comes Next ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="label mb-5">What Comes Next</p>
+      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Into Prep School</h2>
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+        At the end of Year 2, children move into Prep School (Ages 7 to 13), where they continue with the English National Curriculum through Key Stages 2 and 3. The transition is seamless because the teachers already know your child.
+      </p>
+      <a href="/academics/prep-school" class="whisper-link">Discover Prep School</a>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Come and See</h2>
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+        The best way to understand Pre-Prep is to visit. Watch a lesson, meet the teachers, see the children at play. We welcome families to arrange a personalised tour.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/admissions/arrange-a-tour"
+          class="inline-flex items-center px-7 py-2.5 border border-navy bg-navy text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
+        >
+          Arrange a Tour
+        </a>
+        <a href="/admissions/virtual-tour" class="whisper-link">Take the virtual tour</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
