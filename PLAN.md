@@ -53,7 +53,7 @@ The pages that need to exist before launch. Ordered by conversion impact.
 | 5 | Senior School | `/academics/senior-school` | TODO | Biggest SEO opportunity |
 | 6 | Arrange a Tour | `/admissions/arrange-a-tour` | DONE | Primary conversion page — form uses mailto fallback until Cloudflare Workers |
 | 7 | Fees | `/admissions/fees` | DONE | High-intent page |
-| 8 | How to Apply | `/admissions/how-to-apply` | TODO | |
+| 8 | How to Apply | `/admissions/how-to-apply` | DONE | |
 | 9 | Age Guide | `/admissions/age-guide` | TODO | |
 | 10 | Contact | `/contact` | TODO | Needs form + map |
 | 11 | FAQs | `/faqs` | TODO | Accordion component, FAQPage schema |
