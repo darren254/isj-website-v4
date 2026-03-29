@@ -1,6 +1,30 @@
 ---
+import { asset } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionIntro from '../components/SectionIntro.astro';
+
+const featured = {
+  title: 'Parent Survey 2025: What Families Say About ISJ',
+  excerpt: 'Results from our annual parent survey, covering teaching quality, pastoral care, community, and facilities.',
+  date: '9 Dec 2025',
+  category: 'Community',
+  href: '/news/parent-survey-2025',
+  image: '/images/happy-children-outdoor.jpg',
+};
+
+const news = [
+  { title: 'Year 7 and 8 Return from Woolverstone Hall Residential', excerpt: 'Our older pupils spent a week at Woolverstone Hall in Suffolk, experiencing British boarding school life.', date: '15 Mar 2026', category: 'School Life', href: '/news/woolverstone-residential-2026', image: '/images/woolverstone-hall.jpg' },
+  { title: 'House Sports Day 2026', excerpt: 'Lewis, Potter, Rowling, and Tolkien compete across athletics, swimming, and team events.', date: '8 Mar 2026', category: 'Sport', href: '/news/house-sports-day-2026', image: '/images/house-sports.jpg' },
+  { title: 'ISJ Choir Performs at British Embassy Reception', excerpt: 'Our choir was invited to perform at the British Ambassador\'s residence in Jakarta.', date: '22 Feb 2026', category: 'Arts', href: '/news/choir-british-embassy-2026', image: '/images/choir.jpg' },
+];
+
+const moreNews = [
+  { title: 'New Gymnasium Construction Begins', date: '10 Feb 2026', category: 'Campus' },
+  { title: 'Term 2 Co-Curricular Programme Published', date: '15 Jan 2026', category: 'School Life' },
+  { title: 'ISJ Football Team Wins Inter-School Tournament', date: '8 Dec 2025', category: 'Sport' },
+  { title: 'Pre-Prep Nativity Performance', date: '5 Dec 2025', category: 'Arts' },
+  { title: 'Reception Class Visit Ragunan Zoo', date: '20 Nov 2025', category: 'School Life' },
+  { title: 'Year 5 Engineering Challenge', date: '14 Nov 2025', category: 'Academics' },
+];
 ---
 
 <BaseLayout
@@ -9,24 +33,82 @@ import SectionIntro from '../components/SectionIntro.astro';
   canonicalUrl="/news"
 >
 
-  <!-- ═══════ Introduction ═══════ -->
+  <!-- ═══════ Header ═══════ -->
   <section class="pt-32 lg:pt-40 section-pad px-6">
-    <SectionIntro
-      label="News"
-      heading="Latest from ISJ"
-    >
-      <p>
-        News, events, and stories from the school.
-      </p>
-    </SectionIntro>
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <p class="label mb-4">News</p>
+          <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">Latest from ISJ</h1>
+        </div>
+        <p class="text-[length:var(--text-base)] text-charcoal-light max-w-md md:text-right">
+          News, events, and stories from the school.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- ═══════ Coming Soon ═══════ -->
+  <!-- ═══════ Featured ═══════ -->
   <section class="px-6 pb-[var(--space-section)]">
-    <div class="mx-auto max-w-[var(--content-narrow)] text-center">
-      <p class="text-[length:var(--text-base)] text-charcoal-light">
-        News articles are on the way. Follow us on <a href="https://instagram.com/isj.id" target="_blank" rel="noopener noreferrer" class="whisper-link">Instagram</a> for the latest updates.
-      </p>
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <a href={featured.href} class="block group reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="overflow-hidden">
+            <img
+              src={asset(featured.image)}
+              alt=""
+              loading="lazy"
+              class="w-full aspect-[4/3] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
+            />
+          </div>
+          <div>
+            <p class="label label-gold">{featured.category}</p>
+            <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-3 mb-4">{featured.title}</h2>
+            <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">{featured.excerpt}</p>
+            <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-4">{featured.date}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════ Three-up Cards ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        {news.map((item) => (
+          <a href={item.href} class="group reveal">
+            <div class="overflow-hidden">
+              <img
+                src={asset(item.image)}
+                alt=""
+                loading="lazy"
+                class="w-full aspect-[4/3] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
+              />
+            </div>
+            <p class="label label-gold mt-4">{item.category}</p>
+            <h3 class="text-[length:var(--text-base)] text-navy font-medium leading-snug mt-1 mb-2 group-hover:text-navy-light transition-colors">{item.title}</h3>
+            <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed line-clamp-2">{item.excerpt}</p>
+            <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3">{item.date}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ All News List ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-lg">
+      <p class="label mb-8">All News</p>
+      {moreNews.map((item) => (
+        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5 reveal">
+          <div>
+            <p class="text-[length:var(--text-xs)] text-gold-muted uppercase tracking-wider mb-1">{item.category}</p>
+            <p class="text-[length:var(--text-base)] text-navy">{item.title}</p>
+          </div>
+          <span class="text-[length:var(--text-xs)] text-charcoal-muted ml-4 shrink-0">{item.date}</span>
+        </div>
+      ))}
     </div>
   </section>
 
