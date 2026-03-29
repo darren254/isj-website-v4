@@ -1,68 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
 ---
 
 <BaseLayout
   title="Admissions Terms & Conditions | ISJ Jakarta"
-  description="Admissions terms and conditions for The Independent School of Jakarta, including fee payment terms, withdrawal notice, and refund policies."
+  description="Admissions terms and conditions for The Independent School of Jakarta."
   canonicalUrl="/admissions/terms-and-conditions"
 >
 
   <section class="pt-32 lg:pt-40 section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <p class="label mb-5">Admissions</p>
-      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-10">Admissions Terms and Conditions</h1>
-      <p class="text-[length:var(--text-xs)] text-charcoal-muted mb-12">Academic year 2026/27</p>
-
-      <div class="space-y-8 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Application Fee</h2>
-          <p>An application fee is payable upon submission of the application form. This fee is non-refundable. The current fee schedule is published on the <a href="/admissions/fees" class="whisper-link">Fees</a> page.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Enrolment Deposit</h2>
-          <p>Upon acceptance of an offer, an enrolment deposit is required to secure a place. The deposit is refundable when the child leaves ISJ, provided all outstanding fees have been paid and the required notice period has been given.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Payment of Fees</h2>
-          <p>Tuition fees are payable annually or by term (three terms per academic year). Payment is due 14 days before the start of each term. Late payments are subject to interest at 2% per month after 14 days.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Withdrawal Notice</h2>
-          <p>A withdrawal notice period of 90 days from the child's last day attending ISJ is required. If the required notice is not given, one full term's fees are payable in lieu of notice.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Sibling Discounts</h2>
-          <p>Sibling discounts apply from the third child enrolled at ISJ. The discount is applied to the youngest children's fees. Full details are on the <a href="/admissions/fees" class="whisper-link">Fees</a> page.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Assessment and Entry</h2>
-          <p>Entry to Pre-Nursery, Nursery, and Reception does not require a formal assessment. From Year 1, children complete an age-appropriate assessment in literacy, numeracy, and reasoning. ISJ assesses whether each child can access the curriculum and thrive at the school. Admission is not guaranteed and is subject to available places.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Behaviour and Conduct</h2>
-          <p>All pupils are expected to follow the ISJ Code of Conduct and the school's behaviour policies. ISJ reserves the right to exclude a pupil whose behaviour is incompatible with the standards expected, or where continued attendance is not in the best interests of the child or the school community.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Changes to Fees and Terms</h2>
-          <p>ISJ reserves the right to adjust fees annually. Any changes to fees or terms are communicated to families in writing before the start of the relevant academic year.</p>
-        </div>
-
-        <div>
-          <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Contact</h2>
-          <p>For questions about these terms, contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a>.</p>
-        </div>
-
-      </div>
-    </div>
+    <SectionIntro
+      label="Admissions"
+      heading="Admissions Terms and Conditions"
+    >
+      <p>
+        This page is being prepared. For questions about admissions terms, fee payment, or withdrawal policies, contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a>.
+      </p>
+    </SectionIntro>
   </section>
 
 </BaseLayout>
