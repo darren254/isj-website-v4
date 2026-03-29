@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
-import CTABlock from '../../components/CTABlock.astro';
 
 const yearGroups = [
   { phase: 'Pre-Prep', rows: [
@@ -83,16 +82,9 @@ const yearGroups = [
     <div class="mx-auto max-w-lg">
 
       <div class="reveal mb-16">
-        <p class="label mb-6">Flexibility</p>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          If your child's birthday falls close to the cutoff, or if they are transferring from a school with a different age structure, our admissions team can advise on the best year group. We consider each child individually.
-        </p>
-      </div>
-
-      <div class="reveal mb-16">
         <p class="label mb-6">Entry Points</p>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          The main entry points are Pre-Nursery, Reception, Year 7, and Year 12. However, places may be available in any year group, and we welcome mid-year transfers.
+          The main entry points are Pre-Nursery, Reception, Year 7, and Year 12. Places may be available in any year group, and subject to available space, we welcome mid-year transfers.
         </p>
       </div>
 
@@ -106,15 +98,4 @@ const yearGroups = [
 
     </div>
   </section>
-
-  <!-- ═══════ CTA ═══════ -->
-  <CTABlock
-    heading="Ready to Visit?"
-    description="See the school for yourself and meet the teachers."
-    primaryText="Arrange a Tour"
-    primaryHref="/admissions/arrange-a-tour"
-    secondaryText="View fees"
-    secondaryHref="/admissions/fees"
-  />
-
 </BaseLayout>

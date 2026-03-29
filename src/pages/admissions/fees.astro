@@ -3,7 +3,6 @@ import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
-import CTABlock from '../../components/CTABlock.astro';
 
 const prePrep = [
   { year: 'Pre-Nursery', ages: 'Age 2+', annual: '148,524,000', perTerm: '50,993,240' },
@@ -68,7 +67,12 @@ const phases = [
     <section class="px-6 pb-20">
       <div class="mx-auto max-w-lg reveal">
         <p class="label mb-8">{name}</p>
-        <table class="w-full">
+        <table class="w-full" style="table-layout:fixed">
+          <colgroup>
+            <col style="width:40%" />
+            <col style="width:25%" class="hidden sm:table-column" />
+            <col />
+          </colgroup>
           <tbody>
             {rows.map((row) => (
               <tr class="border-b border-charcoal/5">
@@ -173,15 +177,4 @@ const phases = [
       </div>
     </div>
   </section>
-
-  <!-- ═══════ CTA ═══════ -->
-  <CTABlock
-    heading="Ready to Visit?"
-    description="Arrange a personalised tour of our Pondok Indah campus."
-    primaryText="Arrange a Tour"
-    primaryHref="/admissions/arrange-a-tour"
-    secondaryText="How to apply"
-    secondaryHref="/admissions/how-to-apply"
-  />
-
 </BaseLayout>
