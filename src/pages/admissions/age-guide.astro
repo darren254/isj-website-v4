@@ -5,33 +5,33 @@ import SectionIntro from '../../components/SectionIntro.astro';
 
 const yearGroups = [
   { phase: 'Pre-Prep', rows: [
-    { year: 'Pre-Nursery', age: '2', dob: 'Born before 1 Sep 2024' },
-    { year: 'Nursery', age: '3', dob: 'Born before 1 Sep 2023' },
-    { year: 'Reception', age: '4', dob: 'Born before 1 Sep 2022' },
+    { year: 'Pre-Nursery', age: 2, cutoff: '2024-09-01' },
+    { year: 'Nursery', age: 3, cutoff: '2023-09-01' },
+    { year: 'Reception', age: 4, cutoff: '2022-09-01' },
   ]},
   { phase: 'Prep School', rows: [
-    { year: 'Year 1', age: '5', dob: 'Born before 1 Sep 2021' },
-    { year: 'Year 2', age: '6', dob: 'Born before 1 Sep 2020' },
-    { year: 'Year 3', age: '7', dob: 'Born before 1 Sep 2019' },
-    { year: 'Year 4', age: '8', dob: 'Born before 1 Sep 2018' },
-    { year: 'Year 5', age: '9', dob: 'Born before 1 Sep 2017' },
-    { year: 'Year 6', age: '10', dob: 'Born before 1 Sep 2016' },
+    { year: 'Year 1', age: 5, cutoff: '2021-09-01' },
+    { year: 'Year 2', age: 6, cutoff: '2020-09-01' },
+    { year: 'Year 3', age: 7, cutoff: '2019-09-01' },
+    { year: 'Year 4', age: 8, cutoff: '2018-09-01' },
+    { year: 'Year 5', age: 9, cutoff: '2017-09-01' },
+    { year: 'Year 6', age: 10, cutoff: '2016-09-01' },
   ]},
   { phase: 'Senior School', rows: [
-    { year: 'Year 7', age: '11', dob: 'Born before 1 Sep 2015' },
-    { year: 'Year 8', age: '12', dob: 'Born before 1 Sep 2014' },
-    { year: 'Year 9', age: '13', dob: 'Born before 1 Sep 2013' },
-    { year: 'Year 10 (GCSE)', age: '14', dob: 'Born before 1 Sep 2012' },
-    { year: 'Year 11 (GCSE)', age: '15', dob: 'Born before 1 Sep 2011' },
-    { year: 'Year 12 (A-Level)', age: '16', dob: 'Born before 1 Sep 2010' },
-    { year: 'Year 13 (A-Level)', age: '17', dob: 'Born before 1 Sep 2009' },
+    { year: 'Year 7', age: 11, cutoff: '2015-09-01' },
+    { year: 'Year 8', age: 12, cutoff: '2014-09-01' },
+    { year: 'Year 9', age: 13, cutoff: '2013-09-01' },
+    { year: 'Year 10 (GCSE)', age: 14, cutoff: '2012-09-01' },
+    { year: 'Year 11 (GCSE)', age: 15, cutoff: '2011-09-01' },
+    { year: 'Year 12 (A-Level)', age: 16, cutoff: '2010-09-01' },
+    { year: 'Year 13 (A-Level)', age: 17, cutoff: '2009-09-01' },
   ]},
 ];
 ---
 
 <BaseLayout
   title="Age Guide & Entry Points | ISJ Jakarta"
-  description="Find the right year group for your child at ISJ. Age guide from Pre-Nursery to Year 13 with September 1st cutoff dates for the 2026/27 academic year."
+  description="Find the right year group for your child at ISJ. Enter your child's date of birth to see which year group they would join for the 2026/27 academic year."
   canonicalUrl="/admissions/age-guide"
 >
 
@@ -50,45 +50,84 @@ const yearGroups = [
       heading="Age Guide"
     >
       <p>
-        Children are placed in year groups by age, using a 1 September cutoff. The table below shows which year group your child would enter for the 2026/27 academic year.
+        Enter your child's date of birth to find their year group for the 2026/27 academic year.
       </p>
     </SectionIntro>
   </section>
 
-  <!-- ═══════ Age Tables ═══════ -->
-  {yearGroups.map(({ phase, rows }) => (
-    <section class="px-6 pb-20">
-      <div class="mx-auto max-w-lg reveal">
-        <p class="label mb-8">{phase}</p>
-        <div class="space-y-0">
-          {rows.map((row) => (
-            <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-              <div>
-                <span class="text-[length:var(--text-base)] text-navy">{row.year}</span>
-              </div>
-              <div class="text-right">
-                <span class="text-[length:var(--text-base)] text-charcoal">Age {row.age}+</span>
-                <span class="text-[length:var(--text-xs)] text-charcoal-light ml-3 hidden sm:inline">{row.dob}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  ))}
-
-  <!-- ═══════ Notes ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
+  <!-- ═══════ Calculator ═══════ -->
+  <section class="px-6 pb-24">
     <div class="mx-auto max-w-lg">
 
-      <div class="reveal mb-16">
+      <div class="reveal">
+        <label for="dob-input" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-3">Date of Birth</label>
+        <input
+          type="date"
+          id="dob-input"
+          class="w-full border border-charcoal/20 bg-white px-4 py-3.5 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
+          min="2006-01-01"
+          max="2025-12-31"
+        />
+      </div>
+
+      <!-- Result -->
+      <div id="result" class="hidden mt-10 reveal">
+        <div class="border-t border-navy/10 pt-8">
+          <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase text-charcoal-muted font-medium mb-2" id="result-phase"></p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-3" id="result-year"></h2>
+          <p class="text-[length:var(--text-base)] text-charcoal-light" id="result-detail"></p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-4">
+            <a href="/admissions/how-to-apply" class="whisper-link">How to apply</a>
+            <a href="/admissions/fees" class="whisper-link">View fees</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Out of range -->
+      <div id="result-out" class="hidden mt-10">
+        <div class="border-t border-navy/10 pt-8">
+          <p class="text-[length:var(--text-base)] text-charcoal-light" id="result-out-msg"></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ Full Table Reference ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-lg">
+      <p class="label mb-12">Full Year Group Table</p>
+
+      {yearGroups.map(({ phase, rows }) => (
+        <div class="mb-16 reveal">
+          <p class="text-[length:var(--text-sm)] font-medium text-navy mb-6">{phase}</p>
+          <table class="w-full" style="table-layout:fixed">
+            <colgroup>
+              <col style="width:45%" />
+              <col style="width:25%" />
+              <col />
+            </colgroup>
+            <tbody>
+              {rows.map((row) => (
+                <tr class="border-b border-charcoal/5" data-year={row.year}>
+                  <td class="text-[length:var(--text-base)] text-navy py-3">{row.year}</td>
+                  <td class="text-[length:var(--text-sm)] text-charcoal-light py-3">Age {row.age}+</td>
+                  <td class="text-[length:var(--text-sm)] text-charcoal-light py-3 text-right hidden sm:table-cell">Born before 1 Sep {new Date(row.cutoff).getFullYear()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+
+      <div class="reveal">
         <p class="label mb-6">Entry Points</p>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           The main entry points are Pre-Nursery, Reception, Year 7, and Year 12. Places may be available in any year group, and subject to available space, we welcome mid-year transfers.
         </p>
       </div>
 
-      <div class="reveal">
+      <div class="reveal mt-12">
         <p class="label mb-6">Assessment</p>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children complete an age-appropriate assessment in literacy, numeracy, and reasoning.
@@ -98,4 +137,79 @@ const yearGroups = [
 
     </div>
   </section>
+
 </BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var input = document.getElementById('dob-input');
+    var result = document.getElementById('result');
+    var resultOut = document.getElementById('result-out');
+    if (!input) return;
+
+    // Year group data — cutoff is "born before this date"
+    var groups = [
+      { year: 'Pre-Nursery', phase: 'Pre-Prep', age: 2, before: '2024-09-01', after: '2023-09-01' },
+      { year: 'Nursery', phase: 'Pre-Prep', age: 3, before: '2023-09-01', after: '2022-09-01' },
+      { year: 'Reception', phase: 'Pre-Prep', age: 4, before: '2022-09-01', after: '2021-09-01' },
+      { year: 'Year 1', phase: 'Prep School', age: 5, before: '2021-09-01', after: '2020-09-01' },
+      { year: 'Year 2', phase: 'Prep School', age: 6, before: '2020-09-01', after: '2019-09-01' },
+      { year: 'Year 3', phase: 'Prep School', age: 7, before: '2019-09-01', after: '2018-09-01' },
+      { year: 'Year 4', phase: 'Prep School', age: 8, before: '2018-09-01', after: '2017-09-01' },
+      { year: 'Year 5', phase: 'Prep School', age: 9, before: '2017-09-01', after: '2016-09-01' },
+      { year: 'Year 6', phase: 'Prep School', age: 10, before: '2016-09-01', after: '2015-09-01' },
+      { year: 'Year 7', phase: 'Senior School', age: 11, before: '2015-09-01', after: '2014-09-01' },
+      { year: 'Year 8', phase: 'Senior School', age: 12, before: '2014-09-01', after: '2013-09-01' },
+      { year: 'Year 9', phase: 'Senior School', age: 13, before: '2013-09-01', after: '2012-09-01' },
+      { year: 'Year 10 (GCSE)', phase: 'Senior School', age: 14, before: '2012-09-01', after: '2011-09-01' },
+      { year: 'Year 11 (GCSE)', phase: 'Senior School', age: 15, before: '2011-09-01', after: '2010-09-01' },
+      { year: 'Year 12 (A-Level)', phase: 'Senior School', age: 16, before: '2010-09-01', after: '2009-09-01' },
+      { year: 'Year 13 (A-Level)', phase: 'Senior School', age: 17, before: '2009-09-01', after: '2008-09-01' },
+    ];
+
+    input.addEventListener('change', function() {
+      var dob = input.value;
+      if (!dob) return;
+
+      // Reset
+      result.classList.add('hidden');
+      resultOut.classList.add('hidden');
+      document.querySelectorAll('tr[data-year]').forEach(function(tr) {
+        tr.style.background = '';
+      });
+
+      // Find matching year group
+      var match = null;
+      for (var i = 0; i < groups.length; i++) {
+        var g = groups[i];
+        if (dob < g.before && dob >= g.after) {
+          match = g;
+          break;
+        }
+      }
+
+      if (match) {
+        document.getElementById('result-phase').textContent = match.phase;
+        document.getElementById('result-year').textContent = match.year;
+        document.getElementById('result-detail').textContent = 'Your child would enter ' + match.year + ' for the 2026/27 academic year.';
+        result.classList.remove('hidden');
+
+        // Highlight matching row in the table
+        var row = document.querySelector('tr[data-year="' + match.year + '"]');
+        if (row) {
+          row.style.background = 'rgba(255,196,61,0.1)';
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else if (dob >= '2024-09-01') {
+        document.getElementById('result-out-msg').textContent = 'Your child is not yet old enough for Pre-Nursery. The earliest entry is age 2 (born before 1 September 2024).';
+        resultOut.classList.remove('hidden');
+      } else if (dob < '2008-09-01') {
+        document.getElementById('result-out-msg').textContent = 'Your child would be beyond Year 13 for the 2026/27 academic year.';
+        resultOut.classList.remove('hidden');
+      } else {
+        document.getElementById('result-out-msg').textContent = 'Please contact our admissions team for guidance on the right year group.';
+        resultOut.classList.remove('hidden');
+      }
+    });
+  });
+</script>
