@@ -1,0 +1,27 @@
+---
+/**
+ * Accordion — Expandable Q&A item.
+ * Uses native <details> for zero-JS functionality.
+ */
+interface Props {
+  question: string;
+}
+
+const { question } = Astro.props;
+---
+
+<details class="group border-b border-charcoal/10">
+  <summary class="flex items-center justify-between cursor-pointer py-5 text-[length:var(--text-base)] text-navy font-medium leading-snug select-none">
+    <span class="pr-8">{question}</span>
+    <span class="shrink-0 w-5 h-5 relative">
+      <span class="absolute inset-0 flex items-center justify-center transition-transform duration-200 group-open:rotate-45">
+        <svg class="w-4 h-4 text-charcoal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </span>
+    </span>
+  </summary>
+  <div class="pb-6 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+    <slot />
+  </div>
+</details>

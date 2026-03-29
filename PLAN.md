@@ -56,7 +56,7 @@ The pages that need to exist before launch. Ordered by conversion impact.
 | 8 | How to Apply | `/admissions/how-to-apply` | DONE | |
 | 9 | Age Guide | `/admissions/age-guide` | DONE | |
 | 10 | Contact | `/contact` | DONE | Needs form + map |
-| 11 | FAQs | `/faqs` | TODO | Accordion component, FAQPage schema |
+| 11 | FAQs | `/faqs` | DONE | Accordion component, FAQPage schema |
 | 12 | Campus & Facilities | `/school-life/campus` | TODO | Image-heavy |
 | 13 | Insights Hub | `/insights` | TODO | Blog listing layout |
 | 14 | News Hub | `/news` | TODO | News listing layout |

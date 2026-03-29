@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import Accordion from '../components/Accordion.astro';
+
+const faqGroups = [
+  {
+    label: 'Admissions',
+    faqs: [
+      { q: 'How do I apply to ISJ?', a: 'Contact our admissions team, arrange a tour, then submit an application form with the application fee. For children entering Year 1 and above, there is an age-appropriate assessment. Full details are on our <a href="/admissions/how-to-apply" class="whisper-link">How to Apply</a> page.' },
+      { q: 'Is ISJ selective?', a: 'Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children complete a short assessment in literacy, numeracy, and reasoning. We are looking for children who can access the curriculum and thrive at ISJ.' },
+      { q: 'Can my child join mid-year?', a: 'Yes, subject to available space, we welcome mid-year transfers. Contact the admissions team to discuss availability.' },
+      { q: 'What age can my child start?', a: 'Children can join from age 2 (Pre-Nursery). Use our <a href="/admissions/age-guide" class="whisper-link">Age Guide</a> to find the right year group for your child.' },
+      { q: 'Can I apply before we move to Jakarta?', a: 'Yes. We accept applications up to two years in advance and offer live video tours for families who are relocating.' },
+    ],
+  },
+  {
+    label: 'Fees and Payments',
+    faqs: [
+      { q: 'Where can I find the fee schedule?', a: 'Our full fee schedule for the 2026/27 academic year is on the <a href="/admissions/fees" class="whisper-link">Tuition Fees</a> page.' },
+      { q: 'Are there sibling discounts?', a: 'Yes. Discounts apply from the third child onwards. Details are on the <a href="/admissions/fees" class="whisper-link">Fees</a> page.' },
+      { q: 'What is included in the fees?', a: 'Fees cover teaching, the full academic curriculum, learning materials, use of all campus facilities, pastoral care, academic support, and co-curricular activities. Lunch, school trips, uniforms, transport, and external exam fees are charged separately.' },
+      { q: 'How are fees paid?', a: 'Fees are payable annually or by term (three terms per year). Payment is due 14 days before the start of each term.' },
+    ],
+  },
+  {
+    label: 'Academics',
+    faqs: [
+      { q: 'What curriculum does ISJ follow?', a: 'ISJ follows the English National Curriculum from Early Years Foundation Stage (EYFS) through to A-Levels.' },
+      { q: 'What qualifications will my child leave with?', a: 'Students in Year 10 and 11 sit GCSEs. Students in Year 12 and 13 study for A-Levels. Both are internationally recognised British qualifications accepted by universities worldwide.' },
+      { q: 'How large are the classes?', a: 'Class sizes are kept to 15 pupils, allowing teachers to give personal attention and know every child well.' },
+      { q: 'Are all teachers UK qualified?', a: 'Yes. 100% of our teaching staff hold UK teaching qualifications and are recruited from leading British independent schools.' },
+    ],
+  },
+  {
+    label: 'School Life',
+    faqs: [
+      { q: 'What are the school hours?', a: 'The school day runs from 7:50am to 2:00pm, with co-curricular activities available until 4:00pm.' },
+      { q: 'Is there a school bus service?', a: 'Transport is arranged independently by families. The admissions team can advise on options available in your area.' },
+      { q: 'What is the UK residential programme?', a: 'Each year, Year 7 and 8 pupils travel to Woolverstone Hall in Suffolk, England for a residential study trip. They experience British boarding school life, including academic enrichment, sport, and outdoor adventure.' },
+      { q: 'Where is ISJ located?', a: 'ISJ is in Pondok Indah, South Jakarta, on Jl. R.A. Kartini. Pondok Indah is one of Jakarta\'s most established residential areas, close to Pondok Indah Mall, RS Pondok Indah hospital, and the Pondok Indah Golf Course.' },
+    ],
+  },
+];
+
+// Build FAQPage schema
+const schemaFaqs = faqGroups.flatMap(g => g.faqs.map(f => ({
+  '@type': 'Question',
+  name: f.q,
+  acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+})));
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: schemaFaqs,
+});
+---
+
+<BaseLayout
+  title="FAQs | Common Questions | ISJ Jakarta"
+  description="Find answers to frequently asked questions about admissions, fees, curriculum, and school life at The Independent School of Jakarta."
+  canonicalUrl="/faqs"
+>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/happy-children-outdoor.jpg"
+    imageAlt="Children at The Independent School of Jakarta"
+    aspectRatio="standard"
+    objectPosition="center 40%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Support"
+      heading="Frequently Asked Questions"
+    >
+      <p>
+        Straight answers to the questions families ask most. If you need anything else, our admissions team is always happy to help.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ FAQ Groups ═══════ -->
+  {faqGroups.map((group) => (
+    <section class="px-6 pb-20">
+      <div class="mx-auto max-w-lg reveal">
+        <p class="label mb-8">{group.label}</p>
+        {group.faqs.map((faq) => (
+          <Accordion question={faq.q}>
+            <p set:html={faq.a} />
+          </Accordion>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <!-- ═══════ Still Have Questions ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+        Can't find what you're looking for? Get in touch at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href="/contact" class="whisper-link">visit our contact page</a>.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>
