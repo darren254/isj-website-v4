@@ -126,6 +126,15 @@ Add depth and SEO coverage after core is solid.
 - [ ] **DNS + domain.** Point isj.id to Cloudflare Pages. SSL included.
 - [ ] **Sanity CMS integration.** Decision #3. News, insights, fees, testimonials managed by school staff. This is a significant piece of work — scope separately.
 
+### Image Library
+- [ ] **Cloud-hosted image library.** Currently 477 images across ISJ, BS Portugal, and BS Lithuania in a GitHub repo (darren254/tst-image-library). Need a cloud solution where the team can browse, add, and delete images through a shared link. Requirements:
+  - Visual grid/gallery view with thumbnails
+  - Add/delete via the web (no Git knowledge needed)
+  - Accessible via a link in the site footer (staff-only section or `/brand` page)
+  - Serves images directly as URLs the site can reference
+  - Candidate: Cloudflare R2 with a simple gallery frontend, or Sanity media library (if CMS is integrated first)
+- [ ] **For now:** Clone tst-image-library repo locally to browse in Finder. Push changes back via Git.
+
 ### Ongoing (Post-Launch)
 - [ ] **Content: Insights articles.** Expat guide, commute times, GCSE guide, A-Level guide. Each targets specific keyword clusters.
 - [ ] **Content: News posts.** School events, achievements, announcements.
