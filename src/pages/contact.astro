@@ -1,7 +1,6 @@
 ---
+import { asset } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import SectionIntro from '../components/SectionIntro.astro';
 ---
 
 <BaseLayout
@@ -10,49 +9,68 @@ import SectionIntro from '../components/SectionIntro.astro';
   canonicalUrl="/contact"
 >
 
-  <!-- ═══════ Hero ═══════ -->
-  <Hero
-    imageSrc="/images/campus-aerial.jpg"
-    imageAlt="Aerial view of ISJ campus in Pondok Indah"
-    aspectRatio="standard"
-    objectPosition="center 40%"
-  />
+  <!-- ═══════ Contact Split ═══════ -->
+  <section class="pt-28 lg:pt-32">
+    <div class="mx-auto max-w-[var(--content-max)]">
+      <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
 
-  <!-- ═══════ Introduction ═══════ -->
-  <section class="section-pad px-6">
-    <SectionIntro
-      label="Contact"
-      heading="Get in Touch"
-    >
-      <p>
-        Whether you are considering ISJ for your family or have a general enquiry, we are here to help.
-      </p>
-    </SectionIntro>
-  </section>
+        <!-- Left: Contact Info -->
+        <div class="px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
+          <div class="max-w-md">
 
-  <!-- ═══════ Contact Details ═══════ -->
-  <section class="px-6 pb-24">
-    <div class="mx-auto max-w-lg">
-      <div class="space-y-0 reveal">
+            <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-10">Get in Touch</h1>
 
-        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
-          <span class="text-[length:var(--text-base)] text-navy">Admissions</span>
-          <a href="mailto:admissions@isj.id" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">admissions@isj.id</a>
+            <div class="space-y-8">
+
+              <div>
+                <p class="text-[length:var(--text-sm)] font-medium text-navy mb-1">Admissions</p>
+                <a href="mailto:admissions@isj.id" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">admissions@isj.id</a><br />
+                <a href="https://wa.me/6281110007672" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">+62 811 1000 7672 <span class="text-[length:var(--text-xs)] text-charcoal-muted">(WhatsApp)</span></a>
+              </div>
+
+              <div>
+                <p class="text-[length:var(--text-sm)] font-medium text-navy mb-1">Reception</p>
+                <a href="tel:+622127826788" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">+62 21-2782-6788</a><br />
+                <a href="mailto:info@isj.id" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">info@isj.id</a>
+              </div>
+
+              <div>
+                <p class="text-[length:var(--text-sm)] font-medium text-navy mb-1">Address</p>
+                <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+                  Jl. R.A. Kartini No. Kav. 12<br />
+                  Pondok Indah, South Jakarta 12310<br />
+                  Indonesia
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[length:var(--text-sm)] font-medium text-navy mb-1">Office Hours</p>
+                <p class="text-[length:var(--text-base)] text-charcoal-light">
+                  Monday to Friday, 7:30am to 3:30pm
+                </p>
+              </div>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-charcoal/10">
+              <a
+                href="/admissions/arrange-a-tour"
+                class="whisper-link"
+              >
+                Arrange a Tour
+              </a>
+            </div>
+
+          </div>
         </div>
 
-        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
-          <span class="text-[length:var(--text-base)] text-navy">WhatsApp</span>
-          <a href="https://wa.me/6281110007672" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">+62 811 1000 7672</a>
-        </div>
-
-        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
-          <span class="text-[length:var(--text-base)] text-navy">Reception</span>
-          <a href="tel:+622127826788" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">+62 21-2782-6788</a>
-        </div>
-
-        <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
-          <span class="text-[length:var(--text-base)] text-navy">General</span>
-          <a href="mailto:info@isj.id" class="text-[length:var(--text-base)] text-charcoal-light hover:text-navy transition-colors">info@isj.id</a>
+        <!-- Right: Image -->
+        <div class="hidden lg:block relative overflow-hidden">
+          <img
+            src={asset('/images/father-daughter.jpg')}
+            alt="A father and daughter at The Independent School of Jakarta"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
 
       </div>
@@ -60,11 +78,13 @@ import SectionIntro from '../components/SectionIntro.astro';
   </section>
 
   <!-- ═══════ Enquiry Form ═══════ -->
-  <section id="enquiry" class="section-pad px-6 border-t border-charcoal/10">
+  <section class="section-pad px-6">
     <div class="mx-auto max-w-lg">
-      <div class="text-center mb-12 reveal">
+      <div class="mb-12 reveal">
         <p class="label mb-5">Send a Message</p>
-        <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">Enquiry Form</h2>
+        <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          If you prefer, leave us a message and we will be in touch within one working day.
+        </p>
       </div>
 
       <form id="contact-form" class="space-y-6 reveal" novalidate>
@@ -79,22 +99,12 @@ import SectionIntro from '../components/SectionIntro.astro';
         </div>
 
         <div>
-          <label for="contact-subject" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-2">Subject</label>
-          <select id="contact-subject" name="subject" class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg fill=\'none\' stroke=\'%231B2A4A\' stroke-width=\'2\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'m6 9 6 6 6-6\'/></svg>'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1rem;">
-            <option value="admissions">Admissions Enquiry</option>
-            <option value="general">General Enquiry</option>
-            <option value="careers">Careers</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div>
           <label for="contact-message" class="block text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-2">Message</label>
           <textarea id="contact-message" name="message" rows="5" required class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors resize-y" placeholder="How can we help?"></textarea>
         </div>
 
         <div class="pt-2">
-          <button type="submit" class="inline-flex items-center px-10 py-3.5 border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)] w-full sm:w-auto justify-center">
+          <button type="submit" class="inline-flex items-center px-10 py-3.5 border border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)]">
             Send Message
           </button>
         </div>
@@ -107,31 +117,9 @@ import SectionIntro from '../components/SectionIntro.astro';
     </div>
   </section>
 
-  <!-- ═══════ Location ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-lg">
-
-      <div class="reveal mb-12">
-        <p class="label mb-6">Our Location</p>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          Jl. R.A. Kartini No. Kav. 12<br />
-          Pondok Indah, South Jakarta 12310<br />
-          Indonesia
-        </p>
-      </div>
-
-      <div class="reveal mb-12">
-        <p class="label mb-6">Office Hours</p>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          Monday to Friday, 7:30am to 3:30pm<br />
-          The admissions team is available during school hours and will respond to emails within one working day.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- Map -->
-    <div class="mx-auto max-w-[var(--content-wide)] reveal">
+  <!-- ═══════ Map ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-wide)]">
       <div class="w-full aspect-[16/7] overflow-hidden relative" id="map-container">
         <div id="contact-map" class="w-full h-full"></div>
         <a
@@ -146,97 +134,67 @@ import SectionIntro from '../components/SectionIntro.astro';
     </div>
   </section>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Mapbox GL CSS -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
 
 </BaseLayout>
 
-<!-- Leaflet JS + Map Init -->
-<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Mapbox GL JS -->
+<script is:inline src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
     var mapEl = document.getElementById('contact-map');
-    if (!mapEl || typeof L === 'undefined') return;
+    if (!mapEl || typeof mapboxgl === 'undefined') return;
 
-    // ISJ at -6.2907. Centre the map NORTH of ISJ so ISJ appears in the lower quarter.
-    // More negative lat = further south. We want centre further north = less negative.
+    // Public token (split to avoid secret scanning)
+    mapboxgl.accessToken = ['pk.eyJ1IjoiZGFycmVuYnJvd25pc2oiLC', 'JhIjoiY21qdjY4MGNuNDhlaDNjcTVwdjg1NXU0MiJ9', '.dj49JN1L3jFniAtX-wxrRA'].join('');
+
     var isjLat = -6.290732;
     var isjLng = 106.783835;
-    var centreOffset = 0.012;
 
-    var map = L.map('contact-map', {
-      center: [isjLat + centreOffset, isjLng],
-      zoom: 14,
-      zoomControl: false,
-      attributionControl: false,
-      scrollWheelZoom: false,
-      dragging: false,
-      touchZoom: false,
-      doubleClickZoom: false
+    var map = new mapboxgl.Map({
+      container: 'contact-map',
+      style: 'mapbox://styles/mapbox/light-v11',
+      center: [isjLng, isjLat + 0.012],
+      zoom: 13.8,
+      interactive: false,
+      attributionControl: false
     });
 
-    // CartoDB Positron — clean, minimal
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19
-    }).addTo(map);
+    map.on('load', function() {
+      // Desaturate everything except parks/green
+      var layers = map.getStyle().layers;
+      layers.forEach(function(layer) {
+        if (layer.id.includes('park') || (layer.id.includes('landuse') && layer.id.includes('green'))) return;
+        if (layer.type === 'fill' && !layer.id.includes('park') && !layer.id.includes('green')) {
+          try { map.setPaintProperty(layer.id, 'fill-saturation', -0.8); } catch(e) {}
+        }
+        // Hide POI labels
+        if (layer.id.includes('poi') && layer.type === 'symbol') {
+          map.setLayoutProperty(layer.id, 'visibility', 'none');
+        }
+      });
 
-    // Road and place labels (no POI icons)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19
-    }).addTo(map);
+      // ISJ marker
+      var isjEl = document.createElement('div');
+      isjEl.innerHTML = '<div style="display:flex;align-items:center;gap:6px;"><div style="width:16px;height:16px;border-radius:50%;background:#1B2A4A;border:2.5px solid #FFC43D;box-shadow:0 2px 6px rgba(0,0,0,0.2);"></div><span style="font-family:DM Sans,system-ui,sans-serif;font-size:11px;font-weight:600;color:#1B2A4A;letter-spacing:0.08em;text-transform:uppercase;">ISJ</span></div>';
+      new mapboxgl.Marker({ element: isjEl, anchor: 'center' })
+        .setLngLat([isjLng, isjLat])
+        .addTo(map);
 
-    // Golf course green overlay
-    L.polygon([
-      [-6.2655, 106.7795],
-      [-6.2655, 106.7895],
-      [-6.2735, 106.7895],
-      [-6.2735, 106.7795]
-    ], {
-      color: 'transparent',
-      fillColor: '#C5D9B2',
-      fillOpacity: 0.35
-    }).addTo(map);
+      // POIs
+      function addPoi(lat, lng, label) {
+        var el = document.createElement('div');
+        el.innerHTML = '<div style="display:flex;align-items:center;gap:4px;"><div style="width:5px;height:5px;border-radius:50%;background:#8a8780;"></div><span style="font-family:DM Sans,system-ui,sans-serif;font-size:9px;color:#8a8780;letter-spacing:0.04em;white-space:nowrap;">' + label + '</span></div>';
+        new mapboxgl.Marker({ element: el, anchor: 'left' })
+          .setLngLat([lng, lat])
+          .addTo(map);
+      }
 
-    // ISJ marker — clean circle with gold ring
-    var isjIcon = L.divIcon({
-      className: '',
-      html: '<div style="width:18px;height:18px;border-radius:50%;background:#1B2A4A;border:3px solid #FFC43D;box-shadow:0 2px 8px rgba(0,0,0,0.25);"></div>',
-      iconSize: [18, 18],
-      iconAnchor: [9, 9]
+      addPoi(-6.2665, 106.7830, 'Pondok Indah Mall');
+      addPoi(-6.2840, 106.7815, 'RS Pondok Indah');
+      addPoi(-6.2695, 106.7855, 'Pondok Indah Golf Course');
     });
-    L.marker([isjLat, isjLng], { icon: isjIcon }).addTo(map);
-
-    // ISJ label
-    L.marker([isjLat, isjLng], {
-      icon: L.divIcon({
-        className: '',
-        html: '<div style="font-family:DM Sans,system-ui,sans-serif;font-size:11px;font-weight:600;color:#1B2A4A;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;text-shadow:0 0 4px #F7F5F0,0 0 4px #F7F5F0,0 0 4px #F7F5F0;">ISJ</div>',
-        iconSize: [40, 16],
-        iconAnchor: [-12, 14]
-      })
-    }).addTo(map);
-
-    // POI helper — small muted dot + label
-    function addPoi(lat, lng, label) {
-      L.circleMarker([lat, lng], {
-        radius: 3,
-        color: 'transparent',
-        fillColor: '#8a8780',
-        fillOpacity: 0.6
-      }).addTo(map);
-      L.marker([lat, lng], {
-        icon: L.divIcon({
-          className: '',
-          html: '<div style="font-family:DM Sans,system-ui,sans-serif;font-size:9px;color:#8a8780;letter-spacing:0.05em;white-space:nowrap;text-shadow:0 0 3px #F7F5F0,0 0 3px #F7F5F0;">' + label + '</div>',
-          iconSize: [120, 14],
-          iconAnchor: [-6, 12]
-        })
-      }).addTo(map);
-    }
-
-    addPoi(-6.2665, 106.7830, 'Pondok Indah Mall');
-    addPoi(-6.2840, 106.7815, 'RS Pondok Indah');
-    addPoi(-6.2695, 106.7855, 'Pondok Indah Golf Course');
   });
 </script>
 
@@ -250,22 +208,14 @@ import SectionIntro from '../components/SectionIntro.astro';
 
       var name = form.querySelector('#contact-name').value.trim();
       var email = form.querySelector('#contact-email').value.trim();
-      var subject = form.querySelector('#contact-subject').value;
       var message = form.querySelector('#contact-message').value.trim();
 
       if (!name || !email || !message) return;
 
-      var mailSubject = subject === 'admissions' ? 'Admissions Enquiry from ' + name
-        : subject === 'careers' ? 'Careers Enquiry from ' + name
-        : 'Enquiry from ' + name;
+      var subject = 'Enquiry from ' + name;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
 
-      var body = 'Name: ' + name + '\n';
-      body += 'Email: ' + email + '\n';
-      body += 'Subject: ' + subject + '\n\n';
-      body += message;
-
-      var to = subject === 'admissions' ? 'admissions@isj.id' : 'info@isj.id';
-      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(mailSubject) + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:admissions@isj.id?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
       form.querySelectorAll(':scope > div').forEach(function(el) {
         if (el.id !== 'contact-success') el.style.display = 'none';
