@@ -1,0 +1,203 @@
+---
+import { asset } from '../../utils/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import Testimonial from '../../components/Testimonial.astro';
+import StatBar from '../../components/StatBar.astro';
+---
+
+<BaseLayout
+  title="Prep School (Ages 7–13) | English National Curriculum | ISJ Jakarta"
+  description="ISJ Prep School delivers the English National Curriculum for ages 7 to 13 in Pondok Indah, Jakarta. Specialist teaching, co-curricular breadth, residential trips, and a house system."
+  canonicalUrl="/academics/prep-school"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/pupils-prep.jpg"
+    imageAlt="Prep School pupils at The Independent School of Jakarta"
+    aspectRatio="standard"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Prep School · Ages 7 to 13"
+      heading="The Years That Shape Everything"
+    >
+      <p>
+        Years 3 to 8. The years when your child discovers what they love, develops habits that last, and starts to understand who they are. The Prep School is where academic rigour meets genuine breadth.
+      </p>
+      <p>
+        We follow the English National Curriculum through Key Stages 2 and 3, with specialist teachers for every core and foundation subject. Cambridge and Edexcel qualifications underpin the programme from the start.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Curriculum ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">Academics</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Specialist Teaching from Day One</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Every subject is taught by a specialist. English, Maths, Science, History, Geography, Languages, Music, Art, Drama, PE, Swimming, Computing, and Design Technology. Your child moves between teachers who are experts in their field, building depth and confidence across the curriculum.
+            </p>
+            <p>
+              20 children per class. A staff-to-pupil ratio of 1:9. Every child is challenged, every child is supported.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/science-experiment.jpg')}
+            alt="Prep School pupils conducting a science experiment"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="A strong academic focus and high-quality learning."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ Co-curricular ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div class="overflow-hidden md:order-1">
+          <img
+            src={asset('/images/art-class.jpg')}
+            alt="A Prep School pupil working on an art project"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+        <div class="md:order-2">
+          <p class="label mb-5">Beyond the Classroom</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">30+ Clubs Per Term</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Sport, music, drama, and art are part of every child's week. Swimming continues throughout the school. 20+ sports are offered, from football and netball to gymnastics, bouldering, and badminton.
+            </p>
+            <p>
+              The co-curricular programme runs until 4:00pm every day. Over 30 clubs rotate each term, so children can explore widely and find what they love.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed image ═══════ -->
+  <div class="my-4">
+    <ImageBlock
+      src="/images/choir.jpg"
+      alt="ISJ school choir performing"
+      aspect="wide"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- ═══════ House System ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Character"
+      heading="Four Houses, One Community"
+    >
+      <p>
+        Every child belongs to a house: Potter, Tolkien, Lewis, or Rowling. Houses compete in sport, the arts, and community projects throughout the year. It builds belonging, healthy competition, and friendships across year groups.
+      </p>
+      <p>
+        Leadership matters here. Older pupils mentor younger ones. Responsibility is earned, practised, and recognised through our Five Talent Trails awards, from Bronze to Platinum.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Stats ═══════ -->
+  <StatBar stats={[
+    { value: '20+', label: 'Sports Offered' },
+    { value: '30+', label: 'Clubs Per Term' },
+    { value: '4', label: 'Houses' },
+  ]} />
+
+  <!-- ═══════ Residential Trips ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">Residential Trips</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Woolverstone Hall, Suffolk</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Each year, Year 7 and 8 pupils travel to Woolverstone Hall in Suffolk, England. An 87-acre campus where they experience British boarding school life first-hand: early morning runs, formal dining, academic enrichment, and outdoor adventure.
+            </p>
+            <p>
+              For many, it's the trip that defines their time at ISJ. Independence, resilience, and friendships forged in a setting unlike anything they've experienced before.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/residential-trip.jpg')}
+            alt="ISJ pupils on a residential trip"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="Communication between parents and school is an obvious strength."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- ═══════ What Comes Next ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="label mb-5">What Comes Next</p>
+      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Into Senior School</h2>
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+        At the end of Year 8, pupils move into Senior School (Ages 14 to 18) for GCSEs and A-Levels. The same teachers, the same ethos, the same expectation of excellence. The transition is seamless because your child is already known.
+      </p>
+      <a href="/academics/senior-school" class="whisper-link">Discover Senior School</a>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Come and See</h2>
+      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+        Watch a lesson, meet the teachers, see how the Prep School runs. We welcome families to arrange a personalised tour of our Pondok Indah campus.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/admissions/arrange-a-tour"
+          class="inline-flex items-center px-7 py-2.5 border border-navy bg-navy text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy-light transition-colors duration-[var(--transition-base)]"
+        >
+          Arrange a Tour
+        </a>
+        <a href="/admissions/virtual-tour" class="whisper-link">Take the virtual tour</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
