@@ -1,7 +1,9 @@
 ---
+import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
+import Testimonial from '../../components/Testimonial.astro';
 ---
 
 <BaseLayout
@@ -15,7 +17,7 @@ import SectionIntro from '../../components/SectionIntro.astro';
     imageSrc="/images/bursaries-hero.jpg"
     imageAlt="Children at The Independent School of Jakarta"
     aspectRatio="standard"
-    objectPosition="center 40%"
+    objectPosition="center 35%"
   />
 
   <!-- ═══════ Introduction ═══════ -->
@@ -30,91 +32,110 @@ import SectionIntro from '../../components/SectionIntro.astro';
     </SectionIntro>
   </section>
 
-  <!-- ═══════ Global Continuity Bursary ═══════ -->
+  <!-- ═══════ Global Continuity Bursary — Asymmetric Split ═══════ -->
   <section class="px-6 pb-[var(--space-section)]">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-
-      <div class="reveal">
-        <p class="label mb-6">For Expatriate Families</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Global Continuity Bursary</h2>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-          The Global Continuity Bursary provides financial assistance to expatriate families who are a strong fit for the ISJ community but find full tuition fees a significant hurdle. It is specifically intended for families on "Local-Plus" contracts, the self-employed, or those privately funding their children's education.
-        </p>
-
-        <h3 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Eligibility</h3>
-        <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
-          <li>At least one parent or guardian must hold a non-Indonesian passport and a valid KITAS</li>
-          <li>Families must demonstrate that tuition fees are paid privately, without a full educational allowance from an employer</li>
-          <li>Pupils must meet the standard admissions requirements and show a commitment to contributing to school life</li>
-          <li>Preference is given to families who require a British curriculum to ensure seamless future transitions to their home country or international hubs</li>
-        </ul>
-
-        <h3 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Assessment</h3>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-4">
-          The bursary is means-tested. Support levels are determined by a confidential review of the family's financial profile, including:
-        </p>
-        <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
-          <li>Gross household income and liquid assets</li>
-          <li>The proportion of net income required to pay full fees</li>
-          <li>Relocation expenses and the local cost of living</li>
-          <li>Number of siblings enrolled at ISJ</li>
-        </ul>
-
-        <h3 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Terms</h3>
-        <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-          <li>Both the school and the recipient agree to keep the existence and amount of any bursary strictly confidential</li>
-          <li>Awards are typically granted for one academic year and reviewed annually</li>
-          <li>The bursary applies to annual tuition fees only, and does not cover uniforms, transport, or optional school trips unless explicitly stated</li>
-        </ul>
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start reveal">
+        <div>
+          <p class="label label-gold mb-4">For Expatriate Families</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Global Continuity Bursary</h2>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
+            Financial assistance for expatriate families who are a strong fit for the ISJ community but find full tuition fees a significant hurdle. Specifically intended for families on "Local-Plus" contracts, the self-employed, or those privately funding their children's education.
+          </p>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            The bursary is means-tested. Support levels are determined by a confidential review of each family's financial profile. Both the school and the recipient agree to keep the existence and amount of any award strictly confidential.
+          </p>
+        </div>
+        <div class="lg:mt-12">
+          <p class="text-[length:var(--text-sm)] text-navy font-medium mb-4">Eligibility</p>
+          <div class="space-y-0">
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              At least one parent holds a non-Indonesian passport and valid KITAS
+            </div>
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              Fees are paid privately, without a full employer educational allowance
+            </div>
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              The child meets standard admissions requirements
+            </div>
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              The family requires a British curriculum for future transitions
+            </div>
+          </div>
+          <p class="text-[length:var(--text-sm)] text-navy font-medium mt-8 mb-4">Assessment considers</p>
+          <div class="space-y-0">
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              Household income and liquid assets
+            </div>
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              Proportion of net income required for full fees
+            </div>
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              Relocation costs and Jakarta cost of living
+            </div>
+            <div class="py-3 border-b border-charcoal/5 text-[length:var(--text-base)] text-charcoal-light">
+              Number of siblings enrolled at ISJ
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══════ Ki Hajar Dewantara Scholarship ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="A warm, family-like environment."
+    attribution="ISJ Parent, Annual Survey 2025"
+  />
 
-      <div class="reveal">
-        <p class="label mb-6">For Indonesian Families</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">The Ki Hajar Dewantara Scholarship</h2>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-          Named in honour of Indonesia's national education hero, Ki Hajar Dewantara (1889-1959), who founded the Taman Siswa movement and championed the idea that education should be accessible to all, regardless of background. This scholarship supports access for Indonesian families.
-        </p>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-          Awarded to Indonesian pupils who demonstrate high academic potential but lack the financial means to attend. It reflects ISJ's commitment to widening access in Jakarta.
-        </p>
-
-        <div class="space-y-0 mb-8">
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-base)] text-navy">Eligibility</span>
-            <span class="text-[length:var(--text-base)] text-charcoal-light">Indonesian citizens only</span>
-          </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-base)] text-navy">Award</span>
-            <span class="text-[length:var(--text-base)] text-charcoal-light">Up to 100% fee relief</span>
-          </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-base)] text-navy">Selection</span>
-            <span class="text-[length:var(--text-base)] text-charcoal-light">Assessment and academic review</span>
-          </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-base)] text-navy">Means-tested</span>
-            <span class="text-[length:var(--text-base)] text-charcoal-light">Assessed on family circumstances</span>
-          </div>
+  <!-- ═══════ Ki Hajar Dewantara Scholarship — Full-width Feature ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center reveal">
+        <div class="lg:col-span-3">
+          <p class="label label-gold mb-4">For Indonesian Families</p>
+          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">The Ki Hajar Dewantara Scholarship</h2>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
+            Named in honour of Indonesia's national education hero, Ki Hajar Dewantara (1889-1959), who founded the Taman Siswa movement and championed the idea that education should be accessible to all, regardless of background.
+          </p>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            Awarded to Indonesian pupils who demonstrate high academic potential but lack the financial means to attend. This scholarship reflects ISJ's commitment to widening access in Jakarta.
+          </p>
         </div>
-        <p class="text-[length:var(--text-xs)] text-charcoal-muted">Limited places available each year.</p>
+        <div class="lg:col-span-2">
+          <div class="space-y-0">
+            <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+              <span class="text-[length:var(--text-base)] text-navy">Eligibility</span>
+              <span class="text-[length:var(--text-base)] text-charcoal-light">Indonesian citizens</span>
+            </div>
+            <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+              <span class="text-[length:var(--text-base)] text-navy">Award</span>
+              <span class="text-[length:var(--text-base)] text-charcoal-light">Up to 100% fee relief</span>
+            </div>
+            <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+              <span class="text-[length:var(--text-base)] text-navy">Selection</span>
+              <span class="text-[length:var(--text-base)] text-charcoal-light">Assessment and academic review</span>
+            </div>
+            <div class="flex justify-between items-baseline py-4 border-b border-charcoal/5">
+              <span class="text-[length:var(--text-base)] text-navy">Means-tested</span>
+              <span class="text-[length:var(--text-base)] text-charcoal-light">Family circumstances</span>
+            </div>
+          </div>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-4">Limited places available each year.</p>
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- ═══════ Contact ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
-      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-        Contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href="https://wa.me/6281110007672" class="whisper-link">+62 811 1000 7672</a> to start a confidential conversation about eligibility.
-      </p>
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal text-center">
+        <p class="label mb-6">Confidential Enquiries</p>
+        <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          Contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href="https://wa.me/6281110007672" class="whisper-link">+62 811 1000 7672</a> to start a confidential conversation about eligibility.
+        </p>
+      </div>
     </div>
   </section>
 
