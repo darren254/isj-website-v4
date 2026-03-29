@@ -1,0 +1,174 @@
+---
+import { asset } from '../../utils/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+---
+
+<BaseLayout
+  title="Campus & Facilities | ISJ Pondok Indah"
+  description="Explore ISJ's campus in Pondok Indah. Swimming pool, football pitch, theatre, creative arts spaces, and outdoor learning areas in South Jakarta."
+  canonicalUrl="/school-life/campus"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/campus-aerial.jpg"
+    imageAlt="Aerial view of ISJ campus in Pondok Indah"
+    aspectRatio="standard"
+    objectPosition="center 40%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="School Life"
+      heading="Our Campus"
+    >
+      <p>
+        ISJ is set in Pondok Indah, one of South Jakarta's most established residential areas. The campus has the space and facilities for children to learn, play, and grow from age 2 to 18.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Image Grid ═══════ -->
+  <section class="px-6 pb-24">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+
+      <!-- Swimming Pool — full width -->
+      <div class="reveal mb-4">
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/swimming-pool.jpg')}
+            alt="25-metre swimming pool at ISJ"
+            loading="lazy"
+            class="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+        <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">25-Metre Swimming Pool</p>
+      </div>
+
+      <!-- Two-up: Football Pitch + Playground -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="reveal">
+          <div class="overflow-hidden">
+            <img
+              src={asset('/images/football-pitch.jpg')}
+              alt="Full-size football pitch at ISJ"
+              loading="lazy"
+              class="w-full aspect-[4/3] object-cover"
+            />
+          </div>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">Football Pitch</p>
+        </div>
+        <div class="reveal">
+          <div class="overflow-hidden">
+            <img
+              src={asset('/images/playground.jpg')}
+              alt="Outdoor play area for younger children"
+              loading="lazy"
+              class="w-full aspect-[4/3] object-cover"
+            />
+          </div>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">Outdoor Play</p>
+        </div>
+      </div>
+
+      <!-- Two-up: Art + Science -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="reveal">
+          <div class="overflow-hidden">
+            <img
+              src={asset('/images/art-class.jpg')}
+              alt="Children in the art studio at ISJ"
+              loading="lazy"
+              class="w-full aspect-[4/3] object-cover"
+            />
+          </div>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">Creative Arts</p>
+        </div>
+        <div class="reveal">
+          <div class="overflow-hidden">
+            <img
+              src={asset('/images/science-experiment.jpg')}
+              alt="Science experiment in the classroom"
+              loading="lazy"
+              class="w-full aspect-[4/3] object-cover"
+            />
+          </div>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">Science</p>
+        </div>
+      </div>
+
+      <!-- Choir / Performance — full width -->
+      <div class="reveal mb-4">
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/choir.jpg')}
+            alt="School choir performing at ISJ"
+            loading="lazy"
+            class="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+        <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">Theatre and Performance</p>
+      </div>
+
+      <!-- Rugby — full width -->
+      <div class="reveal">
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/rugby.jpg')}
+            alt="Rugby on the playing fields at ISJ"
+            loading="lazy"
+            class="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+        <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3 tracking-wide uppercase">Sport</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ Facilities List ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-lg">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 reveal">
+        <div>
+          <p class="label mb-6">Academic</p>
+          <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            <li>Purpose-built classrooms</li>
+            <li>Science laboratory</li>
+            <li>Art studio</li>
+            <li>Music room</li>
+            <li>Library</li>
+            <li>Theatre</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label mb-6">Sport and Outdoor</p>
+          <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            <li>25-metre swimming pool</li>
+            <li>Full-size football pitch</li>
+            <li>Gymnasium (new build underway)</li>
+            <li>Outdoor play areas</li>
+            <li>Bouldering wall</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ New Campus ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-6">Looking Ahead</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          A dedicated secondary campus opens in 2028, 300 metres from the current site. Purpose-built for GCSEs and A-Levels, with the facilities and spaces that older students need.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
