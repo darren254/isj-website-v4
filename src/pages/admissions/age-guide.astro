@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import CTABlock from '../../components/CTABlock.astro';
+
+const yearGroups = [
+  { phase: 'Pre-Prep', rows: [
+    { year: 'Pre-Nursery', age: '2', dob: 'Born before 1 Sep 2024' },
+    { year: 'Nursery', age: '3', dob: 'Born before 1 Sep 2023' },
+    { year: 'Reception', age: '4', dob: 'Born before 1 Sep 2022' },
+  ]},
+  { phase: 'Prep School', rows: [
+    { year: 'Year 1', age: '5', dob: 'Born before 1 Sep 2021' },
+    { year: 'Year 2', age: '6', dob: 'Born before 1 Sep 2020' },
+    { year: 'Year 3', age: '7', dob: 'Born before 1 Sep 2019' },
+    { year: 'Year 4', age: '8', dob: 'Born before 1 Sep 2018' },
+    { year: 'Year 5', age: '9', dob: 'Born before 1 Sep 2017' },
+    { year: 'Year 6', age: '10', dob: 'Born before 1 Sep 2016' },
+  ]},
+  { phase: 'Senior School', rows: [
+    { year: 'Year 7', age: '11', dob: 'Born before 1 Sep 2015' },
+    { year: 'Year 8', age: '12', dob: 'Born before 1 Sep 2014' },
+    { year: 'Year 9', age: '13', dob: 'Born before 1 Sep 2013' },
+    { year: 'Year 10 (GCSE)', age: '14', dob: 'Born before 1 Sep 2012' },
+    { year: 'Year 11 (GCSE)', age: '15', dob: 'Born before 1 Sep 2011' },
+    { year: 'Year 12 (A-Level)', age: '16', dob: 'Born before 1 Sep 2010' },
+    { year: 'Year 13 (A-Level)', age: '17', dob: 'Born before 1 Sep 2009' },
+  ]},
+];
+---
+
+<BaseLayout
+  title="Age Guide & Entry Points | ISJ Jakarta"
+  description="Find the right year group for your child at ISJ. Age guide from Pre-Nursery to Year 13 with September 1st cutoff dates for the 2026/27 academic year."
+  canonicalUrl="/admissions/age-guide"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/pre-prep.jpg"
+    imageAlt="Young children at The Independent School of Jakarta"
+    aspectRatio="standard"
+    objectPosition="center 40%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Admissions"
+      heading="Age Guide"
+    >
+      <p>
+        Children are placed in year groups by age, using a 1 September cutoff. The table below shows which year group your child would enter for the 2026/27 academic year.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Age Tables ═══════ -->
+  {yearGroups.map(({ phase, rows }) => (
+    <section class="px-6 pb-20">
+      <div class="mx-auto max-w-lg reveal">
+        <p class="label mb-8">{phase}</p>
+        <div class="space-y-0">
+          {rows.map((row) => (
+            <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+              <div>
+                <span class="text-[length:var(--text-base)] text-navy">{row.year}</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[length:var(--text-base)] text-charcoal">Age {row.age}+</span>
+                <span class="text-[length:var(--text-xs)] text-charcoal-light ml-3 hidden sm:inline">{row.dob}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ═══════ Notes ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-lg">
+
+      <div class="reveal mb-16">
+        <p class="label mb-6">Flexibility</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          If your child's birthday falls close to the cutoff, or if they are transferring from a school with a different age structure, our admissions team can advise on the best year group. We consider each child individually.
+        </p>
+      </div>
+
+      <div class="reveal mb-16">
+        <p class="label mb-6">Entry Points</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          The main entry points are Pre-Nursery, Reception, Year 7, and Year 12. However, places may be available in any year group, and we welcome mid-year transfers.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <p class="label mb-6">Assessment</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children complete an age-appropriate assessment in literacy, numeracy, and reasoning.
+        </p>
+        <a href="/admissions/how-to-apply" class="whisper-link mt-4 inline-block">Read more about how to apply</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ CTA ═══════ -->
+  <CTABlock
+    heading="Ready to Visit?"
+    description="See the school for yourself and meet the teachers."
+    primaryText="Arrange a Tour"
+    primaryHref="/admissions/arrange-a-tour"
+    secondaryText="View fees"
+    secondaryHref="/admissions/fees"
+  />
+
+</BaseLayout>

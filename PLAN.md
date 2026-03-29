@@ -54,7 +54,7 @@ The pages that need to exist before launch. Ordered by conversion impact.
 | 6 | Arrange a Tour | `/admissions/arrange-a-tour` | DONE | Primary conversion page — form uses mailto fallback until Cloudflare Workers |
 | 7 | Fees | `/admissions/fees` | DONE | High-intent page |
 | 8 | How to Apply | `/admissions/how-to-apply` | DONE | |
-| 9 | Age Guide | `/admissions/age-guide` | TODO | |
+| 9 | Age Guide | `/admissions/age-guide` | DONE | |
 | 10 | Contact | `/contact` | TODO | Needs form + map |
 | 11 | FAQs | `/faqs` | TODO | Accordion component, FAQPage schema |
 | 12 | Campus & Facilities | `/school-life/campus` | TODO | Image-heavy |
