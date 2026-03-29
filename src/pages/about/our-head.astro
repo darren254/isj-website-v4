@@ -1,0 +1,162 @@
+---
+import { asset } from '../../utils/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import Testimonial from '../../components/Testimonial.astro';
+---
+
+<BaseLayout
+  title="Eileen Fisher, Academic Director | ISJ Jakarta"
+  description="Eileen Fisher leads ISJ with 31 years of experience across three continents. Edinburgh-born, ISI inspector, and known for her open-door approach to every family."
+  canonicalUrl="/about/our-head"
+>
+
+  <!-- ═══════ Portrait Hero ═══════ -->
+  <section class="pt-[var(--space-section)] pb-[var(--space-lg)] px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start reveal">
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/eileen-fisher.jpg')}
+            alt="Eileen Fisher, Academic Director of ISJ, with two pupils"
+            loading="eager"
+            decoding="async"
+            class="w-full aspect-[3/4] object-cover object-top"
+          />
+        </div>
+        <div class="lg:pt-12">
+          <p class="label label-gold mb-4">Academic Director</p>
+          <h1 class="font-heading text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Eileen Fisher</h1>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Edinburgh-born, with 31 years in education and a career spanning three continents. Eileen joined ISJ in 2024 after leading schools in England, China, and Egypt. She holds a B.Ed in English (Hons) from the University of Chichester and is an accredited inspector for both the Independent Schools Inspectorate (ISI) and Penta International.
+            </p>
+            <p>
+              At ISJ, she knows every child by name, every family by story. Her door is genuinely open to every parent, every day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Philosophy ═══════ -->
+  <section class="section-pad px-6 bg-cream">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal text-center">
+        <p class="label mb-6">In Eileen's Words</p>
+        <blockquote class="font-heading text-[length:var(--text-xl)] md:text-[length:var(--text-2xl)] font-light text-navy leading-[1.25] mb-8">
+          "As parents, you want your child to enjoy a joyful and fulfilled childhood. One which is full of happy memories, nature, and adventures, and one which does not end too soon."
+        </blockquote>
+        <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase">
+          From the Head's Welcome Letter
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Career ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start reveal">
+        <div>
+          <p class="label mb-5">Career</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Three Continents, One Vocation</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Eileen spent a decade as Head of the Preparatory School at Woolverstone Hall, part of Ipswich High School, one of England's leading co-educational independent schools. She went on to become Founding Head of Craigclowan Prep in Xi'an, China, and later led the Junior School at The British International School in Cairo.
+            </p>
+            <p>
+              Earlier in her career, she held senior positions at Queen's College, London, and Ipswich High School. As Chair of the Prep Heads' Committee for the Girls' Day School Trust (GDST), she mentored Preparatory School Heads across the United Kingdom.
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="label mb-5">Approach</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">How Children Learn Best</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Eileen believes children learn best in environments that are safe, stimulating, and joyful. At ISJ, that translates into classrooms where children are encouraged to use their imagination, think creatively, and explore the world around them.
+            </p>
+            <p>
+              Academic ambition runs high, but so does breadth. Sport, outdoor learning, creative arts, and character development sit alongside rigorous academics. The goal is a child who can think for themselves, not one who has been told what to think.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed image ═══════ -->
+  <ImageBlock
+    src="/images/teacher-pupils.jpg"
+    alt="ISJ teacher working with pupils in a classroom at Pondok Indah"
+    aspectRatio="cinematic"
+  />
+
+  <!-- ═══════ What Sets Her Apart ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 reveal">
+        <div>
+          <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy leading-[1.15] mb-4">Inspector's Eye</h3>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            As an accredited ISI and Penta inspector, Eileen understands what the best schools in the world look like from the inside. She applies that standard at ISJ every day.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy leading-[1.15] mb-4">Open Door</h3>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            Parents at ISJ are not kept at arm's length. Eileen makes herself available for conversations about your child's progress, wellbeing, or anything on your mind. That accessibility defines the culture of the school.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy leading-[1.15] mb-4">Results</h3>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            Under Eileen's leadership, ISJ pupils score in the top 10% of international schools globally in independent standardised assessments. Academic standards are high because expectations are high.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Testimonial ═══════ -->
+  <Testimonial
+    quote="High-calibre teaching staff with strong subject knowledge and a real commitment to pupils' learning and wellbeing."
+    attribution="ISJ Parent, Annual Survey 2025"
+  />
+
+  <!-- ═══════ Second Philosophy Quote ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal text-center">
+        <blockquote class="font-heading text-[length:var(--text-xl)] md:text-[length:var(--text-2xl)] font-light text-navy leading-[1.25] mb-6">
+          "Most importantly, children at ISJ learn how to think, not what to think."
+        </blockquote>
+        <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase">
+          Eileen Fisher
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Contact ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal text-center">
+        <p class="label mb-6">Get in Touch</p>
+        <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
+          Eileen welcomes direct conversations with prospective families. To arrange a meeting or ask a question, contact the admissions team.
+        </p>
+        <a
+          href="/admissions/arrange-a-tour"
+          class="inline-flex items-center px-8 py-3 border border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)]"
+        >
+          Arrange a Tour
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
