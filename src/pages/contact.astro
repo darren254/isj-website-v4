@@ -158,14 +158,14 @@ import SectionIntro from '../components/SectionIntro.astro';
     var mapEl = document.getElementById('contact-map');
     if (!mapEl || typeof L === 'undefined') return;
 
-    // ISJ at -6.2907. Offset centre north so ISJ sits at ~25% from bottom.
-    // At zoom 14, ~0.015 degrees shift places ISJ in the lower quarter.
+    // ISJ at -6.2907. Centre the map NORTH of ISJ so ISJ appears in the lower quarter.
+    // More negative lat = further south. We want centre further north = less negative.
     var isjLat = -6.290732;
     var isjLng = 106.783835;
-    var centreOffset = 0.013;
+    var centreOffset = 0.012;
 
     var map = L.map('contact-map', {
-      center: [isjLat - centreOffset, isjLng],
+      center: [isjLat + centreOffset, isjLng],
       zoom: 14,
       zoomControl: false,
       attributionControl: false,
