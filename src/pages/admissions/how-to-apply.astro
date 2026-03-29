@@ -1,0 +1,128 @@
+---
+import { asset } from '../../utils/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import CTABlock from '../../components/CTABlock.astro';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Get in Touch',
+    body: 'Contact our admissions team by email, phone, or WhatsApp. Tell us about your family and your child. We will answer any questions you have about the school.',
+  },
+  {
+    number: '02',
+    title: 'Visit the School',
+    body: 'We will arrange a personalised tour so you can see ISJ for yourself, meet the teachers, and watch a lesson in progress. For families overseas, we offer live video tours.',
+  },
+  {
+    number: '03',
+    title: 'Submit Your Application',
+    body: 'Complete the application form and pay the application fee (IDR 4,680,000). We accept applications up to two years in advance, and mid-year transfers are welcome.',
+  },
+  {
+    number: '04',
+    title: 'Assessment',
+    body: 'For Pre-Nursery, Nursery, and Reception there is no formal assessment. From Year 1, your child will complete an age-appropriate assessment in literacy, numeracy, and reasoning. We are looking for children who can access the curriculum and thrive at ISJ.',
+  },
+  {
+    number: '05',
+    title: 'Offer and Enrolment',
+    body: 'If ISJ is the right fit, we will send an offer letter. Confirm your place with the enrolment deposit (IDR 16,328,000, refundable on departure).',
+  },
+];
+---
+
+<BaseLayout
+  title="How to Apply | Admissions | ISJ Jakarta"
+  description="Follow our simple five-step admissions process to apply to ISJ. Learn about entry requirements, assessments, and how to enrol your child."
+  canonicalUrl="/admissions/how-to-apply"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/father-daughter.jpg"
+    imageAlt="A father and daughter at The Independent School of Jakarta"
+    aspectRatio="standard"
+    objectPosition="center 30%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro
+      label="Admissions"
+      heading="How to Apply"
+    >
+      <p>
+        Five steps from first enquiry to your child's first day.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Steps ═══════ -->
+  <section class="px-6 pb-24">
+    <div class="mx-auto max-w-lg">
+      {steps.map((step, i) => (
+        <div class={`reveal ${i > 0 ? 'mt-16' : ''}`}>
+          <span class="font-heading text-[length:var(--text-2xl)] font-light text-gold/60 leading-none">{step.number}</span>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-3 mb-4">{step.title}</h2>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            {step.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed Image ═══════ -->
+  <ImageBlock
+    src="/images/playground.jpg"
+    alt="Children playing at ISJ Pondok Indah"
+  />
+
+  <!-- ═══════ Key Details ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-lg">
+
+      <div class="reveal mb-16">
+        <p class="label mb-6">Entry Points</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          We welcome children from age 2 (Pre-Nursery) through to Year 13 (A-Levels). The main entry points are Pre-Nursery, Reception, Year 7, and Year 12, but places may be available in any year group.
+        </p>
+        <a href="/admissions/age-guide" class="whisper-link mt-4 inline-block">View the Age Guide</a>
+      </div>
+
+      <div class="reveal mb-16">
+        <p class="label mb-6">Documents You Will Need</p>
+        <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          <li>Completed application form</li>
+          <li>Copy of your child's passport</li>
+          <li>Recent school reports (if applicable)</li>
+          <li>Birth certificate</li>
+          <li>Passport-sized photographs</li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <p class="label mb-6">Questions?</p>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Our admissions team is here to help at every stage. Get in touch by email at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or call <a href="tel:+622127826788" class="whisper-link">+62 21-2782-6788</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ CTA ═══════ -->
+  <CTABlock
+    heading="Ready to Visit?"
+    description="The best first step is to see the school for yourself."
+    primaryText="Arrange a Tour"
+    primaryHref="/admissions/arrange-a-tour"
+    secondaryText="View fees"
+    secondaryHref="/admissions/fees"
+  />
+
+</BaseLayout>
