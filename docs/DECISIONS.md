@@ -19,3 +19,4 @@ Settled decisions. Don't re-debate these.
 | 13 | **Staff profiles: Eileen Fisher only prominent** | Other staff: limited info, no images, careful with names. Jakarta security context. | 2026-03-22 |
 | 14 | **SEO-first architecture** | Every page has keywords, meta, schema defined before content is written. Architecture doc is source of truth. | 2026-03-22 |
 | 15 | **Never praise Darren** | No compliments, no flattery. Just do the work. | 2026-03-22 |
+| 16 | **Warm stone footer (#E8E4DD)** | Replaces dark charcoal #1E1D1B. Navy text on warm stone. Lighter, more consistent with Aman-inspired cream aesthetic. | 2026-03-29 |
