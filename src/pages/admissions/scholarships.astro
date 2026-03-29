@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+---
+
+<BaseLayout
+  title="Scholarships & Bursaries | ISJ Jakarta"
+  description="Explore academic scholarships and means-tested bursaries at ISJ. Making a British education accessible to outstanding students."
+  canonicalUrl="/admissions/scholarships"
+>
+
+  <section class="pt-32 lg:pt-40 section-pad px-6">
+    <SectionIntro
+      label="Admissions"
+      heading="Scholarships and Bursaries"
+    >
+      <p>
+        ISJ is committed to making a British education accessible to outstanding students. Scholarship and bursary opportunities are available for families who meet the eligibility criteria.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="space-y-12">
+
+        <div class="reveal">
+          <p class="label mb-6">Academic Scholarships</p>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            Academic scholarships recognise exceptional ability and potential. They are awarded on merit and may cover a percentage of tuition fees. Eligibility, assessment criteria, and application deadlines are available from the admissions team.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <p class="label mb-6">Bursaries</p>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            Means-tested bursaries are available to families who would benefit from financial assistance. Bursary awards are assessed individually and treated in confidence.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <p class="label mb-6">How to Apply</p>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            To discuss scholarship or bursary options, contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or call <a href="tel:+622127826788" class="whisper-link">+62 21-2782-6788</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -49,8 +49,8 @@ The pages that need to exist before launch. Ordered by conversion impact.
 | 1 | Homepage | `/` | DONE | |
 | 2 | Why ISJ | `/about/why-isj` | DONE | |
 | 3 | Pre-Prep | `/academics/pre-prep` | DONE | |
-| 4 | Prep School | `/academics/prep-school` | TODO | |
-| 5 | Senior School | `/academics/senior-school` | TODO | Biggest SEO opportunity |
+| 4 | Prep School | `/academics/prep-school` | DONE | |
+| 5 | Senior School | `/academics/senior-school` | DONE | Biggest SEO opportunity |
 | 6 | Arrange a Tour | `/admissions/arrange-a-tour` | DONE | Primary conversion page — form uses mailto fallback until Cloudflare Workers |
 | 7 | Fees | `/admissions/fees` | DONE | High-intent page |
 | 8 | How to Apply | `/admissions/how-to-apply` | DONE | |
@@ -58,14 +58,14 @@ The pages that need to exist before launch. Ordered by conversion impact.
 | 10 | Contact | `/contact` | DONE | Needs form + map |
 | 11 | FAQs | `/faqs` | DONE | Accordion component, FAQPage schema |
 | 12 | Campus & Facilities | `/school-life/campus` | DONE | Image-heavy |
-| 13 | Insights Hub | `/insights` | TODO | Blog listing layout |
-| 14 | News Hub | `/news` | TODO | News listing layout |
-| 15 | School Policies | `/policies` | TODO | Index page |
-| 16 | Privacy Policy | `/privacy` | TODO | Legal |
-| 17 | Terms of Service | `/terms` | TODO | Legal |
-| 18 | Cookie Policy | `/cookies` | TODO | Legal |
-| 19 | Scholarships & Bursaries | `/admissions/scholarships` | TODO | |
-| 20 | Admissions T&Cs | `/admissions/terms-and-conditions` | TODO | |
+| 13 | Insights Hub | `/insights` | DONE | Blog listing layout |
+| 14 | News Hub | `/news` | DONE | News listing layout |
+| 15 | School Policies | `/policies` | DONE | Index page |
+| 16 | Privacy Policy | `/privacy` | DONE | Legal |
+| 17 | Terms of Service | `/terms` | DONE | Legal |
+| 18 | Cookie Policy | `/cookies` | DONE | Legal |
+| 19 | Scholarships & Bursaries | `/admissions/scholarships` | DONE | |
+| 20 | Admissions T&Cs | `/admissions/terms-and-conditions` | DONE | |
 
 ### Phase 2 — Depth Pages (P2)
 Add depth and SEO coverage after core is solid.
