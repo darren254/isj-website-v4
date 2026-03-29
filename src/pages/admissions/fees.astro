@@ -5,30 +5,36 @@ import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
 import CTABlock from '../../components/CTABlock.astro';
 
-const fees = {
-  'Pre-Prep': [
-    { year: 'Pre-Nursery', ages: 'Age 2+', annual: '148,524,000', perTerm: '50,993,240' },
-    { year: 'Nursery', ages: 'Age 3+', annual: '173,277,795', perTerm: '59,492,043' },
-    { year: 'Reception', ages: 'Age 4+', annual: '289,357,440', perTerm: '99,346,054' },
-  ],
-  'Prep School': [
-    { year: 'Year 1', ages: 'Age 5+', annual: '419,702,400', perTerm: '144,097,824' },
-    { year: 'Year 2', ages: 'Age 6+', annual: '419,702,400', perTerm: '144,097,824' },
-    { year: 'Year 3', ages: 'Age 7+', annual: '437,819,200', perTerm: '150,317,925' },
-    { year: 'Year 4', ages: 'Age 8+', annual: '437,819,200', perTerm: '150,317,925' },
-    { year: 'Year 5', ages: 'Age 9+', annual: '464,984,000', perTerm: '159,644,507' },
-    { year: 'Year 6', ages: 'Age 10+', annual: '464,984,000', perTerm: '159,644,507' },
-  ],
-  'Senior School': [
-    { year: 'Year 7', ages: 'Age 11+', annual: '484,733,600', perTerm: '166,425,203' },
-    { year: 'Year 8', ages: 'Age 12+', annual: '484,733,600', perTerm: '166,425,203' },
-    { year: 'Year 9', ages: 'Age 13+', annual: '484,733,600', perTerm: '166,425,203' },
-    { year: 'Year 10 (GCSE)', ages: 'Age 14+', annual: '484,733,600', perTerm: '166,425,203' },
-    { year: 'Year 11 (GCSE)', ages: 'Age 15+', annual: '484,733,600', perTerm: '166,425,203' },
-    { year: 'Year 12 (A-Level)', ages: 'Age 16+', annual: '493,787,700', perTerm: '169,533,777' },
-    { year: 'Year 13 (A-Level)', ages: 'Age 17+', annual: '504,957,600', perTerm: '173,368,776' },
-  ],
-};
+const prePrep = [
+  { year: 'Pre-Nursery', ages: 'Age 2+', annual: '148,524,000', perTerm: '50,993,240' },
+  { year: 'Nursery', ages: 'Age 3+', annual: '173,277,795', perTerm: '59,492,043' },
+  { year: 'Reception', ages: 'Age 4+', annual: '289,357,440', perTerm: '99,346,054' },
+];
+
+const prep = [
+  { year: 'Year 1', ages: 'Age 5+', annual: '419,702,400', perTerm: '144,097,824' },
+  { year: 'Year 2', ages: 'Age 6+', annual: '419,702,400', perTerm: '144,097,824' },
+  { year: 'Year 3', ages: 'Age 7+', annual: '437,819,200', perTerm: '150,317,925' },
+  { year: 'Year 4', ages: 'Age 8+', annual: '437,819,200', perTerm: '150,317,925' },
+  { year: 'Year 5', ages: 'Age 9+', annual: '464,984,000', perTerm: '159,644,507' },
+  { year: 'Year 6', ages: 'Age 10+', annual: '464,984,000', perTerm: '159,644,507' },
+];
+
+const senior = [
+  { year: 'Year 7', ages: 'Age 11+', annual: '484,733,600', perTerm: '166,425,203' },
+  { year: 'Year 8', ages: 'Age 12+', annual: '484,733,600', perTerm: '166,425,203' },
+  { year: 'Year 9', ages: 'Age 13+', annual: '484,733,600', perTerm: '166,425,203' },
+  { year: 'Year 10 (GCSE)', ages: 'Age 14+', annual: '484,733,600', perTerm: '166,425,203' },
+  { year: 'Year 11 (GCSE)', ages: 'Age 15+', annual: '484,733,600', perTerm: '166,425,203' },
+  { year: 'Year 12 (A-Level)', ages: 'Age 16+', annual: '493,787,700', perTerm: '169,533,777' },
+  { year: 'Year 13 (A-Level)', ages: 'Age 17+', annual: '504,957,600', perTerm: '173,368,776' },
+];
+
+const phases = [
+  { name: 'Pre-Prep', rows: prePrep },
+  { name: 'Prep School', rows: prep },
+  { name: 'Senior School', rows: senior },
+];
 ---
 
 <BaseLayout
@@ -52,163 +58,116 @@ const fees = {
       heading="Tuition Fees 2026/27"
     >
       <p>
-        All fees are quoted in Indonesian Rupiah (IDR) for the 2026/27 academic year. Fees are payable annually or termly (three terms per year).
+        All fees are in Indonesian Rupiah (IDR) for the 2026/27 academic year. Payable annually or by term.
       </p>
     </SectionIntro>
   </section>
 
   <!-- ═══════ Fee Tables ═══════ -->
-  {Object.entries(fees).map(([phase, rows]) => (
-    <section class="px-6 pb-16">
-      <div class="mx-auto max-w-[var(--content-wide)]">
-        <div class="reveal">
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy mb-8">{phase}</h2>
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead>
-                <tr class="border-b border-navy/15">
-                  <th class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy/60 pb-3 pr-4">Year Group</th>
-                  <th class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy/60 pb-3 pr-4 hidden sm:table-cell">Ages</th>
-                  <th class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy/60 pb-3 pr-4 text-right">Annual (IDR)</th>
-                  <th class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy/60 pb-3 text-right">Per Term (IDR)</th>
+  {phases.map(({ name, rows }) => (
+    <section class="px-6 pb-20">
+      <div class="mx-auto max-w-[var(--content-wide)] pr-16 lg:pr-20 reveal">
+        <p class="label mb-6">{name}</p>
+        <div class="overflow-x-auto -mx-6 px-6">
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-left text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 pr-6 w-[30%]">Year Group</th>
+                <th class="text-left text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 pr-6 hidden sm:table-cell w-[15%]">Ages</th>
+                <th class="text-right text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 pr-6 w-[27.5%]">Annual (IDR)</th>
+                <th class="text-right text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 w-[27.5%]">Per Term (IDR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr class={i === 0 ? 'border-t border-navy/10' : ''}>
+                  <td class="text-[length:var(--text-base)] text-navy py-3.5 pr-6 font-medium">{row.year}</td>
+                  <td class="text-[length:var(--text-sm)] text-charcoal-light py-3.5 pr-6 hidden sm:table-cell">{row.ages}</td>
+                  <td class="text-[length:var(--text-base)] text-charcoal py-3.5 pr-6 text-right tabular-nums font-light">{row.annual}</td>
+                  <td class="text-[length:var(--text-sm)] text-charcoal-light py-3.5 text-right tabular-nums">{row.perTerm}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr class="border-b border-charcoal/8">
-                    <td class="text-[length:var(--text-base)] text-navy py-4 pr-4 font-medium">{row.year}</td>
-                    <td class="text-[length:var(--text-sm)] text-charcoal-light py-4 pr-4 hidden sm:table-cell">{row.ages}</td>
-                    <td class="text-[length:var(--text-base)] text-charcoal py-4 pr-4 text-right tabular-nums">{row.annual}</td>
-                    <td class="text-[length:var(--text-base)] text-charcoal-light py-4 text-right tabular-nums">{row.perTerm}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
   ))}
 
-  <!-- ═══════ Additional Fees ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-
-        <div class="reveal">
-          <p class="label mb-5">One-Off Fees</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Application and Enrolment</h2>
-          <div class="space-y-4">
-            <div class="flex justify-between items-baseline border-b border-charcoal/8 pb-3">
-              <span class="text-[length:var(--text-base)] text-navy">Application Fee</span>
-              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">IDR 4,680,000</span>
-            </div>
-            <div class="flex justify-between items-baseline border-b border-charcoal/8 pb-3">
-              <span class="text-[length:var(--text-base)] text-navy">Enrolment Deposit</span>
-              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">IDR 16,328,000</span>
-            </div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed pt-2">
-              The application fee is non-refundable. The enrolment deposit is refundable on departure from the school.
-            </p>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <p class="label mb-5">Sibling Discounts</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Families with Multiple Children</h2>
-          <div class="space-y-4">
-            <div class="flex justify-between items-baseline border-b border-charcoal/8 pb-3">
-              <span class="text-[length:var(--text-base)] text-navy">3rd child</span>
-              <span class="text-[length:var(--text-base)] text-charcoal">5% discount</span>
-            </div>
-            <div class="flex justify-between items-baseline border-b border-charcoal/8 pb-3">
-              <span class="text-[length:var(--text-base)] text-navy">4th child</span>
-              <span class="text-[length:var(--text-base)] text-charcoal">10% discount</span>
-            </div>
-            <div class="flex justify-between items-baseline border-b border-charcoal/8 pb-3">
-              <span class="text-[length:var(--text-base)] text-navy">5th child and beyond</span>
-              <span class="text-[length:var(--text-base)] text-charcoal">15% discount</span>
-            </div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed pt-2">
-              Discounts are applied to the youngest children's fees. The first two children pay the standard rate.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ What's Included / Not Included ═══════ -->
+  <!-- ═══════ Enrolment Fees + Sibling Discounts ═══════ -->
   <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+
+        <!-- Enrolment -->
+        <div class="reveal">
+          <p class="label mb-6">Enrolment</p>
+          <div class="space-y-0">
+            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
+              <span class="text-[length:var(--text-base)] text-navy font-medium">Application Fee</span>
+              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums font-light">IDR 4,680,000</span>
+            </div>
+            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
+              <span class="text-[length:var(--text-base)] text-navy font-medium">Enrolment Deposit</span>
+              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums font-light">IDR 16,328,000</span>
+            </div>
+          </div>
+          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed mt-4">
+            The application fee is non-refundable. The enrolment deposit is refundable when your child leaves the school.
+          </p>
+        </div>
+
+        <!-- Sibling Discounts -->
+        <div class="reveal">
+          <p class="label mb-6">Sibling Discounts</p>
+          <div class="space-y-0">
+            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
+              <span class="text-[length:var(--text-base)] text-navy font-medium">3rd child</span>
+              <span class="text-[length:var(--text-base)] text-charcoal font-light">5%</span>
+            </div>
+            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
+              <span class="text-[length:var(--text-base)] text-navy font-medium">4th child</span>
+              <span class="text-[length:var(--text-base)] text-charcoal font-light">10%</span>
+            </div>
+            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
+              <span class="text-[length:var(--text-base)] text-navy font-medium">5th child and beyond</span>
+              <span class="text-[length:var(--text-base)] text-charcoal font-light">15%</span>
+            </div>
+          </div>
+          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed mt-4">
+            Applied to the youngest children's fees. The first two pay the standard rate.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ What's Included ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
 
         <div class="reveal">
-          <p class="label mb-5">Included in Fees</p>
-          <ul class="space-y-3 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Teaching and the full academic curriculum
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Learning materials and textbooks
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Use of all campus facilities
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Pastoral care and academic support
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Co-curricular activities
-            </li>
+          <p class="label mb-6">Included in Fees</p>
+          <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            <li>Teaching and the full academic curriculum</li>
+            <li>Learning materials and textbooks</li>
+            <li>Use of all campus facilities</li>
+            <li>Pastoral care and academic support</li>
+            <li>Co-curricular activities</li>
           </ul>
         </div>
 
         <div class="reveal">
-          <p class="label mb-5">Additional Costs</p>
-          <ul class="space-y-3 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            <li class="flex items-start gap-3">
-              <span class="w-5 h-5 mt-0.5 shrink-0 flex items-center justify-center text-charcoal/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15" /></svg>
-              </span>
-              Lunch
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-5 h-5 mt-0.5 shrink-0 flex items-center justify-center text-charcoal/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15" /></svg>
-              </span>
-              School trips and events
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-5 h-5 mt-0.5 shrink-0 flex items-center justify-center text-charcoal/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15" /></svg>
-              </span>
-              External exam fees
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-5 h-5 mt-0.5 shrink-0 flex items-center justify-center text-charcoal/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15" /></svg>
-              </span>
-              Uniforms and transport
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-5 h-5 mt-0.5 shrink-0 flex items-center justify-center text-charcoal/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15" /></svg>
-              </span>
-              Individual music lessons
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-5 h-5 mt-0.5 shrink-0 flex items-center justify-center text-charcoal/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15" /></svg>
-              </span>
-              UK residential programme
-            </li>
+          <p class="label mb-6">Charged Separately</p>
+          <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            <li>Lunch</li>
+            <li>School trips and events</li>
+            <li>External exam fees</li>
+            <li>Uniforms and transport</li>
+            <li>Individual music lessons</li>
+            <li>UK residential programme</li>
           </ul>
         </div>
 
@@ -216,21 +175,17 @@ const fees = {
     </div>
   </section>
 
-  <!-- ═══════ Payment Terms ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
+  <!-- ═══════ Payment & Terms ═══════ -->
+  <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <p class="label mb-5">Payment</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Payment Terms</h2>
-        <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+        <p class="label mb-6">Payment</p>
+        <div class="space-y-4 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           <p>
-            Fees are payable annually or termly (three terms per year). Payment is due 14 days before the start of each term.
+            Fees are payable annually or by term (three terms per year). Payment is due 14 days before the start of each term.
           </p>
           <p>
-            A withdrawal notice of 90 days from the child's last day attending school is required. If notice is not given, one term's fees are payable.
-          </p>
-          <p>
-            For questions about fees, payment plans, or scholarships, please contact the admissions team.
+            Full payment terms, withdrawal notice periods, and refund policies are set out in the <a href="/admissions/terms-and-conditions" class="whisper-link">Admissions Terms and Conditions</a>.
           </p>
         </div>
       </div>
