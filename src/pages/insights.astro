@@ -122,19 +122,42 @@ const moreArticles = [
     </div>
   </section>
 
-  <!-- ═══════ Latest List ═══════ -->
+  <!-- ═══════ All Articles + Highlight ═══════ -->
   <section class="section-pad px-6 border-t border-charcoal/10">
-    <div class="mx-auto max-w-lg">
-      <p class="label mb-8">All Articles</p>
-      {moreArticles.map((article) => (
-        <a href={article.href} class="flex justify-between items-baseline py-4 border-b border-charcoal/5 group reveal">
-          <div>
-            <p class="text-[length:var(--text-xs)] text-gold-muted uppercase tracking-wider mb-1">{article.category}</p>
-            <p class="text-[length:var(--text-base)] text-navy group-hover:text-navy-light transition-colors">{article.title}</p>
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+
+        <!-- All Articles list -->
+        <div class="lg:col-span-2 reveal">
+          <p class="label mb-8">All Articles</p>
+          {moreArticles.map((article) => (
+            <a href={article.href} class="flex justify-between items-baseline py-4 border-b border-charcoal/5 group">
+              <div>
+                <p class="text-[length:var(--text-xs)] text-gold-muted uppercase tracking-wider mb-1">{article.category}</p>
+                <p class="text-[length:var(--text-base)] text-navy group-hover:text-navy-light transition-colors">{article.title}</p>
+              </div>
+              <span class="text-[length:var(--text-xs)] text-charcoal-muted ml-4 shrink-0">{article.date}</span>
+            </a>
+          ))}
+        </div>
+
+        <!-- Highlight article -->
+        <a href="/insights/outdoor-learning-early-years" class="lg:col-span-3 group reveal flex flex-col">
+          <div class="overflow-hidden flex-1">
+            <img
+              src={asset('/images/playground.jpg')}
+              alt=""
+              loading="lazy"
+              class="w-full h-full min-h-[300px] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
+            />
           </div>
-          <span class="text-[length:var(--text-xs)] text-charcoal-muted ml-4 shrink-0">{article.date}</span>
+          <p class="label label-gold mt-5">Education</p>
+          <h3 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-2 mb-3">The Benefits of Outdoor Learning in Early Years</h3>
+          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">Why learning outside the classroom matters for young children, and how ISJ integrates outdoor play into the Early Years curriculum.</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-muted mt-3">14 Nov 2025</p>
         </a>
-      ))}
+
+      </div>
     </div>
   </section>
 
