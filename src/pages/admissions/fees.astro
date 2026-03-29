@@ -66,92 +66,73 @@ const phases = [
   <!-- ═══════ Fee Tables ═══════ -->
   {phases.map(({ name, rows }) => (
     <section class="px-6 pb-20">
-      <div class="mx-auto max-w-[var(--content-wide)] pr-16 lg:pr-20 reveal">
-        <p class="label mb-6">{name}</p>
-        <div class="overflow-x-auto -mx-6 px-6">
-          <table class="w-full">
-            <thead>
-              <tr>
-                <th class="text-left text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 pr-6 w-[30%]">Year Group</th>
-                <th class="text-left text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 pr-6 hidden sm:table-cell w-[15%]">Ages</th>
-                <th class="text-right text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 pr-6 w-[27.5%]">Annual (IDR)</th>
-                <th class="text-right text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy/40 font-medium pb-4 w-[27.5%]">Per Term (IDR)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, i) => (
-                <tr class={i === 0 ? 'border-t border-navy/10' : ''}>
-                  <td class="text-[length:var(--text-base)] text-navy py-3.5 pr-6 font-medium">{row.year}</td>
-                  <td class="text-[length:var(--text-sm)] text-charcoal-light py-3.5 pr-6 hidden sm:table-cell">{row.ages}</td>
-                  <td class="text-[length:var(--text-base)] text-charcoal py-3.5 pr-6 text-right tabular-nums font-light">{row.annual}</td>
-                  <td class="text-[length:var(--text-sm)] text-charcoal-light py-3.5 text-right tabular-nums">{row.perTerm}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div class="mx-auto max-w-lg reveal">
+        <p class="label mb-8">{name}</p>
+        <div class="space-y-0">
+          {rows.map((row) => (
+            <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+              <div>
+                <span class="text-[length:var(--text-base)] text-navy">{row.year}</span>
+              </div>
+              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">{row.annual}</span>
+            </div>
+          ))}
         </div>
+        <p class="text-[length:var(--text-xs)] text-charcoal-light mt-3 text-right">IDR per year</p>
       </div>
     </section>
   ))}
 
-  <!-- ═══════ Enrolment Fees + Sibling Discounts ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+  <!-- ═══════ Enrolment & Sibling Discounts ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
+    <div class="mx-auto max-w-lg">
 
-        <!-- Enrolment -->
-        <div class="reveal">
-          <p class="label mb-6">Enrolment</p>
-          <div class="space-y-0">
-            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
-              <span class="text-[length:var(--text-base)] text-navy font-medium">Application Fee</span>
-              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums font-light">IDR 4,680,000</span>
-            </div>
-            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
-              <span class="text-[length:var(--text-base)] text-navy font-medium">Enrolment Deposit</span>
-              <span class="text-[length:var(--text-base)] text-charcoal tabular-nums font-light">IDR 16,328,000</span>
-            </div>
-          </div>
-          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed mt-4">
-            The application fee is non-refundable. The enrolment deposit is refundable when your child leaves the school.
-          </p>
+      <div class="reveal mb-16">
+        <p class="label mb-8">Enrolment</p>
+        <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">Application Fee</span>
+          <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">4,680,000</span>
         </div>
-
-        <!-- Sibling Discounts -->
-        <div class="reveal">
-          <p class="label mb-6">Sibling Discounts</p>
-          <div class="space-y-0">
-            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
-              <span class="text-[length:var(--text-base)] text-navy font-medium">3rd child</span>
-              <span class="text-[length:var(--text-base)] text-charcoal font-light">5%</span>
-            </div>
-            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
-              <span class="text-[length:var(--text-base)] text-navy font-medium">4th child</span>
-              <span class="text-[length:var(--text-base)] text-charcoal font-light">10%</span>
-            </div>
-            <div class="flex justify-between items-baseline py-3.5 border-t border-navy/10">
-              <span class="text-[length:var(--text-base)] text-navy font-medium">5th child and beyond</span>
-              <span class="text-[length:var(--text-base)] text-charcoal font-light">15%</span>
-            </div>
-          </div>
-          <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed mt-4">
-            Applied to the youngest children's fees. The first two pay the standard rate.
-          </p>
+        <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">Enrolment Deposit</span>
+          <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">16,328,000</span>
         </div>
-
+        <p class="text-[length:var(--text-sm)] text-charcoal-light mt-4">
+          The application fee is non-refundable. The enrolment deposit is refundable when your child leaves the school.
+        </p>
       </div>
+
+      <div class="reveal">
+        <p class="label mb-8">Sibling Discounts</p>
+        <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">3rd child</span>
+          <span class="text-[length:var(--text-base)] text-charcoal">5%</span>
+        </div>
+        <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">4th child</span>
+          <span class="text-[length:var(--text-base)] text-charcoal">10%</span>
+        </div>
+        <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+          <span class="text-[length:var(--text-base)] text-navy">5th child and beyond</span>
+          <span class="text-[length:var(--text-base)] text-charcoal">15%</span>
+        </div>
+        <p class="text-[length:var(--text-sm)] text-charcoal-light mt-4">
+          Applied to the youngest children's fees. The first two pay the standard rate.
+        </p>
+      </div>
+
     </div>
   </section>
 
   <!-- ═══════ What's Included ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-lg">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
 
         <div class="reveal">
           <p class="label mb-6">Included in Fees</p>
-          <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            <li>Teaching and the full academic curriculum</li>
+          <ul class="space-y-2.5 text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">
+            <li>Teaching and the full curriculum</li>
             <li>Learning materials and textbooks</li>
             <li>Use of all campus facilities</li>
             <li>Pastoral care and academic support</li>
@@ -161,7 +142,7 @@ const phases = [
 
         <div class="reveal">
           <p class="label mb-6">Charged Separately</p>
-          <ul class="space-y-2.5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          <ul class="space-y-2.5 text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">
             <li>Lunch</li>
             <li>School trips and events</li>
             <li>External exam fees</li>
@@ -175,8 +156,8 @@ const phases = [
     </div>
   </section>
 
-  <!-- ═══════ Payment & Terms ═══════ -->
-  <section class="section-pad px-6">
+  <!-- ═══════ Payment ═══════ -->
+  <section class="section-pad px-6 border-t border-charcoal/10">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
         <p class="label mb-6">Payment</p>
