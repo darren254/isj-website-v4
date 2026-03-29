@@ -22,3 +22,8 @@ Source: Meet The ISJ Team 2026.pdf
 
 ## Senior
 - **Nikki Haynes** - Year 8 Form Teacher. BEd (Hons) University of Chichester. PGCerts in Development Management and Education Leadership. Volunteered with NGO in Uganda supporting girls' education. Developed SEN assessment tool used countrywide in Uganda. Taught in Spain, Malaysia, Qatar, Oman.
+
+## Article Authorship Rules
+- If a teacher quote appears in the article, that teacher is the author (name only, no title)
+- If authorship is unclear, alternate between **Eileen Fisher** and **Engelina Sutantio**
+- If the article compares other schools in any way, use **Darren Brown** as the author
