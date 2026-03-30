@@ -12,12 +12,12 @@ import Testimonial from '../../components/Testimonial.astro';
   canonicalUrl="/school-life/sport"
 >
 
-  <!-- Hero -->
+  <!-- Hero: kids in action -->
   <Hero
-    imageSrc="/images/football-pitch.jpg"
-    imageAlt="ISJ football pitch in Pondok Indah"
+    imageSrc="/images/rugby.jpg"
+    imageAlt="ISJ girls playing rugby on the school pitch"
     aspectRatio="standard"
-    objectPosition="center 40%"
+    objectPosition="center 35%"
   />
 
   <!-- Introduction -->
@@ -26,96 +26,82 @@ import Testimonial from '../../components/Testimonial.astro';
       <div class="reveal">
         <p class="label label-gold mb-4">School Life</p>
         <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Sport</h1>
-        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          <p>
-            Sport at ISJ is broad, inclusive, and taken seriously. From the Foundation Stage through to Senior School, pupils follow a PE curriculum that builds movement skills, coordination, and teamwork. Specialist teachers lead sessions in gymnastics, athletics, football, badminton, dance, and swimming.
-          </p>
-          <p>
-            Physical challenge and adventure are powerful teachers of character. Through every match, climb, and training session, pupils practise resilience, humility, and leadership. Sport at ISJ is about growth through participation and the confidence that comes from effort and discovery.
-          </p>
-        </div>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          20+ sports. Swimming from age two. House competitions, inter-school fixtures, and co-curricular sessions every day until 4:00pm. Sport at ISJ is broad, inclusive, and taken seriously.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Image -->
-  <section class="px-6 pb-[var(--space-section)]">
+  <!-- Swimming: action shot of kids in pool -->
+  <section class="px-6 pb-[var(--space-lg)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/rugby.jpg')}
-        alt="ISJ pupils playing rugby"
+        src={asset('/images/insights/physical.jpg')}
+        alt="ISJ pupils swimming with noodles during a lesson"
         loading="lazy"
         decoding="async"
-        class="w-full aspect-[16/9] object-cover"
+        class="w-full aspect-[4/3] object-cover"
       />
     </div>
   </section>
 
-  <!-- Swimming -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
         <p class="label mb-5">Swimming</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">In the Water from Day One</h2>
-        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          <p>
-            Swimming is part of the curriculum from Pre-Nursery. Regular lessons in the on-site pool ensure that every child becomes a confident, capable swimmer. By the time children leave Pre-Prep, they are comfortable in the water. By the time they leave Prep School, they are strong.
-          </p>
-        </div>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">In the Water from Day One</h2>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Swimming is part of the curriculum from Pre-Nursery. Regular lessons in the on-site pool ensure that every child becomes a confident, capable swimmer. By the end of Pre-Prep, they are comfortable in the water. By the end of Prep School, they are strong.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Image -->
-  <section class="px-6 pb-[var(--space-section)]">
+  <!-- House Sports: medal ceremony -->
+  <section class="px-6 pb-[var(--space-lg)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/swimming-pool.jpg')}
-        alt="ISJ swimming pool"
+        src={asset('/images/house-sports.jpg')}
+        alt="ISJ pupil receiving a medal at a house sports event"
         loading="lazy"
         decoding="async"
-        class="w-full aspect-[16/9] object-cover"
+        class="w-full aspect-[3/2] object-cover object-top"
       />
     </div>
   </section>
 
-  <!-- Competition -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
         <p class="label mb-5">Competition</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Houses, Fixtures, and Tournaments</h2>
-        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          <p>
-            Pupils represent their houses (Potter, Tolkien, Lewis, and Rowling) in a range of events throughout the year: football, netball, athletics, and more. Weekly fixtures, house tournaments, and inter-school competitions give pupils the chance to compete, to win and lose with grace, and to develop as teammates.
-          </p>
-          <p>
-            The house system provides leadership opportunities for older pupils, who help plan events, support their teams, and mentor younger children. Competition at ISJ is friendly, purposeful, and full of spirit.
-          </p>
-        </div>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Houses, Fixtures, and Tournaments</h2>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Every child belongs to a house: Potter, Tolkien, Lewis, or Rowling. Houses compete across football, netball, athletics, and more throughout the year. Weekly fixtures and inter-school competitions give pupils the chance to compete, to win and lose with grace, and to develop as teammates. Older pupils plan events, lead teams, and mentor younger children.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Testimonial -->
   <Testimonial
-    quote="Great facilities and a truly multicultural environment."
+    quote="Clean facilities, friendly teachers, and a good balance of learning and play."
     attribution="ISJ Parent"
     detail="Annual Survey, November 2025"
   />
 
-  <!-- Facilities -->
+  <!-- Programme -->
   <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <p class="label mb-5">Facilities</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">On Campus</h2>
+        <p class="label mb-5">The Programme</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Breadth and Choice</h2>
         <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           <p>
-            The Pondok Indah campus includes a swimming pool, a football pitch, a theatre and gym, dedicated play areas, and bouldering. A new gym is currently under construction. Off-campus activities include bouldering sessions at IndoClimb Kemang.
+            Specialist PE teachers lead sessions in gymnastics, athletics, football, badminton, dance, and swimming. 30+ clubs rotate each term. Co-curricular sport runs every afternoon, so children can explore widely and find what they love.
           </p>
           <p>
-            Co-curricular sport runs until 4:00pm every day, with 20+ sports and 30+ clubs rotating each term. Football, netball, athletics, gymnastics, bouldering, swimming, badminton, and dance are all part of the regular programme.
+            Facilities include an on-site swimming pool, a football pitch, a theatre and gym, bouldering, and dedicated play areas. A new gym is currently under construction. Off-campus activities include bouldering sessions at IndoClimb Kemang.
           </p>
         </div>
       </div>
