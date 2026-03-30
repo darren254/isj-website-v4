@@ -1,0 +1,827 @@
+---
+import { asset } from '../../utils/paths';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+---
+
+<ArticleLayout
+  title="The Best International Schools in Jakarta: An Insider's Guide"
+  description="A comprehensive guide to international schools in Jakarta for expat families. Compare curricula, fees, locations, and school profiles across 72 schools — from JIS and ISJ to BSJ, AIS, NZSJ, and Nord Anglia."
+  canonicalUrl="/insights/best-international-schools-jakarta"
+  category="Jakarta Life"
+  categoryHref="/isj-website-v4/insights"
+  heroImage="/images/insights/expat-guide-hero.jpg"
+  heroAlt="International school families arriving at a Jakarta campus"
+  author="Darren Brown"
+  publishedDate="15 February 2026"
+  summary="Choosing an international school in Jakarta is one of the most consequential decisions a relocating family will make. This guide covers the schools expat families actually choose, compares 72 schools by curriculum, location, and fees, and walks through the neighbourhoods, the commute realities, and the questions worth asking before you sign anything."
+>
+
+  <p>
+    We aren't here to list every school in Jakarta. Instead, we've curated a shortlist of the contenders that are typically popular destinations for expats in Jakarta: the institutions truly worth a closer look and a campus visit.
+  </p>
+
+  <p>
+    When choosing, three things matter most: <strong>curriculum fit</strong> (British, IB, American — each shapes how your child learns and where they can transfer), <strong>commute</strong> (in Jakarta, anything over 20 minutes each way will grind you down), and <strong>age range</strong> (if the school stops at Year 8 or Year 6, you need a plan for what comes next). Fees vary enormously — from $4,500 to $39,000 — but the most expensive school isn't necessarily the best fit for your family.
+  </p>
+
+  <h2>Schools Popular With Expats</h2>
+
+  <p>The six schools below are the ones expat families most commonly consider. Each has a distinct character, and the right choice depends on where you live, how long you're staying, and what kind of education you want.</p>
+
+  <table class="w-full">
+    <thead>
+      <tr class="border-b border-charcoal/10">
+        <th class="text-left py-2 pr-4">School</th>
+        <th class="text-left py-2 pr-4">Style</th>
+        <th class="text-left py-2 pr-4">Ages</th>
+        <th class="text-left py-2">Annual Fees (USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4"><strong>Jakarta Intercultural School (JIS)</strong><br /><span class="text-[length:var(--text-sm)] text-charcoal-muted">Best for: scale, breadth, US-style campus life</span></td>
+        <td class="py-2 pr-4">US-style, IB &amp; AP</td>
+        <td class="py-2 pr-4">3–18</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">$17,500–$39,000</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4"><strong>The Independent School of Jakarta (ISJ)</strong><br /><span class="text-[length:var(--text-sm)] text-charcoal-muted">Best for: pure British education without the Bintaro commute</span></td>
+        <td class="py-2 pr-4">British Prep School</td>
+        <td class="py-2 pr-4">2–13</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">$9,500–$29,000</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4"><strong>British School Jakarta (BSJ)</strong><br /><span class="text-[length:var(--text-sm)] text-charcoal-muted">Best for: families in Bintaro wanting a full K–13 pathway</span></td>
+        <td class="py-2 pr-4">Blended British / IB</td>
+        <td class="py-2 pr-4">3–18</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">$10,000–$36,000</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4"><strong>Australian Independent School (AIS)</strong><br /><span class="text-[length:var(--text-sm)] text-charcoal-muted">Best for: learning support &amp; genuinely inclusive community</span></td>
+        <td class="py-2 pr-4">Australian &amp; IB</td>
+        <td class="py-2 pr-4">3–18</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">$11,500–$30,000</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4"><strong>New Zealand School Jakarta (NZSJ)</strong><br /><span class="text-[length:var(--text-sm)] text-charcoal-muted">Best for: close-knit community at a lower price point</span></td>
+        <td class="py-2 pr-4">New Zealand Curriculum</td>
+        <td class="py-2 pr-4">1–18</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">$4,500–$18,000</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4"><strong>Nord Anglia School Jakarta</strong><br /><span class="text-[length:var(--text-sm)] text-charcoal-muted">Best for: bilingual families wanting a warm, community school</span></td>
+        <td class="py-2 pr-4">IPC / British, Bilingual</td>
+        <td class="py-2 pr-4">1.5–12</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">$12,000–$24,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Jakarta Intercultural School (JIS)</h2>
+
+  <figure class="img-text">
+    <img src={asset('/images/insights/expat-guide-jis.png')} alt="JIS entrance, Jakarta Intercultural School" loading="lazy" />
+    <figcaption>Jakarta Intercultural School, established in 1951, operates two campuses in South Jakarta.</figcaption>
+  </figure>
+
+  <p>
+    Established in 1951, JIS is the flagship of the Jakarta school scene and often the first name expats encounter. It functions almost like a small university, with massive campuses, world-class facilities, and a deep bench of extracurricular programmes from robotics to competitive swimming. The culture is distinctly American: confident, high-energy, and heavily invested in school spirit. JIS produces well-rounded graduates, many of whom go on to excellent universities worldwide. The sheer scale offers incredible opportunities, though families who prefer a smaller, more intimate setting may find it overwhelming.
+  </p>
+
+  <ul>
+    <li><strong>Style:</strong> US-style, IB &amp; AP</li>
+    <li><strong>Ages:</strong> 3–18 years</li>
+    <li><strong>Annual Fees:</strong> USD $17,500 – $39,000</li>
+    <li><strong>Location:</strong> South Jakarta (Pondok Indah &amp; Cilandak)</li>
+  </ul>
+
+  <p>
+    <a href="https://jisedu.or.id" target="_blank" rel="nofollow noopener noreferrer" class="whisper-link">jisedu.or.id</a>
+  </p>
+
+  <h2>The Independent School of Jakarta (ISJ)</h2>
+
+  <figure class="img-text">
+    <img src={asset('/images/campus-aerial.jpg')} alt="ISJ campus aerial view, Pondok Indah, South Jakarta" loading="lazy" />
+    <figcaption>ISJ's campus in Pondok Indah, South Jakarta. Close to the expat heartland — without the Bintaro commute.</figcaption>
+  </figure>
+
+  <p>
+    A convenient, high-quality option for families who want a pure British education without the commute to Bintaro. Currently for children aged 2 to 13, the school is academically focused, yet like the best modern independent schools, the philosophy is that school should be fun — both because happy children learn faster and as an end in itself. It features expert teachers from leading UK independent schools and follows British independent school best practices around safeguarding, training, curriculum, staffing, and inspections. ISJ is part of The Schools Trust and has a sister school, The British School of Bali. Senior school families typically transition to schools such as International High School, Surrey, or other leading British boarding schools.
+  </p>
+
+  <ul>
+    <li><strong>Style:</strong> British "Prep School"</li>
+    <li><strong>Ages:</strong> 2–13 years (Pre-Nursery to Year 8)</li>
+    <li><strong>Annual Fees:</strong> USD $9,500 – $29,000</li>
+    <li><strong>Location:</strong> South Jakarta, Pondok Indah</li>
+  </ul>
+
+  <p>
+    <a href={asset('/admissions/arrange-a-tour')}>Arrange a campus tour</a> or <a href={asset('/admissions')}>find out more about admissions</a>.
+  </p>
+
+  <h2>British School Jakarta (BSJ)</h2>
+
+  <p>
+    A well-established school with an impressive campus in Bintaro, offering the kind of space and greenery that's hard to find inside Jakarta proper. BSJ is a strong all-rounder with solid academics, good pastoral care, and a wide range of activities. While it carries the "British School" name, it has evolved into a more international model — blending the English National Curriculum in early years with MYP and IB in the senior school. For families who live south or are happy to relocate to Bintaro, it's an excellent choice. The main consideration is geography: it's a meaningful commute from Pondok Indah or Kemang.
+  </p>
+
+  <ul>
+    <li><strong>Style:</strong> Blended British / IB</li>
+    <li><strong>Ages:</strong> 3–18 years (Foundation to Year 13)</li>
+    <li><strong>Annual Fees:</strong> USD $10,000 – $36,000</li>
+    <li><strong>Location:</strong> Bintaro (South Tangerang)</li>
+  </ul>
+
+  <p>
+    <a href="https://bsj.sch.id" target="_blank" rel="nofollow noopener noreferrer" class="whisper-link">bsj.sch.id</a>
+  </p>
+
+  <h2>AIS Indonesia</h2>
+
+  <p>
+    An established, genuinely inclusive school with a strong sense of community. Located in Pejaten, AIS is known for its "success for all" philosophy: prioritising student well-being and running one of the best Learning Support programmes in the region. Families with children who have additional learning needs should put AIS at the top of their visit list. It features a comfortable, purpose-built campus with good functional facilities and a down-to-earth, egalitarian community feel that many families find refreshing.
+  </p>
+
+  <ul>
+    <li><strong>Style:</strong> Australian Curriculum &amp; IB</li>
+    <li><strong>Ages:</strong> 3–18 years</li>
+    <li><strong>Annual Fees:</strong> USD $11,500 – $30,000</li>
+    <li><strong>Location:</strong> South Jakarta, Pejaten</li>
+  </ul>
+
+  <p>
+    <a href="https://ais-indonesia.com" target="_blank" rel="nofollow noopener noreferrer" class="whisper-link">ais-indonesia.com</a>
+  </p>
+
+  <h2>New Zealand School Jakarta (NZSJ)</h2>
+
+  <p>
+    A conveniently located, budget-friendly option at the top of Kemang with a genuinely warm community feel. NZSJ operates with more modest facilities than the bigger schools, but families who value a close-knit, personal environment — where teachers know every child by name — often find it the right fit. The holistic New Zealand curriculum emphasises well-rounded development, and the school's cheerful, unpretentious atmosphere makes new families feel welcome quickly.
+  </p>
+
+  <ul>
+    <li><strong>Style:</strong> New Zealand Curriculum</li>
+    <li><strong>Ages:</strong> 1–18 years</li>
+    <li><strong>Annual Fees:</strong> USD $4,500 – $18,000</li>
+    <li><strong>Location:</strong> South Jakarta, Kemang</li>
+  </ul>
+
+  <p>
+    <a href="https://nzs.school" target="_blank" rel="nofollow noopener noreferrer" class="whisper-link">nzs.school</a>
+  </p>
+
+  <h2>Nord Anglia School Jakarta</h2>
+
+  <p>
+    A community-focused school with real character and a strong bilingual element. Formerly the Dutch School before being acquired by Nord Anglia (owned by EQT), it is primarily a primary school currently expanding into Year 7. The school maintains a unique identity, combining a diverse international faculty with a warm, resilient culture — famously illustrated by children taking little orange boats into school when the floods hit. A happy medium between a community school and a corporate group, with the IPC framework and growing access to Nord Anglia's global resources.
+  </p>
+
+  <ul>
+    <li><strong>Style:</strong> IPC / British Enhanced, Bilingual</li>
+    <li><strong>Ages:</strong> 1.5–12 years</li>
+    <li><strong>Annual Fees:</strong> USD $12,000 – $24,000</li>
+    <li><strong>Location:</strong> South Jakarta, Jeruk Purut</li>
+  </ul>
+
+  <p>
+    <a href="https://nordangliaeducation.com/nasj" target="_blank" rel="nofollow noopener noreferrer" class="whisper-link">nordangliaeducation.com/nasj</a>
+  </p>
+
+  <h2>Compare All Jakarta International Schools</h2>
+
+  <p>
+    All fees are annual tuition in Indonesian Rupiah (IDR) millions. Fees may not include lunch, transport, exam fees, EAL, SEN, or other charges. Please verify directly with each school.
+  </p>
+
+  <table class="w-full">
+    <thead>
+      <tr class="border-b border-charcoal/10">
+        <th class="text-left py-2 pr-4">School</th>
+        <th class="text-left py-2 pr-4">Curriculum</th>
+        <th class="text-left py-2 pr-4 hidden sm:table-cell">Location</th>
+        <th class="text-left py-2">Fees (IDR M/yr)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Intercultural School (JIS)</td>
+        <td class="py-2 pr-4">American, IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">287–604</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">British School Jakarta (BSJ)</td>
+        <td class="py-2 pr-4">British, IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Outside Jakarta</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">172–538</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">The Independent School of Jakarta (ISJ)</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">149–485</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Australian Independent School (AIS)</td>
+        <td class="py-2 pr-4">Australian, IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">150–431</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">ACG School Jakarta</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">166–425</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Nord Anglia School Jakarta</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">116–351</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">BINUS School Simprug</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">180–340</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sampoerna Academy Jakarta</td>
+        <td class="py-2 pr-4">American, IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">120–310</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sinarmas World Academy</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Outside Jakarta</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">100–300</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sekolah Pelita Harapan</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Multi-campus</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">100–300</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">ACS Jakarta</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Multi-campus</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">242–295</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Tunas Muda School</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">West</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">80–280</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">New Zealand School Jakarta</td>
+        <td class="py-2 pr-4">New Zealand</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">58–279</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">NJIS</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">90–250</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Global Jaya School</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Outside Jakarta</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">95–245</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Cikal School</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Multi-campus</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">85–220</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Bina Bangsa School</td>
+        <td class="py-2 pr-4">British, IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">West</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">70–200</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Global Sevilla</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Multi-campus</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">40–190</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">HighScope Indonesia</td>
+        <td class="py-2 pr-4">American</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Multi-campus</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">50–180</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Mentari Intl Bintaro</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Outside Jakarta</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">65–175</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Mentari Intl Jakarta</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">62–170</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Mentari Intl Grand Surya</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">West</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">60–168</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Raffles Christian School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">Multi-campus</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">60–165</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Multicultural School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">45–160</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Kharisma Bangsa</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">55–155</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Montessori School</td>
+        <td class="py-2 pr-4">Montessori, IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">75–150</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Penabur International</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">50–145</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Tzu Chi School</td>
+        <td class="py-2 pr-4">IB</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">52–145</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Springfield School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">52–142</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">SIS Kelapa Gading</td>
+        <td class="py-2 pr-4">British, IB, Singapore</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">60–140</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Gandhi Memorial Intl School</td>
+        <td class="py-2 pr-4">IB, British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">49–140</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">SIS South Jakarta</td>
+        <td class="py-2 pr-4">British, Singapore</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">58–138</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">SIS Pantai Indah Kapuk</td>
+        <td class="py-2 pr-4">British, Singapore</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">55–135</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Millennia World School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">48–135</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">French School Jakarta</td>
+        <td class="py-2 pr-4">French</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">48–132</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Ipeka Christian School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">45–130</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Deutsche Schule Jakarta</td>
+        <td class="py-2 pr-4">German</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">45–125</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Woodlands Montessori</td>
+        <td class="py-2 pr-4">Montessori</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">55–120</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Taipei School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">42–118</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Blossom International</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">42–115</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">NationalHigh Jakarta</td>
+        <td class="py-2 pr-4">American</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">40–110</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Narada School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">38–105</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Korean School</td>
+        <td class="py-2 pr-4">Korean</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">38–105</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Australian School Sacred Heart</td>
+        <td class="py-2 pr-4">Australian</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">38–105</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Saint Peter's School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">36–102</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Stella Maris School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">35–98</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jayakarta Montessori</td>
+        <td class="py-2 pr-4">Montessori</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">45–95</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Academics</td>
+        <td class="py-2 pr-4">American</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">35–95</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jakarta Nanyang School</td>
+        <td class="py-2 pr-4">Singapore</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">35–95</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Bunda Mulia School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">North</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">33–92</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Holy Angels School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">32–88</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Beacon Academy</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">32–88</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Global Nusantara</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">31–86</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Green Montessori</td>
+        <td class="py-2 pr-4">Montessori</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">40–85</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sekolah Cita Buana</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">30–85</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Ichthus School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">28–82</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Regality Academy</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">30–82</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">El Shaddai School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">29–80</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Universal School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">28–80</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Kanaan Global School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">27–78</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Hope Academy</td>
+        <td class="py-2 pr-4">American</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">27–78</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Saint Monica Jakarta</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">28–76</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sekolah Victory Plus</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">25–75</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Jubilee School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">26–74</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Lilin Bangsa</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">26–72</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">HolyStar Christian</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">25–70</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sekolah Bukit Sion</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">24–68</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Mutiara Harapan Islamic</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">23–67</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Al Jabr Islamic School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">22–65</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sekolah Perkumpulan Mandiri</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">22–62</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">Sekolah Lentera Indonesia</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">21–60</td>
+      </tr>
+      <tr class="border-b border-charcoal/5">
+        <td class="py-2 pr-4">BTB School</td>
+        <td class="py-2 pr-4">British</td>
+        <td class="py-2 pr-4 hidden sm:table-cell">South</td>
+        <td class="py-2 text-[length:var(--text-sm)] tabular-nums">20–58</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="text-[length:var(--text-sm)] text-charcoal-muted">
+    All fees are annual tuition in IDR millions and may not include lunch, transport, exam fees, EAL, SEN, or other charges. Please verify directly with each school.
+  </p>
+
+  <h2>Where Do the Expats Live?</h2>
+
+  <p>
+    Where you live and which school you choose are decisions that need to be made together. Jakarta's traffic means that a 5km commute can take 45 minutes at the wrong time of day. The sections below outline each area and the schools nearby.
+  </p>
+
+  <h3>South Jakarta</h3>
+
+  <figure class="img-text">
+    <img src={asset('/images/insights/expat-guide-pondok-indah.webp')} alt="Pondok Indah neighbourhood in South Jakarta" loading="lazy" />
+    <figcaption>Pondok Indah, South Jakarta — the heartland of the expat community, and home to JIS, ISJ, and several other international schools.</figcaption>
+  </figure>
+
+  <p>
+    Spanning Pondok Indah, Kemang, Cipete, and Cilandak, this is the centre of gravity for internationally minded families. The city's best lifestyle infrastructure — Pondok Indah Mall, Lotte Mall, golf courses, the Water Park — plus the highest concentration of cafes, restaurants, and children's activities.
+  </p>
+
+  <p><strong>Schools nearby:</strong> JIS, ISJ, NZ School, AIS, Nord Anglia</p>
+
+  <h3>Central Jakarta: The CBD</h3>
+
+  <p>
+    SCBD, Senopati Business District, has a strong dining and nightlife scene, plus shopping at Grand Indonesia. A good fit for professionals and expatriates without school-age children.
+  </p>
+
+  <p><strong>Schools nearby:</strong> Few international options in the immediate area</p>
+
+  <h3>North Jakarta: PIK and Kelapa Gading</h3>
+
+  <p>
+    PIK is popular with Indonesian-Chinese and mainland Chinese expat communities, functioning as a self-contained city with excellent restaurants, particularly for Chinese and Japanese cuisine. A growing international community is developing here.
+  </p>
+
+  <p><strong>Schools nearby:</strong> NJIS, Tzu Chi School, SIS Kelapa Gading</p>
+
+  <h3>East Jakarta</h3>
+
+  <p>
+    Largely industrial and local residential. Worth considering only if you happen to work in the area, though a handful of international schools have campuses here.
+  </p>
+
+  <p><strong>Schools nearby:</strong> ACS, Global Sevilla</p>
+
+  <h3>West Jakarta</h3>
+
+  <p>
+    Strong Indonesian-Chinese demographic, offering a more local lifestyle geographically separated from expat hubs. Note: 'local-international' schools here may differ in management culture and workload from schools in Singapore, Hong Kong, or Europe.
+  </p>
+
+  <p><strong>Schools nearby:</strong> Sampoerna Academy, Tunas Muda</p>
+
+  <h3>Bintaro (Outside Jakarta)</h3>
+
+  <figure class="img-text">
+    <img src={asset('/images/insights/expat-guide-bintaro.png')} alt="Bintaro suburban neighbourhood outside Jakarta" loading="lazy" />
+    <figcaption>Bintaro offers green suburbia and a quieter pace of life, but sits a significant distance from central Jakarta.</figcaption>
+  </figure>
+
+  <p>
+    A trade-off: green suburbia and less local traffic, but significant distance from the city centre. A growing number of families are making the move, drawn primarily by the large British School Jakarta campus and a more relaxed pace of life.
+  </p>
+
+  <p><strong>Schools nearby:</strong> British School Jakarta</p>
+
+  <h2>Common Questions About Jakarta International Schools</h2>
+
+  <p>The questions we hear most often from families relocating to Jakarta, answered directly.</p>
+
+  <h3>How much does international school in Jakarta cost?</h3>
+
+  <p>
+    Headline tuition ranges from around $4,500 to $39,000 per year depending on the school and year group, but that's not the full number. On top of tuition, expect a one-off registration or enrolment fee (often $1,000–$3,500), an annual capital or development levy, and separate charges for EAL support, learning support, exam fees (IGCSE, IB, and AP exams are not included in tuition), school bus transport, uniforms, and trips. At the top-tier schools, your true first-year cost can be 20–30% higher than the advertised tuition. Ask every school for a single-page total cost breakdown for your child's specific year group before you commit. For an example of what a transparent fee schedule looks like, see ISJ's published tuition fees. Some schools also offer bursaries or scholarships worth investigating early.
+  </p>
+
+  <h3>What's the difference between British, IB, and American curriculum?</h3>
+
+  <p>It matters more than people think, because it determines how easily your child can transfer to another school or country.</p>
+
+  <p>
+    <strong>British (English National Curriculum)</strong> is structured and sequential. Children follow defined Key Stages, building toward IGCSEs at 16 and A-Levels at 18. It's the most globally portable curriculum. British schools exist in almost every major city, and transfers between them are straightforward.
+  </p>
+
+  <p>
+    <strong>IB (International Baccalaureate)</strong> is inquiry-based and broader. The Diploma Programme at 16–18 requires six subjects plus extended essay, theory of knowledge, and community service. It suits self-motivated learners who want breadth over early specialisation.
+  </p>
+
+  <p>
+    <strong>American</strong> uses a credit-based system with Advanced Placement (AP) courses for university-level work. It offers the most flexibility and elective choice, and is the natural path if your child is heading to a US university.
+  </p>
+
+  <p>
+    If you're likely to move countries again, pick the curriculum that matches your next likely destination, not just the one that sounds appealing today. We break this down further in our Curriculum Guide.
+  </p>
+
+  <h3>Should I choose the school first or the house first?</h3>
+
+  <p>
+    The school. Always. In Jakarta, traffic turns a 5km drive into a 45-minute ordeal during school hours. Parents who sign a housing lease first and then try to find a school nearby almost always regret it. Pick your school, then find housing within a 15–20 minute radius. Most expat families cluster in South Jakarta (Pondok Indah, Kemang, Cipete, Cilandak) because that's where the main international schools are. If you choose a school in Bintaro, plan to live in Bintaro, not commute from the city.
+  </p>
+
+  <h3>How bad is the school-run traffic, really?</h3>
+
+  <p>
+    Bad enough to be a deciding factor in where you live. Jakarta consistently ranks among the world's most congested cities. A school that looks 10 minutes away on Google Maps can take 40–60 minutes during the 6:30–8:00am school run. The afternoon pickup is often worse. Most experienced expat families keep the school commute under 20 minutes and choose their neighbourhood to make that possible. Many schools offer bus services, but buses sit in the same traffic. The families who are happiest in Jakarta are the ones who solved the commute problem before they arrived.
+  </p>
+
+  <h3>Can my child start mid-year?</h3>
+
+  <p>
+    Usually yes, but it depends on the school and the year group. Most Jakarta international schools accept rolling admissions and will take students throughout the academic year if space is available. However, popular year groups at the top schools (particularly Nursery, Reception, and Year 7 / Grade 6 entry points) can fill up. Some schools have lane-based admissions systems where local transfers face fixed deadlines and different priority levels than families arriving from overseas. Contact your target schools as early as possible, even before your move is confirmed. A preliminary enquiry costs nothing and gets you on their radar.
+  </p>
+
+  <h3>How far ahead should I start planning?</h3>
+
+  <p>
+    Three to six months is ideal. Most schools accept applications well in advance; some up to two years ahead. If you know a relocation is likely, start contacting schools immediately: book tours, submit enquiry forms, and gather the documents you'll need (school reports, passport copies, vaccination records, and any learning support assessments). Waiting lists at the most popular schools are real, particularly for entry-year groups. Families who leave school selection until the last month before arrival often find their first-choice school full. To understand how a typical admissions process works and what age group your child falls into, see our age guidelines.
+  </p>
+
+  <h3>What if we're only in Jakarta for one or two years?</h3>
+
+  <p>
+    Short-rotation expat postings are the norm, not the exception. The most important thing is curriculum continuity. If your child will return to a British school, keep them in a British curriculum. If they're headed to an IB school next, choose IB now. Switching curriculum systems mid-education is manageable at primary level but gets disruptive from age 11 or 12 onward, when subject-specific progression starts to matter. Also check the school's reporting format: will the next school understand and accept the reports and assessments your child leaves with?
+  </p>
+
+  <h3>My child has additional learning needs. Which schools can help?</h3>
+
+  <p>
+    Ask this question honestly and early. Most Jakarta international schools say they offer learning support, but the depth varies. Some have full-time specialist SEN coordinators, educational psychologists, and dedicated support staff. Others have a single EAL teacher covering the entire school. AIS Indonesia has the strongest reputation in Jakarta for inclusive education and structured learning support programmes. JIS has a formal support model but caps the number of supported students per year group. Smaller schools may be more flexible but have fewer specialist resources. Bring your child's full assessment documentation, ask to speak with the learning support team directly (not just admissions), and ask specifically: how many students are on individual learning plans, what specialist staff are on-site, and what happens if my child's needs exceed what you can provide?
+  </p>
+
+  <h3>How do I tell if teachers are properly qualified?</h3>
+
+  <p>
+    In Indonesia, the term "international school" is loosely regulated, and not every school with an English-language website employs qualified, experienced teachers. Ask whether teaching staff hold recognised teaching qualifications from their home country (QTS in the UK, a teaching licence in the US or Australia), how many years of classroom experience they have, and what percentage are native English speakers. Schools accredited by bodies like CIS, COBIS, or WASC are held to external standards on teacher qualifications. During your campus visit, ask to meet the teachers who would teach your child, not just the head or the admissions team.
+  </p>
+
+  <h3>Are the expensive schools better?</h3>
+
+  <p>
+    Generally, yes. Price is a reasonable proxy for quality because higher fees allow a school to pay teachers well, and competitive salaries are what attract enthusiastic, highly qualified staff from top schools in the UK, US, and Australia. Higher fees also fund better facilities, deeper support infrastructure (counsellors, SEN specialists, university advisors), and the kind of professional environment that retains good teachers year after year. A handful of mid-range schools punch above their weight, and a few expensive ones coast on brand recognition rather than classroom quality. But if a school is charging $5,000 a year and claiming to employ qualified British teachers, ask how. Use our comparison table above to review fees and curricula side by side.
+  </p>
+
+  <h3>What does the admissions process look like?</h3>
+
+  <p>
+    It varies by school, but the general pattern is: enquire, tour, apply, assess, enrol. Most schools begin with a campus tour (book this early; it's the single most useful thing you can do). You then submit an application with school reports, passport copies, and any relevant assessments. For entry into Year 1 and above, most schools run a simple age-appropriate assessment, typically English and maths, sometimes a short interview. Early years entry (Nursery, Pre-K) is often non-selective. Processing times range from a few days to several weeks depending on the school and time of year. Some schools charge a non-refundable application fee of $200–$400 just to submit.
+  </p>
+
+  <h3>Will my child's education transfer if we move to another country?</h3>
+
+  <p>
+    This question should drive your curriculum choice. British and IB curricula are the most globally portable: there are British-curriculum and IB schools in almost every major expat city worldwide, and student records transfer cleanly between them. American-curriculum schools also transfer well, particularly within the US system. Where problems arise is when families switch between systems at secondary level. A child moving from IB MYP to British GCSEs at 14, for example, may find significant gaps in subject-specific content. If you know you'll move again, choose the curriculum you're most likely to continue with, and keep copies of every school report, assessment result, and learning support document.
+  </p>
+
+  <h3>Is Jakarta safe for school-age children?</h3>
+
+  <p>
+    Jakarta is a large, developing-world capital, and like any city of 30+ million people, it has areas that are safer than others. The expat neighbourhoods in South Jakarta — where most international school families live — are generally safe, well-serviced, and accustomed to foreign residents. Schools take security seriously: gated campuses, ID checks, and controlled access are standard. The day-to-day risks that affect family life are more mundane: traffic, air quality (Jakarta's AQI regularly exceeds healthy levels), flooding during rainy season (November–March), and tropical illnesses like dengue. Most expat families with children live comfortably here, but it requires some adjustment, particularly around outdoor activity on high-pollution days.
+  </p>
+
+  <h3>What if my child doesn't speak much English?</h3>
+
+  <p>
+    Most established international schools offer English as an Additional Language (EAL) programmes for children still developing English fluency. The quality and intensity of these programmes varies between schools. Some embed EAL support within the regular classroom with a specialist co-teacher; others pull students out for separate sessions. A few schools cap the number of EAL students they accept per year group. Ask specifically: how is EAL delivered, how long does support typically last, and is there an additional charge? At primary level, children generally pick up conversational English within a few months through immersion. At secondary level, the transition is harder and the academic language demands are much higher, so the quality of the EAL programme matters a lot.
+  </p>
+
+  <h2>Final Thoughts</h2>
+
+  <p>
+    Choosing a school in Jakarta isn't complicated, but it does require a visit. No website, including this one, can replace walking through a campus and meeting the people who'll be teaching your child.
+  </p>
+
+  <p>
+    This guide is published by The Independent School of Jakarta. We've worked to be fair and accurate across all schools listed. If you spot an error or feel a school has been misrepresented, please let us know.
+  </p>
+
+  <p>
+    If you'd like to visit ISJ, we run open campus tours throughout the year. <a href={asset('/admissions/arrange-a-tour')}>Arrange a tour</a> and we'll be in touch within one working day.
+  </p>
+
+</ArticleLayout>
