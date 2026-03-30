@@ -1,0 +1,101 @@
+---
+import { asset } from '../../../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="GCSEs at ISJ Jakarta | Years 10–11"
+  description="ISJ offers 11 GCSE subjects across the sciences, mathematics, humanities, languages, and creative arts. A two-year programme preparing students for A-Levels."
+  canonicalUrl="/academics/senior-school/gcses"
+>
+
+  <!-- Introduction -->
+  <section class="pt-[var(--space-section)] pb-[var(--space-lg)] px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-4">Senior School · Years 10 and 11</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">GCSEs</h1>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            GCSEs are the standard qualification for 14 to 16 year olds in the British education system. Students study a range of subjects over two years and sit formal examinations at the end of Year 11. Results are graded 9 to 1, with 9 the highest.
+          </p>
+          <p>
+            At ISJ, the GCSE programme covers 11 subjects. The core is English Language, Mathematics, and the three sciences (Biology, Chemistry, and Physics). Beyond that, students choose from English Literature, History, Economics, Computer Science, Art and Design, and a Modern Foreign Language.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <img
+        src={asset('/images/senior-school.jpg')}
+        alt="ISJ Senior School students"
+        loading="lazy"
+        decoding="async"
+        class="w-full aspect-[16/9] object-cover"
+      />
+    </div>
+  </section>
+
+  <!-- The Programme -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">The Programme</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Breadth and Rigour</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            The subject range is designed to keep options open. A student considering medicine needs strong sciences. A student drawn to law or politics benefits from History and Economics. A student with creative ambitions has Art and Design alongside a strong academic core. The GCSE programme supports all of these pathways.
+          </p>
+          <p>
+            Subject specialists lead every class. Teaching is rigorous, structured, and focused on depth of understanding rather than surface coverage. Pupils are expected to think critically, write clearly, and develop the independent study habits they will need at A-Level.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Assessment</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">How GCSEs Are Graded</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            GCSEs are graded 9 to 1. A grade 4 is a standard pass. A grade 7 is equivalent to the old A grade. The most competitive sixth forms and universities look for a strong spread of 7s, 8s, and 9s.
+          </p>
+          <p>
+            Assessment is primarily by examination at the end of Year 11, with some subjects including coursework or non-examination assessment. Throughout the two years, teachers track progress through regular internal assessments, providing detailed feedback and identifying areas for improvement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preparing for A-Levels -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">What Comes Next</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Into A-Levels</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            GCSE results determine A-Level subject choices. Strong performance at GCSE opens the widest range of options at A-Level. The transition is seamless at ISJ because the same teachers, the same expectations, and the same culture carry through from Year 10 to Year 13.
+          </p>
+          <p>
+            University preparation begins in Year 11, with initial UCAS guidance and conversations about courses and destinations. By the time students enter Year 12, they have a clear sense of direction.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a href={link("/academics/senior-school/a-levels")} class="whisper-link">A-Levels at ISJ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

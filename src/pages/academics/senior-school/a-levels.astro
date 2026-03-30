@@ -1,0 +1,107 @@
+---
+import { asset } from '../../../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="A-Levels at ISJ Jakarta | Years 12–13"
+  description="ISJ offers 12 A-Level subjects. Students typically choose three or four and study them in depth over two years, preparing for universities worldwide."
+  canonicalUrl="/academics/senior-school/a-levels"
+>
+
+  <!-- Introduction -->
+  <section class="pt-[var(--space-section)] pb-[var(--space-lg)] px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-4">Senior School · Years 12 and 13</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">A-Levels</h1>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            A-Levels are the gold standard qualification for university entry in the UK and are recognised by universities worldwide. Students typically choose three or four subjects and study them in depth over two years.
+          </p>
+          <p>
+            The ISJ A-Level programme offers 12 subjects: Mathematics, Further Mathematics, Physics, Chemistry, Biology, Economics, English Literature, History, Computer Science, Art, Modern Foreign Language, and Music. The range supports strong pathways into medicine, engineering, law, economics, the sciences, and the humanities. It will expand as cohorts grow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image: Oxford -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <figure>
+        <img
+          src={asset('/images/insights/oxford.jpg')}
+          alt="The Radcliffe Camera, University of Oxford"
+          loading="lazy"
+          decoding="async"
+          class="w-full aspect-[16/9] object-cover"
+        />
+        <figcaption class="text-[length:var(--text-xs)] text-charcoal-light/60 mt-3">
+          Graduates from Schools Trust schools study at Oxford, Cambridge, Imperial, and universities across four continents.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Depth and Specialisation -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">The Programme</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Depth, Not Breadth</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Where GCSEs test breadth, A-Levels reward depth. A student taking Physics, Mathematics, and Chemistry spends two years going deep in all three. A student drawn to English Literature, History, and Economics can do the same. The programme shapes itself around the student.
+          </p>
+          <p>
+            A-Levels are graded A* to E. Universities make conditional offers based on these grades. A typical offer from a Russell Group university is AAA or AAB. Oxford and Cambridge often require A*A*A in specific subjects.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- University Preparation -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">University</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Pathways and Preparation</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            University preparation at ISJ begins in Year 11 with UCAS guidance, personal statement support, and structured conversations about courses and destinations. For students considering the US, Europe, or Asia, that guidance is adapted accordingly.
+          </p>
+          <p>
+            The goal is a clear, well-supported pathway from ISJ to the right university for each student. That might be Oxford or Imperial. It might be a specialist art school or an engineering programme in Singapore. The support is the same.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Track Record -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Track Record</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">The Schools Trust Network</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            ISJ is part of The Schools Trust, a UK-registered charity whose trustees have founded 16 British schools across 11 countries. Across the network, A-Level results range from 42-69% of grades at A*/A. One school was placed in the ALPS top 1% of British schools worldwide for value-added. Graduates study at Oxford, Cambridge, Imperial, LSE, UCL, Stanford, Princeton, and universities across four continents.
+          </p>
+          <p>
+            ISJ's A-Level programme is new. The governance, teaching standards, and expectations are the same as those that produced those results elsewhere.
+          </p>
+        </div>
+        <div class="mt-8 flex flex-col sm:flex-row gap-6">
+          <a href={link("/academics/results")} class="whisper-link">Results and outcomes</a>
+          <a href={link("/about/the-schools-trust")} class="whisper-link">The Schools Trust</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

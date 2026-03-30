@@ -74,13 +74,13 @@ Add depth and SEO coverage after core is solid.
 |---|------|-----|-------|
 | 21 | Our Head (Eileen Fisher) | `/about/our-head` | DONE |
 | 22 | The Schools Trust | `/about/the-schools-trust` | DONE |
-| 23 | GCSEs | `/academics/senior-school/gcses` | |
-| 24 | A-Levels | `/academics/senior-school/a-levels` | |
-| 25 | Curriculum | `/academics/curriculum` | |
-| 26 | Results & Outcomes | `/academics/results` | |
-| 27 | Sport | `/school-life/sport` | |
-| 28 | Arts & Music | `/school-life/arts-music` | |
-| 29 | Character & Values | `/school-life/character` | |
+| 23 | GCSEs | `/academics/senior-school/gcses` | DONE |
+| 24 | A-Levels | `/academics/senior-school/a-levels` | DONE |
+| 25 | Curriculum | `/academics/curriculum` | DONE |
+| 26 | Results & Outcomes | `/academics/results` | DONE |
+| 27 | Sport | `/school-life/sport` | DONE |
+| 28 | Arts & Music | `/school-life/arts-music` | DONE |
+| 29 | Character & Values | `/school-life/character` | DONE |
 | 30 | Expat Guide | `/insights/expat-guide-jakarta` | Cornerstone SEO content |
 | 31 | Commute Times | `/insights/commute-times-pondok-indah` | |
 
