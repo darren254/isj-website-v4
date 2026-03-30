@@ -677,163 +677,201 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     z-index: 1;
   }
   #jakarta-map-legend {
-    background: #F7F5F0;
-    border: 1px solid rgba(27,42,74,0.1);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    padding: 0;
-    overflow: hidden;
+    background: #F7F5F0 !important;
+    border: 1px solid rgba(27,42,74,0.08) !important;
+    border-top: none !important;
+    border-radius: 0 0 6px 6px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    font-family: 'DM Sans', -apple-system, sans-serif !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+  }
+  #jakarta-map-legend * {
+    font-family: inherit !important;
+    box-sizing: border-box !important;
   }
   #jakarta-legend-toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px 14px;
-    text-align: left;
-    font-family: 'DM Sans', -apple-system, sans-serif;
-    color: rgba(27,42,74,0.55);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 8px 14px !important;
+    text-align: left !important;
+    font-size: 9px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(27,42,74,0.45) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
   }
   #jakarta-legend-toggle-btn:hover {
-    color: rgba(27,42,74,0.8);
+    color: rgba(27,42,74,0.7) !important;
   }
   #jakarta-legend-toggle-btn svg {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-    color: rgba(27,42,74,0.4);
-    stroke: currentColor;
+    width: 10px !important;
+    height: 10px !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease !important;
+    color: rgba(27,42,74,0.35) !important;
+    stroke: currentColor !important;
   }
   #jakarta-legend-toggle-btn svg.open {
-    transform: rotate(0deg);
+    transform: rotate(0deg) !important;
   }
   #jakarta-legend-toggle-btn svg.closed {
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) !important;
   }
   #jakarta-legend-body {
-    display: none;
-    padding: 0 14px 12px;
-    border-top: 1px solid rgba(27,42,74,0.08);
+    display: none !important;
+    padding: 0 14px 10px !important;
+    border-top: 1px solid rgba(27,42,74,0.06) !important;
+    margin: 0 !important;
   }
   #jakarta-legend-body.open {
-    display: block;
+    display: block !important;
   }
   .jakarta-legend-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 24px;
-    margin-top: 10px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 20px !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
   }
   .jakarta-legend-section-title {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: rgba(27,42,74,0.4);
-    margin: 0 0 5px 0;
+    font-size: 8px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: rgba(27,42,74,0.35) !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
   }
   .jakarta-legend-items {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   .jakarta-legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    color: rgba(27,42,74,0.75);
-    line-height: 1.3;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 9.5px !important;
+    color: rgba(27,42,74,0.6) !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .jakarta-legend-swatch {
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    flex-shrink: 0;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 2px !important;
+    flex-shrink: 0 !important;
   }
   .jakarta-legend-school-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #1B2A4A;
-    border: 1.5px solid white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    flex-shrink: 0;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #1B2A4A !important;
+    border: 1.5px solid white !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+    flex-shrink: 0 !important;
   }
   .jakarta-legend-school-dot.isj {
-    width: 12px;
-    height: 12px;
-    border-color: #FFC43D;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    width: 10px !important;
+    height: 10px !important;
+    border-color: #FFC43D !important;
   }
   .jakarta-legend-toggles {
-    grid-column: 1 / -1;
-    padding-top: 8px;
-    border-top: 1px solid rgba(27,42,74,0.07);
-    margin-top: 4px;
+    grid-column: 1 / -1 !important;
+    padding-top: 6px !important;
+    border-top: 1px solid rgba(27,42,74,0.06) !important;
+    margin-top: 2px !important;
+    margin-bottom: 0 !important;
   }
   .jakarta-legend-toggles-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-    margin-top: 6px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px 16px !important;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
   }
   .jakarta-toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 10px;
-    color: rgba(27,42,74,0.7);
-    cursor: pointer;
-    user-select: none;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 9.5px !important;
+    color: rgba(27,42,74,0.55) !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .jakarta-toggle-label input[type="checkbox"] {
-    width: 11px;
-    height: 11px;
-    margin: 0;
-    cursor: pointer;
-    accent-color: #1B2A4A;
-    flex-shrink: 0;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    accent-color: #1B2A4A !important;
+    flex-shrink: 0 !important;
   }
 
   /* Mapbox popup styling */
+  #jakarta-map-container .mapboxgl-popup {
+    max-width: 220px !important;
+    z-index: 10;
+  }
   #jakarta-map-container .mapboxgl-popup-content {
-    font-family: 'DM Sans', -apple-system, sans-serif;
-    border-radius: 6px;
-    padding: 10px 12px;
-    box-shadow: 0 4px 16px rgba(27,42,74,0.12);
-    border: 1px solid rgba(27,42,74,0.08);
-    max-width: 280px;
+    font-family: 'DM Sans', -apple-system, sans-serif !important;
+    border-radius: 4px !important;
+    padding: 10px 13px !important;
+    box-shadow: 0 2px 12px rgba(27,42,74,0.10) !important;
+    border: 1px solid rgba(27,42,74,0.06) !important;
+    background: #FAFAF8 !important;
+    max-width: 220px !important;
   }
   #jakarta-map-container .mapboxgl-popup-content h4 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: #1B2A4A;
-    margin: 0 0 4px;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #1B2A4A !important;
+    margin: 0 0 3px !important;
+    line-height: 1.2 !important;
   }
   #jakarta-map-container .mapboxgl-popup-content p {
-    font-size: 11px;
-    color: rgba(27,42,74,0.7);
-    margin: 0;
-    line-height: 1.5;
+    font-size: 10.5px !important;
+    color: rgba(27,42,74,0.6) !important;
+    margin: 0 !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0.005em !important;
   }
   #jakarta-map-container .mapboxgl-popup-close-button {
-    font-size: 16px;
-    color: rgba(27,42,74,0.4);
-    padding: 4px 8px;
+    font-size: 14px !important;
+    color: rgba(27,42,74,0.3) !important;
+    padding: 2px 6px !important;
+    line-height: 1 !important;
+  }
+  #jakarta-map-container .mapboxgl-popup-close-button:hover {
+    color: rgba(27,42,74,0.6) !important;
+    background: transparent !important;
+  }
+  #jakarta-map-container .mapboxgl-popup-tip {
+    border-top-color: #FAFAF8 !important;
   }
   #jakarta-map-container .mapboxgl-ctrl-group {
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(27,42,74,0.12);
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(27,42,74,0.08);
   }
   #jakarta-map-container .mapboxgl-ctrl-attrib {
     font-size: 9px;
@@ -1257,7 +1295,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       cx /= pixels.length;
       cy /= pixels.length;
       var lngLat = mapInstance.unproject([cx, cy]);
-      new window.mapboxgl.Popup({ offset: 12, maxWidth: "280px" })
+      new window.mapboxgl.Popup({ offset: 10, maxWidth: "220px" })
         .setLngLat(lngLat)
         .setHTML(hit.popupContent)
         .addTo(mapInstance);
@@ -1301,8 +1339,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         d.addEventListener("mouseleave", function () { d.style.transform = "scale(1)";    });
       }(dot));
 
-      var popup = new window.mapboxgl.Popup({ offset: 10, closeButton: false })
-        .setHTML('<h4 style="font-family:Georgia,serif;font-size:13px;font-weight:600;margin:0;color:#1B2A4A">' + school.name + '</h4>');
+      var popup = new window.mapboxgl.Popup({ offset: 10, maxWidth: "180px", closeButton: false })
+        .setHTML('<h4>' + school.name + '</h4>');
 
       var marker = new window.mapboxgl.Marker({ element: dot, anchor: "center" })
         .setLngLat([school.lng, school.lat])
