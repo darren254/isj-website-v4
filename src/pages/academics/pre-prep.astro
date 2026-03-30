@@ -4,7 +4,6 @@ const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
-import ImageBlock from '../../components/ImageBlock.astro';
 import Testimonial from '../../components/Testimonial.astro';
 ---
 
@@ -102,15 +101,18 @@ import Testimonial from '../../components/Testimonial.astro';
     </div>
   </section>
 
-  <!-- ═══════ Full-bleed image ═══════ -->
-  <div class="my-4">
-    <ImageBlock
-      src="/images/prep-engineering.jpg"
-      alt="Pre-Prep and Prep pupils proudly showing their engineering projects"
-      aspect="wide"
-      loading="lazy"
-    />
-  </div>
+  <!-- ═══════ Image ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <img
+        src={asset('/images/tortoises-girls.jpg')}
+        alt="ISJ Pre-Prep children meeting tortoises during an outdoor learning session"
+        loading="lazy"
+        decoding="async"
+        class="w-full aspect-[16/9] object-cover"
+      />
+    </div>
+  </section>
 
   <!-- ═══════ Specialist Teaching ═══════ -->
   <section class="section-pad px-6">
@@ -127,12 +129,6 @@ import Testimonial from '../../components/Testimonial.astro';
     </SectionIntro>
   </section>
 
-  <!-- ═══════ Testimonial ═══════ -->
-  <Testimonial
-    quote="Clean facilities, friendly teachers, and a good balance of learning and play."
-    attribution="ISJ Parent"
-    detail="Annual Survey, November 2025"
-  />
 
   <!-- ═══════ What Comes Next ═══════ -->
   <section class="section-pad px-6">
