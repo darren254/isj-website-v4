@@ -1,4 +1,6 @@
 ---
+import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 ---
@@ -24,7 +26,7 @@ import Hero from '../../components/Hero.astro';
         <p class="label mb-5">Admissions</p>
         <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Bursaries and Scholarships</h1>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          With the support of The Schools Trust, ISJ offers financial assistance to broaden access. Two programmes exist for families where full tuition fees are a barrier but ISJ is the right school for the child.
+          With the support of The Schools Trust, ISJ offers financial assistance to broaden access. Two programmes exist for families where full <a href={link('/admissions/fees')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">tuition fees</a> are a barrier but ISJ is the right school for the child.
         </p>
       </div>
     </div>
@@ -76,7 +78,7 @@ import Hero from '../../components/Hero.astro';
               Named in honour of Indonesia's national education hero, Ki Hajar Dewantara (1889-1959), who founded the Taman Siswa movement and championed the idea that education should be accessible to all, regardless of background.
             </p>
             <p>
-              If you believe your child could thrive at ISJ, get in touch. The conversation is confidential and there is no obligation.
+              If you believe your child could thrive at ISJ, get in touch. The conversation is confidential and there is no obligation. When ready to proceed, the <a href={link('/admissions/how-to-apply')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">application process</a> is straightforward.
             </p>
           </div>
           <div class="mt-10">

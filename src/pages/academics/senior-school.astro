@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -29,7 +30,7 @@ import StatBar from '../../components/StatBar.astro';
       heading="GCSEs and A-Levels in Jakarta"
     >
       <p>
-        ISJ is building a Senior School for students who want a genuine British pathway through to university. GCSEs in Years 10 and 11. A-Levels in Years 12 and 13. Taught by subject specialists recruited from leading UK independent schools.
+        ISJ is building a Senior School for students who want a genuine British pathway through to university. <a href={link("/academics/senior-school/gcses")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">GCSEs</a> in Years 10 and 11. <a href={link("/academics/senior-school/a-levels")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">A-Levels</a> in Years 12 and 13. Taught by subject specialists recruited from leading UK independent schools.
       </p>
       <p>
         For families already at ISJ, it means your child can stay in a school that knows them. For families arriving in Jakarta, it means a through-school option from age 2 to 18 in Pondok Indah.
@@ -87,7 +88,7 @@ import StatBar from '../../components/StatBar.astro';
               GCSEs are the gold standard of British secondary education, recognised by universities and employers worldwide. Students study a core of English, Maths, and Sciences alongside options they choose based on their strengths and interests.
             </p>
             <p>
-              Every subject is taught by a specialist. Classes are small enough that every student receives the challenge and support they need to achieve their best.
+              Every subject is taught by a specialist. Classes are small enough that every student receives the challenge and support they need to achieve their best. The <a href={link("/academics/results")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">results across the Schools Trust network</a> reflect what this model produces.
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -48,7 +49,7 @@ import Testimonial from '../../components/Testimonial.astro';
           <p class="label mb-4">Swimming</p>
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">25-Metre Pool</h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            Swimming is part of the curriculum from Pre-Nursery. By the time children leave Pre-Prep, they are confident in the water.
+            Swimming is part of the curriculum from Pre-Nursery. By the time children leave Pre-Prep, they are confident in the water. Take a closer look at the campus on the <a href={link('/admissions/virtual-tour')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">virtual tour</a>.
           </p>
         </div>
       </div>
@@ -63,7 +64,7 @@ import Testimonial from '../../components/Testimonial.astro';
           <p class="label mb-4">Sport</p>
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">Playing Fields</h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            A full-size football pitch, 20+ sports including netball, athletics, gymnastics, bouldering, badminton, and dance. A new gymnasium is under construction.
+            A full-size football pitch, 20+ <a href={link('/school-life/sport')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">sports including netball, athletics, gymnastics, bouldering, badminton, and dance</a>. A new gymnasium is under construction.
           </p>
         </div>
         <div class="md:col-span-3 md:order-2 overflow-hidden">
@@ -145,7 +146,7 @@ import Testimonial from '../../components/Testimonial.astro';
           <p class="label mb-4">Performance</p>
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">Theatre and Music</h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            A dedicated theatre space for drama, concerts, and assemblies. Music tuition across a range of instruments.
+            A dedicated theatre space for drama, concerts, and assemblies. <a href={link('/school-life/arts-music')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Music tuition across a range of instruments</a>, from piano and violin to guitar and drums.
           </p>
         </div>
       </div>
