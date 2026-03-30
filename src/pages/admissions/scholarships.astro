@@ -1,9 +1,6 @@
 ---
-import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import SectionIntro from '../../components/SectionIntro.astro';
-import Testimonial from '../../components/Testimonial.astro';
 ---
 
 <BaseLayout
@@ -22,94 +19,89 @@ import Testimonial from '../../components/Testimonial.astro';
 
   <!-- ═══════ Introduction ═══════ -->
   <section class="section-pad px-6">
-    <SectionIntro
-      label="Admissions"
-      heading="Bursaries and Scholarships"
-    >
-      <p>
-        With the support of The Schools Trust, the bursary and scholarship programme aims to broaden access so children from a wide range of backgrounds can join the ISJ community and thrive.
-      </p>
-    </SectionIntro>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Admissions</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Bursaries and Scholarships</h1>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          With the support of The Schools Trust, ISJ offers financial assistance to broaden access. Two programmes exist for families where full tuition fees are a barrier but ISJ is the right school for the child.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- ═══════ Global Continuity Bursary — Asymmetric Split ═══════ -->
+  <!-- ═══════ Global Continuity Bursary ═══════ -->
   <section class="px-6 pb-[var(--space-section)]">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start reveal">
-        <div>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
           <p class="label label-gold mb-4">For Expatriate Families</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Global Continuity Bursary</h2>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
-            Financial assistance for expatriate families who are a strong fit for the ISJ community but find full tuition fees a significant hurdle. Specifically intended for families on "Local-Plus" contracts, the self-employed, or those privately funding their children's education.
-          </p>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            The bursary is means-tested. Support levels are determined by a confidential review of each family's financial profile. Both the school and the recipient agree to keep the existence and amount of any award strictly confidential.
-          </p>
-        </div>
-        <div class="lg:mt-12">
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
-            Designed for expat families on local-plus contracts, self-employed, or privately funding education. If full fees are a barrier but ISJ is the right school for your child, this is worth a conversation.
-          </p>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-            The process is straightforward and entirely confidential. The admissions team will walk you through it.
-          </p>
-          <a
-            href="mailto:admissions@isj.id?subject=Global%20Continuity%20Bursary&body=Hi%20ISJ%2C%20we%20are%20interested%20in%20a%20place%20for%20our%20child%20and%20would%20like%20to%20discuss%20the%20Global%20Continuity%20Bursary."
-            class="inline-flex items-center px-8 py-3 border border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)]"
-          >
-            Check Eligibility
-          </a>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Global Continuity Bursary</h2>
+          <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Financial assistance for expatriate families who are a strong fit for the ISJ community but find full tuition fees a significant hurdle. Specifically intended for families on local-plus contracts, the self-employed, or those privately funding education.
+            </p>
+            <p>
+              The bursary is means-tested. Support levels are determined by a confidential review of each family's financial profile. Both the school and the recipient agree to keep the existence and amount of any award strictly confidential.
+            </p>
+            <p>
+              If full fees are a barrier but ISJ is the right school for your child, this is worth a conversation. The process is straightforward and entirely confidential.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a
+              href="mailto:admissions@isj.id?subject=Global%20Continuity%20Bursary&body=Hi%20ISJ%2C%20we%20are%20interested%20in%20a%20place%20for%20our%20child%20and%20would%20like%20to%20discuss%20the%20Global%20Continuity%20Bursary."
+              class="whisper-link text-[length:var(--text-sm)]"
+            >
+              Enquire about this bursary
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ Testimonial ═══════ -->
-  <Testimonial
-    quote="A warm, family-like environment."
-    attribution="ISJ Parent, Annual Survey 2025"
-  />
-
-  <!-- ═══════ Ki Hajar Dewantara Scholarship — Full-width Feature ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center reveal">
-        <div class="lg:col-span-3">
+  <!-- ═══════ Ki Hajar Dewantara Scholarship ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
           <p class="label label-gold mb-4">For Indonesian Families</p>
-          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">The Ki Hajar Dewantara Scholarship</h2>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
-            Named in honour of Indonesia's national education hero, Ki Hajar Dewantara (1889-1959), who founded the Taman Siswa movement and championed the idea that education should be accessible to all, regardless of background.
-          </p>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            Awarded to Indonesian pupils who demonstrate high academic potential but lack the financial means to attend. This scholarship reflects ISJ's commitment to widening access in Jakarta.
-          </p>
-        </div>
-        <div class="lg:col-span-2">
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
-            Open to Indonesian citizens. Awards of up to 100% fee relief are assessed on academic potential and family circumstances. A limited number of places are available each year.
-          </p>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-            If you believe your child could thrive at ISJ, get in touch. The conversation is confidential and there is no obligation.
-          </p>
-          <a
-            href="mailto:admissions@isj.id?subject=Ki%20Hajar%20Dewantara%20Scholarship&body=Hi%20ISJ%2C%20I%20would%20like%20to%20learn%20more%20about%20the%20Ki%20Hajar%20Dewantara%20Scholarship."
-            class="inline-flex items-center px-8 py-3 border border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)]"
-          >
-            Enquire About This Scholarship
-          </a>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">The Ki Hajar Dewantara Scholarship</h2>
+          <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              Named in honour of Indonesia's national education hero, Ki Hajar Dewantara (1889-1959), who founded the Taman Siswa movement and championed the idea that education should be accessible to all, regardless of background.
+            </p>
+            <p>
+              Awarded to Indonesian pupils who demonstrate high academic potential but lack the financial means to attend. Awards of up to 100% fee relief are assessed on academic potential and family circumstances. A limited number of places are available each year.
+            </p>
+            <p>
+              If you believe your child could thrive at ISJ, get in touch. The conversation is confidential and there is no obligation.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a
+              href="mailto:admissions@isj.id?subject=Ki%20Hajar%20Dewantara%20Scholarship&body=Hi%20ISJ%2C%20I%20would%20like%20to%20learn%20more%20about%20the%20Ki%20Hajar%20Dewantara%20Scholarship."
+              class="whisper-link text-[length:var(--text-sm)]"
+            >
+              Enquire about this scholarship
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════ Contact ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
+  <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
-      <div class="reveal text-center">
-        <p class="label mb-6">Confidential Enquiries</p>
-        <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-          Contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href="https://wa.me/6281110007672" class="whisper-link">+62 811 1000 7672</a> to start a confidential conversation about eligibility.
-        </p>
+      <div class="reveal">
+        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
+          <p class="label mb-5">Confidential Enquiries</p>
+          <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            Contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href="https://wa.me/6281110007672" class="whisper-link">+62 811 1000 7672</a> to start a confidential conversation about eligibility.
+          </p>
+        </div>
       </div>
     </div>
   </section>
