@@ -1,0 +1,85 @@
+---
+import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+---
+
+<ArticleLayout
+  title="School Commute Times in Jakarta: An Honest Comparison"
+  description="Real commute time data for Jakarta's international schools. Compare morning and afternoon travel times from ISJ, JIS, BSJ, and AIS to offices, malls, and key destinations across the city."
+  canonicalUrl="/insights/jakarta-school-commute-times"
+  category="Jakarta Life"
+  categoryHref="/isj-website-v4/insights"
+  heroImage="/images/insights/expat-guide-bintaro.jpg"
+  heroAlt="Aerial view of Jakarta roads and elevated rail connecting school neighbourhoods"
+  author="Darren Brown"
+  publishedDate="30 March 2026"
+  summary="Traffic is the single most important factor in choosing where to live and which school to choose in Jakarta. This guide compares real commute times from four international schools to the offices, malls, and destinations that matter to expat families."
+>
+
+  <p>
+    Every family relocating to Jakarta hears the same advice: choose the school first, then find housing nearby. The reason is traffic. Jakarta consistently ranks among the most congested cities in the world, and a school that looks 10 minutes away on Google Maps can take an hour during the morning school run.
+  </p>
+
+  <p>
+    This matters because the school commute happens twice a day, five days a week, for years. A bad commute affects the whole family. Children wake earlier, spend longer in cars, arrive at school tired. Parents lose hours every week sitting in traffic instead of working or spending time at home.
+  </p>
+
+  <p>
+    The data below compares real commute times for four international schools that expat families in South Jakarta most commonly consider: ISJ, JIS (Jakarta Intercultural School), BSJ (British School Jakarta), and AIS (Australian Independent School). Times are based on Google Maps estimates for typical weekday mornings, leaving home at approximately 7:00am.
+  </p>
+
+  <h2>Interactive Commute Comparison</h2>
+
+  <p>
+    Select a destination to see how commute times compare across all four schools. Toggle between offices (SCBD, Mega Kuningan, Thamrin) and malls (Pondok Indah Mall, Lippo Mall, Plaza Indonesia, Pacific Place, Senayan City). The map shows school locations and driving routes.
+  </p>
+
+  <div class="img-wide" style="margin-top:2em;margin-bottom:2em;">
+    <iframe
+      src={asset('/tools/commute-times.html')}
+      title="Jakarta School Commute Times Comparison Tool"
+      style="width:100%;height:800px;border:0;border-radius:4px;"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <h2>What the Data Shows</h2>
+
+  <p>
+    The numbers reveal a clear pattern. Schools located in the Pondok Indah corridor (ISJ and JIS) consistently have shorter commute times to the destinations that matter most to expat families: SCBD, Mega Kuningan, Pondok Indah Mall, and Pacific Place. BSJ in Bintaro, despite being a strong school, is significantly further from everything. The commute from BSJ to SCBD can exceed 80 minutes in morning traffic.
+  </p>
+
+  <h3>Pondok Indah to SCBD</h3>
+
+  <p>
+    SCBD is Jakarta's primary financial district, where many expatriate parents work. From ISJ and JIS, the morning commute to SCBD ranges from 25 to 49 minutes depending on conditions. From BSJ, the same journey takes 45 to 80 minutes. That difference adds up to hours every week.
+  </p>
+
+  <h3>The Bintaro Trade-Off</h3>
+
+  <p>
+    BSJ is located in Bintaro, a rapidly growing suburban area in South Tangerang. Families who choose BSJ typically live in Bintaro too, which offers green space, lower housing costs, and a quieter pace of life. The trade-off is distance: Bintaro is effectively disconnected from central Jakarta during peak hours. A family living in Bintaro with a parent working in SCBD faces a daily round trip that can exceed three hours.
+  </p>
+
+  <h3>The Pondok Indah Advantage</h3>
+
+  <p>
+    Schools in the Pondok Indah to Kemang corridor sit at the intersection of the expat residential belt and the major office districts. Pondok Indah Mall, the social and commercial centre of the area, is under 20 minutes from both ISJ and JIS. Pacific Place and Senayan City are 20 to 40 minutes. The Pondok Indah location works because it is close to where expat families already live, shop, eat, and see doctors.
+  </p>
+
+  <h2>Choosing a School Based on Commute</h2>
+
+  <p>
+    The practical advice is straightforward. If one or both parents work in central Jakarta (SCBD, Thamrin, Kuningan), choose a school in the Pondok Indah to Kemang area and live nearby. If the family is based in Bintaro and neither parent commutes to the city centre, BSJ makes geographical sense. AIS in Kemang offers a balanced position for families in the eastern part of the South Jakarta corridor.
+  </p>
+
+  <p>
+    Traffic patterns also shift throughout the year. Ramadan typically reduces congestion by 20 to 30 percent. School holidays bring relief. Rainy season (November to March) makes flooding a variable, particularly on routes through Kemang and parts of South Jakarta. These factors are worth considering when evaluating commute times.
+  </p>
+
+  <p>
+    For a broader look at all 72 international schools in Jakarta, including fees, curricula, and locations, see the <a href={asset('/insights/best-international-schools-jakarta')}>Best International Schools in Jakarta</a> guide.
+  </p>
+
+</ArticleLayout>
