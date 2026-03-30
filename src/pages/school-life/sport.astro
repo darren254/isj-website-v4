@@ -3,6 +3,7 @@ import { asset } from '../../utils/paths';
 const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
 import Testimonial from '../../components/Testimonial.astro';
 ---
 
@@ -12,7 +13,7 @@ import Testimonial from '../../components/Testimonial.astro';
   canonicalUrl="/school-life/sport"
 >
 
-  <!-- Hero: kids in action -->
+  <!-- Hero: girls playing rugby -->
   <Hero
     imageSrc="/images/rugby.jpg"
     imageAlt="ISJ girls playing rugby on the school pitch"
@@ -20,66 +21,56 @@ import Testimonial from '../../components/Testimonial.astro';
     objectPosition="center 35%"
   />
 
-  <!-- Introduction -->
+  <!-- Introduction — centred, short -->
   <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <div class="reveal">
-        <p class="label label-gold mb-4">School Life</p>
-        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Sport</h1>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          20+ sports. Swimming from age two. House competitions, inter-school fixtures, and co-curricular sessions every day until 4:00pm. Sport at ISJ is broad, inclusive, and taken seriously.
-        </p>
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="label label-gold mb-5">School Life</p>
+      <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-6">Sport</h1>
+      <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+        20+ sports. Swimming from age two. House competitions, inter-school fixtures, and co-curricular sessions every day until 4:00pm.
+      </p>
+    </div>
+  </section>
+
+  <!-- Swimming — asymmetric split: image left, text right -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/insights/physical.jpg')}
+            alt="ISJ pupils swimming during a lesson"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+        <div>
+          <p class="label mb-5">Swimming</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">In the Water from Day One</h2>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            Swimming is part of the curriculum from Pre-Nursery. Regular lessons in the on-site pool ensure that every child becomes a confident, capable swimmer. By the end of Pre-Prep, they are comfortable in the water. By the end of Prep School, they are strong.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Swimming: action shot of kids in pool -->
-  <section class="px-6 pb-[var(--space-lg)]">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <img
-        src={asset('/images/insights/physical.jpg')}
-        alt="ISJ pupils swimming with noodles during a lesson"
-        loading="lazy"
-        decoding="async"
-        class="w-full aspect-[4/3] object-cover"
-      />
-    </div>
-  </section>
+  <!-- Full-bleed image: house sports medal ceremony -->
+  <ImageBlock
+    src="/images/house-sports.jpg"
+    alt="ISJ pupil receiving a medal at a house sports event, house colours visible"
+    aspectRatio="cinematic"
+  />
 
-  <section class="px-6 pb-[var(--space-section)]">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <div class="reveal">
-        <p class="label mb-5">Swimming</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">In the Water from Day One</h2>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          Swimming is part of the curriculum from Pre-Nursery. Regular lessons in the on-site pool ensure that every child becomes a confident, capable swimmer. By the end of Pre-Prep, they are comfortable in the water. By the end of Prep School, they are strong.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- House Sports: medal ceremony -->
-  <section class="px-6 pb-[var(--space-lg)]">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <img
-        src={asset('/images/house-sports.jpg')}
-        alt="ISJ pupil receiving a medal at a house sports event"
-        loading="lazy"
-        decoding="async"
-        class="w-full aspect-[3/2] object-cover object-top"
-      />
-    </div>
-  </section>
-
-  <section class="px-6 pb-[var(--space-section)]">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <div class="reveal">
-        <p class="label mb-5">Competition</p>
-        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Houses, Fixtures, and Tournaments</h2>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          Every child belongs to a house: Potter, Tolkien, Lewis, or Rowling. Houses compete across football, netball, athletics, and more throughout the year. Weekly fixtures and inter-school competitions give pupils the chance to compete, to win and lose with grace, and to develop as teammates. Older pupils plan events, lead teams, and mentor younger children.
-        </p>
-      </div>
+  <!-- House competition — centred text -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="label mb-5">Competition</p>
+      <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Potter. Tolkien. Lewis. Rowling.</h2>
+      <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+        Every child belongs to a house. Houses compete across football, netball, athletics, and more throughout the year. Weekly fixtures and inter-school competitions give pupils the chance to compete, to win and lose with grace, and to develop as teammates. Older pupils plan events, lead teams, and mentor younger children.
+      </p>
     </div>
   </section>
 
@@ -90,7 +81,7 @@ import Testimonial from '../../components/Testimonial.astro';
     detail="Annual Survey, November 2025"
   />
 
-  <!-- Programme -->
+  <!-- Programme — narrow column -->
   <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
