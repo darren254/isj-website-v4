@@ -2,10 +2,7 @@
 import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import SectionIntro from '../../components/SectionIntro.astro';
-import ImageBlock from '../../components/ImageBlock.astro';
 import StatBar from '../../components/StatBar.astro';
-import Testimonial from '../../components/Testimonial.astro';
 ---
 
 <BaseLayout
@@ -24,14 +21,20 @@ import Testimonial from '../../components/Testimonial.astro';
 
   <!-- ═══════ Introduction ═══════ -->
   <section class="section-pad px-6">
-    <SectionIntro
-      label="Heritage"
-      heading="The Schools Trust"
-    >
-      <p>
-        ISJ is part of The Schools Trust, a UK-registered charity (No. 1176052) that has been founding and governing premium British international schools since 2004. Across 11 countries and 16 schools, the Trust has built a track record that speaks for itself.
-      </p>
-    </SectionIntro>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Heritage</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">The Schools Trust</h1>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            ISJ is part of The Schools Trust, a UK-registered charity (No. 1176052) that has been founding and governing premium British international schools since 2004. Across 11 countries and 16 schools, the Trust has built a track record that speaks for itself.
+          </p>
+          <p>
+            Academic excellence, character development, risk-taking, enjoyment, and an international perspective grounded in British educational values. These are the principles that guide every school in the network, including ISJ.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ═══════ Stats ═══════ -->
@@ -44,160 +47,95 @@ import Testimonial from '../../components/Testimonial.astro';
     ]}
   />
 
-  <!-- ═══════ Guiding Principles ═══════ -->
+  <!-- ═══════ Governance ═══════ -->
   <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start reveal">
-        <div>
-          <p class="label mb-5">Principles</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">What Every Schools Trust School Shares</h2>
-          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            <p>
-              Academic excellence, character development, risk-taking, enjoyment, and an international perspective grounded in British educational values. These are the principles that guide every school in the network, including ISJ.
-            </p>
-            <p>
-              The Trust exists to govern, guide, and hold schools to account. Trustees set policies, oversee school development plans, structure management systems, and manage the charity. With over fifty years of combined experience founding and operating international schools, the governance is hands-on and informed.
-            </p>
-          </div>
-        </div>
-        <div>
-          <p class="label mb-5">Standards</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Inspection Results Across the Network</h2>
-          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            <p>
-              Every school operated by Trustees of The Schools Trust has achieved "Excellent" in all categories of UK government-accredited ISI inspections. 94% of students outperform the UK national average. Schools within the network have been ranked 1st and 2nd across 200+ British schools for A-Level and GCSE results.
-            </p>
-            <p>
-              ISJ follows the same path. The school is progressing toward full BSO (British Schools Overseas) accreditation, inspected by UK-qualified inspectors from ISI and Penta International.
-            </p>
-          </div>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Governance</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Standards Across the Network</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            The Trust exists to govern, guide, and hold schools to account. Trustees set policies, oversee school development plans, structure management systems, and manage the charity. With over fifty years of combined experience founding and operating international schools, the governance is hands-on and informed.
+          </p>
+          <p>
+            Every school operated by Trustees of The Schools Trust has achieved "Excellent" in all categories of UK government-accredited ISI inspections. 94% of students outperform the UK national average. Schools within the network have been ranked 1st and 2nd across 200+ British schools for A-Level and GCSE results.
+          </p>
+          <p>
+            ISJ follows the same path. The school is progressing toward full BSO (British Schools Overseas) accreditation, inspected by UK-qualified inspectors from ISI and Penta International.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ═══════ Full-bleed image ═══════ -->
-  <ImageBlock
-    src="/images/campus-aerial.jpg"
-    alt="Aerial view of the ISJ campus in Pondok Indah, South Jakarta"
-    aspectRatio="cinematic"
-  />
 
   <!-- ═══════ Schools Network ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <p class="label mb-5">Network</p>
-        <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-10">Schools Founded by Trust Trustees</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-          <div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">China</p>
-            <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-              <li>The British School of Beijing Sanlitun (2004)</li>
-              <li>BSB Shunyi (2005)</li>
-              <li>The British School of Guangzhou (2005)</li>
-              <li>The British School of Nanjing (2007)</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Russia &amp; Central Asia</p>
-            <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-              <li>International School of Moscow (2007)</li>
-              <li>The British School of Tashkent (2010)</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Southeast Asia</p>
-            <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-              <li>The British School of Kuala Lumpur (2009)</li>
-              <li>King's School Manila (2012)</li>
-              <li>The British School of Yangon (2014)</li>
-              <li>The Independent School of Jakarta (2022)</li>
-              <li>The British School of Bali (2025)</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Europe</p>
-            <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-              <li>The British School of Navarra (2010)</li>
-              <li>The British School of Marbella (2010)</li>
-              <li>Virtus College, Madrid (Sixth Form)</li>
-              <li>The British School of Vilnius (2019)</li>
-              <li>The British School of Lisbon (2019)</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">South America</p>
-            <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-              <li>British College of Brazil (2011)</li>
-              <li>The British School of Brasilia (2016)</li>
-            </ul>
+        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
+          <p class="label mb-5">Network</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-10">Schools Founded by Trust Trustees</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div>
+              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">China</p>
+              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
+                <li>The British School of Beijing Sanlitun (2004)</li>
+                <li>BSB Shunyi (2005)</li>
+                <li>The British School of Guangzhou (2005)</li>
+                <li>The British School of Nanjing (2007)</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Southeast Asia</p>
+              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
+                <li>The British School of Kuala Lumpur (2009)</li>
+                <li>King's School Manila (2012)</li>
+                <li>The British School of Yangon (2014)</li>
+                <li>The Independent School of Jakarta (2022)</li>
+                <li>The British School of Bali (2025)</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Europe</p>
+              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
+                <li>The British School of Navarra (2010)</li>
+                <li>The British School of Marbella (2010)</li>
+                <li>Virtus College, Madrid (Sixth Form)</li>
+                <li>The British School of Vilnius (2019)</li>
+                <li>The British School of Lisbon (2019)</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Russia, Central Asia &amp; South America</p>
+              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
+                <li>International School of Moscow (2007)</li>
+                <li>The British School of Tashkent (2010)</li>
+                <li>British College of Brazil (2011)</li>
+                <li>The British School of Brasilia (2016)</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ═══════ Testimonial ═══════ -->
-  <Testimonial
-    quote="A warm, family-like environment."
-    attribution="ISJ Parent, Annual Survey 2025"
-  />
 
   <!-- ═══════ University Destinations ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <div class="text-center mb-12">
+        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
           <p class="label mb-5">University Destinations</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1]">Where Students Go Next</h2>
-        </div>
-        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light text-center max-w-[var(--content-narrow)] mx-auto mb-12">
-          Graduates from Schools Trust schools go on to study at leading universities worldwide. A selection of recent destinations:
-        </p>
-        <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[length:var(--text-sm)] text-charcoal-light max-w-[var(--content-narrow)] mx-auto">
-          <span>University of Cambridge</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Oxford</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>Imperial College London</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>UCL</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>King's College London</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Edinburgh</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of St Andrews</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>Durham University</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Bristol</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Manchester</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Warwick</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Bath</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Sydney</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Toronto</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>Georgetown University</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of Hong Kong</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>University of British Columbia</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>Purdue University</span>
-          <span class="text-gold">&#x2022;</span>
-          <span>KAIST</span>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Where Students Go Next</h2>
+          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
+            Graduates from Schools Trust schools go on to study at leading universities worldwide. A selection of recent destinations:
+          </p>
+          <p class="text-[length:var(--text-sm)] leading-loose text-charcoal-light">
+            University of Cambridge, University of Oxford, Imperial College London, UCL, King's College London, University of Edinburgh, University of St Andrews, Durham University, University of Bristol, University of Manchester, University of Warwick, University of Bath, University of Sydney, University of Toronto, Georgetown University, University of Hong Kong, University of British Columbia, Purdue University, KAIST
+          </p>
         </div>
       </div>
     </div>
   </section>
-
-
 
 </BaseLayout>
