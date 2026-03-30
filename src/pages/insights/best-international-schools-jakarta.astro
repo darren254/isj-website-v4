@@ -1179,14 +1179,13 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       zoom: 11.2,
       minZoom: 9,
       maxZoom: 16,
-      cooperativeGestures: true,
+      interactive: false,
       dragRotate: false,
       pitchWithRotate: false,
       attributionControl: false
     });
     mapInstance = map;
 
-    map.addControl(new window.mapboxgl.NavigationControl({ showCompass: false }), "top-right");
     map.addControl(new window.mapboxgl.AttributionControl({ compact: true }), "bottom-right");
 
     map.on("load", function () {
