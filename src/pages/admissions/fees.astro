@@ -67,24 +67,25 @@ const phases = [
   {phases.map(({ name, rows }) => (
     <section class="px-6 pb-20">
       <div class="mx-auto max-w-lg reveal">
-        <p class="label mb-8">{name}</p>
-        <table class="w-full" style="table-layout:fixed">
-          <colgroup>
-            <col style="width:40%" />
-            <col style="width:25%" class="hidden sm:table-column" />
-            <col />
-          </colgroup>
+        <p class="label mb-6">{name}</p>
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-charcoal/10">
+              <th class="text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-charcoal-light font-medium text-left py-2.5">Year Group</th>
+              <th class="text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-charcoal-light font-medium text-right py-2.5">Per Year (IDR)</th>
+              <th class="text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-charcoal-light font-medium text-right py-2.5">Per Term (IDR)</th>
+            </tr>
+          </thead>
           <tbody>
             {rows.map((row) => (
               <tr class="border-b border-charcoal/5">
-                <td class="text-[length:var(--text-base)] text-navy py-3">{row.year}</td>
-                <td class="text-[length:var(--text-sm)] text-charcoal-light py-3 hidden sm:table-cell">{row.ages}</td>
-                <td class="text-[length:var(--text-base)] text-charcoal py-3 text-right tabular-nums">{row.annual}</td>
+                <td class="text-[length:var(--text-sm)] text-navy py-3">{row.year}</td>
+                <td class="text-[length:var(--text-sm)] text-charcoal py-3 text-right tabular-nums">{row.annual}</td>
+                <td class="text-[length:var(--text-sm)] text-charcoal-light py-3 text-right tabular-nums">{row.perTerm}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <p class="text-[length:var(--text-xs)] text-charcoal-light mt-3 text-right">IDR per year</p>
       </div>
     </section>
   ))}
