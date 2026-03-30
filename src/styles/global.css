@@ -143,6 +143,9 @@
     border-collapse: collapse;
     width: 100%;
   }
+  tbody tr:nth-child(even) {
+    background-color: rgba(27, 42, 74, 0.025);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

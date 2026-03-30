@@ -9,8 +9,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   canonicalUrl="/insights/best-international-schools-jakarta"
   category="Jakarta Life"
   categoryHref="/isj-website-v4/insights"
-  heroImage="/images/insights/expat-guide-hero.jpg"
-  heroAlt="International school families arriving at a Jakarta campus"
+  heroImage="/images/campus-aerial.jpg"
+  heroAlt="Aerial view of an international school campus in Pondok Indah, South Jakarta"
   author="Darren Brown"
   publishedDate="15 February 2026"
   summary="Choosing an international school in Jakarta is one of the most consequential decisions a relocating family will make. This guide covers the schools expat families actually choose, compares 72 schools by curriculum, location, and fees, and walks through the neighbourhoods, the commute realities, and the questions worth asking before you sign anything."
@@ -1320,24 +1320,29 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       var isISJ   = school.name === "ISJ";
       var dotSize = isISJ ? 14 : 10;
 
-      // Dot marker element
+      // Dot marker element — outer wrapper gives a larger touch target
       var dot = document.createElement("div");
-      dot.style.cssText = [
+      dot.style.cssText = "position:relative;width:" + (dotSize + 20) + "px;height:" + (dotSize + 20) + "px;display:flex;align-items:center;justify-content:center;cursor:pointer;";
+      var dotInner = document.createElement("div");
+      dotInner.style.cssText = [
         "width:" + dotSize + "px",
         "height:" + dotSize + "px",
         "border-radius:50%",
         "background:#1B2A4A",
         "border:1.5px solid " + (isISJ ? "#FFC43D" : "white"),
         "box-shadow:0 1px 4px rgba(0,0,0,0.25)",
-        "cursor:pointer",
+        "pointer-events:none",
         "transition:transform 0.2s ease",
         isISJ ? "box-shadow:0 1px 4px rgba(0,0,0,0.25),0 0 0 1.5px rgba(255,196,61,0.35)" : ""
       ].join(";");
+      dot.appendChild(dotInner);
 
-      (function(d) {
-        d.addEventListener("mouseenter", function () { d.style.transform = "scale(1.45)"; });
-        d.addEventListener("mouseleave", function () { d.style.transform = "scale(1)";    });
-      }(dot));
+      (function(d, inner) {
+        d.addEventListener("mouseenter", function () { inner.style.transform = "scale(1.45)"; });
+        d.addEventListener("mouseleave", function () { inner.style.transform = "scale(1)";    });
+        // Prevent touch from triggering map pan
+        d.addEventListener("touchstart", function(e) { e.stopPropagation(); }, { passive: false });
+      }(dot, dotInner));
 
       var popup = new window.mapboxgl.Popup({ offset: 10, maxWidth: "180px", closeButton: false })
         .setHTML('<h4>' + school.name + '</h4>');
@@ -1494,7 +1499,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <h3>Bintaro (Outside Jakarta)</h3>
 
   <figure class="img-text">
-    <img src={asset('/images/insights/expat-guide-bintaro.png')} alt="Bintaro suburban neighbourhood outside Jakarta" loading="lazy" />
+    <img src={asset('/images/insights/expat-guide-bintaro.jpg')} alt="Bintaro Jaya residential area in South Tangerang, Jakarta" loading="lazy" />
     <figcaption>Bintaro offers green suburbia and a quieter pace of life, but sits a significant distance from central Jakarta.</figcaption>
   </figure>
 
@@ -1511,99 +1516,89 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <h3>How much does international school in Jakarta cost?</h3>
 
   <p>
-    Headline tuition ranges from around $4,500 to $39,000 per year depending on the school and year group, but that's not the full number. On top of tuition, expect a one-off registration or enrolment fee (often $1,000–$3,500), an annual capital or development levy, and separate charges for EAL support, learning support, exam fees (IGCSE, IB, and AP exams are not included in tuition), school bus transport, uniforms, and trips. At the top-tier schools, your true first-year cost can be 20–30% higher than the advertised tuition. Ask every school for a single-page total cost breakdown for your child's specific year group before you commit. For an example of what a transparent fee schedule looks like, see ISJ's published tuition fees. Some schools also offer bursaries or scholarships worth investigating early.
+    Tuition ranges from around $4,500 to $39,000 per year, but that's not the full number. Add registration fees ($1,000–$3,500), development levies, exam fees, transport, and uniforms, and the true first-year cost can be 20–30% higher than advertised. Ask every school for a total cost breakdown for your child's year group. For reference, see <a href={asset('/admissions/fees')}>ISJ's published fees</a>.
   </p>
 
   <h3>What's the difference between British, IB, and American curriculum?</h3>
 
-  <p>It matters more than people think, because it determines how easily your child can transfer to another school or country.</p>
-
   <p>
-    <strong>British (English National Curriculum)</strong> is structured and sequential. Children follow defined Key Stages, building toward IGCSEs at 16 and A-Levels at 18. It's the most globally portable curriculum. British schools exist in almost every major city, and transfers between them are straightforward.
+    <strong>British</strong> is structured and sequential: Key Stages leading to IGCSEs and A-Levels. The most globally portable. <strong>IB</strong> is inquiry-based and broader, with the Diploma requiring six subjects plus extended essay, TOK, and community service. <strong>American</strong> uses a credit-based system with AP courses, offering the most elective choice and the natural path to US universities.
   </p>
 
   <p>
-    <strong>IB (International Baccalaureate)</strong> is inquiry-based and broader. The Diploma Programme at 16–18 requires six subjects plus extended essay, theory of knowledge, and community service. It suits self-motivated learners who want breadth over early specialisation.
-  </p>
-
-  <p>
-    <strong>American</strong> uses a credit-based system with Advanced Placement (AP) courses for university-level work. It offers the most flexibility and elective choice, and is the natural path if your child is heading to a US university.
-  </p>
-
-  <p>
-    If you're likely to move countries again, pick the curriculum that matches your next likely destination, not just the one that sounds appealing today. We break this down further in our Curriculum Guide.
+    If you're likely to move countries again, pick the curriculum that matches your next destination. We cover this in more detail in the <a href={asset('/insights/curriculum-guide-international-schools')}>Curriculum Guide</a>.
   </p>
 
   <h3>Should I choose the school first or the house first?</h3>
 
   <p>
-    The school. Always. In Jakarta, traffic turns a 5km drive into a 45-minute ordeal during school hours. Parents who sign a housing lease first and then try to find a school nearby almost always regret it. Pick your school, then find housing within a 15–20 minute radius. Most expat families cluster in South Jakarta (Pondok Indah, Kemang, Cipete, Cilandak) because that's where the main international schools are. If you choose a school in Bintaro, plan to live in Bintaro, not commute from the city.
+    The school. Always. Jakarta traffic turns a 5km drive into 45 minutes during school hours. Pick the school, then find housing within a 15–20 minute radius. If you choose a school in Bintaro, plan to live in Bintaro.
   </p>
 
   <h3>How bad is the school-run traffic, really?</h3>
 
   <p>
-    Bad enough to be a deciding factor in where you live. Jakarta consistently ranks among the world's most congested cities. A school that looks 10 minutes away on Google Maps can take 40–60 minutes during the 6:30–8:00am school run. The afternoon pickup is often worse. Most experienced expat families keep the school commute under 20 minutes and choose their neighbourhood to make that possible. Many schools offer bus services, but buses sit in the same traffic. The families who are happiest in Jakarta are the ones who solved the commute problem before they arrived.
+    Bad enough to decide where you live. A school 10 minutes away on Google Maps can take 40–60 minutes during the 6:30–8:00am school run. Keep the commute under 20 minutes and choose your neighbourhood accordingly. Buses sit in the same traffic.
   </p>
 
   <h3>Can my child start mid-year?</h3>
 
   <p>
-    Usually yes, but it depends on the school and the year group. Most Jakarta international schools accept rolling admissions and will take students throughout the academic year if space is available. However, popular year groups at the top schools (particularly Nursery, Reception, and Year 7 / Grade 6 entry points) can fill up. Some schools have lane-based admissions systems where local transfers face fixed deadlines and different priority levels than families arriving from overseas. Contact your target schools as early as possible, even before your move is confirmed. A preliminary enquiry costs nothing and gets you on their radar.
+    Usually yes. Most schools accept rolling admissions throughout the year, but popular entry points (Nursery, Reception, Year 7) fill up at top schools. Contact schools early, even before the move is confirmed.
   </p>
 
   <h3>How far ahead should I start planning?</h3>
 
   <p>
-    Three to six months is ideal. Most schools accept applications well in advance; some up to two years ahead. If you know a relocation is likely, start contacting schools immediately: book tours, submit enquiry forms, and gather the documents you'll need (school reports, passport copies, vaccination records, and any learning support assessments). Waiting lists at the most popular schools are real, particularly for entry-year groups. Families who leave school selection until the last month before arrival often find their first-choice school full. To understand how a typical admissions process works and what age group your child falls into, see our age guidelines.
+    Three to six months is ideal. Book tours, submit enquiry forms, and gather documents (school reports, passports, vaccination records, learning support assessments). Waiting lists at the most popular schools are real. Families who leave it until the last month often find their first choice full. See the <a href={asset('/admissions/age-guide')}>age guidelines</a> for entry points.
   </p>
 
   <h3>What if we're only in Jakarta for one or two years?</h3>
 
   <p>
-    Short-rotation expat postings are the norm, not the exception. The most important thing is curriculum continuity. If your child will return to a British school, keep them in a British curriculum. If they're headed to an IB school next, choose IB now. Switching curriculum systems mid-education is manageable at primary level but gets disruptive from age 11 or 12 onward, when subject-specific progression starts to matter. Also check the school's reporting format: will the next school understand and accept the reports and assessments your child leaves with?
+    Curriculum continuity is what matters. If your child will return to a British school, keep them in British curriculum here. Switching systems is manageable at primary level but gets disruptive from age 11 onward. Also check the school's reporting format: will the next school accept the reports your child leaves with?
   </p>
 
   <h3>My child has additional learning needs. Which schools can help?</h3>
 
   <p>
-    Ask this question honestly and early. Most Jakarta international schools say they offer learning support, but the depth varies. Some have full-time specialist SEN coordinators, educational psychologists, and dedicated support staff. Others have a single EAL teacher covering the entire school. AIS Indonesia has the strongest reputation in Jakarta for inclusive education and structured learning support programmes. JIS has a formal support model but caps the number of supported students per year group. Smaller schools may be more flexible but have fewer specialist resources. Bring your child's full assessment documentation, ask to speak with the learning support team directly (not just admissions), and ask specifically: how many students are on individual learning plans, what specialist staff are on-site, and what happens if my child's needs exceed what you can provide?
+    Most schools say they offer learning support; the depth varies enormously. AIS Indonesia has the strongest reputation for inclusive education. JIS has a formal model but caps supported students per year group. Smaller schools may be more flexible with fewer specialist resources. Bring full assessment documentation and ask to speak with the learning support team directly, not just admissions.
   </p>
 
   <h3>How do I tell if teachers are properly qualified?</h3>
 
   <p>
-    In Indonesia, the term "international school" is loosely regulated, and not every school with an English-language website employs qualified, experienced teachers. Ask whether teaching staff hold recognised teaching qualifications from their home country (QTS in the UK, a teaching licence in the US or Australia), how many years of classroom experience they have, and what percentage are native English speakers. Schools accredited by bodies like CIS, COBIS, or WASC are held to external standards on teacher qualifications. During your campus visit, ask to meet the teachers who would teach your child, not just the head or the admissions team.
+    "International school" is loosely regulated in Indonesia. Ask whether staff hold recognised qualifications from their home country (QTS in the UK, a licence in the US or Australia). Schools accredited by CIS, COBIS, or WASC are held to external standards. On your visit, ask to meet the teachers who would actually teach your child.
   </p>
 
   <h3>Are the expensive schools better?</h3>
 
   <p>
-    Generally, yes. Price is a reasonable proxy for quality because higher fees allow a school to pay teachers well, and competitive salaries are what attract enthusiastic, highly qualified staff from top schools in the UK, US, and Australia. Higher fees also fund better facilities, deeper support infrastructure (counsellors, SEN specialists, university advisors), and the kind of professional environment that retains good teachers year after year. A handful of mid-range schools punch above their weight, and a few expensive ones coast on brand recognition rather than classroom quality. But if a school is charging $5,000 a year and claiming to employ qualified British teachers, ask how. Use our comparison table above to review fees and curricula side by side.
+    Generally, yes. Higher fees fund better teachers, better facilities, and the support infrastructure (counsellors, SEN specialists, university advisors) that makes a real difference. A handful of mid-range schools punch above their weight, and a few expensive ones coast on brand recognition. If a school charges $5,000 a year and claims to employ qualified British teachers, ask how.
   </p>
 
   <h3>What does the admissions process look like?</h3>
 
   <p>
-    It varies by school, but the general pattern is: enquire, tour, apply, assess, enrol. Most schools begin with a campus tour (book this early; it's the single most useful thing you can do). You then submit an application with school reports, passport copies, and any relevant assessments. For entry into Year 1 and above, most schools run a simple age-appropriate assessment, typically English and maths, sometimes a short interview. Early years entry (Nursery, Pre-K) is often non-selective. Processing times range from a few days to several weeks depending on the school and time of year. Some schools charge a non-refundable application fee of $200–$400 just to submit.
+    Enquire, tour, apply, assess, enrol. Book the tour early; it's the single most useful thing you can do. From Year 1 upward, expect a simple assessment in English and maths. Early years entry is often non-selective. Processing takes days to weeks; some schools charge $200–$400 just to apply.
   </p>
 
   <h3>Will my child's education transfer if we move to another country?</h3>
 
   <p>
-    This question should drive your curriculum choice. British and IB curricula are the most globally portable: there are British-curriculum and IB schools in almost every major expat city worldwide, and student records transfer cleanly between them. American-curriculum schools also transfer well, particularly within the US system. Where problems arise is when families switch between systems at secondary level. A child moving from IB MYP to British GCSEs at 14, for example, may find significant gaps in subject-specific content. If you know you'll move again, choose the curriculum you're most likely to continue with, and keep copies of every school report, assessment result, and learning support document.
+    British and IB are the most portable: schools exist in almost every major expat city, and records transfer cleanly. American transfers well within the US system. Problems arise when switching between systems at secondary level. Choose the curriculum you're most likely to continue with.
   </p>
 
   <h3>Is Jakarta safe for school-age children?</h3>
 
   <p>
-    Jakarta is a large, developing-world capital, and like any city of 30+ million people, it has areas that are safer than others. The expat neighbourhoods in South Jakarta — where most international school families live — are generally safe, well-serviced, and accustomed to foreign residents. Schools take security seriously: gated campuses, ID checks, and controlled access are standard. The day-to-day risks that affect family life are more mundane: traffic, air quality (Jakarta's AQI regularly exceeds healthy levels), flooding during rainy season (November–March), and tropical illnesses like dengue. Most expat families with children live comfortably here, but it requires some adjustment, particularly around outdoor activity on high-pollution days.
+    The South Jakarta expat neighbourhoods are generally safe, well-serviced, and accustomed to foreign residents. Schools have gated campuses, ID checks, and controlled access as standard. The practical concerns are traffic, air quality (the AQI regularly exceeds healthy levels), rainy-season flooding (November to March), and dengue. Manageable, but worth understanding before you arrive.
   </p>
 
   <h3>What if my child doesn't speak much English?</h3>
 
   <p>
-    Most established international schools offer English as an Additional Language (EAL) programmes for children still developing English fluency. The quality and intensity of these programmes varies between schools. Some embed EAL support within the regular classroom with a specialist co-teacher; others pull students out for separate sessions. A few schools cap the number of EAL students they accept per year group. Ask specifically: how is EAL delivered, how long does support typically last, and is there an additional charge? At primary level, children generally pick up conversational English within a few months through immersion. At secondary level, the transition is harder and the academic language demands are much higher, so the quality of the EAL programme matters a lot.
+    Most schools offer EAL programmes, but delivery varies: some embed support in the classroom, others pull students out. A few cap EAL numbers per year group. At primary level, children generally pick up conversational English within months. At secondary level the academic language demands are much higher, so the quality of EAL support matters significantly.
   </p>
 
   <h2>Final Thoughts</h2>
