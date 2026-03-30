@@ -1,46 +1,47 @@
 ---
 import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
 const navItems = [
   {
     label: 'About',
     children: [
-      { label: 'Why ISJ', href: '/about/why-isj' },
-      { label: 'Our Head', href: '/about/our-head' },
-      { label: 'The Schools Trust', href: '/about/the-schools-trust' },
+      { label: 'Why ISJ', href: link('/about/why-isj') },
+      { label: 'Our Head', href: link('/about/our-head') },
+      { label: 'The Schools Trust', href: link('/about/the-schools-trust') },
     ],
   },
   {
     label: 'Academics',
     children: [
-      { label: 'Pre-Prep (Ages 2\u20136)', href: '/academics/pre-prep' },
-      { label: 'Prep School (Ages 7\u201313)', href: '/academics/prep-school' },
-      { label: 'Senior School (Ages 14\u201318)', href: '/academics/senior-school' },
-      { label: 'Curriculum \u00d7', href: '/academics/curriculum', pending: true },
-      { label: 'Results & Outcomes \u00d7', href: '/academics/results', pending: true },
+      { label: 'Pre-Prep (Ages 2\u20136)', href: link('/academics/pre-prep') },
+      { label: 'Prep School (Ages 7\u201313)', href: link('/academics/prep-school') },
+      { label: 'Senior School (Ages 14\u201318)', href: link('/academics/senior-school') },
+      { label: 'Curriculum \u00d7', href: link('/academics/curriculum'), pending: true },
+      { label: 'Results & Outcomes \u00d7', href: link('/academics/results'), pending: true },
     ],
   },
   {
     label: 'Admissions',
     children: [
-      { label: 'How to Apply', href: '/admissions/how-to-apply' },
-      { label: 'Arrange a Tour', href: '/admissions/arrange-a-tour' },
-      { label: 'Fees', href: '/admissions/fees' },
-      { label: 'Age Guide', href: '/admissions/age-guide' },
-      { label: 'Scholarships & Bursaries', href: '/admissions/scholarships' },
+      { label: 'How to Apply', href: link('/admissions/how-to-apply') },
+      { label: 'Arrange a Tour', href: link('/admissions/arrange-a-tour') },
+      { label: 'Fees', href: link('/admissions/fees') },
+      { label: 'Age Guide', href: link('/admissions/age-guide') },
+      { label: 'Scholarships & Bursaries', href: link('/admissions/scholarships') },
     ],
   },
   {
     label: 'School Life',
     children: [
-      { label: 'Campus & Facilities', href: '/school-life/campus' },
-      { label: 'Sport \u00d7', href: '/school-life/sport', pending: true },
-      { label: 'Arts, Music & Drama \u00d7', href: '/school-life/arts-music', pending: true },
-      { label: 'Character & Values \u00d7', href: '/school-life/character', pending: true },
+      { label: 'Campus & Facilities', href: link('/school-life/campus') },
+      { label: 'Sport \u00d7', href: link('/school-life/sport'), pending: true },
+      { label: 'Arts, Music & Drama \u00d7', href: link('/school-life/arts-music'), pending: true },
+      { label: 'Character & Values \u00d7', href: link('/school-life/character'), pending: true },
     ],
   },
-  { label: 'Insights', href: '/insights' },
-  { label: 'News', href: '/news' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Insights', href: link('/insights') },
+  { label: 'News', href: link('/news') },
+  { label: 'Contact', href: link('/contact') },
 ];
 ---
 
@@ -68,7 +69,7 @@ const navItems = [
       </button>
 
       <!-- Wordmark (centred) -->
-      <a href="/" class="absolute left-1/2 -translate-x-1/2 flex items-center gap-3" aria-label="The Independent School of Jakarta — Home">
+      <a href={link('/')} class="absolute left-1/2 -translate-x-1/2 flex items-center gap-3" aria-label="The Independent School of Jakarta — Home">
         <img src={asset('/images/brand/isj-lion-gold.png')} alt="" class="h-10 lg:h-12 w-auto" aria-hidden="true" />
         <span class="hidden lg:block text-center leading-tight">
           <span class="block font-heading text-navy text-[1.1rem] tracking-[0.25em] uppercase font-light">The Independent</span>
@@ -79,14 +80,14 @@ const navItems = [
 
       <!-- CTA -->
       <a
-        href="/admissions/arrange-a-tour"
+        href={link('/admissions/arrange-a-tour')}
         class="hidden sm:inline-flex items-center px-6 py-2.5 border border-navy text-navy text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium font-[family-name:var(--font-body)] hover:bg-navy hover:text-cream transition-all duration-[var(--transition-base)]"
       >
         Arrange a Tour
       </a>
 
       <!-- Mobile: just show a small CTA icon -->
-      <a href="/admissions/arrange-a-tour" class="sm:hidden text-navy" aria-label="Arrange a Tour">
+      <a href={link('/admissions/arrange-a-tour')} class="sm:hidden text-navy" aria-label="Arrange a Tour">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
         </svg>
@@ -162,7 +163,7 @@ const navItems = [
 
       <!-- Mobile CTA -->
       <a
-        href="/admissions/arrange-a-tour"
+        href={link('/admissions/arrange-a-tour')}
         class="sm:hidden mt-8 inline-flex self-start items-center px-8 py-3 border border-white/30 text-white text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-white/10 transition-colors duration-[var(--transition-base)]"
       >
         Arrange a Tour

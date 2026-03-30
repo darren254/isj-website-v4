@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -171,7 +172,7 @@ const phases = [
             Fees are payable annually or by term (three terms per year). Payment is due 14 days before the start of each term.
           </p>
           <p>
-            Full payment terms, withdrawal notice periods, and refund policies are set out in the <a href="/admissions/terms-and-conditions" class="whisper-link">Admissions Terms and Conditions</a>.
+            Full payment terms, withdrawal notice periods, and refund policies are set out in the <a href={link("/admissions/terms-and-conditions")} class="whisper-link">Admissions Terms and Conditions</a>.
           </p>
         </div>
       </div>

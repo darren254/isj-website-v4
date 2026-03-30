@@ -1,4 +1,6 @@
 ---
+import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -77,8 +79,8 @@ const yearGroups = [
           <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-3" id="result-year"></h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light" id="result-detail"></p>
           <div class="mt-6 flex flex-col sm:flex-row gap-4">
-            <a href="/admissions/how-to-apply" class="whisper-link">How to apply</a>
-            <a href="/admissions/fees" class="whisper-link">View fees</a>
+            <a href={link("/admissions/how-to-apply")} class="whisper-link">How to apply</a>
+            <a href={link("/admissions/fees")} class="whisper-link">View fees</a>
           </div>
         </div>
       </div>
@@ -132,7 +134,7 @@ const yearGroups = [
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children complete an age-appropriate assessment in literacy, numeracy, and reasoning.
         </p>
-        <a href="/admissions/how-to-apply" class="whisper-link mt-4 inline-block">Read more about how to apply</a>
+        <a href={link("/admissions/how-to-apply")} class="whisper-link mt-4 inline-block">Read more about how to apply</a>
       </div>
 
     </div>

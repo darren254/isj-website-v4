@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -157,7 +158,7 @@ import Testimonial from '../../components/Testimonial.astro';
               The Trust's schools are ranked 1st and 2nd across a network of 200+ British schools internationally for A-Level and GCSE results. ISJ inherits that track record: the same governance, the same standards, the same expectation of excellence.
             </p>
           </div>
-          <a href="/about/the-schools-trust" class="whisper-link inline-block mt-6">About The Schools Trust</a>
+          <a href={link("/about/the-schools-trust")} class="whisper-link inline-block mt-6">About The Schools Trust</a>
         </div>
         <div class="overflow-hidden">
           <img

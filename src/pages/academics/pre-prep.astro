@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -141,7 +142,7 @@ import Testimonial from '../../components/Testimonial.astro';
       <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
         At the end of Year 2, children move into Prep School (Ages 7 to 13), where they continue with the English National Curriculum through Key Stages 2 and 3. The transition is seamless because the teachers already know your child.
       </p>
-      <a href="/academics/prep-school" class="whisper-link">Discover Prep School</a>
+      <a href={link("/academics/prep-school")} class="whisper-link">Discover Prep School</a>
     </div>
   </section>
 

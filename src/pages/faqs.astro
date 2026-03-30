@@ -1,4 +1,6 @@
 ---
+import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionIntro from '../components/SectionIntro.astro';
@@ -8,18 +10,18 @@ const faqGroups = [
   {
     label: 'Admissions',
     faqs: [
-      { q: 'How do I apply to ISJ?', a: 'Contact the admissions team, arrange a tour, then submit an application form with the application fee. For children entering Year 1 and above, there is an age-appropriate assessment. Full details are on the <a href="/admissions/how-to-apply" class="whisper-link">How to Apply</a> page.' },
+      { q: 'How do I apply to ISJ?', a: 'Contact the admissions team, arrange a tour, then submit an application form with the application fee. For children entering Year 1 and above, there is an age-appropriate assessment. Full details are on the <a href={link("/admissions/how-to-apply")} class="whisper-link">How to Apply</a> page.' },
       { q: 'Is ISJ selective?', a: 'Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children complete a short assessment in literacy, numeracy, and reasoning. ISJ is looking for children who can access the curriculum and thrive.' },
       { q: 'Can my child join mid-year?', a: 'Yes, subject to available space, mid-year transfers are welcome. Contact the admissions team to discuss availability.' },
-      { q: 'What age can my child start?', a: 'Children can join from age 2 (Pre-Nursery). Use the <a href="/admissions/age-guide" class="whisper-link">Age Guide</a> to find the right year group for your child.' },
+      { q: 'What age can my child start?', a: 'Children can join from age 2 (Pre-Nursery). Use the <a href={link("/admissions/age-guide")} class="whisper-link">Age Guide</a> to find the right year group for your child.' },
       { q: 'Can I apply before we move to Jakarta?', a: 'Yes. ISJ accepts applications up to two years in advance and offers live video tours for families who are relocating.' },
     ],
   },
   {
     label: 'Fees and Payments',
     faqs: [
-      { q: 'Where can I find the fee schedule?', a: 'The full fee schedule for the 2026/27 academic year is on the <a href="/admissions/fees" class="whisper-link">Tuition Fees</a> page.' },
-      { q: 'Are there sibling discounts?', a: 'Yes. Discounts apply from the third child onwards. Details are on the <a href="/admissions/fees" class="whisper-link">Fees</a> page.' },
+      { q: 'Where can I find the fee schedule?', a: 'The full fee schedule for the 2026/27 academic year is on the <a href={link("/admissions/fees")} class="whisper-link">Tuition Fees</a> page.' },
+      { q: 'Are there sibling discounts?', a: 'Yes. Discounts apply from the third child onwards. Details are on the <a href={link("/admissions/fees")} class="whisper-link">Fees</a> page.' },
       { q: 'What is included in the fees?', a: 'Fees cover teaching, the full academic curriculum, learning materials, use of all campus facilities, pastoral care, academic support, and co-curricular activities. Lunch, school trips, uniforms, transport, and external exam fees are charged separately.' },
       { q: 'How are fees paid?', a: 'Fees are payable annually or by term (three terms per year). Payment is due 14 days before the start of each term.' },
     ],
@@ -103,7 +105,7 @@ const faqSchema = JSON.stringify({
   <section class="section-pad px-6 border-t border-charcoal/10">
     <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
       <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-        Can't find what you're looking for? Get in touch at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href="/contact" class="whisper-link">visit the contact page</a>.
+        Can't find what you're looking for? Get in touch at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or <a href={link("/contact")} class="whisper-link">visit the contact page</a>.
       </p>
     </div>
   </section>

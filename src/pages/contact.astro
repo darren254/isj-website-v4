@@ -1,5 +1,6 @@
 ---
 import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -54,7 +55,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <div class="mt-12 pt-8 border-t border-charcoal/10">
               <a
-                href="/admissions/arrange-a-tour"
+                href={link("/admissions/arrange-a-tour")}
                 class="whisper-link"
               >
                 Arrange a Tour

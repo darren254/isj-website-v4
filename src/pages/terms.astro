@@ -1,4 +1,6 @@
 ---
+import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -28,7 +30,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div>
           <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">Accuracy of Information</h2>
-          <p>ISJ makes reasonable efforts to ensure the information on this website is accurate and up to date. However, ISJ does not guarantee the completeness or accuracy of any information. Fees, dates, and programme details are subject to change. The <a href="/admissions/fees" class="whisper-link">Fees</a> page reflects the current academic year and is updated annually.</p>
+          <p>ISJ makes reasonable efforts to ensure the information on this website is accurate and up to date. However, ISJ does not guarantee the completeness or accuracy of any information. Fees, dates, and programme details are subject to change. The <a href={link("/admissions/fees")} class="whisper-link">Fees</a> page reflects the current academic year and is updated annually.</p>
         </div>
 
         <div>

@@ -1,5 +1,6 @@
 ---
 import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const featured = {
@@ -116,7 +117,7 @@ const moreNews = [
         </div>
 
         <!-- Highlight article -->
-        <a href="/news/residential-2025" class="lg:col-span-3 group reveal flex flex-col">
+        <a href={link("/news/residential-2025")} class="lg:col-span-3 group reveal flex flex-col">
           <div class="overflow-hidden flex-1">
             <img
               src={asset('/images/news/residential.jpg')}

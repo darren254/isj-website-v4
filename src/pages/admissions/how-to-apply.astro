@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -90,7 +91,7 @@ const steps = [
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           ISJ welcomes children from age 2 (Pre-Nursery) through to Year 13 (A-Levels). The main entry points are Pre-Nursery, Reception, Year 7, and Year 12, but places may be available in any year group.
         </p>
-        <a href="/admissions/age-guide" class="whisper-link mt-4 inline-block">View the Age Guide</a>
+        <a href={link("/admissions/age-guide")} class="whisper-link mt-4 inline-block">View the Age Guide</a>
       </div>
 
       <div class="reveal">

@@ -1,5 +1,6 @@
 ---
 import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -177,7 +178,7 @@ import StatBar from '../../components/StatBar.astro';
       <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
         At the end of Year 8, pupils move into Senior School for GCSEs and A-Levels. The same teachers, the same ethos, the same expectation of excellence. The transition is seamless because your child is already known.
       </p>
-      <a href="/academics/senior-school" class="whisper-link">Discover Senior School</a>
+      <a href={link("/academics/senior-school")} class="whisper-link">Discover Senior School</a>
     </div>
   </section>
 
