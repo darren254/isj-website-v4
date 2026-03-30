@@ -1,6 +1,7 @@
 ---
 import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const link = (path: string) => asset(path);
 ---
 
 <BaseLayout
@@ -9,19 +10,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   canonicalUrl="/about/our-head"
 >
 
-  <!-- ═══════ Portrait + Name ═══════ -->
-  <section class="pt-[var(--space-section)] pb-[var(--space-lg)] px-6">
+  <!-- Portrait -->
+  <section class="pt-[var(--space-section)] px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <div class="overflow-hidden mb-12">
-          <img
-            src={asset('/images/eileen-fisher.jpg')}
-            alt="Eileen Fisher, Academic Director of ISJ, with two pupils"
-            loading="eager"
-            decoding="async"
-            class="w-full aspect-[4/5] object-cover object-top"
-          />
-        </div>
+        <img
+          src={asset('/images/eileen-fisher.jpg')}
+          alt="Eileen Fisher, Academic Director of ISJ, with two pupils"
+          loading="eager"
+          decoding="async"
+          class="w-full aspect-[4/5] object-cover object-top"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
         <p class="label label-gold mb-4">Academic Director</p>
         <h1 class="font-heading text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-10">Eileen Fisher</h1>
         <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
@@ -36,18 +43,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ═══════ Quote ═══════ -->
+  <!-- Philosophy -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
-      <div class="reveal border-l-2 border-gold/40 pl-8 md:pl-12">
-        <blockquote class="font-heading text-[length:var(--text-lg)] md:text-[length:var(--text-xl)] font-light text-navy leading-[1.3]">
+      <div class="reveal">
+        <p class="font-heading text-[length:var(--text-xl)] md:text-[length:var(--text-2xl)] font-light text-navy leading-[1.3]">
           "As parents, you want your child to enjoy a joyful and fulfilled childhood. One which is full of happy memories, nature, and adventures, and one which does not end too soon."
-        </blockquote>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ Career ═══════ -->
+  <!-- Career -->
   <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
@@ -68,7 +75,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ═══════ Approach ═══════ -->
+  <!-- Approach -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
@@ -89,13 +96,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ═══════ Quote ═══════ -->
+  <!-- Closing -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
-      <div class="reveal border-l-2 border-gold/40 pl-8 md:pl-12">
-        <blockquote class="font-heading text-[length:var(--text-lg)] md:text-[length:var(--text-xl)] font-light text-navy leading-[1.3]">
+      <div class="reveal">
+        <p class="font-heading text-[length:var(--text-xl)] md:text-[length:var(--text-2xl)] font-light text-navy leading-[1.3]">
           "Most importantly, children at ISJ learn how to think, not what to think."
-        </blockquote>
+        </p>
       </div>
     </div>
   </section>

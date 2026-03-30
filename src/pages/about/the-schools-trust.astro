@@ -3,6 +3,7 @@ import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import StatBar from '../../components/StatBar.astro';
+const link = (path: string) => asset(path);
 ---
 
 <BaseLayout
@@ -11,7 +12,7 @@ import StatBar from '../../components/StatBar.astro';
   canonicalUrl="/about/the-schools-trust"
 >
 
-  <!-- ═══════ Hero ═══════ -->
+  <!-- Hero -->
   <Hero
     imageSrc="/images/woolverstone-hall.jpg"
     imageAlt="Woolverstone Hall, the 87-acre campus in Suffolk used for ISJ residential programmes"
@@ -19,7 +20,7 @@ import StatBar from '../../components/StatBar.astro';
     objectPosition="center 40%"
   />
 
-  <!-- ═══════ Introduction ═══════ -->
+  <!-- Introduction -->
   <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
@@ -37,7 +38,7 @@ import StatBar from '../../components/StatBar.astro';
     </div>
   </section>
 
-  <!-- ═══════ Stats ═══════ -->
+  <!-- Stats -->
   <StatBar
     stats={[
       { value: '16', label: 'Schools Founded' },
@@ -47,7 +48,7 @@ import StatBar from '../../components/StatBar.astro';
     ]}
   />
 
-  <!-- ═══════ Governance ═══════ -->
+  <!-- Governance -->
   <section class="section-pad px-6">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
@@ -68,72 +69,31 @@ import StatBar from '../../components/StatBar.astro';
     </div>
   </section>
 
-  <!-- ═══════ Schools Network ═══════ -->
+  <!-- Schools -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
-          <p class="label mb-5">Network</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-10">Schools Founded by Trust Trustees</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-            <div>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">China</p>
-              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-                <li>The British School of Beijing Sanlitun (2004)</li>
-                <li>BSB Shunyi (2005)</li>
-                <li>The British School of Guangzhou (2005)</li>
-                <li>The British School of Nanjing (2007)</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Southeast Asia</p>
-              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-                <li>The British School of Kuala Lumpur (2009)</li>
-                <li>King's School Manila (2012)</li>
-                <li>The British School of Yangon (2014)</li>
-                <li>The Independent School of Jakarta (2022)</li>
-                <li>The British School of Bali (2025)</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Europe</p>
-              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-                <li>The British School of Navarra (2010)</li>
-                <li>The British School of Marbella (2010)</li>
-                <li>Virtus College, Madrid (Sixth Form)</li>
-                <li>The British School of Vilnius (2019)</li>
-                <li>The British School of Lisbon (2019)</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light tracking-wide uppercase mb-3">Russia, Central Asia &amp; South America</p>
-              <ul class="space-y-2 text-[length:var(--text-base)] text-charcoal-light">
-                <li>International School of Moscow (2007)</li>
-                <li>The British School of Tashkent (2010)</li>
-                <li>British College of Brazil (2011)</li>
-                <li>The British School of Brasilia (2016)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <p class="label mb-5">Network</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Schools Founded by Trust Trustees</h2>
+        <p class="text-[length:var(--text-base)] leading-loose text-charcoal-light">
+          The British School of Beijing Sanlitun (2004), BSB Shunyi (2005), The British School of Guangzhou (2005), The British School of Nanjing (2007), International School of Moscow (2007), The British School of Kuala Lumpur (2009), The British School of Navarra (2010), The British School of Marbella (2010), The British School of Tashkent (2010), British College of Brazil (2011), King's School Manila (2012), The British School of Yangon (2014), The British School of Brasilia (2016), The British School of Vilnius (2019), The British School of Lisbon (2019), The Independent School of Jakarta (2022), The British School of Bali (2025). Virtus College in Madrid focuses on A-Level sixth form.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ University Destinations ═══════ -->
+  <!-- University Destinations -->
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
-        <div class="border-t border-charcoal/10 pt-10 md:pt-14">
-          <p class="label mb-5">University Destinations</p>
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Where Students Go Next</h2>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-            Graduates from Schools Trust schools go on to study at leading universities worldwide. A selection of recent destinations:
-          </p>
-          <p class="text-[length:var(--text-sm)] leading-loose text-charcoal-light">
-            University of Cambridge, University of Oxford, Imperial College London, UCL, King's College London, University of Edinburgh, University of St Andrews, Durham University, University of Bristol, University of Manchester, University of Warwick, University of Bath, University of Sydney, University of Toronto, Georgetown University, University of Hong Kong, University of British Columbia, Purdue University, KAIST
-          </p>
-        </div>
+        <p class="label mb-5">University Destinations</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Where Students Go Next</h2>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-6">
+          Graduates from Schools Trust schools go on to study at leading universities worldwide.
+        </p>
+        <p class="text-[length:var(--text-sm)] leading-loose text-charcoal-light">
+          University of Cambridge, University of Oxford, Imperial College London, UCL, King's College London, University of Edinburgh, University of St Andrews, Durham University, University of Bristol, University of Manchester, University of Warwick, University of Bath, University of Sydney, University of Toronto, Georgetown University, University of Hong Kong, University of British Columbia, Purdue University, KAIST
+        </p>
       </div>
     </div>
   </section>
