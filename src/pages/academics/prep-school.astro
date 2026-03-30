@@ -3,10 +3,7 @@ import { asset } from '../../utils/paths';
 const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import SectionIntro from '../../components/SectionIntro.astro';
-import ImageBlock from '../../components/ImageBlock.astro';
 import Testimonial from '../../components/Testimonial.astro';
-import StatBar from '../../components/StatBar.astro';
 ---
 
 <BaseLayout
@@ -15,172 +12,126 @@ import StatBar from '../../components/StatBar.astro';
   canonicalUrl="/academics/prep-school"
 >
 
-  <!-- ═══════ Hero ═══════ -->
+  <!-- Hero -->
   <Hero
     imageSrc="/images/pupils-prep.jpg"
     imageAlt="Prep School pupils at The Independent School of Jakarta"
     aspectRatio="standard"
   />
 
-  <!-- ═══════ Introduction ═══════ -->
+  <!-- Introduction -->
   <section class="section-pad px-6">
-    <SectionIntro
-      label="Prep School · Ages 7 to 13"
-      heading="The Years That Shape Everything"
-    >
-      <p>
-        Years 3 to 8. The years when your child discovers what they love, develops habits that last, and starts to understand who they are. Academic rigour meets genuine breadth, and children learn how to think, not what to think.
-      </p>
-      <p>
-        ISJ follows the English National Curriculum through Key Stages 2 and 3. Every class is led by a teacher who knows your child deeply and is supported by specialists in music, art, PE, swimming, and languages.
-      </p>
-    </SectionIntro>
-  </section>
-
-  <!-- ═══════ Teachers ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
-        <div>
-          <p class="label mb-5">The Teachers</p>
-          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Passionate, Experienced, and Here by Choice</h2>
-          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            <p>
-              The kind of teachers you'd find at the best prep schools in Britain. They came to Jakarta because they wanted to build something, and they stay because they love what they're building.
-            </p>
-            <p>
-              Children who feel valued try new things and push themselves. They see their teacher as a partner in learning, not just an authority figure. That relationship is what makes the difference.
-            </p>
-          </div>
-        </div>
-        <div class="overflow-hidden">
-          <img
-            src={asset('/images/science-experiment.jpg')}
-            alt="Prep School pupils conducting a science experiment"
-            loading="lazy"
-            decoding="async"
-            class="w-full aspect-[4/5] object-cover"
-          />
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-4">Prep School · Ages 7 to 13</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">The Years That Shape Everything</h1>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Years 3 to 8. The years when children discover what they love, develop habits that last, and start to understand who they are. Academic rigour meets genuine breadth, and children learn how to think, not what to think.
+          </p>
+          <p>
+            ISJ follows the English National Curriculum through Key Stages 2 and 3. Every class is led by a teacher who knows your child deeply, supported by specialists in music, art, PE, swimming, and languages.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ Testimonial ═══════ -->
+  <!-- The Teachers -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">The Teachers</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Passionate, Experienced, and Here by Choice</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            The kind of teachers found at the best prep schools in Britain. They came to Jakarta because they wanted to build something, and they stay because they love what they are building.
+          </p>
+          <p>
+            Children who feel valued try new things and push themselves. They see their teacher as a partner in learning, not just an authority figure. That relationship is what makes the difference.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Learning</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Where Taking Risks Is Part of the Plan</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Children are encouraged to question, to try things they might get wrong, and to understand that mistakes are how you learn. A child who is confident enough to take a risk in the classroom is a child who will carry that confidence for life.
+          </p>
+          <p>
+            Over 30 clubs rotate each term. 20+ sports, from football and netball to gymnastics, bouldering, and badminton. Swimming continues throughout. Co-curricular runs until 4:00pm every day, so children can explore widely and find what they love.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
   <Testimonial
     quote="A strong academic focus and high-quality learning."
     attribution="ISJ Parent"
     detail="Annual Survey, November 2025"
   />
 
-  <!-- ═══════ Risk-taking ═══════ -->
+  <!-- Character -->
   <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
-        <div class="overflow-hidden md:order-1">
-          <img
-            src={asset('/images/art-class.jpg')}
-            alt="A Prep School pupil working on an art project"
-            loading="lazy"
-            decoding="async"
-            class="w-full aspect-[4/5] object-cover"
-          />
-        </div>
-        <div class="md:order-2">
-          <p class="label mb-5">Learning</p>
-          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Where Taking Risks Is Part of the Plan</h2>
-          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            <p>
-              Children are encouraged to question, to try things they might get wrong, and to understand that mistakes are how you learn. A child who is confident enough to take a risk in the classroom is a child who will carry that confidence for life.
-            </p>
-            <p>
-              Over 30 clubs rotate each term. 20+ sports, from football and netball to gymnastics, bouldering, and badminton. Swimming continues throughout. Co-curricular runs until 4:00pm every day, so children can explore widely and find what they love.
-            </p>
-          </div>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Character</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Four Houses, One Community</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Every child belongs to a house: Potter, Tolkien, Lewis, or Rowling. Houses compete in sport, the arts, and community projects throughout the year. It builds belonging, healthy competition, and friendships across year groups.
+          </p>
+          <p>
+            Older pupils mentor younger ones. Leadership is earned, practised, and recognised through the Five Talent Trails awards, from Bronze to Platinum.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ Full-bleed image ═══════ -->
-  <div class="my-4">
-    <ImageBlock
-      src="/images/choir.jpg"
-      alt="ISJ school choir performing"
-      aspect="wide"
-      loading="lazy"
-    />
-  </div>
-
-  <!-- ═══════ House System ═══════ -->
-  <section class="section-pad px-6">
-    <SectionIntro
-      label="Character"
-      heading="Four Houses, One Community"
-    >
-      <p>
-        Every child belongs to a house: Potter, Tolkien, Lewis, or Rowling. Houses compete in sport, the arts, and community projects throughout the year. It builds belonging, healthy competition, and friendships across year groups.
-      </p>
-      <p>
-        Older pupils mentor younger ones. Leadership is earned, practised, and recognised through the Five Talent Trails awards, from Bronze to Platinum.
-      </p>
-    </SectionIntro>
-  </section>
-
-  <!-- ═══════ Stats ═══════ -->
-  <StatBar stats={[
-    { value: '20+', label: 'Sports Offered' },
-    { value: '30+', label: 'Clubs Per Term' },
-    { value: '4', label: 'Houses' },
-  ]} />
-
-  <!-- ═══════ Residential Trips ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
-        <div>
-          <p class="label mb-5">Residential Trips</p>
-          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Woolverstone Hall, Suffolk</h2>
-          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            <p>
-              Each year, Year 7 and 8 pupils travel to Woolverstone Hall in Suffolk, England. An 87-acre campus where they experience British boarding school life first-hand: early morning runs, formal dining, academic enrichment, and outdoor adventure.
-            </p>
-            <p>
-              For many, it's the trip that defines their time at ISJ. Independence, resilience, and friendships forged in a setting unlike anything they've experienced before.
-            </p>
-          </div>
-        </div>
-        <div class="overflow-hidden">
-          <img
-            src={asset('/images/residential-trip.jpg')}
-            alt="ISJ pupils on a residential trip"
-            loading="lazy"
-            decoding="async"
-            class="w-full aspect-[4/5] object-cover"
-          />
+  <!-- Woolverstone -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Residential Trips</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Woolverstone Hall, Suffolk</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Each year, Year 7 and 8 pupils travel to Woolverstone Hall in Suffolk, England. An 87-acre campus where they experience British boarding school life first-hand: early morning runs, formal dining, academic enrichment, and outdoor adventure.
+          </p>
+          <p>
+            For many, it is the trip that defines their time at ISJ. Independence, resilience, and friendships forged in a setting unlike anything they have experienced before.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ Testimonial ═══════ -->
-  <Testimonial
-    quote="Communication between parents and school is an obvious strength."
-    attribution="ISJ Parent"
-    detail="Annual Survey, November 2025"
-  />
-
-  <!-- ═══════ What Comes Next ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
-      <p class="label mb-5">What Comes Next</p>
-      <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Into Senior School</h2>
-      <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
-        At the end of Year 8, pupils move into Senior School for GCSEs and A-Levels. The same teachers, the same ethos, the same expectation of excellence. The transition is seamless because your child is already known.
-      </p>
-      <a href={link("/academics/senior-school")} class="whisper-link">Discover Senior School</a>
+  <!-- What Comes Next -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">What Comes Next</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Into Senior School</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            At the end of Year 8, pupils move into Senior School for GCSEs and A-Levels. The same teachers, the same ethos, the same expectation of excellence. The transition is seamless because your child is already known.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a href={link("/academics/senior-school")} class="whisper-link">Discover Senior School</a>
+        </div>
+      </div>
     </div>
   </section>
-
 
 </BaseLayout>
