@@ -42,6 +42,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   Pondok Indah, South Jakarta 12310<br />
                   Indonesia
                 </p>
+                <a href="https://www.google.com/maps/search/?api=1&query=-6.290732016331623,106.78383491761785" target="_blank" rel="noopener noreferrer" class="whisper-link text-[length:var(--text-sm)] mt-2 inline-block">View on Google Maps</a>
               </div>
 
               <div>
@@ -123,14 +124,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="mx-auto max-w-[var(--content-wide)]">
       <div class="w-full aspect-[16/7] overflow-hidden relative" id="map-container">
         <div id="contact-map" class="w-full h-full"></div>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=-6.290732016331623,106.78383491761785"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="absolute bottom-4 left-4 z-[500] bg-white/90 px-4 py-2 text-[length:var(--text-xs)] tracking-[0.1em] uppercase text-navy font-medium hover:bg-white transition-colors"
-        >
-          Open in Google Maps
-        </a>
       </div>
     </div>
   </section>
@@ -163,16 +156,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     });
 
     map.on('load', function() {
-      // Desaturate everything except parks/green
+      // Aman-style: mute everything, enhance greens
       var layers = map.getStyle().layers;
       layers.forEach(function(layer) {
-        if (layer.id.includes('park') || (layer.id.includes('landuse') && layer.id.includes('green'))) return;
-        if (layer.type === 'fill' && !layer.id.includes('park') && !layer.id.includes('green')) {
-          try { map.setPaintProperty(layer.id, 'fill-saturation', -0.8); } catch(e) {}
+        var id = layer.id;
+        // Keep and enhance parks/green spaces
+        if (id.includes('park') || (id.includes('landuse') && id.includes('green'))) {
+          try {
+            map.setPaintProperty(id, 'fill-color', '#c5d4b0');
+            map.setPaintProperty(id, 'fill-opacity', 0.6);
+          } catch(e) {}
+          return;
+        }
+        // Heavily desaturate all other fills
+        if (layer.type === 'fill') {
+          try { map.setPaintProperty(id, 'fill-saturation', -1); } catch(e) {}
+          try { map.setPaintProperty(id, 'fill-opacity', 0.4); } catch(e) {}
+        }
+        // Mute water to near-invisible warm grey
+        if (id.includes('water')) {
+          try { map.setPaintProperty(id, 'fill-color', '#ddd9d0'); } catch(e) {}
+        }
+        // Mute roads
+        if (layer.type === 'line' && (id.includes('road') || id.includes('bridge'))) {
+          try { map.setPaintProperty(id, 'line-opacity', 0.3); } catch(e) {}
         }
         // Hide POI labels
-        if (layer.id.includes('poi') && layer.type === 'symbol') {
-          map.setLayoutProperty(layer.id, 'visibility', 'none');
+        if (id.includes('poi') && layer.type === 'symbol') {
+          map.setLayoutProperty(id, 'visibility', 'none');
+        }
+        // Mute all other text labels
+        if (layer.type === 'symbol' && !id.includes('poi')) {
+          try { map.setPaintProperty(id, 'text-color', '#b0aca5'); } catch(e) {}
+          try { map.setPaintProperty(id, 'text-opacity', 0.6); } catch(e) {}
         }
       });
 
@@ -193,7 +209,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
 
       addPoi(-6.2665, 106.7830, 'Pondok Indah Mall');
-      addPoi(-6.2840, 106.7815, 'RS Pondok Indah');
+      addPoi(-6.2840, 106.7815, 'Pondok Indah Hospital');
       addPoi(-6.2695, 106.7855, 'Pondok Indah Golf Course');
     });
   });
