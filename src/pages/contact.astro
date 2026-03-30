@@ -302,16 +302,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           .addTo(map);
       }
 
-      // ── Airport distance indicator (like Aman's "40 KM TO DPS") ─────────
-      var airportEl = document.createElement('div');
-      airportEl.innerHTML = '<div style="display:flex;align-items:center;gap:5px;">' +
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8e6833" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>' +
-        '<span style="font-family:DM Sans,system-ui,sans-serif;font-size:10px;font-weight:600;color:#8e6833;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">35 km to CGK</span>' +
-        '</div>';
-      // Soekarno-Hatta direction: northwest of ISJ. Place indicator at bottom-left of map view.
-      new mapboxgl.Marker({ element: airportEl, anchor: 'left' })
-        .setLngLat([ISJ.lng - 0.012, ISJ.lat + 0.008])
-        .addTo(map);
     });
   });
 </script>

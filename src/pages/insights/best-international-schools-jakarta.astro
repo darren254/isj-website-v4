@@ -1352,10 +1352,22 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         isISJ ? "box-shadow:0 1px 4px rgba(0,0,0,0.25),0 0 0 1.5px rgba(255,196,61,0.35)" : ""
       ].join(";");
 
-      (function(d) {
+      (function(d, m) {
         d.addEventListener("mouseenter", function () { d.style.transform = "scale(1.45)"; });
         d.addEventListener("mouseleave", function () { d.style.transform = "scale(1)";    });
-      }(dot));
+        // Prevent touch from panning the map (which flings markers off screen)
+        d.addEventListener("touchstart", function(e) {
+          e.stopPropagation();
+          m.dragPan.disable();
+          m.touchZoomRotate.disable();
+        }, { passive: false });
+        d.addEventListener("touchend", function() {
+          setTimeout(function() {
+            m.dragPan.enable();
+            m.touchZoomRotate.enable();
+          }, 300);
+        });
+      }(dot, map));
 
       var popup = new window.mapboxgl.Popup({ offset: 10, maxWidth: "180px", closeButton: false })
         .setHTML('<h4>' + school.name + '</h4>');
