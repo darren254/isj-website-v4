@@ -1,17 +1,13 @@
 ---
 import { asset } from '../utils/paths';
 const link = (path: string) => asset(path);
-/**
- * Footer — Warm stone background, navy text. Gentle visual bookend.
- * CTA section with gold button, then full site index.
- */
+
 const footerLinks = {
   'About ISJ': [
     { label: 'Why ISJ', href: link('/about/why-isj') },
     { label: 'Our Head', href: link('/about/our-head') },
     { label: 'The Schools Trust', href: link('/about/the-schools-trust') },
     { label: 'Campus & Facilities', href: link('/school-life/campus') },
-    { label: 'Careers \u00d7', pending: true },
     { label: 'Contact', href: link('/contact') },
   ],
   'Academics': [
@@ -26,15 +22,13 @@ const footerLinks = {
     { label: 'Arrange a Tour', href: link('/admissions/arrange-a-tour') },
     { label: 'Tuition Fees', href: link('/admissions/fees') },
     { label: 'Age Guide', href: link('/admissions/age-guide') },
-    { label: 'Scholarships & Bursaries', href: link('/admissions/scholarships') },
+    { label: 'Scholarships', href: link('/admissions/scholarships') },
     { label: 'FAQs', href: link('/faqs') },
   ],
   'Resources': [
     { label: 'News & Events', href: link('/news') },
     { label: 'Insights', href: link('/insights') },
     { label: 'School Policies', href: link('/policies') },
-    { label: 'School Calendar \u00d7', pending: true },
-    { label: 'Virtual Tour \u00d7', pending: true },
   ],
 };
 
@@ -46,9 +40,10 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-[#E8E4DD] text-navy">
-  <!-- CTA row -->
-  <div class="section-pad-sm px-6 border-b border-navy/10">
+<footer class="text-navy">
+
+  <!-- CTA band — warm stone -->
+  <div class="bg-[#E8E4DD] px-6 py-14 lg:py-16">
     <div class="mx-auto max-w-[var(--content-narrow)] text-center">
       <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy">Begin Your Journey</h2>
       <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -63,9 +58,11 @@ const socialLinks = [
     </div>
   </div>
 
-  <!-- Link columns -->
-  <div class="px-6 py-12 lg:py-16">
+  <!-- Footer body — slightly darker stone -->
+  <div class="bg-[#DDD9D1] px-6 py-12 lg:py-16">
     <div class="mx-auto max-w-[var(--content-wide)]">
+
+      <!-- Link columns -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
         {Object.entries(footerLinks).map(([heading, links]) => (
           <div>
@@ -80,7 +77,7 @@ const socialLinks = [
                   ) : (
                     <a
                       href={link.href}
-                      class="text-[length:var(--text-sm)] text-navy/50 hover:text-navy transition-colors duration-[var(--transition-base)]"
+                      class="text-[length:var(--text-sm)] text-navy/45 hover:text-navy transition-colors duration-[var(--transition-base)]"
                     >
                       {link.label}
                     </a>
@@ -92,48 +89,44 @@ const socialLinks = [
         ))}
       </div>
 
-      <!-- Contact block -->
-      <div class="mt-10 pt-8 border-t border-navy/10 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Contact + address — single row, no divider -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-[length:var(--text-xs)] text-navy/35">
         <div>
-          <p class="label mb-3">Reception</p>
-          <p class="text-[length:var(--text-sm)] text-navy/50">+62 21-2782-6788</p>
-          <a href="mailto:info@isj.id" class="text-[length:var(--text-sm)] text-navy/50 hover:text-navy transition-colors">info@isj.id</a>
+          <p class="text-navy/50 font-medium mb-1">Reception</p>
+          <p>+62 21-2782-6788</p>
+          <a href="mailto:info@isj.id" class="hover:text-navy/60 transition-colors">info@isj.id</a>
         </div>
         <div>
-          <p class="label mb-3">Admissions</p>
-          <p class="text-[length:var(--text-sm)] text-navy/50">+62 811 1000 7672 (WhatsApp)</p>
-          <a href="mailto:admissions@isj.id" class="text-[length:var(--text-sm)] text-navy/50 hover:text-navy transition-colors">admissions@isj.id</a>
+          <p class="text-navy/50 font-medium mb-1">Admissions</p>
+          <p>+62 811 1000 7672 (WhatsApp)</p>
+          <a href="mailto:admissions@isj.id" class="hover:text-navy/60 transition-colors">admissions@isj.id</a>
+        </div>
+        <div>
+          <p class="text-navy/50 font-medium mb-1">Address</p>
+          <p>Jl. R.A. Kartini No. Kav. 12<br />Pondok Indah, South Jakarta 12310</p>
         </div>
       </div>
 
-      <!-- Address -->
-      <div class="mt-8 pt-6 border-t border-navy/10">
-        <p class="text-[length:var(--text-xs)] text-navy/30 leading-relaxed">
-          Jl. R.A. Kartini No. Kav. 12, Pondok Indah, South Jakarta 12310, Indonesia
-        </p>
-      </div>
     </div>
   </div>
 
-  <!-- Bottom bar -->
-  <div class="border-t border-navy/10 px-6 py-5">
-    <div class="mx-auto max-w-[var(--content-wide)] flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-6">
-        <span class="text-[length:var(--text-xs)] text-navy/30">
+  <!-- Bottom bar — same darker stone, thin top line -->
+  <div class="bg-[#DDD9D1] border-t border-navy/8 px-6 py-4">
+    <div class="mx-auto max-w-[var(--content-wide)] flex flex-col md:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-5 flex-wrap">
+        <span class="text-[length:var(--text-xs)] text-navy/25">
           &copy; {new Date().getFullYear()} The Independent School of Jakarta
         </span>
-        <span class="text-[length:var(--text-xs)] text-navy/30">
-          Part of <a href="https://schoolstrust.co.uk" target="_blank" rel="noopener noreferrer" class="hover:text-navy/60 transition-colors">The Schools Trust</a>
+        <span class="text-[length:var(--text-xs)] text-navy/25">
+          Part of <a href="https://schoolstrust.co.uk" target="_blank" rel="noopener noreferrer" class="hover:text-navy/50 transition-colors">The Schools Trust</a>
         </span>
-      </div>
-      <div class="flex items-center gap-6">
-        <a href={link('/privacy')} class="text-[length:var(--text-xs)] text-navy/30 hover:text-navy/60 transition-colors">Privacy</a>
-        <a href={link('/terms')} class="text-[length:var(--text-xs)] text-navy/30 hover:text-navy/60 transition-colors">Terms</a>
-        <a href={link('/cookies')} class="text-[length:var(--text-xs)] text-navy/30 hover:text-navy/60 transition-colors">Cookies</a>
+        <a href={link('/privacy')} class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Privacy</a>
+        <a href={link('/terms')} class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Terms</a>
+        <a href={link('/cookies')} class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Cookies</a>
       </div>
       <div class="flex items-center gap-4">
         {socialLinks.map((social) => (
-          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/30 hover:text-navy/60 transition-colors" aria-label={social.label}>
+          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/25 hover:text-navy/50 transition-colors" aria-label={social.label}>
             <span class="text-[length:var(--text-xs)] uppercase tracking-wider">{social.label}</span>
           </a>
         ))}
@@ -141,12 +134,4 @@ const socialLinks = [
     </div>
   </div>
 
-  <!-- Attribution -->
-  <div class="px-6 pb-4">
-    <div class="mx-auto max-w-[var(--content-wide)] text-center">
-      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="text-[length:var(--text-xs)] text-navy/15 hover:text-navy/30 transition-colors">
-        Created with Perplexity Computer
-      </a>
-    </div>
-  </div>
 </footer>
