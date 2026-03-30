@@ -99,8 +99,8 @@ const navItems = [
 <!-- Full-screen overlay menu -->
 <div id="menu-overlay" class="fixed inset-0 z-[60] bg-navy opacity-0 pointer-events-none transition-opacity duration-[var(--transition-slow)] overflow-y-auto">
   <!-- Close button -->
-  <button id="menu-close" class="fixed top-6 right-6 z-[70] flex items-center gap-2 text-white/70 hover:text-white transition-colors" aria-label="Close menu">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+  <button id="menu-close" class="absolute top-8 right-8 lg:right-12 z-[70] flex items-center gap-2 text-white/50 hover:text-white transition-colors duration-[var(--transition-base)]" aria-label="Close menu">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
     <span class="text-[length:var(--text-xs)] tracking-[0.2em] uppercase font-medium">Close</span>
@@ -172,8 +172,7 @@ const navItems = [
 
     <!-- Right panel — decorative (desktop only) -->
     <div class="hidden lg:block lg:w-1/2 relative">
-      <div class="absolute inset-0 bg-navy-dark/50"></div>
-      <!-- This could hold a featured image or remain as a dark panel -->
+      <div class="absolute inset-0 bg-navy-dark"></div>
     </div>
   </div>
 </div>
