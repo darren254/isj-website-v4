@@ -9,15 +9,15 @@ const footerLinks = {
     { label: 'Our Head', href: '/about/our-head' },
     { label: 'The Schools Trust', href: '/about/the-schools-trust' },
     { label: 'Campus & Facilities', href: '/school-life/campus' },
-    { label: 'Careers', href: '/careers' },
+    { label: 'Careers \u00d7', pending: true },
     { label: 'Contact', href: '/contact' },
   ],
   'Academics': [
-    { label: 'Pre-Prep (Ages 2–6)', href: '/academics/pre-prep' },
-    { label: 'Prep School (Ages 7–13)', href: '/academics/prep-school' },
-    { label: 'Senior School (Ages 14–18)', href: '/academics/senior-school' },
-    { label: 'Curriculum', href: '/academics/curriculum' },
-    { label: 'Results & Outcomes', href: '/academics/results' },
+    { label: 'Pre-Prep (Ages 2\u20136)', href: '/academics/pre-prep' },
+    { label: 'Prep School (Ages 7\u201313)', href: '/academics/prep-school' },
+    { label: 'Senior School (Ages 14\u201318)', href: '/academics/senior-school' },
+    { label: 'Curriculum \u00d7', pending: true },
+    { label: 'Results & Outcomes \u00d7', pending: true },
   ],
   'Admissions': [
     { label: 'How to Apply', href: '/admissions/how-to-apply' },
@@ -31,8 +31,8 @@ const footerLinks = {
     { label: 'News & Events', href: '/news' },
     { label: 'Insights', href: '/insights' },
     { label: 'School Policies', href: '/policies' },
-    { label: 'School Calendar', href: '/school-life/calendar' },
-    { label: 'Virtual Tour', href: '/admissions/virtual-tour' },
+    { label: 'School Calendar \u00d7', pending: true },
+    { label: 'Virtual Tour \u00d7', pending: true },
   ],
 };
 
@@ -71,12 +71,18 @@ const socialLinks = [
             <ul class="space-y-2">
               {links.map((link) => (
                 <li>
-                  <a
-                    href={link.href}
-                    class="text-[length:var(--text-sm)] text-navy/50 hover:text-navy transition-colors duration-[var(--transition-base)]"
-                  >
-                    {link.label}
-                  </a>
+                  {'pending' in link && link.pending ? (
+                    <span class="text-[length:var(--text-sm)] text-navy/25 cursor-default">
+                      {link.label}
+                    </span>
+                  ) : (
+                    <a
+                      href={link.href}
+                      class="text-[length:var(--text-sm)] text-navy/50 hover:text-navy transition-colors duration-[var(--transition-base)]"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -12,11 +12,11 @@ const navItems = [
   {
     label: 'Academics',
     children: [
-      { label: 'Pre-Prep (Ages 2–6)', href: '/academics/pre-prep' },
-      { label: 'Prep School (Ages 7–13)', href: '/academics/prep-school' },
-      { label: 'Senior School (Ages 14–18)', href: '/academics/senior-school' },
-      { label: 'Curriculum', href: '/academics/curriculum' },
-      { label: 'Results & Outcomes', href: '/academics/results' },
+      { label: 'Pre-Prep (Ages 2\u20136)', href: '/academics/pre-prep' },
+      { label: 'Prep School (Ages 7\u201313)', href: '/academics/prep-school' },
+      { label: 'Senior School (Ages 14\u201318)', href: '/academics/senior-school' },
+      { label: 'Curriculum \u00d7', href: '/academics/curriculum', pending: true },
+      { label: 'Results & Outcomes \u00d7', href: '/academics/results', pending: true },
     ],
   },
   {
@@ -33,12 +33,13 @@ const navItems = [
     label: 'School Life',
     children: [
       { label: 'Campus & Facilities', href: '/school-life/campus' },
-      { label: 'Sport', href: '/school-life/sport' },
-      { label: 'Arts, Music & Drama', href: '/school-life/arts-music' },
-      { label: 'Character & Values', href: '/school-life/character' },
+      { label: 'Sport \u00d7', href: '/school-life/sport', pending: true },
+      { label: 'Arts, Music & Drama \u00d7', href: '/school-life/arts-music', pending: true },
+      { label: 'Character & Values \u00d7', href: '/school-life/character', pending: true },
     ],
   },
   { label: 'Insights', href: '/insights' },
+  { label: 'News', href: '/news' },
   { label: 'Contact', href: '/contact' },
 ];
 ---
@@ -127,12 +128,20 @@ const navItems = [
                     <ul class="pb-3 pl-1">
                       {item.children.map((child) => (
                         <li>
-                          <a
-                            href={child.href}
-                            class="block py-1.5 font-body text-[length:var(--text-sm)] tracking-wide text-white/50 hover:text-gold transition-colors duration-[var(--transition-base)]"
-                          >
-                            {child.label}
-                          </a>
+                          {'pending' in child && child.pending ? (
+                            <span
+                              class="block py-1.5 font-body text-[length:var(--text-sm)] tracking-wide text-white/25 cursor-default"
+                            >
+                              {child.label}
+                            </span>
+                          ) : (
+                            <a
+                              href={child.href}
+                              class="block py-1.5 font-body text-[length:var(--text-sm)] tracking-wide text-white/50 hover:text-gold transition-colors duration-[var(--transition-base)]"
+                            >
+                              {child.label}
+                            </a>
+                          )}
                         </li>
                       ))}
                     </ul>
