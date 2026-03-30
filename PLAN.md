@@ -1,6 +1,6 @@
 # ISJ Website v4 — Build Plan
 
-Last updated: 29 March 2026
+Last updated: 30 March 2026
 
 ## What We Have
 
@@ -72,8 +72,8 @@ Add depth and SEO coverage after core is solid.
 
 | # | Page | URL | Notes |
 |---|------|-----|-------|
-| 21 | Our Head (Eileen Fisher) | `/about/our-head` | |
-| 22 | The Schools Trust | `/about/the-schools-trust` | |
+| 21 | Our Head (Eileen Fisher) | `/about/our-head` | DONE |
+| 22 | The Schools Trust | `/about/the-schools-trust` | DONE |
 | 23 | GCSEs | `/academics/senior-school/gcses` | |
 | 24 | A-Levels | `/academics/senior-school/a-levels` | |
 | 25 | Curriculum | `/academics/curriculum` | |
