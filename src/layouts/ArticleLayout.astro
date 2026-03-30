@@ -109,6 +109,30 @@ const hasHero = !!heroImage;
   <!-- Related Articles -->
   <slot name="related" />
 
+  <!-- Article Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "author": {
+      "@type": "Person",
+      "name": author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Independent School of Jakarta",
+      "url": "https://isj.id"
+    },
+    "datePublished": publishedDate,
+    ...(updatedDate ? { "dateModified": updatedDate } : {}),
+    ...(heroImage ? { "image": `https://isj.id${heroImage}` } : {}),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://isj.id${canonicalUrl}`
+    }
+  })} />
+
 </BaseLayout>
 
 <style>

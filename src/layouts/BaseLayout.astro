@@ -15,6 +15,67 @@ interface Props {
 const { title, description, ogImage = '/images/og-default.jpg', canonicalUrl } = Astro.props;
 const siteUrl = 'https://isj.id';
 const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : Astro.url.href;
+
+// Breadcrumb display names
+const breadcrumbNames: Record<string, string> = {
+  'about': 'About',
+  'why-isj': 'Why ISJ',
+  'our-head': 'Our Head',
+  'the-schools-trust': 'The Schools Trust',
+  'academics': 'Academics',
+  'pre-prep': 'Pre-Prep',
+  'prep-school': 'Prep School',
+  'senior-school': 'Senior School',
+  'curriculum': 'Curriculum',
+  'results': 'Results & Outcomes',
+  'gcses': 'GCSEs',
+  'a-levels': 'A-Levels',
+  'admissions': 'Admissions',
+  'how-to-apply': 'How to Apply',
+  'arrange-a-tour': 'Arrange a Tour',
+  'fees': 'Tuition Fees',
+  'age-guide': 'Age Guide',
+  'scholarships': 'Scholarships',
+  'terms-and-conditions': 'Admissions T&Cs',
+  'virtual-tour': 'Virtual Tour',
+  'school-life': 'School Life',
+  'campus': 'Campus & Facilities',
+  'sport': 'Sport',
+  'arts-music': 'Arts & Music',
+  'character': 'Character & Values',
+  'calendar': 'School Calendar',
+  'insights': 'Insights',
+  'news': 'News',
+  'careers': 'Careers',
+  'contact': 'Contact',
+  'faqs': 'FAQs',
+  'policies': 'Policies',
+  'privacy': 'Privacy',
+  'terms': 'Terms',
+  'cookies': 'Cookies',
+  'brand': 'Brand',
+};
+
+// Build breadcrumb items from URL path
+const pathSegments = (canonicalUrl || Astro.url.pathname)
+  .replace(/^\/isj-website-v4/, '')
+  .replace(/^\//, '')
+  .replace(/\/$/, '')
+  .split('/')
+  .filter(Boolean);
+
+const breadcrumbItems = [
+  { name: 'Home', url: `${siteUrl}/` }
+];
+
+let cumulativePath = '';
+for (const segment of pathSegments) {
+  cumulativePath += `/${segment}`;
+  breadcrumbItems.push({
+    name: breadcrumbNames[segment] || segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+    url: `${siteUrl}${cumulativePath}`
+  });
+}
 ---
 
 <!DOCTYPE html>
@@ -90,6 +151,20 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : Astro.url.hre
       "url": "https://theschoolstrust.com"
     }
   })} />
+
+  {/* BreadcrumbList schema — on all pages except homepage */}
+  {breadcrumbItems.length > 1 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbItems.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.name,
+        "item": item.url
+      }))
+    })} />
+  )}
 </head>
 <body>
   <Header />
