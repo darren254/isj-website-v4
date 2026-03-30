@@ -1,0 +1,149 @@
+---
+import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Careers | Teach at ISJ Jakarta"
+  description="Join the teaching team at The Independent School of Jakarta. ISJ is a British international school in Pondok Indah, South Jakarta, with small class sizes, qualified staff, and a growing secondary programme."
+  canonicalUrl="/careers"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <section class="relative h-[55vh] min-h-[400px] overflow-hidden">
+    <img
+      src={asset('/images/teacher-helping-pupils.jpg')}
+      alt="A teacher working closely with pupils at The Independent School of Jakarta"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/20 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 px-6 pb-10 lg:pb-14">
+      <div class="mx-auto max-w-[var(--content-narrow)]">
+        <p class="label label-light mb-3">Careers</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] lg:text-[length:var(--text-3xl)] font-light text-cream leading-[1.1]">Teach at ISJ</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Body ═══════ -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+
+      <!-- Section 1: Intro -->
+      <div class="reveal">
+        <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          ISJ is a small, through-school British international school in the Pondok Indah district of South Jakarta, serving families with children aged 2 to 18. The school follows the English National Curriculum from EYFS through A-Levels, taught by qualified, experienced staff. The teaching team is the core of what makes the school work.
+        </p>
+      </div>
+
+      <div class="border-t border-charcoal/10 my-10 lg:my-14"></div>
+
+      <!-- Section 2: Teaching at ISJ -->
+      <div class="reveal">
+        <p class="label mb-5">Teaching at ISJ</p>
+        <div class="space-y-5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          <p>
+            Class sizes of 15 in Early Years and up to 20 in primary and above mean teachers know every pupil well. The Head knows every child and every family. Pastoral care is a daily practice, lived rather than administered.
+          </p>
+          <p>
+            Teachers at ISJ have genuine autonomy. The English National Curriculum provides structure, but how it comes alive in the classroom is down to the teacher. Lesson design, pace, and approach are decisions for the professional in the room.
+          </p>
+          <p>
+            The school is staffed by qualified, experienced educators. Staff hold recognised teaching qualifications and bring classroom experience from schools in the UK and internationally. Standards are high, and the working environment reflects that.
+          </p>
+        </div>
+
+        <blockquote class="border-l-2 border-gold pl-5 my-8">
+          <p class="text-[length:var(--text-base)] text-charcoal-light italic leading-relaxed">"The school's strength lies in the kindness of the teachers. My children love all the staff."</p>
+          <cite class="block mt-2 text-[length:var(--text-xs)] text-charcoal-muted not-italic tracking-wide">ISJ Parent, 2025 Survey</cite>
+        </blockquote>
+      </div>
+
+      <div class="border-t border-charcoal/10 my-10 lg:my-14"></div>
+
+      <!-- Section 3: A School That's Growing -->
+      <div class="reveal">
+        <p class="label mb-5">A School That's Growing</p>
+        <div class="space-y-5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          <p>
+            ISJ launched its secondary programme in 2024. Staff joining now are helping to build something from an early stage. That distinction matters in day-to-day working life.
+          </p>
+          <p>
+            A new purpose-built secondary campus opens in 2028. The school is expanding deliberately, keeping class sizes small and adding capacity rather than increasing density. Growth is managed to protect the qualities that make the school what it is.
+          </p>
+          <p>
+            In a school of this size, every member of staff shapes the culture. Teachers at ISJ have influence that would be difficult to achieve in a larger institution.
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-charcoal/10 my-10 lg:my-14"></div>
+
+      <!-- Section 4: Life in Jakarta -->
+      <div class="reveal">
+        <p class="label mb-5">Life in Jakarta</p>
+        <div class="space-y-5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          <p>
+            Pondok Indah is one of Jakarta's most established residential districts. Tree-lined streets, international restaurants, modern hospitals, and a strong expatriate community make it a natural base for families relocating from abroad.
+          </p>
+          <p>
+            Jakarta offers a cost of living that allows a quality of life difficult to match in London, Singapore, or Hong Kong. Domestic help, private healthcare, and regular travel across Southeast Asia are standard for expatriate teachers living in the city.
+          </p>
+          <p>
+            ISJ supports teachers relocating to Jakarta with visa sponsorship, orientation, and a settling-in process designed to make the transition straightforward.
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-charcoal/10 my-10 lg:my-14"></div>
+
+      <!-- Section 5: At a Glance -->
+      <div class="reveal">
+        <p class="label mb-5">At a Glance</p>
+        <div class="max-w-sm">
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Curriculum</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light text-right">English National Curriculum (EYFS to A-Levels)</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Class sizes</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light text-right">Up to 15 in early years, 20 in primary and above</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Qualifications</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light text-right">Recognised teaching qualifications required (QTS, PGCE, or equivalent)</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Location</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light text-right">Pondok Indah, South Jakarta</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Part of</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light text-right">The Schools Trust (16 schools, 11 countries)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-charcoal/10 my-10 lg:my-14"></div>
+
+      <!-- Section 6: How to Apply -->
+      <div class="reveal">
+        <p class="label mb-5">How to Apply</p>
+        <div class="space-y-5 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+          <p>
+            Formal teaching vacancies are advertised on TES. Expressions of interest are welcome at any time and are reviewed as positions arise.
+          </p>
+          <p>
+            Send a CV and covering letter to <a href="mailto:recruitment@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">recruitment@isj.id</a>.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a href={link('/admissions/arrange-a-tour')} class="whisper-link">Visit the campus</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
