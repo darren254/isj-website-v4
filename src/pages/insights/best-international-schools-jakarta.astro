@@ -852,7 +852,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   }
 </style>
 
-<div id="jakarta-map-wrapper">
+<div id="jakarta-map-wrapper" class="img-wide">
   <div id="jakarta-map-container">
     <canvas id="jakarta-map-canvas"></canvas>
   </div>
@@ -1137,7 +1137,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     var map = new window.mapboxgl.Map({
       container: container,
       style: "mapbox://styles/mapbox/light-v11",
-      center: [106.84, -6.22],
+      center: [106.80, -6.26],
       zoom: 11.2,
       minZoom: 9,
       maxZoom: 16,
@@ -1169,8 +1169,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
           }
           // Parks / green landuse: sage green
           else if (lid.indexOf("park") !== -1 || lid.indexOf("green") !== -1 ||
-                   lid.indexOf("grass") !== -1 || lid.indexOf("landuse") !== -1 ||
-                   lid.indexOf("national") !== -1 || lid.indexOf("vegetation") !== -1) {
+                   lid.indexOf("grass") !== -1 || lid.indexOf("vegetation") !== -1 ||
+                   lid.indexOf("national-park") !== -1) {
             try { map.setPaintProperty(lid, "fill-color", "#c5d4b0"); } catch(e) {}
             try { map.setPaintProperty(lid, "fill-opacity", 0.6); } catch(e) {}
           }
