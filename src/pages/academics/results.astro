@@ -1,0 +1,163 @@
+---
+import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Testimonial from '../../components/Testimonial.astro';
+---
+
+<BaseLayout
+  title="Results & Outcomes | ISJ Jakarta"
+  description="Academic results at ISJ and across The Schools Trust network. GL Assessment data, GCSE and A-Level outcomes, and university destinations from Oxford to Stanford."
+  canonicalUrl="/academics/results"
+>
+
+  <!-- Hero -->
+  <Hero
+    imageSrc="/images/prep-engineering.jpg"
+    imageAlt="ISJ pupils working on an engineering project"
+    aspectRatio="standard"
+    objectPosition="center 40%"
+  />
+
+  <!-- Introduction -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-4">Academics</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Results and Outcomes</h1>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            ISJ is a young school with a strong academic record. Independent standardised assessments place ISJ pupils in the top 10% of international schools worldwide. The broader Schools Trust network, built by the same trustees over two decades, has a track record of outstanding GCSE and A-Level results and university placements at the highest level.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GL Assessments -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">ISJ Assessment Data</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">GL Education Assessments</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            ISJ uses GL Education assessments to benchmark pupils against tens of thousands of students in international schools worldwide. These are independent, externally administered tests. A score of 100 represents the international average.
+          </p>
+        </div>
+
+        <div class="mt-8 space-y-4">
+          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+            <span class="text-[length:var(--text-base)] text-navy">English</span>
+            <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">122 <span class="text-[length:var(--text-sm)] text-charcoal-light">(norm: 104.6)</span></span>
+          </div>
+          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+            <span class="text-[length:var(--text-base)] text-navy">Mathematics</span>
+            <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">118.7 <span class="text-[length:var(--text-sm)] text-charcoal-light">(norm: 101)</span></span>
+          </div>
+          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+            <span class="text-[length:var(--text-base)] text-navy">Science</span>
+            <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">119.7 <span class="text-[length:var(--text-sm)] text-charcoal-light">(norm: 103.1)</span></span>
+          </div>
+          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+            <span class="text-[length:var(--text-base)] text-navy">Reading</span>
+            <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">113.1 <span class="text-[length:var(--text-sm)] text-charcoal-light">(norm: 100)</span></span>
+          </div>
+          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
+            <span class="text-[length:var(--text-base)] text-navy">Spelling</span>
+            <span class="text-[length:var(--text-base)] text-charcoal tabular-nums">116.7 <span class="text-[length:var(--text-sm)] text-charcoal-light">(norm: 100)</span></span>
+          </div>
+        </div>
+
+        <p class="text-[length:var(--text-sm)] text-charcoal-light mt-6">
+          These scores place ISJ in the range of leading British independent and prep schools (110-122) and well above the international school average. For context, selective independent schools in the UK typically score between 110 and 115.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <img
+        src={asset('/images/science-experiment.jpg')}
+        alt="ISJ pupils working on a science project"
+        loading="lazy"
+        decoding="async"
+        class="w-full aspect-[16/9] object-cover"
+      />
+    </div>
+  </section>
+
+  <!-- Network Results -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Schools Trust Network</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">GCSE and A-Level Results</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            ISJ is part of The Schools Trust, a UK-registered charity whose trustees have founded 16 British schools across 11 countries since 2004. The exam results across these schools give a clear picture of the academic standard ISJ is built on.
+          </p>
+          <p>
+            At GCSE and IGCSE, schools founded by Trust trustees consistently achieve 65-81% of grades at A*/A, against a UK national average of around 22%. At A-Level, results across the network range from 42-69% at A*/A, with one school placed in the ALPS top 1% of British schools worldwide for value-added.
+          </p>
+          <p>
+            Every school operated by Trust trustees has achieved "Excellent" in all categories of UK government-accredited ISI inspections. The International School of Moscow achieved this rating three consecutive times. The British School of Kuala Lumpur was the first school in Malaysia rated "Excellent" in all areas and the first in Asia to receive COBIS Patron's Accreditation.
+          </p>
+          <p>
+            94% of students attending Trust-operated schools outperform the UK national average.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <Testimonial
+    quote="A strong academic focus and high-quality learning."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- University Destinations -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">University Destinations</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Where Students Go Next</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Graduates from schools founded by Trust trustees study at universities across five continents. The network's track record includes placements at the most competitive institutions in the UK, the US, Europe, and Asia.
+          </p>
+          <p>
+            A-Level students from the network routinely secure places at Russell Group and Ivy League universities. At the British School of Brasilia, 25% of graduates have entered top-30 universities in the UK and the US, with 95% attending their first-choice institution.
+          </p>
+        </div>
+        <p class="text-[length:var(--text-sm)] leading-loose text-charcoal-light mt-8">
+          University of Oxford, University of Cambridge, Imperial College London, LSE, UCL, King's College London, University of Edinburgh, University of St Andrews, Durham University, University of Warwick, University of Bristol, University of Manchester, University of Bath, Princeton University, Stanford University, Brown University, Dartmouth College, Duke University, UC Berkeley, UCLA, University of Toronto, McGill University, UBC, Peking University, University of Hong Kong, NUS Singapore, KAIST, Seoul National University, University of Sydney, Monash University
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISJ's Path -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Looking Ahead</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">ISJ's Senior School</h2>
+        <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            ISJ's GCSE and A-Level programmes are now underway. The first GCSE cohort will sit examinations in 2028. The school applies the same governance, teaching standards, and expectations that produced the results above across the Trust network.
+          </p>
+          <p>
+            University preparation at ISJ includes UCAS guidance from Year 11, personal statement support, and structured advice on courses and destinations. For students considering universities in the US, Europe, Asia, or Australia, that guidance is adapted accordingly. The goal is a clear, well-supported pathway from ISJ to the right university for each student.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
