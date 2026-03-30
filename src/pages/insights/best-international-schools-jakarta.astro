@@ -1179,7 +1179,6 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       zoom: 11.2,
       minZoom: 9,
       maxZoom: 16,
-      interactive: false,
       dragRotate: false,
       pitchWithRotate: false,
       attributionControl: false
@@ -1274,6 +1273,14 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
       // ── School markers ───────────────────────────────────────────────────────
       addSchoolMarkers();
+
+      // Lock all map interaction after markers are placed
+      map.scrollZoom.disable();
+      map.dragPan.disable();
+      map.touchZoomRotate.disable();
+      map.doubleClickZoom.disable();
+      map.boxZoom.disable();
+      map.keyboard.disable();
 
       // ── Canvas: draw + bind map events ──────────────────────────────────────
       drawNeighbourhoods();
