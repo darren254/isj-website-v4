@@ -33,6 +33,7 @@ Get sign-off on the layout brief before building.
 - Use `max-w-[content-narrow]` as the default column width for body content
 - Only use `max-w-[content-wide]` when the page genuinely needs it (e.g. image grids, data tables)
 - Hairline dividers (`border-t border-charcoal/10`) to separate sections, not background colour changes
+- Data tables and key-value pairs: constrain width with `max-w-sm` or `max-w-lg`. Do not let them stretch to full content-narrow width
 - Whisper-link CTAs, not filled buttons (footer handles the main conversion CTA)
 
 ## Step 4: Visual QA
