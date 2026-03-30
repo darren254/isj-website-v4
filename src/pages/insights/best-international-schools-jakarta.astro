@@ -1192,46 +1192,64 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     map.addControl(new window.mapboxgl.AttributionControl({ compact: true }), "bottom-right");
 
     map.on("load", function () {
-      // ── Aman base-map treatment ──────────────────────────────────────────────
+      // ── Aman-grade base-map treatment ────────────────────────────────────────
       var layers = map.getStyle().layers;
       for (var i = 0; i < layers.length; i++) {
         var l = layers[i];
         var lid = l.id;
         var ltype = l.type;
 
-        if (ltype === "fill") {
-          // Water: warm grey near-invisible
+        if (ltype === "background") {
+          try { map.setPaintProperty(lid, "background-color", "#f7f7f7"); } catch(e) {}
+        }
+        else if (ltype === "fill") {
           if (lid.indexOf("water") !== -1) {
-            try { map.setPaintProperty(lid, "fill-color", "#ddd9d0"); } catch(e) {}
-            try { map.setPaintProperty(lid, "fill-opacity", 0.8); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-color", "#DCEBEF"); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-opacity", 1); } catch(e) {}
           }
-          // Parks / green landuse: sage green
           else if (lid.indexOf("park") !== -1 || lid.indexOf("green") !== -1 ||
                    lid.indexOf("grass") !== -1 || lid.indexOf("vegetation") !== -1 ||
                    lid.indexOf("national-park") !== -1) {
-            try { map.setPaintProperty(lid, "fill-color", "#c5d4b0"); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-color", "rgba(210,217,192,0.8)"); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-opacity", 1); } catch(e) {}
+          }
+          else if (lid.indexOf("landuse") !== -1) {
+            try { map.setPaintProperty(lid, "fill-color", "rgba(242,244,236,0.5)"); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-opacity", 1); } catch(e) {}
+          }
+          else if (lid.indexOf("building") !== -1) {
+            try { map.setPaintProperty(lid, "fill-color", "#e8e8e8"); } catch(e) {}
             try { map.setPaintProperty(lid, "fill-opacity", 0.6); } catch(e) {}
           }
-          // All other fills: desaturate to near-neutral warm tone
           else {
-            try { map.setPaintProperty(lid, "fill-color", "#e8e4de"); } catch(e) {}
-            try { map.setPaintProperty(lid, "fill-opacity", 0.4); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-color", "#f2f2f0"); } catch(e) {}
+            try { map.setPaintProperty(lid, "fill-opacity", 0.5); } catch(e) {}
           }
         } else if (ltype === "line") {
-          // Roads / bridges: subtle
-          try { map.setPaintProperty(lid, "line-opacity", 0.3); } catch(e) {}
+          if (lid.indexOf("road") !== -1 || lid.indexOf("bridge") !== -1 || lid.indexOf("tunnel") !== -1) {
+            try { map.setPaintProperty(lid, "line-color", "#ffffff"); } catch(e) {}
+            try { map.setPaintProperty(lid, "line-opacity", 0.8); } catch(e) {}
+          } else {
+            try { map.setPaintProperty(lid, "line-opacity", 0.15); } catch(e) {}
+          }
         } else if (ltype === "symbol") {
           var layout = l.layout || {};
-          // POI symbols (icon-image without text-field, or poi- prefix): hide
           if (lid.indexOf("poi") !== -1 || lid.indexOf("transit") !== -1 ||
               (layout["icon-image"] && !layout["text-field"])) {
             try { map.setLayoutProperty(lid, "visibility", "none"); } catch(e) {}
           }
-          // Other symbols: muted text
-          else {
-            try { map.setPaintProperty(lid, "text-color", "#b0aca5"); } catch(e) {}
-            try { map.setPaintProperty(lid, "text-opacity", 0.6); } catch(e) {}
+          else if (lid.indexOf("road") !== -1) {
+            try { map.setPaintProperty(lid, "text-color", "#a1a1a1"); } catch(e) {}
+            try { map.setPaintProperty(lid, "text-opacity", 0.7); } catch(e) {}
           }
+          else {
+            try { map.setPaintProperty(lid, "text-color", "hsl(22,8%,62%)"); } catch(e) {}
+            try { map.setPaintProperty(lid, "text-opacity", 0.8); } catch(e) {}
+          }
+        }
+        else if (ltype === "hillshade") {
+          try { map.setPaintProperty(lid, "hillshade-shadow-color", "rgba(74,44,44,0.08)"); } catch(e) {}
+          try { map.setPaintProperty(lid, "hillshade-highlight-color", "rgba(255,255,255,0.12)"); } catch(e) {}
         }
       }
 
@@ -1320,29 +1338,24 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       var isISJ   = school.name === "ISJ";
       var dotSize = isISJ ? 14 : 10;
 
-      // Dot marker element — outer wrapper gives a larger touch target
+      // Dot marker element
       var dot = document.createElement("div");
-      dot.style.cssText = "position:relative;width:" + (dotSize + 20) + "px;height:" + (dotSize + 20) + "px;display:flex;align-items:center;justify-content:center;cursor:pointer;";
-      var dotInner = document.createElement("div");
-      dotInner.style.cssText = [
+      dot.style.cssText = [
         "width:" + dotSize + "px",
         "height:" + dotSize + "px",
         "border-radius:50%",
         "background:#1B2A4A",
         "border:1.5px solid " + (isISJ ? "#FFC43D" : "white"),
         "box-shadow:0 1px 4px rgba(0,0,0,0.25)",
-        "pointer-events:none",
+        "cursor:pointer",
         "transition:transform 0.2s ease",
         isISJ ? "box-shadow:0 1px 4px rgba(0,0,0,0.25),0 0 0 1.5px rgba(255,196,61,0.35)" : ""
       ].join(";");
-      dot.appendChild(dotInner);
 
-      (function(d, inner) {
-        d.addEventListener("mouseenter", function () { inner.style.transform = "scale(1.45)"; });
-        d.addEventListener("mouseleave", function () { inner.style.transform = "scale(1)";    });
-        // Prevent touch from triggering map pan
-        d.addEventListener("touchstart", function(e) { e.stopPropagation(); }, { passive: false });
-      }(dot, dotInner));
+      (function(d) {
+        d.addEventListener("mouseenter", function () { d.style.transform = "scale(1.45)"; });
+        d.addEventListener("mouseleave", function () { d.style.transform = "scale(1)";    });
+      }(dot));
 
       var popup = new window.mapboxgl.Popup({ offset: 10, maxWidth: "180px", closeButton: false })
         .setHTML('<h4>' + school.name + '</h4>');
