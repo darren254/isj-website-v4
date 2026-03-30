@@ -1,0 +1,164 @@
+---
+import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+---
+
+<BaseLayout
+  title="School Calendar 2025/26 | ISJ Jakarta"
+  description="Term dates, holidays, and key dates for The Independent School of Jakarta. Three-term academic year running September to July, with mid-term breaks and public holidays."
+  canonicalUrl="/school-life/calendar"
+>
+
+  <!-- Hero -->
+  <Hero
+    imageSrc="/images/happy-children-outdoor.jpg"
+    imageAlt="Children playing outdoors at The Independent School of Jakarta"
+    aspectRatio="standard"
+    objectPosition="center 35%"
+  />
+
+  <!-- Introduction -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Academic Year</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">School Calendar 2025/26</h1>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          ISJ follows a three-term academic year running from September to July, aligned with the British school calendar. Staff study days precede the start of each term. Term 3 dates will be confirmed and published here in due course.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Term 1 -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-5">Term 1</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Autumn Term</h2>
+        <div class="max-w-md">
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Staff return</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">25 August 2025</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Pupils return</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">1 September 2025</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Mid-term break</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">20 to 24 October 2025</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Term ends</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">12 December 2025</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Christmas holiday</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">13 December to 4 January</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Term 2 -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-5">Term 2</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Spring Term</h2>
+        <div class="max-w-md">
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Term begins</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">5 January 2026</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Mid-term break</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">16 to 20 February 2026</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Term ends</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">13 March 2026 (12:00pm)</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Easter holiday</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">14 March to 5 April</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Term 3 -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label label-gold mb-5">Term 3</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Summer Term</h2>
+        <div class="max-w-md">
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Term begins</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">6 April 2026</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Term ends</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">7 July 2026</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Summer holiday</span>
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">From 8 July 2026</span>
+          </div>
+        </div>
+        <p class="text-[length:var(--text-sm)] text-charcoal-muted mt-5">
+          Mid-term break and detailed Term 3 dates to be confirmed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Holidays -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Public Holidays</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">School Closed</h2>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
+          ISJ is closed on Indonesian public holidays that fall during term time. The following dates are confirmed for the 2025/26 academic year.
+        </p>
+        <div class="max-w-md">
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">5 September 2025</span>
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Public Holiday</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">16 January 2026</span>
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Public Holiday</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">1 May 2026</span>
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Public Holiday</span>
+          </div>
+          <div class="py-3 border-b border-charcoal/10 flex justify-between gap-4">
+            <span class="text-[length:var(--text-sm)] text-charcoal-light">17 June 2026</span>
+            <span class="text-[length:var(--text-sm)] text-navy font-medium">Public Holiday</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing note -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="text-[length:var(--text-sm)] text-charcoal-muted leading-relaxed">
+          Dates are subject to change. For the most current information, contact the school office at <a href="mailto:info@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">info@isj.id</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
