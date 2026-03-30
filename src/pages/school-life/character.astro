@@ -1,0 +1,128 @@
+---
+import { asset } from '../../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageBlock from '../../components/ImageBlock.astro';
+import Testimonial from '../../components/Testimonial.astro';
+---
+
+<BaseLayout
+  title="Character & Values | Pastoral Care, House System | ISJ Jakarta"
+  description="Character education at ISJ. Pastoral care, the house system, Five Talent Trails, leadership, and a residential programme at Woolverstone Hall in England."
+  canonicalUrl="/school-life/character"
+>
+
+  <!-- Opening quote instead of hero -->
+  <section class="pt-[calc(var(--space-section)*1.5)] pb-[var(--space-section)] px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="label label-gold mb-8">School Life</p>
+      <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.2]">
+        Who children become matters just as much as what they know.
+      </h1>
+    </div>
+  </section>
+
+  <!-- What character looks like -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Character</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Built, Not Taught</h2>
+        <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            Real confidence is not taught in a lesson. It is built through thousands of small moments. A child encouraged to take intellectual risks in the classroom. A pupil who leads a house team before they feel quite ready. A young person who learns to fail at something, reflect honestly, and try again.
+          </p>
+          <p>
+            At ISJ, character education is the daily, lived reality of how teachers teach and how children learn. It is what parents notice on a school tour, and what pupils carry with them long after they leave.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-bleed: inter-house quiz -->
+  <ImageBlock
+    src="/images/news/inter-house-quiz.jpg"
+    alt="ISJ inter-house quiz with pupils in house colours celebrating, scoreboard visible"
+    aspectRatio="cinematic"
+  />
+
+  <!-- Houses -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center reveal">
+      <p class="label mb-5">Houses</p>
+      <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Potter. Tolkien. Lewis. Rowling.</h2>
+      <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+        Every child belongs to a house from their first day. Houses compete across sport, the arts, quizzes, and community challenges throughout the year. The house system builds belonging, healthy rivalry, and friendships across year groups. Older pupils take real responsibility: planning events, supporting teammates, and mentoring younger children.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pastoral care: asymmetric split with residential group -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
+        <div>
+          <p class="label mb-5">Pastoral Care</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Known, Valued, Supported</h2>
+          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+            <p>
+              The Head and teachers know every child personally. Their strengths, their interests, and the moments when they need encouragement or a gentle challenge.
+            </p>
+            <p>
+              Pastoral care at ISJ is built on positive relationships, restorative practice, and a culture of fairness. It is not a system of rewards and sanctions. It is a community in which kindness, honesty, and effort are simply how things are done.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <img
+            src={asset('/images/news/residential.jpg')}
+            alt="ISJ pupils and teachers before a residential trip"
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-[4/3] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <Testimonial
+    quote="The kids feel safe and supported in a positive environment."
+    attribution="ISJ Parent"
+    detail="Annual Survey, November 2025"
+  />
+
+  <!-- Leadership -->
+  <section class="section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Leadership and Service</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Real Responsibility, from the Start</h2>
+        <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          <p>
+            From Pre-Prep, children are given real responsibility. Leading a circle-time discussion. Helping a younger child at lunch. By Prep School, pupils take on house leadership, organise charity events, mentor younger peers, and represent the school in competition.
+          </p>
+          <p>
+            These are not token roles. Pupils plan, negotiate, make mistakes, and learn from them. Service to others is part of the programme through community projects that connect pupils to the world beyond the school gates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Woolverstone -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <div class="reveal">
+        <p class="label mb-5">Residential</p>
+        <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Woolverstone Hall</h2>
+        <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
+          Each year, Year 7 and 8 pupils travel to Woolverstone Hall in Suffolk, England. An 87-acre campus where they experience British boarding school life first-hand: early morning runs, formal dining, academic enrichment, and outdoor adventure. For many, it is the trip that defines their time at ISJ. Independence, resilience, and friendships forged in a setting unlike anything they have experienced before.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
