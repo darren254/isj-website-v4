@@ -4,7 +4,6 @@ const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
-import ImageBlock from '../../components/ImageBlock.astro';
 
 const steps = [
   {
@@ -76,11 +75,18 @@ const steps = [
     </div>
   </section>
 
-  <!-- ═══════ Full-bleed Image ═══════ -->
-  <ImageBlock
-    src="/images/playground.jpg"
-    alt="Children playing at ISJ Pondok Indah"
-  />
+  <!-- ═══════ Image ═══════ -->
+  <section class="px-6 pb-[var(--space-section)]">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+      <img
+        src={asset('/images/playground.jpg')}
+        alt="Children playing at ISJ Pondok Indah"
+        loading="lazy"
+        decoding="async"
+        class="w-full aspect-[16/9] object-cover"
+      />
+    </div>
+  </section>
 
   <!-- ═══════ Key Details ═══════ -->
   <section class="section-pad px-6">
