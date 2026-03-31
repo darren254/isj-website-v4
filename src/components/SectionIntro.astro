@@ -7,19 +7,21 @@
 interface Props {
   label?: string;
   heading: string;
+  headingLevel?: 'h1' | 'h2';
   class?: string;
 }
 
-const { label, heading, class: className = '' } = Astro.props;
+const { label, heading, headingLevel = 'h2', class: className = '' } = Astro.props;
+const Tag = headingLevel;
 ---
 
 <div class={`text-column reveal ${className}`}>
   {label && (
     <p class="label mb-5">{label}</p>
   )}
-  <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy mb-6 leading-[1.1]">
+  <Tag class="font-heading text-[length:var(--text-2xl)] font-light text-navy mb-6 leading-[1.1]">
     {heading}
-  </h2>
+  </Tag>
   <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
     <slot />
   </div>
