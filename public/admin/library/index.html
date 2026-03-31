@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TST Image Library</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --surface: #1a1a1a;
+    --surface2: #222;
+    --surface3: #2a2a2a;
+    --border: #333;
+    --accent: #4a9eff;
+    --accent-dim: rgba(74,158,255,0.15);
+    --text: #e0e0e0;
+    --text-dim: #888;
+    --text-muted: #555;
+    --radius: 8px;
+    --radius-sm: 5px;
+    --topbar-h: 110px;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 13px;
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR ─────────────────────────────────── */
+  #topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #topbar-row1 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #site-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #site-title svg {
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  #search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 320px;
+  }
+
+  #search-wrap svg {
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    padding: 6px 10px 6px 30px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  #search:focus { border-color: var(--accent); }
+  #search::placeholder { color: var(--text-muted); }
+
+  #search-clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px;
+    display: none;
+    line-height: 1;
+    font-size: 15px;
+  }
+
+  #search-clear:hover { color: var(--text); }
+
+  #counter {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── FILTER BAR ──────────────────────────────── */
+  #filters {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  .filter-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin-left: auto;
+    padding-right: 2px;
+  }
+
+  .cat-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-dim);
+    padding: 4px 11px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+    user-select: none;
+  }
+
+  .cat-btn:hover {
+    background: var(--surface3);
+    color: var(--text);
+    border-color: #444;
+  }
+
+  .cat-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .cat-btn .count {
+    opacity: 0.65;
+    font-size: 11px;
+    margin-left: 2px;
+  }
+
+  /* ── GRID ────────────────────────────────────── */
+  #grid-wrap {
+    padding: 14px 12px;
+  }
+
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+    gap: 10px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.12s, border-color 0.12s, box-shadow 0.12s;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+  .card-thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: var(--surface2);
+  }
+
+  .card-info {
+    padding: 7px 8px 8px;
+  }
+
+  .card-name {
+    font-size: 11px;
+    color: var(--text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+  }
+
+  .card-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: none;
+  }
+
+  .card:hover .card-desc {
+    display: block;
+  }
+
+  .card-cat-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0,0,0,0.65);
+    color: #ccc;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    display: none;
+  }
+
+  /* Show category badge when "All" is active */
+  body.show-cat-badge .card-cat-badge { display: block; }
+
+  /* ── EMPTY STATE ─────────────────────────────── */
+  #empty {
+    display: none;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+  }
+
+  #empty svg { margin-bottom: 16px; opacity: 0.3; }
+  #empty p { font-size: 14px; }
+
+  /* ── LIGHTBOX ────────────────────────────────── */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  #lightbox.open { display: flex; }
+
+  #lb-inner {
+    display: flex;
+    flex-direction: column;
+    max-width: min(1200px, 96vw);
+    max-height: 96vh;
+    margin: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  #lb-image-wrap {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lb-img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  #lb-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background 0.1s;
+    z-index: 10;
+  }
+
+  #lb-close:hover { background: rgba(255,255,255,0.2); }
+
+  .lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s;
+    z-index: 10;
+    user-select: none;
+  }
+
+  .lb-nav:hover { background: rgba(255,255,255,0.18); }
+  #lb-prev { left: 10px; }
+  #lb-next { right: 10px; }
+
+  #lb-panel {
+    padding: 14px 18px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  #lb-meta { flex: 1; min-width: 0; }
+
+  #lb-filename {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    word-break: break-all;
+    margin-bottom: 4px;
+  }
+
+  #lb-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  #lb-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .lb-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  #lb-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    text-align: right;
+    min-width: 120px;
+  }
+
+  .lb-spec-val {
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  #lb-counter {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  #lb-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.12s;
+  }
+
+  #lb-download:hover { background: rgba(74,158,255,0.25); }
+
+  /* ── MOBILE ──────────────────────────────────── */
+  @media (max-width: 640px) {
+    :root { --topbar-h: 130px; }
+
+    #topbar-row1 { flex-wrap: wrap; }
+    #search-wrap { max-width: 100%; flex: 1 1 200px; }
+    #counter { margin-left: 0; }
+
+    #grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    #lb-panel { flex-direction: column; gap: 12px; }
+    #lb-specs { text-align: left; }
+    .filter-hint { display: none; }
+  }
+
+  @media (max-width: 400px) {
+    #grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Loading state for images */
+  .card-thumb { transition: opacity 0.2s; }
+  .card-thumb[data-loading] { opacity: 0.3; }
+
+  /* Smooth lightbox entry */
+  #lb-inner {
+    animation: lb-in 0.15s ease-out;
+  }
+  @keyframes lb-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div id="topbar">
+  <div id="topbar-row1">
+    <div id="site-title">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <rect width="20" height="20" rx="4" fill="#4a9eff" opacity="0.15"/>
+        <rect x="3" y="4" width="6" height="6" rx="1.5" fill="#4a9eff" opacity="0.8"/>
+        <rect x="11" y="4" width="6" height="6" rx="1.5" fill="#4a9eff" opacity="0.5"/>
+        <rect x="3" y="12" width="6" height="6" rx="1.5" fill="#4a9eff" opacity="0.5"/>
+        <rect x="11" y="12" width="6" height="6" rx="1.5" fill="#4a9eff" opacity="0.8"/>
+      </svg>
+      TST Image Library
+    </div>
+    <div id="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="6.5" cy="6.5" r="4.5"/><line x1="10.5" y1="10.5" x2="14" y2="14"/>
+      </svg>
+      <input type="text" id="search" placeholder="Search filenames, tags, descriptions…" autocomplete="off" spellcheck="false">
+      <button id="search-clear" title="Clear search">&times;</button>
+    </div>
+    <span id="counter">— of —</span>
+  </div>
+  <div id="filters">
+    <!-- populated by JS -->
+    <span class="filter-hint">Shift/Ctrl+click for multi-select</span>
+  </div>
+</div>
+
+<!-- GRID -->
+<div id="grid-wrap">
+  <div id="grid"></div>
+  <div id="empty">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <circle cx="22" cy="22" r="14"/>
+      <line x1="32" y1="32" x2="43" y2="43"/>
+    </svg>
+    <p>No images match your search.</p>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div id="lb-inner">
+    <div id="lb-image-wrap">
+      <img id="lb-img" src="" alt="">
+      <button id="lb-close" title="Close (Esc)">&times;</button>
+      <button class="lb-nav" id="lb-prev" title="Previous (&#8592;)">&#8592;</button>
+      <button class="lb-nav" id="lb-next" title="Next (&#8594;)">&#8594;</button>
+    </div>
+    <div id="lb-panel">
+      <div id="lb-meta">
+        <div id="lb-filename"></div>
+        <div id="lb-desc"></div>
+        <div id="lb-tags"></div>
+        <a id="lb-download" href="#" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="8" y1="2" x2="8" y2="11"/><polyline points="4,8 8,12 12,8"/>
+            <line x1="2" y1="14" x2="14" y2="14"/>
+          </svg>
+          Download full image
+        </a>
+        <div id="lb-counter"></div>
+      </div>
+      <div id="lb-specs">
+        <div><span class="lb-spec-val" id="lb-dims"></span></div>
+        <div><span class="lb-spec-val" id="lb-size"></span></div>
+        <div id="lb-cat-badge"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const MANIFEST = [{"fn":"isj--Boaters-International-School-Jakarta.jpg","thumb":"isj--Boaters-International-School-Jakarta.jpg","w":800,"h":533,"size_kb":70,"desc":"Students in boater hats and blazers standing in a line","tags":["portrait","students","uniform"],"cat":"isj-library"},{"fn":"isj--Christmas+Fair+ISJ+Jakarta+.jpg","thumb":"isj--Christmas+Fair+ISJ+Jakarta+.jpg","w":2000,"h":1333,"size_kb":295,"desc":"Christmas fair stall with children and festive decorations","tags":["event","christmas"],"cat":"isj-library"},{"fn":"isj--Early_Morning_Swimming_Jakarta_School.jpg","thumb":"isj--Early_Morning_Swimming_Jakarta_School.jpg","w":960,"h":1280,"size_kb":225,"desc":"Girl in swimsuit on Flowrider wave pool","tags":["sport","swimming","fun"],"cat":"isj-library"},{"fn":"isj--Gardening-International-School-Jakarta.jpg","thumb":"isj--Gardening-International-School-Jakarta.jpg","w":800,"h":533,"size_kb":94,"desc":"Teacher and children doing pottery/gardening activity","tags":["classroom","activity","early-years"],"cat":"isj-library"},{"fn":"isj--Happy-Children-International-School-Jakarta-02+copy.jpg","thumb":"isj--Happy-Children-International-School-Jakarta-02+copy.jpg","w":800,"h":533,"size_kb":92,"desc":"Two girls in blue gingham dresses sitting on a bench","tags":["portrait","students","outdoor"],"cat":"isj-library"},{"fn":"isj--ISJ+International+Week-00461.jpg","thumb":"isj--ISJ+International+Week-00461.jpg","w":2000,"h":1333,"size_kb":276,"desc":"Group of young children performing Chinese New Year celebration","tags":["event","performance","culture"],"cat":"isj-library"},{"fn":"isj--Intan+Dewiyani+Shortlisted+for+Tes+Awards+for+International+Schools+2025.jpg","thumb":"isj--Intan+Dewiyani+Shortlisted+for+Tes+Awards+for+International+Schools+2025.jpg","w":1007,"h":692,"size_kb":117,"desc":"Young children playing with wooden toys in early years setting","tags":["classroom","early-years","play"],"cat":"isj-library"},{"fn":"isj--Ipswich_High_School.jpg","thumb":"isj--Ipswich_High_School.jpg","w":2000,"h":1123,"size_kb":316,"desc":"Ipswich High School / Woolverstone Hall manor house building","tags":["campus","buildings","UK"],"cat":"isj-library"},{"fn":"isj--Kaye+Extance+%26+Eileen+Fisher.j.jpg","thumb":"isj--Kaye+Extance+%26+Eileen+Fisher.j.jpg","w":2000,"h":1333,"size_kb":428,"desc":"Two women (staff) standing outdoors in garden setting","tags":["portrait","staff"],"cat":"isj-library"},{"fn":"isj--MOH04923.jpg","thumb":"isj--MOH04923.jpg","w":2000,"h":1333,"size_kb":334,"desc":"Students performing music on stage with coloured lights","tags":["event","performance","music"],"cat":"isj-library"},{"fn":"isj--MOH05026.jpg","thumb":"isj--MOH05026.jpg","w":2000,"h":1261,"size_kb":320,"desc":"Children at a festive event with bunting and decorations","tags":["event","culture"],"cat":"isj-library"},{"fn":"isj--Teaching-International-School-Jakarta-02.jpg","thumb":"isj--Teaching-International-School-Jakarta-02.jpg","w":800,"h":533,"size_kb":66,"desc":"Teacher helping young students with classwork at desk","tags":["classroom","teaching","primary"],"cat":"isj-library"},{"fn":"isj--The+Schools+Trust+Logo.png","thumb":"isj--The+Schools+Trust+Logo.jpg","w":1200,"h":636,"size_kb":19,"desc":"The Schools Trust logo — feather quill design","tags":["logo","branding"],"cat":"isj-library"},{"fn":"isj--The-International-School-of-Jakarta-The-Independent-School-of-Jakarta-Happy-Children.jpg","thumb":"isj--The-International-School-of-Jakarta-The-Independent-School-of-Jakarta-Happy-Children.jpg","w":800,"h":533,"size_kb":92,"desc":"Two girls in blue gingham sitting on bench (duplicate of #8)","tags":["portrait","students","outdoor"],"cat":"isj-library"},{"fn":"isj--The-International-School-of-Jakarta-The-Independent-School-of-Jakarta-Playground.jpg","thumb":"isj--The-International-School-of-Jakarta-The-Independent-School-of-Jakarta-Playground.jpg","w":800,"h":533,"size_kb":82,"desc":"Family scene — father and children reading together on wicker chair","tags":["family","lifestyle"],"cat":"isj-library"},{"fn":"isj--The-International-School-of-Jakarta-The-Independent-School-of-Jakarta.EYFS.jpg","thumb":"isj--The-International-School-of-Jakarta-The-Independent-School-of-Jakarta.EYFS.jpg","w":1024,"h":683,"size_kb":101,"desc":"Three young boys in blue polo shirts laughing together","tags":["portrait","students","happy"],"cat":"isj-library"},{"fn":"isj--The-Prep-School-British-International-School.jpg","thumb":"isj--The-Prep-School-British-International-School.jpg","w":2000,"h":1333,"size_kb":294,"desc":"Two girls in school uniform studying/reading closely together","tags":["classroom","students","reading"],"cat":"isj-library"},{"fn":"isj--british-international+school-metacognition-cycle.jpg","thumb":"isj--british-international+school-metacognition-cycle.jpg","w":800,"h":537,"size_kb":44,"desc":"Metacognition Cycle diagram — educational infographic","tags":["graphic","educational"],"cat":"isj-library"},{"fn":"isj--choir-11-international-school-jakarta.jpg","thumb":"isj--choir-11-international-school-jakarta.jpg","w":2000,"h":1332,"size_kb":376,"desc":"Students in blazers singing in choir formation","tags":["event","performance","music"],"cat":"isj-library"},{"fn":"isj--classroom_british_international_school_jakarta.jpg","thumb":"isj--classroom_british_international_school_jakarta.jpg","w":588,"h":611,"size_kb":67,"desc":"Teacher helping student with reading in classroom","tags":["classroom","teaching","reading"],"cat":"isj-library"},{"fn":"isj--headteacher-international-school-jakarta-small.jpg","thumb":"isj--headteacher-international-school-jakarta-small.jpg","w":600,"h":900,"size_kb":70,"desc":"Female headteacher/staff member with young students in classroom","tags":["portrait","staff","teaching"],"cat":"isj-library"},{"fn":"isj--img-175affde.jpg","thumb":"isj--img-175affde.jpg","w":800,"h":600,"size_kb":164,"desc":"Aerial view of football pitch surrounded by trees","tags":["campus","sport","aerial","facilities"],"cat":"isj-library"},{"fn":"isj--img-1cfb6a12.jpg","thumb":"isj--img-1cfb6a12.jpg","w":2000,"h":1333,"size_kb":493,"desc":"Swimmer doing front crawl in competition pool","tags":["sport","swimming"],"cat":"isj-library"},{"fn":"isj--img-957ba865.jpg","thumb":"isj--img-957ba865.jpg","w":2000,"h":1334,"size_kb":300,"desc":"Concert or performance in ornate red theatre venue","tags":["event","performance"],"cat":"isj-library"},{"fn":"isj--img-9e3113d9.jpg","thumb":"isj--img-9e3113d9.jpg","w":800,"h":600,"size_kb":151,"desc":"Aerial view of swimming pool surrounded by trees","tags":["campus","sport","aerial","facilities"],"cat":"isj-library"},{"fn":"isj--img-e45571bf.jpg","thumb":"isj--img-e45571bf.jpg","w":2000,"h":1334,"size_kb":354,"desc":"Teacher in costume doing animated lesson with young children","tags":["classroom","teaching","fun","primary"],"cat":"isj-library"},{"fn":"isj--img-fe6596e7.jpg","thumb":"isj--img-fe6596e7.jpg","w":2000,"h":1321,"size_kb":323,"desc":"Children in colourful cultural dress performing/singing together","tags":["event","performance","culture"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-0112.jpg","thumb":"isj--international-school-jakarta-0112.jpg","w":2000,"h":1333,"size_kb":319,"desc":"Boy in blue polo concentrating on craft/construction activity","tags":["classroom","activity","primary"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-0302.jpg","thumb":"isj--international-school-jakarta-0302.jpg","w":2000,"h":1333,"size_kb":248,"desc":"Young boys in batik shirts doing outdoor activity with sticks","tags":["outdoor","activity","culture"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-0801.jpg","thumb":"isj--international-school-jakarta-0801.jpg","w":2000,"h":1333,"size_kb":281,"desc":"Girl in blazer painting at easel — art class","tags":["classroom","art"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-Prep-2.jpg","thumb":"isj--international-school-jakarta-Prep-2.jpg","w":2000,"h":1333,"size_kb":294,"desc":"Two girls in uniform reading/studying together closely","tags":["classroom","students","reading"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-art-MOH02309.jpg","thumb":"isj--international-school-jakarta-art-MOH02309.jpg","w":2000,"h":1333,"size_kb":223,"desc":"Close-up of watercolour paint palette and brush","tags":["classroom","art","detail"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-british-embassy-0010.jpg","thumb":"isj--international-school-jakarta-british-embassy-0010.jpg","w":563,"h":1000,"size_kb":79,"desc":"Staff members/parents at an event or open day","tags":["event","staff","community"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-campus-0500.jpg","thumb":"isj--international-school-jakarta-campus-0500.jpg","w":2000,"h":1333,"size_kb":425,"desc":"Young children in blue uniforms walking on grass field","tags":["outdoor","students","primary"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-campus-1102.jpg","thumb":"isj--international-school-jakarta-campus-1102.jpg","w":2000,"h":1333,"size_kb":443,"desc":"Students in uniform with backpacks at outdoor play area","tags":["outdoor","students","playground"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-campus-1103.jpg","thumb":"isj--international-school-jakarta-campus-1103.jpg","w":2000,"h":1333,"size_kb":541,"desc":"Two small children in uniforms by a wall — artistic shot","tags":["outdoor","students","artistic"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-campus-1105.jpg","thumb":"isj--international-school-jakarta-campus-1105.jpg","w":2000,"h":1333,"size_kb":525,"desc":"Two girls in gingham dresses playing on lawn","tags":["outdoor","students","play"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-campus-pool-0111.jpg","thumb":"isj--international-school-jakarta-campus-pool-0111.jpg","w":2000,"h":1500,"size_kb":914,"desc":"Campus garden area with blue wall and tropical plants","tags":["campus","outdoor","nature"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-classroom-1106.jpg","thumb":"isj--international-school-jakarta-classroom-1106.jpg","w":2000,"h":1333,"size_kb":350,"desc":"Children in classroom/activity room with colourful displays","tags":["classroom","primary"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-extra-curricular-0010.jpg","thumb":"isj--international-school-jakarta-extra-curricular-0010.jpg","w":1499,"h":2000,"size_kb":411,"desc":"Girl doing gymnastics/dance in sports hall","tags":["sport","gymnastics"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-extra-curricular-0032.jpg","thumb":"isj--international-school-jakarta-extra-curricular-0032.jpg","w":2000,"h":1333,"size_kb":417,"desc":"Teacher and children doing pottery/cooking outdoor activity","tags":["activity","outdoor","hands-on"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-football-pitch-1111.jpg","thumb":"isj--international-school-jakarta-football-pitch-1111.jpg","w":2000,"h":1500,"size_kb":1094,"desc":"Aerial view of football pitch — green with markings","tags":["campus","sport","aerial"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-learning-MOH01412.jpg","thumb":"isj--international-school-jakarta-learning-MOH01412.jpg","w":2000,"h":1333,"size_kb":274,"desc":"Teacher helping students with art/craft activity at table","tags":["classroom","art","teaching"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-logo-ISJ-001-Lion.png","thumb":"isj--international-school-jakarta-logo-ISJ-001-Lion.jpg","w":1996,"h":2000,"size_kb":32,"desc":"ISJ lion crest logo — gold on black background","tags":["logo","branding"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-reading-MOH01458.jpg","thumb":"isj--international-school-jakarta-reading-MOH01458.jpg","w":2000,"h":1333,"size_kb":144,"desc":"Boy sitting reading a book — profile shot","tags":["portrait","students","reading"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-residentials-DSC00227.jpg","thumb":"isj--international-school-jakarta-residentials-DSC00227.jpg","w":2000,"h":1333,"size_kb":504,"desc":"Group of senior students posing in school entrance/lobby","tags":["portrait","students","senior"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-rugby-0903.jpg","thumb":"isj--international-school-jakarta-rugby-0903.jpg","w":2000,"h":1333,"size_kb":280,"desc":"Children playing rugby/tag on grass field","tags":["sport","rugby","outdoor"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-science-0010.jpg","thumb":"isj--international-school-jakarta-science-0010.jpg","w":1333,"h":2000,"size_kb":233,"desc":"Girl in safety goggles doing science experiment","tags":["classroom","science"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-sport-0903.jpg","thumb":"isj--international-school-jakarta-sport-0903.jpg","w":913,"h":608,"size_kb":66,"desc":"Two girls in sports vests laughing and playing","tags":["sport","portrait","happy"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-teaching.jpg","thumb":"isj--international-school-jakarta-teaching.jpg","w":569,"h":800,"size_kb":69,"desc":"Girls in uniform doing group work / art project at table","tags":["classroom","activity","group"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-the-4s-0010.jpg","thumb":"isj--international-school-jakarta-the-4s-0010.jpg","w":2000,"h":1333,"size_kb":301,"desc":"Two small boys in blue polos playing/hugging on grass","tags":["portrait","students","happy","outdoor"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-trips-0653.jpg","thumb":"isj--international-school-jakarta-trips-0653.jpg","w":1333,"h":2000,"size_kb":673,"desc":"Children on adventure playground / rope swing in forest","tags":["outdoor","play","nature"],"cat":"isj-library"},{"fn":"isj--international-school-jakarta-wellness-0010.jpg","thumb":"isj--international-school-jakarta-wellness-0010.jpg","w":1280,"h":871,"size_kb":171,"desc":"Parents/staff at a seminar or presentation event","tags":["event","community","seminar"],"cat":"isj-library"},{"fn":"isj--leafy-campus-british-international-school-jakarta.jpg","thumb":"isj--leafy-campus-british-international-school-jakarta.jpg","w":1280,"h":853,"size_kb":205,"desc":"Children in blue uniforms running happily on grass","tags":["outdoor","students","happy","running"],"cat":"isj-library"},{"fn":"isj--school+trip+Jakarta.jpg","thumb":"isj--school+trip+Jakarta.jpg","w":1600,"h":1200,"size_kb":686,"desc":"Children walking on trail through mangrove/forest — trip","tags":["outdoor","trips","nature"],"cat":"isj-library"},{"fn":"isj--swimming-international-school-jakarta.jpg","thumb":"isj--swimming-international-school-jakarta.jpg","w":610,"h":640,"size_kb":169,"desc":"Child swimming with pool noodle — fun swimming lesson","tags":["sport","swimming","early-years"],"cat":"isj-library"},{"fn":"isj--the-5s-11-international-school-jakarta.jpg","thumb":"isj--the-5s-11-international-school-jakarta.jpg","w":2000,"h":1054,"size_kb":260,"desc":"Children sitting on floor with globe — geography lesson","tags":["classroom","teaching","primary"],"cat":"isj-library"},{"fn":"isj--uniforms-british-international-school-jakarta.jpg","thumb":"isj--uniforms-british-international-school-jakarta.jpg","w":2000,"h":1332,"size_kb":284,"desc":"Close-up of students in blazers singing in choir","tags":["event","performance","music"],"cat":"isj-library"},{"fn":"isj--v4--art-class-group.jpg","thumb":"isj--v4--art-class-group.jpg","w":1600,"h":1200,"size_kb":797,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--art-class.jpg","thumb":"isj--v4--art-class.jpg","w":1613,"h":1080,"size_kb":184,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--boy-hurdles.jpg","thumb":"isj--v4--boy-hurdles.jpg","w":1600,"h":1067,"size_kb":290,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--boy-running-portrait.jpg","thumb":"isj--v4--boy-running-portrait.jpg","w":1600,"h":1200,"size_kb":355,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--boys-football-laughing.jpg","thumb":"isj--v4--boys-football-laughing.jpg","w":1600,"h":1200,"size_kb":398,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--boys-football-sitting.jpg","thumb":"isj--v4--boys-football-sitting.jpg","w":1600,"h":1200,"size_kb":386,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--boys-reading-dinosaurs.jpg","thumb":"isj--v4--boys-reading-dinosaurs.jpg","w":1080,"h":1619,"size_kb":237,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--boys-reading-together.jpg","thumb":"isj--v4--boys-reading-together.jpg","w":1080,"h":1619,"size_kb":145,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--bursaries-hero.jpg","thumb":"isj--v4--bursaries-hero.jpg","w":2000,"h":1333,"size_kb":241,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--campus-aerial.jpg","thumb":"isj--v4--campus-aerial.jpg","w":1226,"h":736,"size_kb":252,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--choir.jpg","thumb":"isj--v4--choir.jpg","w":1600,"h":1066,"size_kb":213,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--early-years-friends.jpg","thumb":"isj--v4--early-years-friends.jpg","w":1214,"h":1080,"size_kb":190,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--eileen-fisher.jpg","thumb":"isj--v4--eileen-fisher.jpg","w":788,"h":958,"size_kb":82,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--father-daughter.jpg","thumb":"isj--v4--father-daughter.jpg","w":1600,"h":1000,"size_kb":162,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--football-pitch.jpg","thumb":"isj--v4--football-pitch.jpg","w":800,"h":600,"size_kb":163,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--girl-hula-hoop.jpg","thumb":"isj--v4--girl-hula-hoop.jpg","w":1600,"h":1067,"size_kb":217,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--happy-children-outdoor.jpg","thumb":"isj--v4--happy-children-outdoor.jpg","w":800,"h":533,"size_kb":72,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--house-sports.jpg","thumb":"isj--v4--house-sports.jpg","w":1600,"h":1000,"size_kb":187,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--isj-logo.jpg","thumb":"isj--v4--isj-logo.jpg","w":640,"h":500,"size_kb":27,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--outdoor-cooking-activity.jpg","thumb":"isj--v4--outdoor-cooking-activity.jpg","w":1600,"h":1067,"size_kb":262,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--outdoor-reading-garden.jpg","thumb":"isj--v4--outdoor-reading-garden.jpg","w":1600,"h":1067,"size_kb":179,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--pe-coach-pitch-session.jpg","thumb":"isj--v4--pe-coach-pitch-session.jpg","w":1600,"h":1067,"size_kb":368,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--playground.jpg","thumb":"isj--v4--playground.jpg","w":800,"h":533,"size_kb":82,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--pre-prep.jpg","thumb":"isj--v4--pre-prep.jpg","w":1264,"h":842,"size_kb":128,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--prep-engineering.jpg","thumb":"isj--v4--prep-engineering.jpg","w":1600,"h":1067,"size_kb":310,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--primary-classroom.jpg","thumb":"isj--v4--primary-classroom.jpg","w":1600,"h":1067,"size_kb":280,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--pupils-drawing-together.jpg","thumb":"isj--v4--pupils-drawing-together.jpg","w":1600,"h":1067,"size_kb":215,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--pupils-prep.jpg","thumb":"isj--v4--pupils-prep.jpg","w":1920,"h":835,"size_kb":270,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--residential-trip.jpg","thumb":"isj--v4--residential-trip.jpg","w":2000,"h":1333,"size_kb":504,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--rugby.jpg","thumb":"isj--v4--rugby.jpg","w":2000,"h":1333,"size_kb":280,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--science-dry-ice.jpg","thumb":"isj--v4--science-dry-ice.jpg","w":1600,"h":1018,"size_kb":205,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--science-experiment.jpg","thumb":"isj--v4--science-experiment.jpg","w":1333,"h":2000,"size_kb":233,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--senior-school.jpg","thumb":"isj--v4--senior-school.jpg","w":1500,"h":1000,"size_kb":141,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--swimming-dive-start.jpg","thumb":"isj--v4--swimming-dive-start.jpg","w":1600,"h":1067,"size_kb":133,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--swimming-pool.jpg","thumb":"isj--v4--swimming-pool.jpg","w":800,"h":600,"size_kb":151,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--teacher-helping-pupils.jpg","thumb":"isj--v4--teacher-helping-pupils.jpg","w":1600,"h":1067,"size_kb":176,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--teacher-phonics-lesson.jpg","thumb":"isj--v4--teacher-phonics-lesson.jpg","w":1600,"h":1067,"size_kb":269,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--teacher-pupils.jpg","thumb":"isj--v4--teacher-pupils.jpg","w":1600,"h":1000,"size_kb":196,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--toddler-pegs.jpg","thumb":"isj--v4--toddler-pegs.jpg","w":1620,"h":1080,"size_kb":124,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--tortoises-girls.jpg","thumb":"isj--v4--tortoises-girls.jpg","w":1600,"h":1067,"size_kb":222,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--tortoises-group.jpg","thumb":"isj--v4--tortoises-group.jpg","w":1600,"h":1067,"size_kb":228,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--tortoises-overhead.jpg","thumb":"isj--v4--tortoises-overhead.jpg","w":1600,"h":1067,"size_kb":362,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4--woolverstone-hall.jpg","thumb":"isj--v4--woolverstone-hall.jpg","w":1600,"h":899,"size_kb":225,"desc":"","tags":[],"cat":"v4-active"},{"fn":"isj--v4-brand--isj-lion-blue-800.png","thumb":"isj--v4-brand--isj-lion-blue-800.jpg","w":623,"h":804,"size_kb":27,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-lion-blue.png","thumb":"isj--v4-brand--isj-lion-blue.jpg","w":158,"h":204,"size_kb":5,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-lion-gold-800.png","thumb":"isj--v4-brand--isj-lion-gold-800.jpg","w":623,"h":804,"size_kb":43,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-lion-gold.png","thumb":"isj--v4-brand--isj-lion-gold.jpg","w":158,"h":204,"size_kb":6,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-lion-watermark.jpg","thumb":"isj--v4-brand--isj-lion-watermark.jpg","w":368,"h":938,"size_kb":14,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-lions-sports.jpg","thumb":"isj--v4-brand--isj-lions-sports.jpg","w":972,"h":688,"size_kb":46,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-blue-1600.png","thumb":"isj--v4-brand--isj-logo-horizontal-blue-1600.jpg","w":1600,"h":934,"size_kb":45,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-blue-400.png","thumb":"isj--v4-brand--isj-logo-horizontal-blue-400.jpg","w":400,"h":233,"size_kb":7,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-blue-800.png","thumb":"isj--v4-brand--isj-logo-horizontal-blue-800.jpg","w":800,"h":467,"size_kb":16,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-gold-1600.png","thumb":"isj--v4-brand--isj-logo-horizontal-gold-1600.jpg","w":1600,"h":934,"size_kb":70,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-gold-400.png","thumb":"isj--v4-brand--isj-logo-horizontal-gold-400.jpg","w":400,"h":233,"size_kb":9,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-gold-800.png","thumb":"isj--v4-brand--isj-logo-horizontal-gold-800.jpg","w":800,"h":467,"size_kb":23,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-white-1600.png","thumb":"isj--v4-brand--isj-logo-horizontal-white-1600.jpg","w":1600,"h":934,"size_kb":54,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-white-400.png","thumb":"isj--v4-brand--isj-logo-horizontal-white-400.jpg","w":400,"h":233,"size_kb":7,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-horizontal-white-800.png","thumb":"isj--v4-brand--isj-logo-horizontal-white-800.jpg","w":800,"h":467,"size_kb":18,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-blue-1600.png","thumb":"isj--v4-brand--isj-logo-square-blue-1600.jpg","w":1600,"h":1600,"size_kb":30,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-blue-400.png","thumb":"isj--v4-brand--isj-logo-square-blue-400.jpg","w":400,"h":400,"size_kb":6,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-blue-800.png","thumb":"isj--v4-brand--isj-logo-square-blue-800.jpg","w":800,"h":800,"size_kb":10,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-gold-1600.png","thumb":"isj--v4-brand--isj-logo-square-gold-1600.jpg","w":1600,"h":1600,"size_kb":52,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-gold-400.png","thumb":"isj--v4-brand--isj-logo-square-gold-400.jpg","w":400,"h":400,"size_kb":7,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-gold-800.png","thumb":"isj--v4-brand--isj-logo-square-gold-800.jpg","w":800,"h":800,"size_kb":15,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-white-1600.png","thumb":"isj--v4-brand--isj-logo-square-white-1600.jpg","w":1600,"h":1600,"size_kb":38,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-white-400.png","thumb":"isj--v4-brand--isj-logo-square-white-400.jpg","w":400,"h":400,"size_kb":6,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-brand--isj-logo-square-white-800.png","thumb":"isj--v4-brand--isj-logo-square-white-800.jpg","w":800,"h":800,"size_kb":13,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--lewis-back.jpg","thumb":"isj--v4-houses--lewis-back.jpg","w":1500,"h":1501,"size_kb":433,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--lewis-template.jpg","thumb":"isj--v4-houses--lewis-template.jpg","w":595,"h":841,"size_kb":33,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--potter-back.jpg","thumb":"isj--v4-houses--potter-back.jpg","w":1500,"h":1501,"size_kb":504,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--potter-template.jpg","thumb":"isj--v4-houses--potter-template.jpg","w":595,"h":841,"size_kb":38,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--rowling-back.jpg","thumb":"isj--v4-houses--rowling-back.jpg","w":1500,"h":1501,"size_kb":468,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--rowling-template.jpg","thumb":"isj--v4-houses--rowling-template.jpg","w":595,"h":841,"size_kb":36,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--tolkien-back.jpg","thumb":"isj--v4-houses--tolkien-back.jpg","w":1500,"h":1501,"size_kb":407,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-houses--tolkien-template.jpg","thumb":"isj--v4-houses--tolkien-template.jpg","w":595,"h":841,"size_kb":40,"desc":"","tags":[],"cat":"brand"},{"fn":"isj--v4-insights--behaviour.jpg","thumb":"isj--v4-insights--behaviour.jpg","w":2000,"h":1333,"size_kb":320,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--expat-guide-bintaro.jpg","thumb":"isj--v4-insights--expat-guide-bintaro.jpg","w":1600,"h":533,"size_kb":187,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--expat-guide-hero.jpg","thumb":"isj--v4-insights--expat-guide-hero.jpg","w":670,"h":420,"size_kb":53,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--expat-guide-jis.jpg","thumb":"isj--v4-insights--expat-guide-jis.jpg","w":800,"h":537,"size_kb":137,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--expat-guide-pondok-indah.webp","thumb":"isj--v4-insights--expat-guide-pondok-indah.jpg","w":1200,"h":800,"size_kb":217,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--feedback.jpg","thumb":"isj--v4-insights--feedback.jpg","w":800,"h":533,"size_kb":72,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--happy-students.jpg","thumb":"isj--v4-insights--happy-students.jpg","w":913,"h":608,"size_kb":68,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--linguistic.jpg","thumb":"isj--v4-insights--linguistic.jpg","w":800,"h":533,"size_kb":95,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--metacognition.jpg","thumb":"isj--v4-insights--metacognition.jpg","w":800,"h":537,"size_kb":43,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--outdoor.jpg","thumb":"isj--v4-insights--outdoor.jpg","w":800,"h":533,"size_kb":94,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--oxford-radcliffe.jpg","thumb":"isj--v4-insights--oxford-radcliffe.jpg","w":0,"h":0,"size_kb":0,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--oxford.jpg","thumb":"isj--v4-insights--oxford.jpg","w":1280,"h":1882,"size_kb":685,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--passport.jpg","thumb":"isj--v4-insights--passport.jpg","w":588,"h":611,"size_kb":67,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--physical.jpg","thumb":"isj--v4-insights--physical.jpg","w":610,"h":640,"size_kb":169,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--prep-history.jpg","thumb":"isj--v4-insights--prep-history.jpg","w":2000,"h":1123,"size_kb":340,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--residential.jpg","thumb":"isj--v4-insights--residential.jpg","w":2000,"h":1335,"size_kb":404,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-insights--singing.jpg","thumb":"isj--v4-insights--singing.jpg","w":800,"h":533,"size_kb":70,"desc":"","tags":[],"cat":"insights"},{"fn":"isj--v4-logos--britcham.jpg","thumb":"isj--v4-logos--britcham.jpg","w":1024,"h":568,"size_kb":126,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--britcham.png","thumb":"isj--v4-logos--britcham.jpg","w":1024,"h":568,"size_kb":39,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--bso.jpg","thumb":"isj--v4-logos--bso.jpg","w":390,"h":390,"size_kb":32,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--bso.png","thumb":"isj--v4-logos--bso.jpg","w":390,"h":390,"size_kb":18,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--edexcel.jpg","thumb":"isj--v4-logos--edexcel.jpg","w":414,"h":122,"size_kb":20,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--edexcel.png","thumb":"isj--v4-logos--edexcel.jpg","w":414,"h":122,"size_kb":3,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--education-is-great.jpg","thumb":"isj--v4-logos--education-is-great.jpg","w":314,"h":161,"size_kb":26,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--education-is-great.png","thumb":"isj--v4-logos--education-is-great.jpg","w":314,"h":161,"size_kb":8,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--good-schools-guide.jpg","thumb":"isj--v4-logos--good-schools-guide.jpg","w":1024,"h":1024,"size_kb":26,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--good-schools-guide.svg","thumb":"isj--v4-logos--good-schools-guide.svg","w":0,"h":0,"size_kb":14,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--kemendikbud.jpg","thumb":"isj--v4-logos--kemendikbud.jpg","w":960,"h":960,"size_kb":209,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--kemendikbud.png","thumb":"isj--v4-logos--kemendikbud.jpg","w":960,"h":960,"size_kb":62,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--pearson.jpg","thumb":"isj--v4-logos--pearson.jpg","w":1280,"h":387,"size_kb":63,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--pearson.png","thumb":"isj--v4-logos--pearson.jpg","w":1280,"h":387,"size_kb":10,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--schools-trust.jpg","thumb":"isj--v4-logos--schools-trust.jpg","w":1200,"h":636,"size_kb":115,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--schools-trust.png","thumb":"isj--v4-logos--schools-trust.jpg","w":1200,"h":636,"size_kb":22,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--uk-dfe.jpg","thumb":"isj--v4-logos--uk-dfe.jpg","w":1200,"h":710,"size_kb":127,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-logos--uk-dfe.png","thumb":"isj--v4-logos--uk-dfe.jpg","w":1200,"h":710,"size_kb":60,"desc":"","tags":[],"cat":"logos"},{"fn":"isj--v4-news--boarding-pathways.jpg","thumb":"isj--v4-news--boarding-pathways.jpg","w":2000,"h":1333,"size_kb":428,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--christmas-concert.jpg","thumb":"isj--v4-news--christmas-concert.jpg","w":2000,"h":1333,"size_kb":334,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--christmas-fair.jpg","thumb":"isj--v4-news--christmas-fair.jpg","w":2000,"h":1333,"size_kb":295,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--early-swimming.jpg","thumb":"isj--v4-news--early-swimming.jpg","w":960,"h":1280,"size_kb":225,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--emotion-workshop.jpg","thumb":"isj--v4-news--emotion-workshop.jpg","w":1280,"h":871,"size_kb":171,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--inter-house-quiz.jpg","thumb":"isj--v4-news--inter-house-quiz.jpg","w":2000,"h":1334,"size_kb":354,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--international-week.jpg","thumb":"isj--v4-news--international-week.jpg","w":2000,"h":1333,"size_kb":276,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--mangrove-trip.jpg","thumb":"isj--v4-news--mangrove-trip.jpg","w":1600,"h":1200,"size_kb":686,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--residential.jpg","thumb":"isj--v4-news--residential.jpg","w":2000,"h":1333,"size_kb":504,"desc":"","tags":[],"cat":"news"},{"fn":"isj--v4-news--tes-awards.jpg","thumb":"isj--v4-news--tes-awards.jpg","w":1007,"h":692,"size_kb":105,"desc":"","tags":[],"cat":"news"},{"fn":"lewis-back.jpg","thumb":"lewis-back.jpg","w":1500,"h":1501,"size_kb":433,"desc":"Lewis House badge — green shield with dragon","tags":["logo","branding","house"],"cat":"other"},{"fn":"lewis-template.jpg","thumb":"lewis-template.jpg","w":595,"h":841,"size_kb":33,"desc":"Lewis House brand guidelines — colours and fonts spec","tags":["graphic","branding","house"],"cat":"other"},{"fn":"lt--2023+03+15+British+school-39.jpg","thumb":"lt--2023+03+15+British+school-39.jpg","w":1333,"h":2000,"size_kb":540,"desc":"Boy in blazer doing science experiment with test tubes","tags":["classroom","science"],"cat":"vilnius"},{"fn":"lt--2023+06+09+British+school-154.jpg","thumb":"lt--2023+06+09+British+school-154.jpg","w":2000,"h":1333,"size_kb":467,"desc":"Young child crawling through colourful play tunnel on grass","tags":["early-years","play","outdoor"],"cat":"vilnius"},{"fn":"lt--2023+06+09+British+school-84.jpg","thumb":"lt--2023+06+09+British+school-84.jpg","w":2000,"h":1333,"size_kb":263,"desc":"Students on athletic track — running/sports day","tags":["sport","athletics","outdoor"],"cat":"vilnius"},{"fn":"lt--BSF7a.JPG.jpg","thumb":"lt--BSF7a.JPG.jpg","w":1500,"h":1000,"size_kb":132,"desc":"Boy in school uniform writing/studying at desk","tags":["classroom","students","studying"],"cat":"vilnius"},{"fn":"lt--BSL%2B56.jpg","thumb":"lt--BSL%2B56.jpg","w":750,"h":500,"size_kb":46,"desc":"Close-up of young child smiling — school uniform with medal","tags":["portrait","students","happy","early-years"],"cat":"vilnius"},{"fn":"lt--BSL%2B78.jpg","thumb":"lt--BSL%2B78.jpg","w":750,"h":500,"size_kb":40,"desc":"Girl on balance beam in gymnastics/PE hall","tags":["sport","gymnastics"],"cat":"vilnius"},{"fn":"lt--BSL%2B90.jpg","thumb":"lt--BSL%2B90.jpg","w":750,"h":500,"size_kb":76,"desc":"Children doing art/craft at tables — Egyptian theme display","tags":["classroom","art","primary"],"cat":"vilnius"},{"fn":"lt--BSL%2BMkt%2BNov2019-7180.jpg","thumb":"lt--BSL%2BMkt%2BNov2019-7180.jpg","w":2000,"h":1124,"size_kb":306,"desc":"Boy in blazer playing drums — music lesson","tags":["classroom","music"],"cat":"vilnius"},{"fn":"lt--BSL+190.jpg","thumb":"lt--BSL+190.jpg","w":2000,"h":1333,"size_kb":248,"desc":"Students using tablets/laptops in technology lesson","tags":["classroom","technology"],"cat":"vilnius"},{"fn":"lt--BSL2BMkt2BNov2019-7391.jpg","thumb":"lt--BSL2BMkt2BNov2019-7391.jpg","w":1457,"h":971,"size_kb":140,"desc":"Girl in school blazer smiling — close-up portrait","tags":["portrait","students","happy"],"cat":"vilnius"},{"fn":"lt--BSLMktNov2019-7268.jpg","thumb":"lt--BSLMktNov2019-7268.jpg","w":500,"h":333,"size_kb":40,"desc":"Group of girls in blazers with mannequin — design/fashion activity","tags":["classroom","activity"],"cat":"vilnius"},{"fn":"lt--BSLMktNov2019-74656.jpg","thumb":"lt--BSLMktNov2019-74656.jpg","w":1500,"h":1000,"size_kb":232,"desc":"Teacher helping young children outdoors — garden activity","tags":["outdoor","teaching","early-years"],"cat":"vilnius"},{"fn":"lt--BSLMktNov2019-77787.jpg","thumb":"lt--BSLMktNov2019-77787.jpg","w":1500,"h":1000,"size_kb":200,"desc":"Children in green aprons doing art/painting activity","tags":["classroom","art","primary"],"cat":"vilnius"},{"fn":"lt--British+School+A+Levels.jpg","thumb":"lt--British+School+A+Levels.jpg","w":2000,"h":1336,"size_kb":237,"desc":"Teacher with students in science/design class — group work","tags":["classroom","teaching","senior"],"cat":"vilnius"},{"fn":"lt--British+School+Vilnius+Secondary.jpg","thumb":"lt--British+School+Vilnius+Secondary.jpg","w":1750,"h":1168,"size_kb":416,"desc":"Students in classroom studying/working at desks","tags":["classroom","students"],"cat":"vilnius"},{"fn":"lt--British-School-Nursery-PE.jpg","thumb":"lt--British-School-Nursery-PE.jpg","w":1333,"h":2000,"size_kb":362,"desc":"Girl singing/speaking close-up — soft focus","tags":["portrait","students","performance"],"cat":"vilnius"},{"fn":"lt--British-School-Primary-Performing+Arts.jpg","thumb":"lt--British-School-Primary-Performing+Arts.jpg","w":2000,"h":1333,"size_kb":465,"desc":"Graduation ceremony with students throwing caps","tags":["event","graduation"],"cat":"vilnius"},{"fn":"lt--DSC03964.jpg","thumb":"lt--DSC03964.jpg","w":2000,"h":1333,"size_kb":386,"desc":"Children celebrating excitedly in science class","tags":["classroom","science","happy"],"cat":"vilnius"},{"fn":"lt--DSC05888.jpg","thumb":"lt--DSC05888.jpg","w":2000,"h":1334,"size_kb":373,"desc":"Students working with robotics/electronics equipment","tags":["classroom","technology","STEM"],"cat":"vilnius"},{"fn":"lt--DSC06297.jpg","thumb":"lt--DSC06297.jpg","w":2000,"h":1333,"size_kb":549,"desc":"Students in blazers looking at tools/equipment on a wall rack","tags":["classroom","activity"],"cat":"vilnius"},{"fn":"lt--DSC06527.jpg","thumb":"lt--DSC06527.jpg","w":2000,"h":1334,"size_kb":326,"desc":"Students in blazers lying in circle looking up — fun group shot","tags":["portrait","students","fun"],"cat":"vilnius"},{"fn":"lt--Extracurricular.jpg","thumb":"lt--Extracurricular.jpg","w":1870,"h":1400,"size_kb":281,"desc":"Students throwing papers in celebration — graduation/art class","tags":["classroom","students","happy"],"cat":"vilnius"},{"fn":"lt--IMG_0290-3.jpg","thumb":"lt--IMG_0290-3.jpg","w":2000,"h":1333,"size_kb":263,"desc":"Two young children writing/drawing at desk — close-up","tags":["classroom","students","primary"],"cat":"vilnius"},{"fn":"lt--british+school+vilnius+academic+excellence.jpg","thumb":"lt--british+school+vilnius+academic+excellence.jpg","w":1600,"h":1226,"size_kb":191,"desc":"Colourful classroom display — art and sun decorations","tags":["classroom","art","display"],"cat":"vilnius"},{"fn":"lt--british-international-school-12.jpg","thumb":"lt--british-international-school-12.jpg","w":2000,"h":1333,"size_kb":389,"desc":"Young children reading together in classroom","tags":["classroom","reading","primary"],"cat":"vilnius"},{"fn":"lt--british-international-school-52.jpg","thumb":"lt--british-international-school-52.jpg","w":1500,"h":1000,"size_kb":197,"desc":"Boy concentrating on writing/drawing at desk","tags":["classroom","students","studying"],"cat":"vilnius"},{"fn":"lt--british-international-school-625.jpg","thumb":"lt--british-international-school-625.jpg","w":1500,"h":1000,"size_kb":138,"desc":"Girl writing at desk — close-up with pen","tags":["classroom","students","studying"],"cat":"vilnius"},{"fn":"lt--british-school-best-secondary.jpg","thumb":"lt--british-school-best-secondary.jpg","w":2000,"h":1333,"size_kb":404,"desc":"Boys doing science experiment — group work","tags":["classroom","science"],"cat":"vilnius"},{"fn":"lt--british-school-clubs.jpg","thumb":"lt--british-school-clubs.jpg","w":1333,"h":2000,"size_kb":249,"desc":"Young boy excited/shouting — school apron on","tags":["portrait","students","happy"],"cat":"vilnius"},{"fn":"lt--british-school-lisbon-carnival2020.jpg","thumb":"lt--british-school-lisbon-carnival2020.jpg","w":500,"h":333,"size_kb":60,"desc":"Children in costumes at school event — Halloween/book day","tags":["event","culture","costume"],"cat":"vilnius"},{"fn":"lt--british-school-lisbon-presentation-event-mar-2019-35-768x512.jpg","thumb":"lt--british-school-lisbon-presentation-event-mar-2019-35-768x512.jpg","w":768,"h":512,"size_kb":86,"desc":"Group photo of young children with teacher","tags":["portrait","students","group","primary"],"cat":"vilnius"},{"fn":"lt--british-school-lisbon-presentation-event-mar-2019-52.jpg","thumb":"lt--british-school-lisbon-presentation-event-mar-2019-52.jpg","w":1000,"h":662,"size_kb":160,"desc":"Outdoor food stall at school fair/event","tags":["event","food","community"],"cat":"vilnius"},{"fn":"lt--british-school-lisbon-presentation-event-mar-2019-56-768x512.jpg","thumb":"lt--british-school-lisbon-presentation-event-mar-2019-56-768x512.jpg","w":768,"h":512,"size_kb":63,"desc":"Child having face painted at school fair","tags":["event","fun","community"],"cat":"vilnius"},{"fn":"lt--british-school-lithuanian.jpg","thumb":"lt--british-school-lithuanian.jpg","w":1333,"h":2000,"size_kb":363,"desc":"Two girls studying/reading at desk together","tags":["classroom","students","studying"],"cat":"vilnius"},{"fn":"lt--british-school-most-popular-a-levels.jpg","thumb":"lt--british-school-most-popular-a-levels.jpg","w":2000,"h":1567,"size_kb":395,"desc":"Teacher at whiteboard giving lesson to class","tags":["classroom","teaching"],"cat":"vilnius"},{"fn":"lt--british-school-nursery-outdoor.jpg","thumb":"lt--british-school-nursery-outdoor.jpg","w":1600,"h":1154,"size_kb":326,"desc":"Children in period costume outdoors — historical topic","tags":["event","culture","outdoor"],"cat":"vilnius"},{"fn":"lt--british-school-primary+%281200-628%29.jpg","thumb":"lt--british-school-primary+%281200-628%29.jpg","w":1200,"h":627,"size_kb":90,"desc":"Children writing/drawing at desks — diverse group","tags":["classroom","students"],"cat":"vilnius"},{"fn":"lt--british-school-primary-math.jpg","thumb":"lt--british-school-primary-math.jpg","w":1333,"h":2000,"size_kb":208,"desc":"Boy concentrating on writing/colouring at desk","tags":["classroom","students","studying"],"cat":"vilnius"},{"fn":"lt--british-school-secondary-physics.jpg","thumb":"lt--british-school-secondary-physics.jpg","w":2000,"h":1333,"size_kb":359,"desc":"Students at desks in modern classroom with large windows","tags":["classroom","interior"],"cat":"vilnius"},{"fn":"lt--british-school-swimming.jpg","thumb":"lt--british-school-swimming.jpg","w":1333,"h":2000,"size_kb":588,"desc":"Swimmer doing front crawl — competition shot with cap","tags":["sport","swimming"],"cat":"vilnius"},{"fn":"lt--bsv-header1600x100032.jpg","thumb":"lt--bsv-header1600x100032.jpg","w":1600,"h":1000,"size_kb":197,"desc":"Boy writing on whiteboard — maths lesson","tags":["classroom","students"],"cat":"vilnius"},{"fn":"lt--bsv-header1600x100087.jpg","thumb":"lt--bsv-header1600x100087.jpg","w":1600,"h":1000,"size_kb":178,"desc":"Girl looking at globe/map on wall — geography","tags":["classroom","students"],"cat":"vilnius"},{"fn":"lt--bsv_march_24_event_varna_studios_014.jpg","thumb":"lt--bsv_march_24_event_varna_studios_014.jpg","w":1024,"h":683,"size_kb":115,"desc":"School performance/concert on stage — large group","tags":["event","performance"],"cat":"vilnius"},{"fn":"lt--download.jpg","thumb":"lt--download.jpg","w":2000,"h":1333,"size_kb":314,"desc":"Two students in library reading together","tags":["classroom","reading","library"],"cat":"vilnius"},{"fn":"lt--img-2e4d9dcc.jpg","thumb":"lt--img-2e4d9dcc.jpg","w":2000,"h":1500,"size_kb":992,"desc":"Students outdoors in forest — group photo on ground","tags":["outdoor","trips","nature"],"cat":"vilnius"},{"fn":"lt--img-641ccc8f.jpg","thumb":"lt--img-641ccc8f.jpg","w":1600,"h":1068,"size_kb":152,"desc":"Boy writing at desk — close-up in blazer","tags":["classroom","students","studying"],"cat":"vilnius"},{"fn":"lt--img-985f1cf3.jpg","thumb":"lt--img-985f1cf3.jpg","w":2000,"h":1500,"size_kb":750,"desc":"Students skiing on snowy mountain — school trip","tags":["outdoor","trips","sport"],"cat":"vilnius"},{"fn":"lt--img-ba138532.jpg","thumb":"lt--img-ba138532.jpg","w":1333,"h":2000,"size_kb":590,"desc":"Students doing first aid training outdoors","tags":["outdoor","activity"],"cat":"vilnius"},{"fn":"lt--img-c096a31a.jpg","thumb":"lt--img-c096a31a.jpg","w":2000,"h":1500,"size_kb":629,"desc":"Children at indoor swimming pool — poolside","tags":["sport","swimming"],"cat":"vilnius"},{"fn":"lt--img-d6a6b84e.jpg","thumb":"lt--img-d6a6b84e.jpg","w":1500,"h":2000,"size_kb":470,"desc":"Students doing science experiment — group work","tags":["classroom","science"],"cat":"vilnius"},{"fn":"lt--img-e392816e.jpg","thumb":"lt--img-e392816e.jpg","w":1961,"h":2000,"size_kb":361,"desc":"Two staff members / parents at event with drinks","tags":["event","community"],"cat":"vilnius"},{"fn":"lt--img-fc5d542b.jpg","thumb":"lt--img-fc5d542b.jpg","w":1030,"h":687,"size_kb":115,"desc":"Children with backpacks walking in countryside","tags":["outdoor","trips"],"cat":"vilnius"},{"fn":"lt--kids+playground.jpg","thumb":"lt--kids+playground.jpg","w":2000,"h":1333,"size_kb":373,"desc":"Two children in blazers smiling — close portrait","tags":["portrait","students","happy"],"cat":"vilnius"},{"fn":"lt--unsplash-image-dsf3lRHaUuA.jpg","thumb":"lt--unsplash-image-dsf3lRHaUuA.jpg","w":2000,"h":2000,"size_kb":1002,"desc":"Child dressed as Cat in the Hat — World Book Day","tags":["event","costume"],"cat":"vilnius"},{"fn":"potter-back.jpg","thumb":"potter-back.jpg","w":1500,"h":1501,"size_kb":504,"desc":"Potter House badge — yellow with rabbit emblem","tags":["logo","branding","house"],"cat":"other"},{"fn":"pt--1+%281%29.jpg","thumb":"pt--1+%281%29.jpg","w":640,"h":427,"size_kb":56,"desc":"Young boy at desk in classroom — studying close-up","tags":["classroom","students","primary"],"cat":"lisbon"},{"fn":"pt--4+%281%29.jpg","thumb":"pt--4+%281%29.jpg","w":640,"h":427,"size_kb":47,"desc":"Two boys using laptops together — technology lesson","tags":["classroom","technology"],"cat":"lisbon"},{"fn":"pt--4.jpg","thumb":"pt--4.jpg","w":2000,"h":1500,"size_kb":815,"desc":"Students at aquarium on field trip — large tank","tags":["outdoor","trips"],"cat":"lisbon"},{"fn":"pt--BSF7a.JPG.jpg","thumb":"pt--BSF7a.JPG.jpg","w":1500,"h":1000,"size_kb":129,"desc":"Boy studying/writing at desk in classroom","tags":["classroom","students","studying"],"cat":"lisbon"},{"fn":"pt--BSL%2B242.jpg","thumb":"pt--BSL%2B242.jpg","w":1500,"h":1000,"size_kb":404,"desc":"Lisbon street with tram — stock/lifestyle cityscape","tags":["stock","cityscape"],"cat":"lisbon"},{"fn":"pt--BSL%2B90.jpg","thumb":"pt--BSL%2B90.jpg","w":750,"h":500,"size_kb":79,"desc":"Children doing Egyptian-themed art at tables","tags":["classroom","art","primary"],"cat":"lisbon"},{"fn":"pt--BSL%2BMkt%2BNov2019-7180.jpg","thumb":"pt--BSL%2BMkt%2BNov2019-7180.jpg","w":2000,"h":1124,"size_kb":343,"desc":"Boy in blazer with drums — music portrait","tags":["classroom","music"],"cat":"lisbon"},{"fn":"pt--BSL%2BSummer%2BCamp%2B21_Surfing-4227.jpg","thumb":"pt--BSL%2BSummer%2BCamp%2B21_Surfing-4227.jpg","w":640,"h":427,"size_kb":45,"desc":"Children in uniform on beach — school trip","tags":["outdoor","trips"],"cat":"lisbon"},{"fn":"pt--BSL+168.jpg","thumb":"pt--BSL+168.jpg","w":2000,"h":1334,"size_kb":319,"desc":"Children in yellow playing football on green pitch","tags":["sport","football"],"cat":"lisbon"},{"fn":"pt--BSL+190.jpg","thumb":"pt--BSL+190.jpg","w":2000,"h":1333,"size_kb":241,"desc":"Boys using tablets/iPads in classroom","tags":["classroom","technology"],"cat":"lisbon"},{"fn":"pt--BSL+Sports+Day_CSP_21+May+2022-130.jpg","thumb":"pt--BSL+Sports+Day_CSP_21+May+2022-130.jpg","w":2000,"h":1333,"size_kb":407,"desc":"Children in yellow/green with equipment at outdoor PE","tags":["sport","outdoor"],"cat":"lisbon"},{"fn":"pt--BSL+Student+Sailing+Club_Belem_14thOctober2022-3003.jpg","thumb":"pt--BSL+Student+Sailing+Club_Belem_14thOctober2022-3003.jpg","w":2000,"h":1333,"size_kb":392,"desc":"Sailboat on water — Lisbon harbour scene","tags":["stock","lifestyle"],"cat":"lisbon"},{"fn":"pt--BSL2BMkt2BNov2019-7391.jpg","thumb":"pt--BSL2BMkt2BNov2019-7391.jpg","w":1457,"h":971,"size_kb":140,"desc":"Girl smiling close-up — school uniform portrait","tags":["portrait","students","happy"],"cat":"lisbon"},{"fn":"pt--BSLMktNov2019-7268.jpg","thumb":"pt--BSLMktNov2019-7268.jpg","w":500,"h":333,"size_kb":39,"desc":"Group of children looking at something together","tags":["classroom","students","group"],"cat":"lisbon"},{"fn":"pt--BSLMktNov2019-74656.jpg","thumb":"pt--BSLMktNov2019-74656.jpg","w":1500,"h":1000,"size_kb":244,"desc":"Teacher and child at colourful playground fence","tags":["outdoor","early-years","play"],"cat":"lisbon"},{"fn":"pt--BSLMktNov2019-77787.jpg","thumb":"pt--BSLMktNov2019-77787.jpg","w":1500,"h":1000,"size_kb":200,"desc":"Young children in green aprons doing art activity","tags":["classroom","art","early-years"],"cat":"lisbon"},{"fn":"pt--BSLMktSept2019-60154.jpg","thumb":"pt--BSLMktSept2019-60154.jpg","w":1000,"h":1000,"size_kb":128,"desc":"Girls whispering/laughing together — school friends","tags":["portrait","students","happy"],"cat":"lisbon"},{"fn":"pt--BritishSchool-345.jpg","thumb":"pt--BritishSchool-345.jpg","w":2000,"h":1333,"size_kb":235,"desc":"Students in blazers at school — senior group","tags":["portrait","students","senior"],"cat":"lisbon"},{"fn":"pt--DSC03964.jpg","thumb":"pt--DSC03964.jpg","w":2000,"h":1333,"size_kb":345,"desc":"Boy celebrating excitedly — art flying in air","tags":["portrait","students","happy","fun"],"cat":"lisbon"},{"fn":"pt--IMG_3631.jpg","thumb":"pt--IMG_3631.jpg","w":2000,"h":1500,"size_kb":542,"desc":"Students skiing on mountain — CRANS MONTANA text","tags":["outdoor","trips","sport"],"cat":"lisbon"},{"fn":"pt--IMG_8960+%282%29.jpg","thumb":"pt--IMG_8960+%282%29.jpg","w":2000,"h":1500,"size_kb":537,"desc":"Students in sports kit watching/cheering at match","tags":["sport","students"],"cat":"lisbon"},{"fn":"pt--IMG_9353.jpg","thumb":"pt--IMG_9353.jpg","w":2000,"h":1500,"size_kb":421,"desc":"Students in costume performing drama — caveman/comedy","tags":["event","performance","drama"],"cat":"lisbon"},{"fn":"pt--ParentConnection.jpg","thumb":"pt--ParentConnection.jpg","w":1600,"h":1068,"size_kb":187,"desc":"Staff/parents at reception event — networking photo","tags":["event","community"],"cat":"lisbon"},{"fn":"pt--Trustees.jpg","thumb":"pt--Trustees.jpg","w":1600,"h":1067,"size_kb":357,"desc":"Board of trustees formal group photo on sofas","tags":["portrait","staff","group"],"cat":"lisbon"},{"fn":"pt--british-international-school-1.jpg","thumb":"pt--british-international-school-1.jpg","w":1500,"h":1000,"size_kb":226,"desc":"Children in orange/red jackets reading in classroom","tags":["classroom","reading","primary"],"cat":"lisbon"},{"fn":"pt--british-international-school-2.jpg","thumb":"pt--british-international-school-2.jpg","w":2000,"h":1333,"size_kb":533,"desc":"Boys sitting in group on floor — discussion/circle time","tags":["classroom","students","primary"],"cat":"lisbon"},{"fn":"pt--british-international-school-45.png","thumb":"pt--british-international-school-45.jpg","w":1333,"h":887,"size_kb":521,"desc":"Boy in blazer jumping — action portrait outdoors","tags":["portrait","students","fun","outdoor"],"cat":"lisbon"},{"fn":"pt--british-international-school-52.jpg","thumb":"pt--british-international-school-52.jpg","w":1500,"h":1000,"size_kb":197,"desc":"Boy thinking at desk with pencils — studying","tags":["classroom","students","studying"],"cat":"lisbon"},{"fn":"pt--british-international-school-625.jpg","thumb":"pt--british-international-school-625.jpg","w":1500,"h":1000,"size_kb":145,"desc":"Girl writing at desk — close-up concentration","tags":["classroom","students","studying"],"cat":"lisbon"},{"fn":"pt--british-international-school-lisbon-52.jpg","thumb":"pt--british-international-school-lisbon-52.jpg","w":2000,"h":1333,"size_kb":178,"desc":"Girl doing gymnastics balance beam — PE hall","tags":["sport","gymnastics"],"cat":"lisbon"},{"fn":"pt--british-school-lisbon-carnival2020.jpg","thumb":"pt--british-school-lisbon-carnival2020.jpg","w":500,"h":333,"size_kb":60,"desc":"Children in carnival/fancy dress — group celebration","tags":["event","costume","culture"],"cat":"lisbon"},{"fn":"pt--british-school-lisbon-presentation-event-mar-2019-23-768x512.jpg","thumb":"pt--british-school-lisbon-presentation-event-mar-2019-23-768x512.jpg","w":768,"h":512,"size_kb":50,"desc":"Girl at podium with flags — speaking/presenting","tags":["event","ceremony","students"],"cat":"lisbon"},{"fn":"pt--bsv-header1600x100032.jpg","thumb":"pt--bsv-header1600x100032.jpg","w":1600,"h":1000,"size_kb":197,"desc":"Boy writing on chalkboard — artistic shot","tags":["classroom","students"],"cat":"lisbon"},{"fn":"pt--bsv-header1600x100087.jpg","thumb":"pt--bsv-header1600x100087.jpg","w":1600,"h":1000,"size_kb":178,"desc":"Boy in uniform laughing in street — candid","tags":["portrait","students","happy"],"cat":"lisbon"},{"fn":"pt--download.jpg","thumb":"pt--download.jpg","w":2000,"h":1333,"size_kb":340,"desc":"Two students reading in library","tags":["classroom","reading","library"],"cat":"lisbon"},{"fn":"pt--fees.jpg","thumb":"pt--fees.jpg","w":2000,"h":1333,"size_kb":310,"desc":"Boy studying/writing at desk — concentration","tags":["classroom","students","studying"],"cat":"lisbon"},{"fn":"pt--img-45c53ff6.jpg","thumb":"pt--img-45c53ff6.jpg","w":1600,"h":1065,"size_kb":308,"desc":"Aerial view of town/campus — Lisbon area","tags":["campus","aerial","cityscape"],"cat":"lisbon"},{"fn":"pt--img-4d1c2121.jpg","thumb":"pt--img-4d1c2121.jpg","w":1600,"h":1200,"size_kb":349,"desc":"Students skiing group photo on mountain","tags":["outdoor","trips","sport"],"cat":"lisbon"},{"fn":"pt--img-5b6f9dbf.jpg","thumb":"pt--img-5b6f9dbf.jpg","w":1505,"h":1024,"size_kb":388,"desc":"Children running on sports field — PE lesson","tags":["sport","outdoor","running"],"cat":"lisbon"},{"fn":"pt--img-70f5c783.jpg","thumb":"pt--img-70f5c783.jpg","w":1600,"h":1068,"size_kb":152,"desc":"Boy writing at desk — close-up in blazer","tags":["classroom","students","studying"],"cat":"lisbon"},{"fn":"pt--img-9871f35f.jpg","thumb":"pt--img-9871f35f.jpg","w":640,"h":427,"size_kb":41,"desc":"Girl playing piano in music room","tags":["classroom","music"],"cat":"lisbon"},{"fn":"pt--img-f67300f9.jpg","thumb":"pt--img-f67300f9.jpg","w":1086,"h":724,"size_kb":121,"desc":"Children doing group craft/construction activity","tags":["classroom","activity","primary"],"cat":"lisbon"},{"fn":"pt--kids+playground.jpg","thumb":"pt--kids+playground.jpg","w":2000,"h":1333,"size_kb":373,"desc":"Children in yellow blazers smiling — portrait","tags":["portrait","students","happy"],"cat":"lisbon"},{"fn":"pt--learning.jpg","thumb":"pt--learning.jpg","w":2000,"h":1333,"size_kb":293,"desc":"Girls doing group activity at table — crafts","tags":["classroom","activity"],"cat":"lisbon"},{"fn":"pt--music01.jpg","thumb":"pt--music01.jpg","w":640,"h":427,"size_kb":53,"desc":"Children performing on stage — formal row","tags":["event","performance"],"cat":"lisbon"},{"fn":"pt--unsplash-image-cAtzHUz7Z8g.jpg","thumb":"pt--unsplash-image-cAtzHUz7Z8g.jpg","w":2000,"h":1333,"size_kb":439,"desc":"Hands reaching in circle with poppies (duplicate)","tags":["event","ceremony","culture"],"cat":"lisbon"},{"fn":"rowling-back.jpg","thumb":"rowling-back.jpg","w":1500,"h":1501,"size_kb":468,"desc":"Rowling House badge — red with deer/stag emblem","tags":["logo","branding","house"],"cat":"other"},{"fn":"rowling-template.jpg","thumb":"rowling-template.jpg","w":595,"h":841,"size_kb":36,"desc":"Rowling House brand guidelines — colours and fonts","tags":["graphic","branding","house"],"cat":"other"},{"fn":"tolkien-back.jpg","thumb":"tolkien-back.jpg","w":1500,"h":1501,"size_kb":407,"desc":"Tolkien House badge — blue with wizard emblem","tags":["logo","branding","house"],"cat":"other"},{"fn":"tolkien-template.jpg","thumb":"tolkien-template.jpg","w":595,"h":841,"size_kb":40,"desc":"Tolkien House brand guidelines — colours and fonts","tags":["graphic","branding","house"],"cat":"other"}];
+
+// ── Categories config ────────────────────────────
+const CATS = [
+  { id: 'all',         label: 'All',           count: MANIFEST.length },
+  { id: 'v4-active',   label: 'On v4 Site',    count: 43 },
+  { id: 'isj-library', label: 'ISJ Library',   count: 58 },
+  { id: 'vilnius',     label: 'Vilnius',        count: 54 },
+  { id: 'lisbon',      label: 'Lisbon',         count: 46 },
+  { id: 'brand',       label: 'Brand Assets',  count: 32 },
+  { id: 'logos',       label: 'Logos',          count: 18 },
+  { id: 'insights',    label: 'Insights',       count: 17 },
+  { id: 'news',        label: 'News',           count: 10 },
+  { id: 'other',       label: 'Other',          count: 7  },
+];
+
+// ── State ────────────────────────────────────────
+let activeCats = new Set(['all']);  // 'all' means show everything
+let searchQuery = '';
+let filteredItems = [];
+let lbIndex = 0;
+
+// ── DOM refs ─────────────────────────────────────
+const $grid   = document.getElementById('grid');
+const $empty  = document.getElementById('empty');
+const $counter = document.getElementById('counter');
+const $filters = document.getElementById('filters');
+const $search  = document.getElementById('search');
+const $searchClear = document.getElementById('search-clear');
+const $lb     = document.getElementById('lightbox');
+const $lbImg  = document.getElementById('lb-img');
+const $lbFilename = document.getElementById('lb-filename');
+const $lbDesc = document.getElementById('lb-desc');
+const $lbTags = document.getElementById('lb-tags');
+const $lbDims = document.getElementById('lb-dims');
+const $lbSize = document.getElementById('lb-size');
+const $lbCatBadge = document.getElementById('lb-cat-badge');
+const $lbCounter = document.getElementById('lb-counter');
+const $lbDownload = document.getElementById('lb-download');
+const $lbPrev = document.getElementById('lb-prev');
+const $lbNext = document.getElementById('lb-next');
+const $lbClose = document.getElementById('lb-close');
+
+// ── Build filter buttons ─────────────────────────
+function buildFilters() {
+  // Remove existing buttons (keep hint span)
+  const hint = $filters.querySelector('.filter-hint');
+  $filters.innerHTML = '';
+
+  CATS.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn';
+    btn.dataset.cat = cat.id;
+    btn.innerHTML = cat.label + '<span class=\'count\'>' + cat.count + '</span>';
+    if (activeCats.has(cat.id)) btn.classList.add('active');
+    btn.addEventListener('click', (e) => onCatClick(cat.id, e));
+    $filters.appendChild(btn);
+  });
+
+  $filters.appendChild(hint);
+}
+
+// ── Category click handler ───────────────────────
+function onCatClick(catId, e) {
+  const multi = e.shiftKey || e.ctrlKey || e.metaKey;
+
+  if (catId === 'all') {
+    activeCats = new Set(['all']);
+  } else if (multi) {
+    // Multi-select: toggle this category
+    activeCats.delete('all');
+    if (activeCats.has(catId)) {
+      activeCats.delete(catId);
+      if (activeCats.size === 0) activeCats = new Set(['all']);
+    } else {
+      activeCats.add(catId);
+    }
+  } else {
+    // Single-select: if already the only one active, reset to all
+    if (activeCats.size === 1 && activeCats.has(catId)) {
+      activeCats = new Set(['all']);
+    } else {
+      activeCats = new Set([catId]);
+    }
+  }
+
+  // Toggle "All" badge visibility
+  document.body.classList.toggle('show-cat-badge', activeCats.has('all'));
+
+  buildFilters();
+  render();
+}
+
+// ── Search handler ───────────────────────────────
+$search.addEventListener('input', () => {
+  searchQuery = $search.value.trim().toLowerCase();
+  $searchClear.style.display = searchQuery ? 'block' : 'none';
+  render();
+});
+
+$searchClear.addEventListener('click', () => {
+  $search.value = '';
+  searchQuery = '';
+  $searchClear.style.display = 'none';
+  $search.focus();
+  render();
+});
+
+// ── Filter logic ─────────────────────────────────
+function matchesFilter(item) {
+  if (!activeCats.has('all') && !activeCats.has(item.cat)) return false;
+  if (!searchQuery) return true;
+
+  const q = searchQuery;
+  if (item.fn.toLowerCase().includes(q)) return true;
+  if (item.desc && item.desc.toLowerCase().includes(q)) return true;
+  if (item.tags && item.tags.some(t => t.toLowerCase().includes(q))) return true;
+  if (item.cat && item.cat.toLowerCase().includes(q)) return true;
+  return false;
+}
+
+// ── Get category label ───────────────────────────
+function catLabel(catId) {
+  const c = CATS.find(c => c.id === catId);
+  return c ? c.label : catId;
+}
+
+// ── Render grid ──────────────────────────────────
+function render() {
+  filteredItems = MANIFEST.filter(matchesFilter);
+
+  $counter.textContent = filteredItems.length + ' of ' + MANIFEST.length;
+  $empty.style.display = filteredItems.length === 0 ? 'block' : 'none';
+  $grid.style.display = filteredItems.length === 0 ? 'none' : '';
+
+  // Use DocumentFragment for performance
+  const frag = document.createDocumentFragment();
+
+  filteredItems.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.title = item.desc || item.fn;
+
+    const img = document.createElement('img');
+    img.className = 'card-thumb';
+    img.src = '../../library/thumbs/' + item.thumb;
+    img.alt = item.desc || item.fn;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+
+    const info = document.createElement('div');
+    info.className = 'card-info';
+
+    const name = document.createElement('div');
+    name.className = 'card-name';
+    name.textContent = item.fn;
+
+    const desc = document.createElement('div');
+    desc.className = 'card-desc';
+    desc.textContent = item.desc || ('Category: ' + catLabel(item.cat));
+
+    info.appendChild(name);
+    info.appendChild(desc);
+
+    // Category badge (shown when "All" is active)
+    const badge = document.createElement('span');
+    badge.className = 'card-cat-badge';
+    badge.textContent = catLabel(item.cat);
+
+    card.appendChild(img);
+    card.appendChild(info);
+    card.appendChild(badge);
+
+    card.addEventListener('click', () => openLightbox(idx));
+    frag.appendChild(card);
+  });
+
+  $grid.innerHTML = '';
+  $grid.appendChild(frag);
+}
+
+// ── Lightbox ─────────────────────────────────────
+function openLightbox(idx) {
+  lbIndex = idx;
+  showLbItem();
+  $lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  $lb.classList.remove('open');
+  document.body.style.overflow = '';
+  $lbImg.src = '';
+}
+
+function showLbItem() {
+  const item = filteredItems[lbIndex];
+  if (!item) return;
+
+  $lbImg.src = '../../library/full/' + item.fn;
+  $lbImg.alt = item.desc || item.fn;
+  $lbFilename.textContent = item.fn;
+  $lbDesc.textContent = item.desc || '';
+  $lbDesc.style.display = item.desc ? '' : 'none';
+
+  // Tags
+  $lbTags.innerHTML = '';
+  if (item.tags && item.tags.length) {
+    item.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'lb-tag';
+      span.textContent = tag;
+      $lbTags.appendChild(span);
+    });
+  }
+
+  $lbDims.textContent = item.w + ' × ' + item.h + ' px';
+  $lbSize.textContent = item.size_kb + ' KB';
+  $lbCatBadge.textContent = catLabel(item.cat);
+  $lbCounter.textContent = (lbIndex + 1) + ' / ' + filteredItems.length;
+  $lbDownload.href = '../../library/full/' + item.fn;
+  $lbDownload.download = item.fn;
+
+  // Arrow visibility
+  $lbPrev.style.opacity = lbIndex > 0 ? '1' : '0.25';
+  $lbPrev.style.pointerEvents = lbIndex > 0 ? '' : 'none';
+  $lbNext.style.opacity = lbIndex < filteredItems.length - 1 ? '1' : '0.25';
+  $lbNext.style.pointerEvents = lbIndex < filteredItems.length - 1 ? '' : 'none';
+}
+
+function lbNavigate(dir) {
+  const next = lbIndex + dir;
+  if (next >= 0 && next < filteredItems.length) {
+    lbIndex = next;
+    showLbItem();
+  }
+}
+
+$lbClose.addEventListener('click', closeLightbox);
+$lbPrev.addEventListener('click', () => lbNavigate(-1));
+$lbNext.addEventListener('click', () => lbNavigate(1));
+
+// Close on overlay click (outside inner panel)
+$lb.addEventListener('click', (e) => {
+  if (e.target === $lb) closeLightbox();
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+  if (!$lb.classList.contains('open')) return;
+  if (e.key === 'Escape') { closeLightbox(); return; }
+  if (e.key === 'ArrowLeft')  { lbNavigate(-1); return; }
+  if (e.key === 'ArrowRight') { lbNavigate(1);  return; }
+});
+
+// Swipe on mobile
+let touchStartX = null;
+$lb.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+$lb.addEventListener('touchend', (e) => {
+  if (touchStartX === null) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  touchStartX = null;
+  if (Math.abs(dx) > 40) lbNavigate(dx < 0 ? 1 : -1);
+}, { passive: true });
+
+// ── Init ─────────────────────────────────────────
+document.body.classList.add('show-cat-badge'); // start on "All"
+buildFilters();
+render();
+</script>
+</body>
+</html>
