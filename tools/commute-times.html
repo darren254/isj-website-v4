@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Commute Comparison — Jakarta International Schools</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --navy: #182B55;
+    --gold: #E79819;
+    --powder: #B0D0E8;
+    --hermes: #FDF5ED;
+    --cream: #faf9f7;
+    --warm-cream: #f8f6f1;
+    --deep-cream: #f3efe8;
+    --dark: #333333;
+    --border: #e8e4de;
+    --shadow: 0 2px 12px rgba(24,43,85,0.06);
+    --muted: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .header {
+    background: var(--navy);
+    color: white;
+    padding: 0.9rem 1.25rem;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.15rem;
+  }
+
+  .header p {
+    font-size: 0.78rem;
+    opacity: 0.7;
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Controls row: category + destination on one line */
+  .controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  /* Category toggle (Offices / Malls) */
+  .category-toggle {
+    display: flex;
+    gap: 0;
+  }
+
+  .cat-btn {
+    padding: 0.35rem 1.1rem;
+    border: 1.5px solid var(--border);
+    background: white;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--muted);
+  }
+
+  .cat-btn:first-child { border-radius: 6px 0 0 6px; }
+  .cat-btn:last-child { border-radius: 0 6px 6px 0; border-left: none; }
+
+  .cat-btn.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+
+  .controls-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--border);
+  }
+
+  /* Destination toggle */
+  .office-toggle {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .office-btn {
+    padding: 0.35rem 1rem;
+    border-radius: 6px;
+    border: 1.5px solid var(--border);
+    background: white;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--dark);
+  }
+
+  .office-btn:hover { border-color: #bbb; }
+
+  .office-btn.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+
+  /* Map */
+  .map-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 0.6rem;
+    position: relative;
+  }
+
+  #map { height: 380px; width: 100%; }
+
+  /* Loading */
+  .loader {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.88);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 12px;
+    gap: 0.5rem;
+  }
+
+  .loader.hide { display: none; }
+
+  .spin {
+    width: 20px; height: 20px;
+    border: 3px solid #ddd;
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    animation: sp 0.7s linear infinite;
+  }
+
+  @keyframes sp { to { transform: rotate(360deg); } }
+
+  /* Dumbbell Chart */
+  .chart-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 0.9rem 1rem 0.65rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .chart-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.7rem;
+    text-align: center;
+  }
+
+  .dumbbell-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    gap: 0.5rem;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .dumbbell-row:last-child { margin-bottom: 0; }
+
+  .dumbbell-label {
+    width: 32px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--dark);
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .dumbbell-track {
+    flex: 1;
+    position: relative;
+    height: 26px;
+  }
+
+  .dumbbell-axis {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #eae7e2;
+  }
+
+  .dumbbell-line {
+    position: absolute;
+    top: 50%;
+    height: 3px;
+    margin-top: -1.5px;
+    border-radius: 2px;
+  }
+
+  .dumbbell-dot {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: -6px;
+    margin-left: -6px;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .dumbbell-dot-low {
+    z-index: 2;
+  }
+
+  .dumbbell-dot-high {
+    z-index: 1;
+  }
+
+  .dumbbell-val {
+    position: absolute;
+    top: -1px;
+    font-size: 0.58rem;
+    font-weight: 500;
+    color: var(--dark);
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  .dumbbell-val-high {
+    font-weight: 500;
+  }
+
+  .chart-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+    padding-left: 40px;
+    font-size: 0.55rem;
+    color: #bbb;
+    letter-spacing: 0.01em;
+  }
+
+  /* Note */
+  .note {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .header { padding: 0.75rem 0.75rem; }
+    .header h1 { font-size: 1.05rem; }
+    .header p { font-size: 0.72rem; }
+    .container { padding: 0.6rem 0.6rem; }
+    .controls-row { gap: 0.5rem; margin-bottom: 0.5rem; }
+    .cat-btn { padding: 0.3rem 0.9rem; font-size: 0.7rem; }
+    .office-btn { padding: 0.3rem 0.75rem; font-size: 0.72rem; }
+    #map { height: 300px; }
+    .map-wrap { border-radius: 8px; margin-bottom: 0.5rem; }
+    .chart-section { padding: 0.7rem 0.6rem 0.5rem; border-radius: 8px; margin-bottom: 0.5rem; }
+    .chart-title { font-size: 0.68rem; margin-bottom: 0.6rem; }
+    .dumbbell-row { margin-bottom: 0.55rem; gap: 0.35rem; }
+    .dumbbell-label { width: 28px; font-size: 0.68rem; }
+    .dumbbell-dot { width: 10px; height: 10px; margin-top: -5px; margin-left: -5px; }
+    .dumbbell-val { font-size: 0.55rem; }
+    .chart-scale { font-size: 0.5rem; padding-left: 34px; }
+    .note { font-size: 0.6rem; }
+  }
+
+  @media (max-width: 440px) {
+    .header h1 { font-size: 0.95rem; }
+    .header p { display: none; }
+    .container { padding: 0.5rem 0.4rem; }
+    .controls-row { gap: 0.3rem; }
+    .office-btn { padding: 0.28rem 0.55rem; font-size: 0.68rem; }
+    #map { height: 260px; }
+    .time-bubble-icon { display: none !important; }
+    .dumbbell-label { width: 26px; font-size: 0.65rem; }
+    .dumbbell-dot { width: 9px; height: 9px; margin-top: -4.5px; margin-left: -4.5px; }
+    .dumbbell-val { font-size: 0.5rem; }
+    .chart-scale { padding-left: 32px; }
+  }
+
+  /* Map hover labels */
+  .hover-label {
+    font-family: Inter, sans-serif;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .hover-label.district {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+  }
+  .hover-label.hood {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(51,51,51,0.7);
+  }
+
+  /* Hood tooltip (follows mouse, always on top) */
+  .hood-tooltip {
+    font-family: Inter, sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    color: rgba(51,51,51,0.8) !important;
+    background: rgba(255,255,255,0.94) !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+  }
+  .hood-tooltip::before { display: none !important; }
+
+  /* POI hover effects */
+  .poi-label {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+  .poi-label:hover {
+    transform: scale(1.12);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18) !important;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>School Commute Comparison</h1>
+  <p>Estimated driving times from Jakarta&#x2019;s international schools to where you work and shop.</p>
+</div>
+
+<div class="container">
+
+  <div class="controls-row">
+    <div class="category-toggle" id="catToggle"></div>
+    <div class="controls-divider"></div>
+    <div class="office-toggle" id="toggle"></div>
+  </div>
+
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div class="loader" id="loader"><div class="spin"></div>Calculating routes&#x2026;</div>
+  </div>
+
+  <div class="chart-section">
+    <div class="chart-title" id="chartTitle">Morning Commute at a Glance</div>
+    <div id="chart"></div>
+    <div class="chart-scale" id="chartScale">
+      <span>0</span>
+      <span>20</span>
+      <span>40</span>
+      <span>60</span>
+      <span>80 min</span>
+    </div>
+  </div>
+
+  <div class="note">
+    Estimates based on typical weekday morning traffic leaving school at approximately 7:00 AM,
+    sourced from Google Maps. Actual travel times will vary depending on the day, weather,
+    and route taken &#x2014; these figures are indicative, not guaranteed.<br>
+    <a href="#" style="color:var(--navy);" onclick="return false;">Check Google Maps</a> for live conditions before you travel.
+  </div>
+
+
+</div>
+
+<script>
+// ── Config ────────────────────────────────────────────────────────────
+const GREEN_MINS = 15;
+const RED_MINS = 50;
+
+function timeToColor(minutes) {
+  if (minutes <= GREEN_MINS) return 'hsl(210, 20%, 52%)';
+  if (minutes >= RED_MINS)   return 'hsl(12, 25%, 48%)';
+  var t = (minutes - GREEN_MINS) / (RED_MINS - GREEN_MINS);
+  var hue, sat, lit;
+  if (t < 0.5) {
+    var p = t * 2;
+    hue = 210 - p * 172;
+    sat = 20 + p * 10;
+    lit = 52 + p * 2;
+  } else {
+    var p = (t - 0.5) * 2;
+    hue = 38 - p * 26;
+    sat = 30 - p * 5;
+    lit = 54 - p * 6;
+  }
+  return 'hsl(' + Math.round(hue) + ', ' + Math.round(sat) + '%, ' + Math.round(lit) + '%)';
+}
+
+var schools = [
+  { id: 'isj', name: 'ISJ',  full: 'The Independent School of Jakarta', lat: -6.290998622119745, lng: 106.78348086646538 },
+  { id: 'jis', name: 'JIS',  full: 'Jakarta Intercultural School',      lat: -6.2881107023384155, lng: 106.78593189602522 },
+  { id: 'bsj', name: 'BSJ',  full: 'British School Jakarta',            lat: -6.272820004306659, lng: 106.70558035297405 },
+  { id: 'ais', name: 'AIS',  full: 'Australian Independent School',     lat: -6.278271024733418, lng: 106.82750264407264 }
+];
+
+// ── Destinations by category ─────────────────────────────────────────
+var categories = {
+  offices: {
+    label: 'Offices',
+    destinations: [
+      { id: 'scbd',     name: 'SCBD',           lat: -6.2270, lng: 106.8090 },
+      { id: 'kuningan', name: 'Mega Kuningan',   lat: -6.2400, lng: 106.8310 },
+      { id: 'thamrin',  name: 'Thamrin Nine',    lat: -6.1950, lng: 106.8230 }
+    ]
+  },
+  malls: {
+    label: 'Malls',
+    destinations: [
+      { id: 'pim',      name: 'Pondok Indah Mall', lat: -6.26358323392308, lng: 106.78192556563563 },
+      { id: 'lippo',    name: 'Lippo Mall',         lat: -6.261256247215734, lng: 106.8127176397389 },
+      { id: 'plaza',    name: 'Plaza Indonesia',    lat: -6.193661691025778, lng: 106.82190387995506 },
+      { id: 'pacific',  name: 'Pacific Place',      lat: -6.224115670350428, lng: 106.81003556919768 },
+      { id: 'senayan',  name: 'Senayan City',       lat: -6.227387273253659, lng: 106.79699023762812 }
+    ]
+  }
+};
+
+// ── Commute data ─────────────────────────────────────────────────────
+// Format: [low, high] in minutes
+var COMMUTE_DATA = {
+  // Offices (real Google Maps data, adjusted)
+  scbd: {
+    isj: { am: [25, 49], pm: [22, 44] },
+    jis: { am: [25, 49], pm: [24, 44] },
+    bsj: { am: [45, 80], pm: [40, 70] },
+    ais: { am: [25, 45], pm: [21, 40] }
+  },
+  kuningan: {
+    isj: { am: [25, 49], pm: [22, 44] },
+    jis: { am: [26, 49], pm: [24, 44] },
+    bsj: { am: [45, 80], pm: [40, 70] },
+    ais: { am: [21, 40], pm: [19, 35] }
+  },
+  thamrin: {
+    isj: { am: [30, 64], pm: [26, 54] },
+    jis: { am: [30, 64], pm: [28, 54] },
+    bsj: { am: [40, 80], pm: [35, 70] },
+    ais: { am: [30, 55], pm: [27, 50] }
+  },
+  // Malls (Google Maps data where available, estimated PM from AM ratios)
+  pim: {
+    isj: { am: [12, 19], pm: [10, 15] },
+    jis: { am: [14, 21], pm: [12, 17] },
+    bsj: { am: [28, 50], pm: [25, 45] },
+    ais: { am: [14, 30], pm: [12, 25] }
+  },
+  lippo: {
+    isj: { am: [16, 30], pm: [14, 25] },
+    jis: { am: [20, 35], pm: [18, 30] },
+    bsj: { am: [40, 80], pm: [35, 70] },
+    ais: { am: [10, 18], pm: [8, 15] }
+  },
+  plaza: {
+    isj: { am: [26, 65], pm: [22, 55] },
+    jis: { am: [30, 70], pm: [26, 60] },
+    bsj: { am: [50, 100], pm: [45, 90] },
+    ais: { am: [24, 55], pm: [20, 48] }
+  },
+  pacific: {
+    isj: { am: [18, 40], pm: [16, 35] },
+    jis: { am: [20, 45], pm: [18, 40] },
+    bsj: { am: [40, 85], pm: [36, 75] },
+    ais: { am: [18, 40], pm: [16, 35] }
+  },
+  senayan: {
+    isj: { am: [20, 40], pm: [18, 35] },
+    jis: { am: [24, 45], pm: [22, 40] },
+    bsj: { am: [35, 65], pm: [32, 58] },
+    ais: { am: [18, 45], pm: [16, 40] }
+  }
+};
+
+// ── Map ──────────────────────────────────────────────────────────────
+var map = L.map('map', { zoomControl: true }).setView([-6.260, 106.790], 12);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  maxZoom: 18,
+  subdomains: 'abcd'
+}).addTo(map);
+
+// Custom panes for z-ordering
+map.createPane('districts');
+map.getPane('districts').style.zIndex = 350;
+map.createPane('hoods');
+map.getPane('hoods').style.zIndex = 380;
+
+function makeLabel(text, color, anchor) {
+  return L.divIcon({
+    className: '',
+    html: '<div class="poi-label" style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.9);color:' + color + ';padding:3px 8px 3px 6px;border-radius:6px;font-family:Inter,sans-serif;font-size:11px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,0.08);white-space:nowrap;border:1px solid rgba(0,0,0,0.06);"><span style="width:7px;height:7px;border-radius:50%;background:' + color + ';opacity:0.5;flex-shrink:0"></span>' + text + '</div>',
+    iconAnchor: anchor || [35, 12]
+  });
+}
+
+function makeTimeBubble(text, color) {
+  return L.divIcon({
+    className: 'time-bubble-icon',
+    html: '<div class="poi-label" style="background:rgba(255,255,255,0.88);color:' + color + ';padding:2px 8px;border-radius:10px;font-family:Inter,sans-serif;font-size:10px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,0.08);white-space:nowrap;border:1px solid rgba(0,0,0,0.08);">' + text + '</div>',
+    iconAnchor: [25, 10]
+  });
+}
+
+// School markers
+var LABEL_ANCHORS = { jis: [35, -16] };
+var schoolMarkers = {};
+schools.forEach(function(s) {
+  schoolMarkers[s.id] = L.marker([s.lat, s.lng], {
+    icon: makeLabel(s.name, '#888', LABEL_ANCHORS[s.id]),
+    zIndexOffset: 1000
+  }).addTo(map).bindPopup('<b>' + s.name + '</b><br><small>' + s.full + '</small>');
+});
+
+var destMarker = null;
+
+// ── Jakarta district boundaries (from GADM GeoJSON) ─────────────────
+var jakartaRegions = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"West Jakarta","color":"#E8E8F0","labelLat":-6.165,"labelLng":106.740},"geometry":{"type":"Polygon","coordinates":[[[106.7774,-6.2171],[106.7785,-6.2248],[106.767,-6.2252],[106.7658,-6.2224],[106.7609,-6.222],[106.7601,-6.2231],[106.7176,-6.2241],[106.7202,-6.2096],[106.724,-6.2077],[106.7241,-6.1916],[106.7169,-6.1931],[106.7171,-6.1867],[106.7049,-6.1791],[106.6888,-6.1721],[106.69,-6.16],[106.6878,-6.16],[106.6862,-6.1431],[106.6917,-6.1365],[106.6914,-6.1334],[106.6871,-6.1286],[106.6897,-6.1211],[106.689,-6.1142],[106.6964,-6.1129],[106.6979,-6.1109],[106.6937,-6.1072],[106.689,-6.1064],[106.6875,-6.0969],[106.711,-6.0956],[106.7274,-6.1176],[106.7333,-6.1232],[106.7509,-6.1344],[106.7682,-6.1407],[106.7749,-6.1414],[106.7751,-6.1452],[106.8005,-6.1419],[106.8011,-6.1337],[106.8132,-6.1301],[106.815,-6.1302],[106.8167,-6.1371],[106.8216,-6.1373],[106.8268,-6.1487],[106.8283,-6.1622],[106.8203,-6.1595],[106.804,-6.1617],[106.8015,-6.1583],[106.7981,-6.1614],[106.8096,-6.1793],[106.8107,-6.1887],[106.8067,-6.1891],[106.8045,-6.1969],[106.7977,-6.2031],[106.7961,-6.2076],[106.789,-6.2085],[106.7831,-6.2067],[106.7833,-6.2127],[106.7777,-6.2136],[106.7774,-6.2171]]]}},{"type":"Feature","properties":{"name":"Central Jakarta","color":"#FFF5E6","labelLat":-6.180,"labelLng":106.840},"geometry":{"type":"Polygon","coordinates":[[[106.7947,-6.2077],[106.8043,-6.1973],[106.8067,-6.1891],[106.8107,-6.1885],[106.8096,-6.1793],[106.7981,-6.1614],[106.8015,-6.1583],[106.804,-6.1617],[106.8203,-6.1595],[106.8283,-6.1622],[106.8263,-6.147],[106.8212,-6.1369],[106.8307,-6.1353],[106.8312,-6.1404],[106.8357,-6.1432],[106.8371,-6.1459],[106.8384,-6.1417],[106.844,-6.145],[106.8412,-6.1511],[106.8436,-6.1537],[106.8563,-6.1518],[106.8598,-6.1526],[106.8612,-6.1509],[106.8602,-6.1538],[106.8769,-6.1635],[106.8814,-6.1625],[106.8787,-6.1664],[106.8761,-6.1757],[106.875,-6.1923],[106.8644,-6.1928],[106.8583,-6.1962],[106.851,-6.2016],[106.8554,-6.2027],[106.8541,-6.2065],[106.8499,-6.2056],[106.8466,-6.2086],[106.8227,-6.2027],[106.8216,-6.2092],[106.8186,-6.2144],[106.7975,-6.2293],[106.7956,-6.2284],[106.7969,-6.2185],[106.7958,-6.2125],[106.7934,-6.2117],[106.7918,-6.2088],[106.7947,-6.2077]]]}},{"type":"Feature","properties":{"name":"South Jakarta","color":"#E8F0E8","labelLat":-6.300,"labelLng":106.810},"geometry":{"type":"Polygon","coordinates":[[[106.8064,-6.3634],[106.803,-6.3634],[106.7999,-6.3655],[106.7931,-6.3635],[106.7925,-6.358],[106.794,-6.3544],[106.7926,-6.3523],[106.794,-6.351],[106.7924,-6.3484],[106.7953,-6.346],[106.7967,-6.3465],[106.7994,-6.3431],[106.7991,-6.334],[106.8017,-6.3334],[106.8013,-6.3315],[106.8034,-6.33],[106.8046,-6.3243],[106.8061,-6.3242],[106.8092,-6.3149],[106.7924,-6.3157],[106.7906,-6.3145],[106.7895,-6.3162],[106.7829,-6.3166],[106.7768,-6.3153],[106.7765,-6.3119],[106.7747,-6.3121],[106.7753,-6.3105],[106.7732,-6.3095],[106.775,-6.3084],[106.7739,-6.3066],[106.7756,-6.3041],[106.7745,-6.3033],[106.7732,-6.3048],[106.7735,-6.3031],[106.7709,-6.3021],[106.7731,-6.3015],[106.7715,-6.2994],[106.7738,-6.2986],[106.7713,-6.2991],[106.7701,-6.2956],[106.7673,-6.2953],[106.7682,-6.2919],[106.7666,-6.2905],[106.7662,-6.2864],[106.7607,-6.2847],[106.7622,-6.2779],[106.7572,-6.2778],[106.757,-6.2742],[106.7516,-6.2746],[106.7503,-6.2718],[106.7542,-6.2678],[106.7525,-6.2647],[106.7563,-6.2615],[106.7514,-6.2617],[106.7542,-6.2591],[106.7531,-6.2501],[106.7481,-6.2501],[106.7472,-6.2487],[106.747,-6.2435],[106.7486,-6.2407],[106.747,-6.2364],[106.7439,-6.2362],[106.7454,-6.2307],[106.7439,-6.2305],[106.7432,-6.2275],[106.7403,-6.2276],[106.7374,-6.2236],[106.7601,-6.2231],[106.7609,-6.222],[106.7658,-6.2224],[106.767,-6.2252],[106.7785,-6.2248],[106.7777,-6.2137],[106.7832,-6.2129],[106.7831,-6.2067],[106.7869,-6.2069],[106.789,-6.2085],[106.7924,-6.2078],[106.7934,-6.2117],[106.7958,-6.2125],[106.7969,-6.2185],[106.7957,-6.2291],[106.7992,-6.2291],[106.8186,-6.2144],[106.8216,-6.2092],[106.8227,-6.2027],[106.8461,-6.2086],[106.8491,-6.2075],[106.8575,-6.2122],[106.8582,-6.2136],[106.8563,-6.2162],[106.8572,-6.2176],[106.8635,-6.2163],[106.8601,-6.2212],[106.8613,-6.2218],[106.8629,-6.2197],[106.8653,-6.2233],[106.8635,-6.2246],[106.8648,-6.2289],[106.8632,-6.2309],[106.8661,-6.2338],[106.8652,-6.2352],[106.8668,-6.2384],[106.8647,-6.2368],[106.863,-6.2389],[106.862,-6.2461],[106.8641,-6.2494],[106.8622,-6.2504],[106.8627,-6.2535],[106.8612,-6.254],[106.8602,-6.251],[106.8577,-6.2532],[106.8578,-6.2553],[106.8607,-6.2552],[106.8593,-6.2568],[106.8605,-6.2577],[106.8592,-6.2628],[106.8543,-6.2622],[106.8571,-6.2638],[106.854,-6.2651],[106.8567,-6.2727],[106.8536,-6.272],[106.8513,-6.2735],[106.8516,-6.2762],[106.8466,-6.2791],[106.8503,-6.2798],[106.8475,-6.283],[106.8488,-6.2837],[106.8473,-6.2857],[106.8485,-6.2881],[106.8512,-6.2885],[106.8493,-6.2905],[106.8502,-6.2925],[106.8544,-6.2908],[106.8523,-6.2945],[106.854,-6.2938],[106.8543,-6.2959],[106.8507,-6.2959],[106.8521,-6.299],[106.8498,-6.2998],[106.8516,-6.3011],[106.8548,-6.2997],[106.8547,-6.3033],[106.8585,-6.3054],[106.8568,-6.3099],[106.8583,-6.3111],[106.8549,-6.3138],[106.8524,-6.3111],[106.8517,-6.316],[106.8493,-6.3188],[106.8468,-6.318],[106.8485,-6.3171],[106.8484,-6.3151],[106.8462,-6.317],[106.8443,-6.3166],[106.8438,-6.3185],[106.84,-6.3186],[106.8383,-6.3207],[106.8409,-6.3214],[106.84,-6.3228],[106.8429,-6.3256],[106.8402,-6.3293],[106.8434,-6.3316],[106.8399,-6.3328],[106.8392,-6.3404],[106.8407,-6.3425],[106.838,-6.3412],[106.8353,-6.3441],[106.8363,-6.3451],[106.8381,-6.3433],[106.8398,-6.3439],[106.8375,-6.3471],[106.8391,-6.3519],[106.8353,-6.352],[106.8352,-6.355],[106.8273,-6.3569],[106.8159,-6.356],[106.8106,-6.364],[106.8064,-6.3634]]]}},{"type":"Feature","properties":{"name":"East Jakarta","color":"#F0EBE0","labelLat":-6.250,"labelLng":106.910},"geometry":{"type":"Polygon","coordinates":[[[106.8691,-6.3537],[106.8622,-6.3573],[106.8602,-6.3537],[106.8556,-6.3524],[106.8567,-6.3472],[106.8545,-6.3469],[106.8546,-6.3438],[106.85,-6.3401],[106.8521,-6.3382],[106.8516,-6.3366],[106.8494,-6.3361],[106.847,-6.338],[106.8461,-6.342],[106.8409,-6.342],[106.8392,-6.3404],[106.84,-6.3324],[106.8434,-6.3316],[106.8402,-6.3294],[106.8413,-6.3267],[106.8422,-6.3277],[106.8431,-6.3263],[106.84,-6.3228],[106.8409,-6.3214],[106.8388,-6.3216],[106.8386,-6.3203],[106.8484,-6.3151],[106.8485,-6.3171],[106.8468,-6.318],[106.8493,-6.3188],[106.8517,-6.316],[106.8524,-6.3111],[106.8549,-6.3138],[106.8583,-6.3111],[106.8568,-6.3099],[106.8585,-6.3054],[106.8547,-6.3033],[106.8548,-6.2997],[106.8516,-6.3011],[106.8498,-6.2998],[106.8521,-6.299],[106.8507,-6.2959],[106.8543,-6.2959],[106.854,-6.2938],[106.8523,-6.2945],[106.8544,-6.2908],[106.8502,-6.2925],[106.8493,-6.2905],[106.8512,-6.2885],[106.8485,-6.2881],[106.8473,-6.2857],[106.8488,-6.2837],[106.8475,-6.283],[106.8503,-6.2798],[106.8466,-6.2791],[106.8516,-6.2762],[106.8513,-6.2735],[106.8536,-6.272],[106.8567,-6.2727],[106.854,-6.2651],[106.8571,-6.2638],[106.8543,-6.2622],[106.8592,-6.2628],[106.8605,-6.2577],[106.8593,-6.2568],[106.8607,-6.2552],[106.8578,-6.2553],[106.8577,-6.2532],[106.8602,-6.251],[106.8612,-6.254],[106.8627,-6.2535],[106.8622,-6.2504],[106.8641,-6.2494],[106.862,-6.2461],[106.863,-6.2389],[106.8647,-6.2368],[106.8668,-6.2388],[106.8652,-6.2352],[106.8661,-6.2338],[106.8632,-6.2309],[106.8648,-6.2289],[106.8635,-6.2246],[106.8653,-6.2233],[106.8629,-6.2197],[106.8613,-6.2218],[106.8601,-6.2212],[106.8635,-6.2163],[106.8565,-6.2168],[106.8575,-6.2122],[106.8491,-6.2075],[106.8499,-6.2056],[106.8539,-6.2066],[106.8557,-6.2047],[106.8551,-6.2024],[106.851,-6.2016],[106.8632,-6.1932],[106.875,-6.1923],[106.8761,-6.1759],[106.8788,-6.1665],[106.8912,-6.1733],[106.8964,-6.178],[106.9018,-6.1787],[106.9101,-6.1825],[106.9225,-6.1831],[106.9204,-6.1698],[106.9219,-6.1624],[106.9356,-6.1585],[106.94,-6.1514],[106.9402,-6.1553],[106.9442,-6.1551],[106.9447,-6.163],[106.9516,-6.1634],[106.953,-6.1584],[106.9543,-6.1576],[106.9586,-6.1595],[106.9597,-6.1556],[106.9719,-6.1546],[106.9713,-6.1876],[106.9696,-6.195],[106.9665,-6.1957],[106.9676,-6.1978],[106.9657,-6.201],[106.9662,-6.2069],[106.9624,-6.2144],[106.959,-6.2129],[106.9558,-6.2195],[106.9508,-6.2191],[106.9486,-6.2222],[106.9455,-6.2368],[106.9418,-6.2382],[106.9436,-6.2389],[106.9439,-6.2523],[106.9335,-6.254],[106.9294,-6.2532],[106.9279,-6.2546],[106.922,-6.2539],[106.9217,-6.2513],[106.9199,-6.2503],[106.9162,-6.2525],[106.9157,-6.2584],[106.9097,-6.2555],[106.91,-6.258],[106.9053,-6.2601],[106.9044,-6.2621],[106.9057,-6.2676],[106.9042,-6.2702],[106.9101,-6.2728],[106.908,-6.2825],[106.9105,-6.287],[106.9093,-6.2909],[106.9118,-6.2903],[106.9102,-6.2943],[106.9123,-6.2946],[106.9111,-6.296],[106.9118,-6.2983],[106.9135,-6.2989],[106.9149,-6.2971],[106.9177,-6.298],[106.9189,-6.3005],[106.9207,-6.3002],[106.9218,-6.3034],[106.9206,-6.3083],[106.9215,-6.3109],[106.9201,-6.3114],[106.9228,-6.3142],[106.9207,-6.3183],[106.9217,-6.323],[106.9182,-6.3279],[106.9209,-6.3308],[106.9195,-6.3386],[106.9182,-6.3392],[106.9194,-6.3436],[106.9174,-6.3438],[106.9172,-6.3461],[106.9159,-6.3463],[106.9178,-6.3504],[106.9155,-6.355],[106.9171,-6.3564],[106.9136,-6.3588],[106.9162,-6.3629],[106.9143,-6.3655],[106.9059,-6.361],[106.9012,-6.3695],[106.8976,-6.3688],[106.8943,-6.3708],[106.8891,-6.3675],[106.8877,-6.3697],[106.8835,-6.3702],[106.8836,-6.3651],[106.881,-6.3665],[106.8807,-6.3646],[106.878,-6.3632],[106.8788,-6.361],[106.8727,-6.3613],[106.8714,-6.3598],[106.8738,-6.3562],[106.871,-6.3528],[106.8691,-6.3537]]]}},{"type":"Feature","properties":{"name":"North Jakarta","color":"#E0EEF0","labelLat":-6.130,"labelLng":106.850},"geometry":{"type":"Polygon","coordinates":[[[106.8924,-6.1745],[106.8787,-6.1664],[106.8814,-6.1625],[106.8769,-6.1635],[106.8602,-6.1538],[106.861,-6.1523],[106.8612,-6.1509],[106.8598,-6.1526],[106.8563,-6.1518],[106.8436,-6.1537],[106.8412,-6.1511],[106.844,-6.145],[106.8384,-6.1417],[106.8371,-6.1459],[106.8357,-6.1432],[106.8312,-6.1404],[106.8307,-6.1353],[106.8167,-6.1371],[106.815,-6.1302],[106.8011,-6.1337],[106.8005,-6.1419],[106.7751,-6.1452],[106.7749,-6.1414],[106.7682,-6.1407],[106.7509,-6.1344],[106.7333,-6.1232],[106.7274,-6.1176],[106.711,-6.0956],[106.7186,-6.0919],[106.7221,-6.0919],[106.7254,-6.089],[106.7269,-6.0896],[106.7263,-6.0913],[106.7283,-6.0942],[106.7381,-6.1012],[106.7448,-6.1022],[106.7485,-6.0999],[106.7509,-6.1025],[106.7573,-6.1039],[106.7627,-6.1036],[106.766,-6.101],[106.7673,-6.1032],[106.7673,-6.1018],[106.7709,-6.1043],[106.7717,-6.1034],[106.772,-6.105],[106.7767,-6.1036],[106.7745,-6.1101],[106.7765,-6.106],[106.7844,-6.1086],[106.7853,-6.1112],[106.7855,-6.1081],[106.7903,-6.108],[106.7904,-6.0936],[106.7933,-6.0924],[106.797,-6.0941],[106.7958,-6.1054],[106.7961,-6.1089],[106.7963,-6.1095],[106.8006,-6.1083],[106.7987,-6.0968],[106.8002,-6.0965],[106.8023,-6.1023],[106.8044,-6.1019],[106.8036,-6.0945],[106.8074,-6.1149],[106.8118,-6.1227],[106.8119,-6.1192],[106.8133,-6.1207],[106.8165,-6.1199],[106.8172,-6.1149],[106.8206,-6.1154],[106.8202,-6.1186],[106.8223,-6.1196],[106.8221,-6.122],[106.8233,-6.1173],[106.8288,-6.1173],[106.8301,-6.1209],[106.8426,-6.1211],[106.8424,-6.1225],[106.8393,-6.1226],[106.8402,-6.124],[106.8433,-6.1235],[106.8443,-6.1208],[106.8574,-6.1164],[106.8593,-6.1142],[106.8577,-6.111],[106.8608,-6.1102],[106.8613,-6.1145],[106.8634,-6.114],[106.8639,-6.1116],[106.8728,-6.1044],[106.8721,-6.1084],[106.8649,-6.1125],[106.8647,-6.1202],[106.8629,-6.1211],[106.8664,-6.1202],[106.8653,-6.1136],[106.8678,-6.112],[106.8688,-6.113],[106.8714,-6.1104],[106.8703,-6.1147],[106.8728,-6.1144],[106.8746,-6.1045],[106.8767,-6.1018],[106.8774,-6.1052],[106.8756,-6.1113],[106.8772,-6.1068],[106.8773,-6.1102],[106.8785,-6.1099],[106.8787,-6.1023],[106.8802,-6.1021],[106.8787,-6.1014],[106.8791,-6.095],[106.8798,-6.0985],[106.8817,-6.0935],[106.8822,-6.1064],[106.8838,-6.1064],[106.8845,-6.0961],[106.887,-6.0973],[106.8867,-6.1065],[106.888,-6.1065],[106.8883,-6.0973],[106.8909,-6.0973],[106.8907,-6.1068],[106.8923,-6.1068],[106.8926,-6.0974],[106.9054,-6.0978],[106.9052,-6.107],[106.9067,-6.1087],[106.9072,-6.1041],[106.9104,-6.1034],[106.9103,-6.1017],[106.9079,-6.1009],[106.9093,-6.0989],[106.9134,-6.0987],[106.9152,-6.1005],[106.9163,-6.099],[106.9188,-6.0991],[106.9196,-6.1043],[106.9215,-6.1035],[106.9197,-6.1034],[106.9203,-6.1007],[106.9258,-6.1001],[106.9264,-6.0981],[106.9384,-6.096],[106.9403,-6.0982],[106.9414,-6.0961],[106.959,-6.0938],[106.969,-6.0907],[106.9707,-6.1399],[106.9728,-6.1462],[106.9717,-6.1461],[106.9719,-6.1546],[106.9597,-6.1556],[106.9586,-6.1595],[106.9543,-6.1576],[106.953,-6.1584],[106.9516,-6.1634],[106.9447,-6.163],[106.9442,-6.1551],[106.9402,-6.1553],[106.94,-6.1514],[106.9356,-6.1585],[106.9219,-6.1624],[106.9204,-6.1698],[106.9225,-6.1831],[106.9101,-6.1825],[106.9018,-6.1787],[106.8964,-6.178],[106.8924,-6.1745]]]}}]};
+
+// Draw district regions (interactive with hover)
+var districtLabelMarkers = [];
+var districtLabelsVisible = false;
+var DISTRICT_LABEL_ZOOM = 12;
+
+L.geoJSON(jakartaRegions, {
+  pane: 'districts',
+  style: function(feature) {
+    return {
+      fillColor: feature.properties.color,
+      fillOpacity: 0.35,
+      color: 'rgba(0,0,0,0.06)',
+      weight: 1
+    };
+  },
+  onEachFeature: function(feature, layer) {
+    var p = feature.properties;
+    var label = L.marker([p.labelLat, p.labelLng], {
+      icon: L.divIcon({
+        className: '',
+        html: '<div class="hover-label district">' + p.name + '</div>',
+        iconAnchor: [50, 12]
+      }),
+      interactive: false,
+      zIndexOffset: 500
+    });
+    districtLabelMarkers.push(label);
+
+    layer.on('mouseover', function() {
+      layer.setStyle({ fillOpacity: 0.55 });
+      if (!districtLabelsVisible) label.addTo(map);
+    });
+    layer.on('mouseout', function() {
+      layer.setStyle({ fillOpacity: 0.35 });
+      if (!districtLabelsVisible) label.remove();
+    });
+  }
+}).addTo(map);
+
+// Show district labels when zoomed out, hide when zoomed in (hover only)
+function updateDistrictLabels() {
+  var zoom = map.getZoom();
+  if (zoom <= DISTRICT_LABEL_ZOOM) {
+    if (!districtLabelsVisible) {
+      districtLabelMarkers.forEach(function(m) { m.addTo(map); });
+      districtLabelsVisible = true;
+    }
+  } else {
+    if (districtLabelsVisible) {
+      districtLabelMarkers.forEach(function(m) { m.remove(); });
+      districtLabelsVisible = false;
+    }
+  }
+}
+map.on('zoomend', updateDistrictLabels);
+updateDistrictLabels();
+
+// ── Expat neighbourhood zones (from ISJ expat map) ──────────────────
+var hoods = [
+  // Draw order: larger/background areas first, smaller overlapping areas last (on top)
+  { name: 'Bintaro', color: '#5ba69a', ring: [[-6.2550,106.6900],[-6.2530,106.7150],[-6.2650,106.7200],[-6.2850,106.7180],[-6.2950,106.7100],[-6.2900,106.6950],[-6.2750,106.6850],[-6.2550,106.6900]] },
+  { name: 'Cilandak', color: '#52a5b5', ring: [[-6.2550,106.7800],[-6.2550,106.8150],[-6.2750,106.8200],[-6.2950,106.8150],[-6.3000,106.7980],[-6.2950,106.7800],[-6.2750,106.7750],[-6.2550,106.7800]] },
+  { name: 'Kemang', color: '#8b8dc9', ring: [[-6.2645,106.8100],[-6.2625,106.8250],[-6.2745,106.8300],[-6.2915,106.8280],[-6.2975,106.8180],[-6.2895,106.8080],[-6.2775,106.8050],[-6.2645,106.8100]] },
+  { name: 'Pondok Indah', color: '#c9a64e', ring: [[-6.2600,106.7680],[-6.2580,106.7850],[-6.2650,106.7900],[-6.2950,106.7880],[-6.3000,106.7750],[-6.2920,106.7650],[-6.2680,106.7650],[-6.2600,106.7680]] },
+  { name: 'Cipete', color: '#5aab8e', ring: [[-6.2500,106.7920],[-6.2480,106.8050],[-6.2580,106.8100],[-6.2700,106.8080],[-6.2750,106.7980],[-6.2680,106.7900],[-6.2580,106.7880],[-6.2500,106.7920]] },
+  { name: 'SCBD', color: '#9d8cc4', ring: [[-6.2100,106.8000],[-6.2080,106.8150],[-6.2180,106.8200],[-6.2320,106.8180],[-6.2380,106.8080],[-6.2300,106.7980],[-6.2180,106.7950],[-6.2100,106.8000]] },
+  { name: 'Mega Kuningan', color: '#c47e9e', ring: [[-6.2150,106.8220],[-6.2130,106.8380],[-6.2280,106.8420],[-6.2450,106.8400],[-6.2500,106.8280],[-6.2400,106.8200],[-6.2280,106.8180],[-6.2150,106.8220]] },
+  { name: 'Menteng', color: '#c88a56', ring: [[-6.1850,106.8300],[-6.1830,106.8480],[-6.1950,106.8520],[-6.2080,106.8500],[-6.2120,106.8380],[-6.2050,106.8280],[-6.1950,106.8260],[-6.1850,106.8300]] }
+];
+
+// Helper: compute centroid of a ring
+function hoodCentroid(ring) {
+  var latSum = 0, lngSum = 0;
+  ring.forEach(function(c) { latSum += c[0]; lngSum += c[1]; });
+  return [latSum / ring.length, lngSum / ring.length];
+}
+
+// Helper: shrink ring toward centroid by factor (0 = centroid, 1 = original)
+function shrinkRing(ring, centroid, factor) {
+  return ring.map(function(p) {
+    return [
+      centroid[0] + (p[0] - centroid[0]) * factor,
+      centroid[1] + (p[1] - centroid[1]) * factor
+    ];
+  });
+}
+
+// Draw hoods with feathered gradient fills + SVG hash pattern overlay + hover
+var hoodGroups = [];
+hoods.forEach(function(h, i) {
+  var centroid = hoodCentroid(h.ring);
+  var fillLayers = [];
+
+  // Concentric gradient fills: outer = faint, inner = stronger (feathered edges)
+  var concentrics = [
+    { scale: 1.0,  opacity: 0.04 },
+    { scale: 0.88, opacity: 0.07 },
+    { scale: 0.75, opacity: 0.10 },
+    { scale: 0.60, opacity: 0.15 }
+  ];
+
+  concentrics.forEach(function(c) {
+    var ring = shrinkRing(h.ring, centroid, c.scale);
+    var fl = L.polygon(ring, {
+      pane: 'hoods',
+      fillColor: h.color,
+      fillOpacity: c.opacity,
+      stroke: false,
+      interactive: false
+    }).addTo(map);
+    fillLayers.push({ layer: fl, base: c.opacity });
+  });
+
+  // Hash pattern polygon (full size, interactive for hover)
+  var hashPoly = L.polygon(h.ring, {
+    pane: 'hoods',
+    fillColor: 'transparent',
+    fillOpacity: 0,
+    stroke: false,
+    interactive: true,
+    className: 'hood-hash hood-hash-' + i
+  }).addTo(map);
+
+  // Tooltip follows mouse cursor — avoids competing with POI labels
+  hashPoly.bindTooltip(h.name, {
+    sticky: true,
+    className: 'hood-tooltip',
+    direction: 'top',
+    offset: [0, -10],
+    opacity: 1
+  });
+
+  hoodGroups.push({ fills: fillLayers, hash: hashPoly, hood: h, index: i });
+
+  // Hover: darken fills
+  hashPoly.on('mouseover', function() {
+    fillLayers.forEach(function(f) {
+      f.layer.setStyle({ fillOpacity: Math.min(f.base * 2, 0.4) });
+    });
+  });
+  hashPoly.on('mouseout', function() {
+    fillLayers.forEach(function(f) {
+      f.layer.setStyle({ fillOpacity: f.base });
+    });
+  });
+});
+
+// Inject SVG hash patterns into Leaflet's SVG renderer
+function injectHoodPatterns() {
+  var svg = document.querySelector('#map .leaflet-overlay-pane svg');
+  if (!svg) return;
+
+  // Remove old defs if re-injecting
+  var existing = svg.querySelector('defs.hood-defs');
+  if (existing) existing.remove();
+
+  var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  defs.setAttribute('class', 'hood-defs');
+
+  hoods.forEach(function(h, i) {
+    var pat = document.createElementNS('http://www.w3.org/2000/svg', 'pattern');
+    pat.id = 'hood-pat-' + i;
+    pat.setAttribute('patternUnits', 'userSpaceOnUse');
+    pat.setAttribute('width', '6');
+    pat.setAttribute('height', '6');
+    pat.setAttribute('patternTransform', 'rotate(45)');
+
+    var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', '0');
+    line.setAttribute('y1', '0');
+    line.setAttribute('x2', '0');
+    line.setAttribute('y2', '6');
+    line.setAttribute('stroke', h.color);
+    line.setAttribute('stroke-width', '1.5');
+    line.setAttribute('stroke-opacity', '0.30');
+    pat.appendChild(line);
+    defs.appendChild(pat);
+  });
+
+  svg.insertBefore(defs, svg.firstChild);
+
+  // Apply pattern fills via CSS (robust against Leaflet re-renders)
+  var styleEl = document.getElementById('hood-pattern-css');
+  if (!styleEl) {
+    styleEl = document.createElement('style');
+    styleEl.id = 'hood-pattern-css';
+    document.head.appendChild(styleEl);
+  }
+  var css = '';
+  hoods.forEach(function(h, i) {
+    css += '.hood-hash-' + i + ' { fill: url(#hood-pat-' + i + ') !important; fill-opacity: 1 !important; }\n';
+  });
+  styleEl.textContent = css;
+}
+
+// Inject patterns after first render
+setTimeout(injectHoodPatterns, 500);
+// Re-inject after route loads (which adds layers that may trigger SVG rebuild)
+var _patternTimer = null;
+map.on('layeradd', function() {
+  clearTimeout(_patternTimer);
+  _patternTimer = setTimeout(injectHoodPatterns, 300);
+});
+
+// ── State ────────────────────────────────────────────────────────────
+var activeCategory = 'offices';
+var activeDest = categories.offices.destinations[0];
+
+// ── Category Toggle ──────────────────────────────────────────────────
+function buildCatToggle() {
+  var el = document.getElementById('catToggle');
+  el.innerHTML = '';
+  var keys = ['offices', 'malls'];
+  keys.forEach(function(key) {
+    var btn = document.createElement('button');
+    btn.className = 'cat-btn' + (key === activeCategory ? ' active' : '');
+    btn.textContent = categories[key].label;
+    btn.onclick = function() {
+      activeCategory = key;
+      activeDest = categories[key].destinations[0];
+      buildCatToggle();
+      buildDestToggle();
+      loadAllRoutes();
+    };
+    el.appendChild(btn);
+  });
+}
+
+// ── Destination Toggle ───────────────────────────────────────────────
+function buildDestToggle() {
+  var el = document.getElementById('toggle');
+  el.innerHTML = '';
+  categories[activeCategory].destinations.forEach(function(d) {
+    var btn = document.createElement('button');
+    btn.className = 'office-btn' + (d.id === activeDest.id ? ' active' : '');
+    btn.textContent = d.name;
+    btn.onclick = function() {
+      activeDest = d;
+      buildDestToggle();
+      loadAllRoutes();
+    };
+    el.appendChild(btn);
+  });
+}
+
+buildCatToggle();
+buildDestToggle();
+
+// ── Routing ──────────────────────────────────────────────────────────
+var routeLayers = [];
+var routeBySchool = {};
+var lastResults = [];
+
+function fetchRoute(fromLat, fromLng, toLat, toLng) {
+  var url = 'https://router.project-osrm.org/route/v1/driving/' + fromLng + ',' + fromLat + ';' + toLng + ',' + toLat + '?overview=full&geometries=geojson';
+  return fetch(url).then(function(r) { return r.json(); }).then(function(d) {
+    if (d.routes && d.routes[0]) return d.routes[0];
+    return null;
+  }).catch(function(e) { console.error('Route error:', e); return null; });
+}
+
+// ── School hover: highlight one route, flatten others ────────────
+function highlightSchool(schoolId) {
+  lastResults.forEach(function(r) {
+    var sid = r.school.id;
+    var ref = routeBySchool[sid];
+    if (!ref) return;
+    if (sid === schoolId) {
+      ref.line.setStyle({ weight: 5, opacity: 0.85 });
+      if (ref.bubble && ref.bubble._icon) {
+        ref.bubble._icon.style.opacity = '1';
+        ref.bubble._icon.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))';
+        ref.bubble.setZIndexOffset(2000);
+      }
+      if (schoolMarkers[sid] && schoolMarkers[sid]._icon) {
+        schoolMarkers[sid]._icon.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))';
+        schoolMarkers[sid].setZIndexOffset(2000);
+      }
+    } else {
+      ref.line.setStyle({ weight: 2, opacity: 0.12 });
+      if (ref.bubble && ref.bubble._icon) {
+        ref.bubble._icon.style.opacity = '0.2';
+      }
+      if (schoolMarkers[sid] && schoolMarkers[sid]._icon) {
+        schoolMarkers[sid]._icon.style.opacity = '0.25';
+      }
+    }
+  });
+  // Highlight matching dumbbell row
+  var rows = document.querySelectorAll('.dumbbell-row');
+  rows.forEach(function(row) {
+    if (row.getAttribute('data-school') === schoolId) {
+      row.style.opacity = '1';
+      row.style.transform = 'scale(1.03)';
+      row.style.transformOrigin = 'left center';
+    } else {
+      row.style.opacity = '0.25';
+    }
+  });
+}
+
+function resetHighlight() {
+  lastResults.forEach(function(r) {
+    var sid = r.school.id;
+    var ref = routeBySchool[sid];
+    if (!ref) return;
+    ref.line.setStyle({ weight: 3, opacity: 0.5 });
+    if (ref.bubble && ref.bubble._icon) {
+      ref.bubble._icon.style.opacity = '1';
+      ref.bubble._icon.style.filter = '';
+      ref.bubble.setZIndexOffset(800 - r.rank);
+    }
+    if (schoolMarkers[sid] && schoolMarkers[sid]._icon) {
+      schoolMarkers[sid]._icon.style.opacity = '1';
+      schoolMarkers[sid]._icon.style.filter = '';
+      schoolMarkers[sid].setZIndexOffset(1000);
+    }
+  });
+  var rows = document.querySelectorAll('.dumbbell-row');
+  rows.forEach(function(row) {
+    row.style.opacity = '1';
+    row.style.transform = '';
+  });
+}
+
+function loadAllRoutes() {
+  var loader = document.getElementById('loader');
+  loader.classList.remove('hide');
+
+  routeLayers.forEach(function(l) { map.removeLayer(l); });
+  routeLayers = [];
+  routeBySchool = {};
+
+  if (destMarker) map.removeLayer(destMarker);
+  destMarker = L.marker([activeDest.lat, activeDest.lng], {
+    icon: makeLabel(activeDest.name, '#182B55'),
+    zIndexOffset: 900
+  }).addTo(map);
+
+  var destData = COMMUTE_DATA[activeDest.id];
+
+  var results = [];
+  var promises = schools.map(function(s) {
+    return fetchRoute(s.lat, s.lng, activeDest.lat, activeDest.lng).then(function(route) {
+      var times = destData[s.id];
+      if (route && times) {
+        results.push({ school: s, route: route, times: times });
+      }
+    });
+  });
+
+  Promise.all(promises).then(function() {
+    results.sort(function(a, b) { return a.times.am[0] - b.times.am[0]; });
+
+    results.forEach(function(r, i) {
+      r.color = timeToColor(r.times.am[0]);
+      r.rank = i;
+    });
+
+    lastResults = results;
+
+    for (var i = results.length - 1; i >= 0; i--) {
+      var r = results[i];
+      var line = L.geoJSON(r.route.geometry, {
+        style: { color: r.color, weight: 3, opacity: 0.5 }
+      }).addTo(map);
+      routeLayers.push(line);
+
+      var coords = r.route.geometry.coordinates;
+      var midIdx = Math.floor(coords.length * (0.35 + i * 0.1));
+      var mid = coords[Math.min(midIdx, coords.length - 1)];
+      var bubbleText = r.times.am[0] + '\u2013' + r.times.am[1] + ' min';
+      var bubble = L.marker([mid[1], mid[0]], {
+        icon: makeTimeBubble(bubbleText, r.color),
+        zIndexOffset: 800 - i
+      }).addTo(map);
+      routeLayers.push(bubble);
+
+      routeBySchool[r.school.id] = { line: line, bubble: bubble, result: r };
+    }
+
+    results.forEach(function(r) {
+      if (schoolMarkers[r.school.id]) {
+        schoolMarkers[r.school.id].setIcon(makeLabel(r.school.name, r.color, LABEL_ANCHORS[r.school.id]));
+      }
+    });
+
+    // Wire hover on school markers
+    results.forEach(function(r) {
+      var marker = schoolMarkers[r.school.id];
+      if (marker) {
+        marker.off('mouseover').off('mouseout');
+        marker.on('mouseover', function() { highlightSchool(r.school.id); });
+        marker.on('mouseout', function() { resetHighlight(); });
+      }
+    });
+
+    var allCoords = [];
+    results.forEach(function(r) {
+      r.route.geometry.coordinates.forEach(function(c) { allCoords.push([c[1], c[0]]); });
+    });
+    if (allCoords.length > 0) {
+      map.fitBounds(L.latLngBounds(allCoords).pad(0.08));
+    }
+
+    loader.classList.add('hide');
+    buildChart(results);
+  });
+}
+
+// Gradient: rich green biased, transitioning to warm amber at the high end
+function gradientColorAt(t) {
+  var stops = [
+    { t: 0,    rgb: [30, 120, 30] },
+    { t: 0.45, rgb: [60, 130, 40] },
+    { t: 0.6,  rgb: [100, 140, 40] },
+    { t: 0.75, rgb: [150, 150, 30] },
+    { t: 0.88, rgb: [190, 150, 20] },
+    { t: 1,    rgb: [210, 160, 0] }
+  ];
+  if (t <= 0) return 'rgb(30,120,30)';
+  if (t >= 1) return 'rgb(210,160,0)';
+  var i = 0;
+  for (var j = 0; j < stops.length - 1; j++) {
+    if (t >= stops[j].t && t <= stops[j+1].t) { i = j; break; }
+  }
+  var f = (t - stops[i].t) / (stops[i+1].t - stops[i].t);
+  var r = Math.round(stops[i].rgb[0] + f * (stops[i+1].rgb[0] - stops[i].rgb[0]));
+  var g = Math.round(stops[i].rgb[1] + f * (stops[i+1].rgb[1] - stops[i].rgb[1]));
+  var b = Math.round(stops[i].rgb[2] + f * (stops[i+1].rgb[2] - stops[i].rgb[2]));
+  return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+
+function buildChart(results) {
+  // Dynamic max: round up to nearest 20 above the highest value
+  var dataMax = 0;
+  results.forEach(function(r) { if (r.times.am[1] > dataMax) dataMax = r.times.am[1]; });
+  var maxTime = Math.ceil(dataMax / 20) * 20;
+
+  // Update scale labels
+  var scaleEl = document.getElementById('chartScale');
+  var labels = [];
+  for (var s = 0; s <= maxTime; s += 20) {
+    labels.push('<span>' + s + (s === maxTime ? ' min' : '') + '</span>');
+  }
+  scaleEl.innerHTML = labels.join('');
+
+  var el = document.getElementById('chart');
+  document.getElementById('chartTitle').textContent =
+    'Morning Commute: School \u2192 ' + activeDest.name;
+
+  el.innerHTML = results.map(function(r) {
+    var low = r.times.am[0];
+    var high = r.times.am[1];
+    var lowPct = (low / maxTime) * 100;
+    var highPct = (high / maxTime) * 100;
+    var colLow = gradientColorAt(low / maxTime);
+    var colHigh = gradientColorAt(high / maxTime);
+    return '<div class="dumbbell-row" data-school="' + r.school.id + '">' +
+      '<span class="dumbbell-label">' + r.school.name + '</span>' +
+      '<div class="dumbbell-track">' +
+        '<div class="dumbbell-axis"></div>' +
+        '<div class="dumbbell-line" style="left:' + lowPct + '%;width:' + (highPct - lowPct) + '%;background:linear-gradient(to right, ' + colLow + ', ' + colHigh + ');opacity:0.5;"></div>' +
+        '<div class="dumbbell-dot dumbbell-dot-low" style="left:' + lowPct + '%;background:' + colLow + ';"></div>' +
+        '<div class="dumbbell-dot dumbbell-dot-high" style="left:' + highPct + '%;background:' + colHigh + ';"></div>' +
+        '<div class="dumbbell-val" style="left:' + lowPct + '%;top:-2px;">' + low + '</div>' +
+        '<div class="dumbbell-val dumbbell-val-high" style="left:' + highPct + '%;top:-2px;">' + high + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  // Wire hover on chart rows too (bidirectional)
+  var rows = document.querySelectorAll('.dumbbell-row');
+  rows.forEach(function(row) {
+    row.style.cursor = 'pointer';
+    row.addEventListener('mouseenter', function() {
+      highlightSchool(row.getAttribute('data-school'));
+    });
+    row.addEventListener('mouseleave', function() {
+      resetHighlight();
+    });
+  });
+}
+
+// ── Init ─────────────────────────────────────────────────────────────
+loadAllRoutes();
+</script>
+
+</body>
+</html>
