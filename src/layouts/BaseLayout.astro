@@ -57,12 +57,9 @@ const breadcrumbNames: Record<string, string> = {
 };
 
 // Build breadcrumb items from URL path
-const pathSegments = (canonicalUrl || Astro.url.pathname)
-  .replace(/^\/, '')
-  .replace(/^\//, '')
-  .replace(/\/$/, '')
-  .split('/')
-  .filter(Boolean);
+const rawPath = canonicalUrl || Astro.url.pathname;
+const cleanPath = rawPath.replace(/^\/+/, '').replace(/\/+$/, '');
+const pathSegments = cleanPath ? cleanPath.split('/') : [];
 
 const breadcrumbItems = [
   { name: 'Home', url: `${siteUrl}/` }
