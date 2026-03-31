@@ -58,7 +58,7 @@ const breadcrumbNames: Record<string, string> = {
 
 // Build breadcrumb items from URL path
 const pathSegments = (canonicalUrl || Astro.url.pathname)
-  .replace(/^\/isj-website-v4/, '')
+  .replace(/^\/, '')
   .replace(/^\//, '')
   .replace(/\/$/, '')
   .split('/')
