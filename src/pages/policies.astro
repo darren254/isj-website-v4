@@ -8,32 +8,31 @@ const policyGroups = [
   {
     category: 'Safeguarding and Welfare',
     policies: [
-      { name: 'Child Protection and Safeguarding Policy', slug: 'safeguarding', reviewed: '2025' },
-      { name: 'Behaviour Policy', slug: 'behaviour', reviewed: '2025' },
-      { name: 'Missing Child Policy', slug: 'missing-child', reviewed: '2025' },
-      { name: 'Supervision of Pupils Policy', slug: 'supervision', reviewed: '2025' },
-      { name: 'Online Safety and Acceptable Use Policy', slug: 'online-safety', reviewed: '2025' },
-      { name: 'Campus Access and Security Policy', slug: 'campus-security', reviewed: '2025' },
-      { name: 'Fire Safety and Lockdown Procedures', slug: 'fire-safety', reviewed: '2025' },
+      { name: 'Child Protection and Safeguarding Policy', href: '/policies/safeguarding', reviewed: '2025' },
+      { name: 'Behaviour Policy', href: '/policies/behaviour', reviewed: '2025' },
+      { name: 'Missing Child Policy', href: '/policies/missing-child', reviewed: '2025' },
+      { name: 'Online Safety and Acceptable Use Policy', href: '/policies/online-safety', reviewed: '2025' },
+      { name: 'Campus Access and Security Policy', href: '/policies/campus-security', reviewed: '2025' },
+      { name: 'Fire Safety and Lockdown Procedures', href: '/policies/fire-safety', reviewed: '2025' },
     ],
   },
   {
     category: 'Academic',
     policies: [
-      { name: 'SEND Policy', slug: 'send', reviewed: '2025' },
-      { name: 'EAL Policy', slug: 'eal', reviewed: '2025' },
-      { name: 'Attendance and Punctuality Policy', slug: 'attendance', reviewed: '2025' },
+      { name: 'SEND Policy', href: '/policies/send', reviewed: '2025' },
+      { name: 'EAL Policy', href: '/policies/eal', reviewed: '2025' },
+      { name: 'Attendance and Punctuality Policy', href: '/policies/attendance', reviewed: '2025' },
     ],
   },
   {
     category: 'Admissions and Operations',
     policies: [
-      { name: 'Admissions Policy', slug: 'admissions', reviewed: '2025' },
-      { name: 'Complaints Policy', slug: 'complaints', reviewed: '2025' },
-      { name: 'Health and Safety Policy', slug: 'health-and-safety', reviewed: '2025' },
-      { name: 'First Aid and Medical Needs Policy', slug: 'first-aid', reviewed: '2025' },
-      { name: 'Educational Visits and Trips Policy', slug: 'educational-visits', reviewed: '2025' },
-      { name: 'Data Protection and Privacy Policy', slug: 'data-protection', reviewed: '2025' },
+      { name: 'Admissions Terms and Conditions', href: '/admissions/terms-and-conditions', reviewed: '2025' },
+      { name: 'Complaints Policy', href: '/policies/complaints', reviewed: '2025' },
+      { name: 'Health and Safety Policy', href: '/policies/health-and-safety', reviewed: '2025' },
+      { name: 'First Aid and Medical Needs Policy', href: '/policies/first-aid', reviewed: '2025' },
+      { name: 'Educational Visits and Trips Policy', href: '/policies/educational-visits', reviewed: '2025' },
+      { name: 'Data Protection and Privacy Policy', href: '/policies/data-protection', reviewed: '2025' },
     ],
   },
 ];
@@ -59,7 +58,7 @@ const policyGroups = [
             <div class="divide-y divide-navy/8">
               {group.policies.map((policy) => (
                 <a
-                  href={link(`/policies/${policy.slug}`)}
+                  href={link(policy.href)}
                   class="flex items-baseline justify-between gap-4 py-4 group transition-colors duration-[var(--transition-base)]"
                 >
                   <span class="text-[length:var(--text-base)] text-navy group-hover:text-navy-light transition-colors duration-[var(--transition-base)]">
