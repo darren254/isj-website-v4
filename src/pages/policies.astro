@@ -2,37 +2,36 @@
 import { asset } from '../utils/paths';
 const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionIntro from '../components/SectionIntro.astro';
 
 const policyGroups = [
   {
     category: 'Safeguarding and Welfare',
     policies: [
-      { name: 'Child Protection and Safeguarding Policy', href: '/policies/safeguarding', reviewed: '2025' },
-      { name: 'Behaviour Policy', href: '/policies/behaviour', reviewed: '2025' },
-      { name: 'Missing Child Policy', href: '/policies/missing-child', reviewed: '2025' },
-      { name: 'Online Safety and Acceptable Use Policy', href: '/policies/online-safety', reviewed: '2025' },
-      { name: 'Campus Access and Security Policy', href: '/policies/campus-security', reviewed: '2025' },
-      { name: 'Fire Safety and Lockdown Procedures', href: '/policies/fire-safety', reviewed: '2025' },
+      { name: 'Child Protection and Safeguarding Policy', href: '/policies/safeguarding' },
+      { name: 'Behaviour Policy', href: '/policies/behaviour' },
+      { name: 'Missing Child Policy', href: '/policies/missing-child' },
+      { name: 'Online Safety and Acceptable Use Policy', href: '/policies/online-safety' },
+      { name: 'Campus Access and Security Policy', href: '/policies/campus-security' },
+      { name: 'Fire Safety and Lockdown Procedures', href: '/policies/fire-safety' },
     ],
   },
   {
     category: 'Academic',
     policies: [
-      { name: 'SEND Policy', href: '/policies/send', reviewed: '2025' },
-      { name: 'EAL Policy', href: '/policies/eal', reviewed: '2025' },
-      { name: 'Attendance and Punctuality Policy', href: '/policies/attendance', reviewed: '2025' },
+      { name: 'SEND Policy', href: '/policies/send' },
+      { name: 'EAL Policy', href: '/policies/eal' },
+      { name: 'Attendance and Punctuality Policy', href: '/policies/attendance' },
     ],
   },
   {
     category: 'Admissions and Operations',
     policies: [
-      { name: 'Admissions Terms and Conditions', href: '/admissions/terms-and-conditions', reviewed: '2025' },
-      { name: 'Complaints Policy', href: '/policies/complaints', reviewed: '2025' },
-      { name: 'Health and Safety Policy', href: '/policies/health-and-safety', reviewed: '2025' },
-      { name: 'First Aid and Medical Needs Policy', href: '/policies/first-aid', reviewed: '2025' },
-      { name: 'Educational Visits and Trips Policy', href: '/policies/educational-visits', reviewed: '2025' },
-      { name: 'Data Protection and Privacy Policy', href: '/policies/data-protection', reviewed: '2025' },
+      { name: 'Admissions Terms and Conditions', href: '/admissions/terms-and-conditions' },
+      { name: 'Complaints Policy', href: '/policies/complaints' },
+      { name: 'Health and Safety Policy', href: '/policies/health-and-safety' },
+      { name: 'First Aid and Medical Needs Policy', href: '/policies/first-aid' },
+      { name: 'Educational Visits and Trips Policy', href: '/policies/educational-visits' },
+      { name: 'Data Protection and Privacy Policy', href: '/policies/data-protection' },
     ],
   },
 ];
@@ -44,37 +43,34 @@ const policyGroups = [
   canonicalUrl="/policies"
 >
 
-  <section class="pt-32 lg:pt-40 section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
+  <section class="pt-32 lg:pt-40 pb-20 lg:pb-28 px-6">
+    <div class="mx-auto max-w-[640px]">
 
-      <SectionIntro headingLevel="h1" label="Governance" heading="School Policies">
-        <p>ISJ publishes key policies for the school community.</p>
-      </SectionIntro>
+      <!-- Title — centered, Aman style -->
+      <div class="text-center mb-10">
+        <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">School Policies</h1>
+      </div>
+      <p class="text-center text-[15px] text-charcoal-muted mb-20">ISJ publishes key policies for the school community.</p>
 
-      <div class="mt-16 space-y-14">
+      <!-- Policy groups -->
+      <div class="space-y-16">
         {policyGroups.map((group) => (
           <div>
-            <h2 class="label mb-6">{group.category}</h2>
-            <div class="divide-y divide-navy/8">
+            <h2 class="text-[13px] font-semibold tracking-[0.08em] uppercase text-charcoal-muted mb-8" style="font-family: var(--font-body);">{group.category}</h2>
+            <div class="space-y-0">
               {group.policies.map((policy) => (
                 <a
                   href={link(policy.href)}
-                  class="flex items-baseline justify-between gap-4 py-4 group transition-colors duration-[var(--transition-base)]"
+                  class="block py-3 text-[15px] text-navy hover:text-navy-light transition-colors duration-[var(--transition-base)] border-b border-navy/[0.04] last:border-0"
+                  style="font-family: var(--font-body);"
                 >
-                  <span class="text-[length:var(--text-base)] text-navy group-hover:text-navy-light transition-colors duration-[var(--transition-base)]">
-                    {policy.name}
-                  </span>
-                  <span class="text-[length:var(--text-xs)] text-charcoal-muted whitespace-nowrap shrink-0">
-                    {policy.reviewed}
-                  </span>
+                  {policy.name}
                 </a>
               ))}
             </div>
           </div>
         ))}
       </div>
-
-
 
     </div>
   </section>
