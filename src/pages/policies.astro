@@ -1,16 +1,91 @@
 ---
+import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionIntro from '../components/SectionIntro.astro';
+
+const policyGroups = [
+  {
+    category: 'Safeguarding and Welfare',
+    policies: [
+      { name: 'Child Protection and Safeguarding Policy', slug: 'safeguarding', reviewed: '2025' },
+      { name: 'Behaviour Policy', slug: 'behaviour', reviewed: '2025' },
+      { name: 'Missing Child Policy', slug: 'missing-child', reviewed: '2025' },
+      { name: 'Supervision of Pupils Policy', slug: 'supervision', reviewed: '2025' },
+      { name: 'Online Safety and Acceptable Use Policy', slug: 'online-safety', reviewed: '2025' },
+      { name: 'Campus Access and Security Policy', slug: 'campus-security', reviewed: '2025' },
+      { name: 'Fire Safety and Lockdown Procedures', slug: 'fire-safety', reviewed: '2025' },
+    ],
+  },
+  {
+    category: 'Academic',
+    policies: [
+      { name: 'SEND Policy', slug: 'send', reviewed: '2025' },
+      { name: 'EAL Policy', slug: 'eal', reviewed: '2025' },
+      { name: 'Attendance and Punctuality Policy', slug: 'attendance', reviewed: '2025' },
+    ],
+  },
+  {
+    category: 'Admissions and Operations',
+    policies: [
+      { name: 'Admissions Policy', slug: 'admissions', reviewed: '2025' },
+      { name: 'Complaints Policy', slug: 'complaints', reviewed: '2025' },
+      { name: 'Health and Safety Policy', slug: 'health-and-safety', reviewed: '2025' },
+      { name: 'First Aid and Medical Needs Policy', slug: 'first-aid', reviewed: '2025' },
+      { name: 'Educational Visits and Trips Policy', slug: 'educational-visits', reviewed: '2025' },
+      { name: 'Data Protection and Privacy Policy', slug: 'data-protection', reviewed: '2025' },
+    ],
+  },
+];
 ---
 
 <BaseLayout
   title="School Policies | ISJ Jakarta"
-  description="Access school policies for The Independent School of Jakarta, including safeguarding, behaviour, and admissions policies."
+  description="School policies for The International School of Jakarta. Safeguarding, admissions, behaviour, health and safety, and more."
   canonicalUrl="/policies"
 >
+
   <section class="pt-32 lg:pt-40 section-pad px-6">
-    <SectionIntro headingLevel="h1" label="Resources" heading="School Policies">
-      <p>School policies are available on request from the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a>.</p>
-    </SectionIntro>
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+
+      <SectionIntro headingLevel="h1" label="Governance" heading="School Policies">
+        <p>ISJ publishes key policies for the school community. All policies are reviewed annually by the Senior Leadership Team.</p>
+      </SectionIntro>
+
+      <div class="mt-16 space-y-14">
+        {policyGroups.map((group) => (
+          <div>
+            <h2 class="label mb-6">{group.category}</h2>
+            <div class="divide-y divide-navy/8">
+              {group.policies.map((policy) => (
+                <a
+                  href={link(`/policies/${policy.slug}`)}
+                  class="flex items-baseline justify-between gap-4 py-4 group transition-colors duration-[var(--transition-base)]"
+                >
+                  <span class="text-[length:var(--text-base)] text-navy group-hover:text-navy-light transition-colors duration-[var(--transition-base)]">
+                    {policy.name}
+                  </span>
+                  <span class="text-[length:var(--text-xs)] text-charcoal-muted whitespace-nowrap shrink-0">
+                    {policy.reviewed}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Cross-links -->
+      <div class="mt-16 pt-8 border-t border-navy/8">
+        <p class="text-[length:var(--text-sm)] text-charcoal-muted">
+          See also: <a href={link('/privacy')} class="whisper-link">Privacy Policy</a>,
+          <a href={link('/terms')} class="whisper-link">Terms of Use</a>,
+          <a href={link('/cookies')} class="whisper-link">Cookie Policy</a>, and
+          <a href={link('/admissions/terms-and-conditions')} class="whisper-link">Admissions Terms and Conditions</a>.
+        </p>
+      </div>
+
+    </div>
   </section>
+
 </BaseLayout>

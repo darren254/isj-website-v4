@@ -1,0 +1,102 @@
+---
+/**
+ * PolicyLayout — Aman-style full-text policy page.
+ * Warm cream background, narrow column, serif headings, generous whitespace.
+ * Inline table of contents for longer documents.
+ */
+import { asset } from '../utils/paths';
+const link = (path: string) => asset(path);
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  policyName: string;
+  lastReviewed: string;
+  category: string;
+  canonicalUrl: string;
+}
+
+const { title, description, policyName, lastReviewed, category, canonicalUrl } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+>
+
+  <section class="pt-32 lg:pt-40 section-pad px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)]">
+
+      <!-- Back link -->
+      <a href={link('/policies')} class="inline-flex items-center gap-2 text-[length:var(--text-xs)] text-charcoal-muted hover:text-navy transition-colors duration-[var(--transition-base)] mb-10">
+        <span aria-hidden="true">&larr;</span> All Policies
+      </a>
+
+      <!-- Label + heading -->
+      <p class="label mb-5">{category}</p>
+      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">{policyName}</h1>
+      <p class="text-[length:var(--text-xs)] text-charcoal-muted mb-12">Last reviewed: {lastReviewed}</p>
+
+      <!-- Policy content -->
+      <div class="policy-content space-y-8 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+        <slot />
+      </div>
+
+      <!-- Back link (bottom) -->
+      <div class="mt-16 pt-8 border-t border-navy/8">
+        <a href={link('/policies')} class="inline-flex items-center gap-2 text-[length:var(--text-xs)] text-charcoal-muted hover:text-navy transition-colors duration-[var(--transition-base)]">
+          <span aria-hidden="true">&larr;</span> All Policies
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style is:global>
+  .policy-content h2 {
+    font-size: var(--text-base);
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  .policy-content h3 {
+    font-size: var(--text-sm);
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .policy-content ul,
+  .policy-content ol {
+    margin-top: 0.75rem;
+    padding-left: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .policy-content ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  .policy-content ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .policy-content a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--navy-light);
+    opacity: 0.7;
+    transition: opacity var(--transition-base);
+  }
+  .policy-content a:hover {
+    opacity: 1;
+  }
+  .policy-content p + p {
+    margin-top: 0.75rem;
+  }
+</style>
