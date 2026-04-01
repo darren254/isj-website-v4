@@ -43,10 +43,11 @@ const aspectClass = {
     will-change: transform;
   }
   .slow-zoom {
-    transition: transform 15s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform: scale(1.0);
+    transition: transform 8s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .slow-zoom.zooming {
-    transform: scale(1.08);
+    transform: scale(1.12);
   }
 </style>
 
@@ -67,7 +68,9 @@ const aspectClass = {
         var progress = (viewH - rect.top) / (viewH + rect.height);
         var shift = (progress - 0.5) * -5;
         var isZooming = img.classList.contains('zooming');
-        img.style.transform = 'translateY(' + shift + '%)' + (isZooming ? ' scale(1.08)' : '');
+        if (!img.classList.contains('slow-zoom')) {
+          img.style.transform = 'translateY(' + shift + '%)';
+        }
       }
     }, { passive: true });
 
@@ -78,7 +81,7 @@ const aspectClass = {
           entries[i].target.classList.add('zooming');
         }
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0.05 });
 
     var zoomEls = document.querySelectorAll('.slow-zoom');
     for (var i = 0; i < zoomEls.length; i++) {
