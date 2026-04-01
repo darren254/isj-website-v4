@@ -46,7 +46,47 @@ Running list of tasks, ideas, and open questions. Updated each session.
 - [x] ~~Behaviour Expectations page~~ — not needed. The Behaviour Policy covers this. No duplication.
 - [x] ~~Fees page current schedule~~ — not needed this year (already term 3). Update with new fees for next academic year.
 
+## Content Roadmap (inspired by Downside audit)
+
+Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ has 79. The gap is content volume and publishing frequency. See `/home/user/workspace/downside-audit.md` for the full analysis.
+
+### Phase 1: Low-hanging fruit
+
+- [ ] **Weekly news/event articles** — every school event, trip, concert, sports day, assembly becomes a page. 200+ words with photos. Target: 1 per week minimum. Each is a unique indexed URL building topical authority.
+- [ ] **Targeted landing pages** (Downside military-families model):
+  - [ ] `/expat-families/` — relocating expat families, visa info, settling in, ISJ support
+  - [ ] University preparation page — UCAS, Common App, QTAC, direct applications
+  - [ ] Boarding pathways — expand from existing news article to standalone page
+- [ ] **Flat URL structure for news** — consider whether news articles should be at root level (`/prize-day-2025/`) vs nested (`/news/prize-day-2025/`). Downside puts everything at root for PageRank distribution.
+
+### Phase 2: Content engine (ongoing)
+
+- [ ] **Publishing cadence: 2-3 new pages per month minimum**
+- [ ] **Expand Jakarta life content** — more articles like the existing 5 (cost of living, healthcare, things to do, expat contacts, commute). Ideas:
+  - Best neighbourhoods for expat families
+  - Weekend trips from Jakarta with kids
+  - Navigating the Indonesian school system as an expat
+  - International school fees comparison guide (without naming competitors directly)
+  - Moving to Jakarta checklist
+- [ ] **Student/parent voice content** — testimonials, day-in-the-life features, parent Q&As. Each as its own page.
+- [ ] **Seasonal content** — term dates announcements, end-of-term round-ups, results day coverage (when GCSEs/A-Levels start)
+
+### Phase 3: Structural page expansion
+
+- [ ] **Individual activity pages** — swimming programme, football, athletics, house system, each as its own page (Downside has 15+ individual sport pages)
+- [ ] **Parent resources section** — school uniform guide, daily routines, lunch info, term dates detail. Functional pages parents actually use.
+- [ ] **Alumni/destinations section** — as Senior School grows, university destinations and alumni stories. Each destination or story as its own page.
+- [ ] **Subject pages for Senior School** — individual pages for each GCSE and A-Level subject offered
+
+### Content quality rules
+
+- Each new page: 300+ words minimum until base is larger
+- Every page needs: title tag, meta description, canonical, OG tags, internal links to 2-3 related pages
+- Photos on every news/event page
+- No thin pages just for volume
+
 ## SEO / Technical
 
 - [ ] **Canonical URLs** — policy pages use `/policies/[slug]` canonicals. Verify these are being indexed correctly after deploy.
 - [ ] **Internal linking** — add links from relevant pages (e.g. admissions pages) to the policies index.
+- [ ] **Homepage meta title** — consider Downside's approach: "An Independent School Near Bath" directly targets the generic query. ISJ equivalent could incorporate "British International School Jakarta" or similar.
