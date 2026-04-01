@@ -43,8 +43,8 @@ Running list of tasks, ideas, and open questions. Updated each session.
 
 ## Content
 
-- [ ] **Behaviour Expectations page** — exists on old isj.id as parent-facing summary. Consider incorporating into v4 Character & Values page or as standalone.
-- [ ] **Fees page on v4** — needs updating with current fee schedule from isj.id. The old site has 2025-26 and 2026-27 columns.
+- [x] ~~Behaviour Expectations page~~ — not needed. The Behaviour Policy covers this. No duplication.
+- [x] ~~Fees page current schedule~~ — not needed this year (already term 3). Update with new fees for next academic year.
 
 ## SEO / Technical
 
