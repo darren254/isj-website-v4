@@ -86,6 +86,50 @@ Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ 
 - Photos on every news/event page
 - No thin pages just for volume
 
+## Newsletter Content Mining (177 newsletters, Sept 2021 - March 2026)
+
+All newsletter text and images accessible via Mailchimp API. Content stored at `/home/user/workspace/newsletter-content/`.
+
+Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1, 6s = Year 2, 7s = Year 3, 8s = Year 4. Always use current terminology (Pre-Nursery, Nursery, Reception, Year 1, etc.) in any repurposed content.
+
+### 1. News/event archive pages
+- [ ] **Plan before executing** - catalogue all major events across 177 newsletters (International Week, Harvest Festival, Sports Day, World Book Day, British Science Week, Michaelmas Fair, etc.)
+- [ ] Decide which events become standalone website pages
+- [ ] Decide format, template, level of detail
+- [ ] Build pages one at a time
+
+### 3. Year group page enrichment
+- [ ] **Build a content library** - extract the best "News from the [year group]" sections across all 177 newsletters
+- [ ] Organise by year group and topic (science, art, English, maths, PE, trips, etc.)
+- [ ] Review and select content to enrich Pre-Prep and Prep School pages with real classroom examples
+
+### 4. Parent testimonial mining
+- [ ] **Extract parent quotes and feedback** from Academic Director messages and any other sources
+- [ ] Add to parent quotes resource for use across the site
+
+### 5. Curriculum in action evidence
+- [ ] **Plan a "curriculum in practice" content approach** - how to show real weekly examples of teaching
+- [ ] Could be a section within year group pages, or standalone Insights articles
+- [ ] Needs careful planning before execution
+
+### 7. Staff voice and personality
+- [ ] **Plan approach** - extract teacher-written sections that show personality and teaching style
+- [ ] Determine how to use on site (quotes on Our People page? Within year group pages?)
+- [ ] Must respect Jakarta security rules (no images, careful with full names)
+
+### 8. Longitudinal storytelling
+- [ ] **Track school growth across 4 years** through newsletters - pupil numbers, new programmes, new staff, new year groups, new facilities
+- [ ] Build a "The ISJ Story" or timeline page showing genuine development
+
+### 9. SEO long-tail content
+- [ ] **Identify unique activities and topics** from newsletters that could become pages
+- [ ] International week country studies, specific art/science projects, cultural activities
+- [ ] Each targets long-tail search queries no competitor has
+
+### 12. Email-to-blog pipeline (going forward)
+- [ ] **Set up a process** where each weekly newsletter's best content also becomes a website page
+- [ ] The school already produces this content weekly - just needs dual publishing
+
 ## SEO / Technical
 
 - [ ] **Canonical URLs** — policy pages use `/policies/[slug]` canonicals. Verify these are being indexed correctly after deploy.
