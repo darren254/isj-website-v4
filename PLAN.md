@@ -118,6 +118,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [ ] **Move to Cloudflare Pages** — currently on GitHub Pages. Cloudflare gives Workers, preview deploys, `_redirects` file support.
 - [ ] **Cloudflare proxy switch** — currently DNS-only (grey cloud) for GitHub Pages SSL. Moving to Cloudflare Pages requires proxied (orange cloud).
 - [ ] **Form handling** — tour + contact forms are mailto fallback. Plan: Resend + Cloudflare Workers.
+- [ ] **Tour booking system** — add Calendly or similar for admissions tour scheduling. Embed on `/admissions/arrange-a-tour`. Fields and requirements to be provided by Tiffany.
 - [ ] **URL redirects** — implement 45 redirects from `URL_REDIRECT_MAP.xlsx`. On Cloudflare Pages this is a `_redirects` file.
 - [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id.
 - [ ] **Analytics** — Google Analytics 4 + Google Search Console. Set up before launch.
