@@ -233,6 +233,37 @@ Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ 
 
 ---
 
+## Connectors & Integrations
+
+### Connected (via Perplexity Computer)
+- **Gmail + Calendar** — email and calendar access
+- **Google Drive** — file export
+- **Google Sheets** — read/write spreadsheets
+- **Google Analytics (GA4)** — run reports, create events/properties
+- **GitHub** — full CLI access to repos
+- **Mailchimp** — campaigns, lists, subscribers, tags
+- **FireCrawl** — structured web data extraction
+
+### To connect (auth initiated)
+- [ ] **Google Search Console** — indexing status, search performance, keyword data. Pairs with GA4.
+- [ ] **Cloudflare** — manage DNS, deploy to Pages, set up Workers (forms), configure Access (staff portal). Removes manual login.
+- [ ] **Google Business Profile** — local SEO for ISJ. Not currently set up anywhere.
+- [ ] **Squarespace** — one-time audit of old site for any remaining content (news archive, images, blog posts) worth migrating.
+
+### Future (connect when ready to implement)
+- [ ] **Sanity** — CMS integration for news, insights, fees, testimonials
+- [ ] **Resend** — transactional email for tour/contact forms via Cloudflare Workers
+- [ ] **WhatsApp Business** — automate admissions enquiry responses beyond the floating button
+- [ ] **Ahrefs or DataForSEO** — keyword rank tracking, backlink monitoring, feeds content roadmap decisions
+
+---
+
+## Squarespace Content Audit
+
+- [ ] **Check old site for unmigrated content** — news archive, blog posts, event pages, images, parent testimonials, any SEO-indexed pages still receiving traffic. Pull anything worth keeping before the domain fully redirects.
+
+---
+
 ## Post-Launch
 
 - [ ] **Sanity CMS** — news, insights, fees, testimonials managed by school staff. Webhook triggers rebuild. Significant piece of work, scope separately.
