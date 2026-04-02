@@ -39,6 +39,7 @@ Running list of tasks, ideas, and open questions. Updated each session.
 
 - [ ] **Form handling** — contact + tour forms currently mailto: fallback. Plan: Resend + Cloudflare Workers for proper submission handling before launch.
 - [ ] **DNS fully on Cloudflare** — DONE (April 2026). Nameservers active, SSL working.
+- [ ] **Authenticate domain with Mailchimp** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id so emails send from the authenticated domain
 - [ ] **Cloudflare proxy decision** — currently DNS-only (grey cloud) for GitHub Pages SSL. If moving to Cloudflare Pages or adding Workers, will need to switch to proxied (orange cloud).
 
 ## Content
