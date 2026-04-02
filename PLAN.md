@@ -244,11 +244,11 @@ Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ 
 - **Mailchimp** — campaigns, lists, subscribers, tags
 - **FireCrawl** — structured web data extraction
 
-### To connect (auth initiated)
-- [ ] **Google Search Console** — indexing status, search performance, keyword data. Pairs with GA4.
-- [ ] **Cloudflare** — manage DNS, deploy to Pages, set up Workers (forms), configure Access (staff portal). Removes manual login.
-- [ ] **Google Business Profile** — local SEO for ISJ. Not currently set up anywhere.
-- [ ] **Squarespace** — one-time audit of old site for any remaining content (news archive, images, blog posts) worth migrating.
+### Recently connected
+- **Google Search Console** — indexing status, search performance, keyword data. Connected 2 April 2026.
+- **Cloudflare** — DNS records, cache, SSL, zones, KV storage. Connected 2 April 2026.
+- **Google Business Profile** — reviews, posts, replies. Connected 2 April 2026. Needs account/location IDs to query.
+- **Squarespace** — commerce API only. Content audit done via sitemap + Search Console (2 April 2026).
 
 ### Future (connect when ready to implement)
 - [ ] **Sanity** — CMS integration for news, insights, fees, testimonials
@@ -260,16 +260,99 @@ Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ 
 
 ## Squarespace Content Audit
 
-- [ ] **Check old site for unmigrated content** — news archive, blog posts, event pages, images, parent testimonials, any SEO-indexed pages still receiving traffic. Pull anything worth keeping before the domain fully redirects.
+Audit completed 2 April 2026. Search Console data (Jan–Apr 2026) cross-referenced against v4 pages. 18 pages with active traffic have no v4 equivalent (812 clicks, 86.6K impressions at risk).
+
+### High-traffic insights to migrate
+
+These pages are doing real SEO work on isj.id and need v4 equivalents or proper redirects before launch.
+
+| Squarespace URL | Clicks (90d) | Impressions | Action |
+|---|---:|---:|---|
+| `/insights/expats-guide-to-international-schools-in-jakarta` | 269 | 39,703 | Migrate — cornerstone content |
+| `/insights/things-to-do-with-kids-in-jakarta-2026` | 156 | 6,432 | Migrate |
+| `/insights/ultimate-guide-to-jakartas-neighbourhoods-and-international-schools` | 70 | 10,514 | Migrate |
+| `/insights/35-things-to-do-with-kids-in-south-jakarta` | 62 | 3,732 | Migrate |
+| `/insights/jakartas-premier-international-schools` | 38 | 2,873 | Migrate |
+
+- [ ] **Full 301 redirect audit** — cross-check every Squarespace sitemap URL and every URL with Search Console traffic against the redirect map. The current `URL_REDIRECT_MAP.xlsx` has 45 entries but the Squarespace sitemap has 80+ URLs and Search Console shows traffic to pages not in the sitemap (e.g. `/insights/35-things-to-do-with-kids-in-south-jakarta`, `/relocating-to-jakarta-with-children`, `/gl-assessments-explained`). No page with traffic should 404 after launch.
+
+### Unique content pages — review for repurposing
+
+Pulled from Squarespace. Review at a later date to decide what to keep, rewrite, or redirect.
+
+- [ ] `/jakarta-international-schools-comparison-tool` — 21 clicks, 2.7K impressions. Interactive comparison tool.
+- [ ] `/the-school-charter` — school values/charter document
+- [ ] `/stayandplay` — Stay and Play programme page
+- [ ] `/in-the-news` — press/media coverage page
+- [ ] `/relocating-to-jakarta-with-children` — 5 clicks (not even in Squarespace sitemap but getting traffic)
+- [ ] `/gl-assessments-explained` — assessment explainer, 2 clicks
+- [ ] `/commute-times` — commute data page
+- [ ] `/leading-british-school-jakarta` — 2 clicks, 267 impressions
+- [ ] `/curriculum-guide-teaching-learning` — 4 clicks, 481 impressions
+- [ ] `/curriculum-guide-introduction` — 2 clicks, 229 impressions
+
+### Squarespace insights to add to v4
+
+These articles exist on Squarespace but have no v4 equivalent. Low or no traffic currently but add to indexed page count.
+
+- [ ] `/insights/small-class-sizes-when-they-matter-and-when-they-dont`
+- [ ] `/insights/the-hidden-science-of-exceptional-teaching`
+- [ ] `/insights/academic-excellence-measuring-and-achieving-success-at-isj`
+- [ ] `/insights/lunch-british-international-school-jakarta`
+- [ ] `/insights/ai-in-schools-and-critical-thinking`
+- [ ] `/insights/international-school-governance` — 2 clicks, 177 impressions
+- [ ] `/insights/choir-and-music-programme-the-independent-school-of-jakarta`
+- [ ] `/insights/jakartas-leading-british-school`
+
+Action: pull content from Squarespace, review quality, rebuild as v4 insights articles where content is worth keeping.
+
+### Squarespace news articles to migrate
+
+These news articles are on Squarespace but not in the v4 news section. Add to v4.
+
+- [ ] `/school-news/halloween-disco`
+- [ ] `/school-news/batik-day`
+- [ ] `/school-news/early-years-end-of-year-celebration`
+- [ ] `/school-news/reading-and-phonics-workshop`
+- [ ] `/school-news/our-annual-art-exhibition`
+- [ ] `/school-news/education-excitement-and-exploration`
+- [ ] `/school-news/lunar-new-year`
+- [ ] `/school-news/character-building-in-the-digital-era`
 
 ---
 
 ## Post-Launch
 
 - [ ] **Sanity CMS** — news, insights, fees, testimonials managed by school staff. Webhook triggers rebuild. Significant piece of work, scope separately.
-- [ ] **Bahasa Indonesia** — fast-follow after English launch (Decision #6).
 - [ ] **Image refresh** — more photography as school grows, especially Senior School.
 - [ ] **A/B testing** — CTA copy, hero images, form placement.
+
+---
+
+## Language Pages
+
+Squarespace has 9 language-specific landing pages targeting parents searching in their native language. The Bahasa Indonesia page alone has 81 clicks and 15.7K impressions in 90 days. Decision #6 says Bahasa is a fast-follow after English launch, but these pages show there's demand across multiple languages.
+
+### Existing Squarespace language pages (with Search Console data where available)
+
+| Language | Squarespace URL | Clicks (90d) | Impressions |
+|---|---|---:|---:|
+| Bahasa Indonesia | `/bahasa-indonesia` | 81 | 15,657 |
+| Japanese | `/japanese` | 37 | 823 |
+| Chinese | `/chinese` | 31 | 1,370 |
+| Korean | `/korean` | 19 | 1,061 |
+| French | `/french` | 5 | 375 |
+| Italian | `/italian` | — | — |
+| Spanish | `/spanish` | — | — |
+| German | `/german` | — | — |
+| Dutch | `/dutch` | — | — |
+
+### Plan
+
+- [ ] **Bahasa Indonesia** — priority. Fast-follow after English launch (Decision #6). Full site translation or key pages (homepage, admissions, fees, tour).
+- [ ] **Japanese, Chinese, Korean** — the data shows real search demand. These don't need full translations, just targeted landing pages explaining ISJ in each language with a CTA to book a tour. Replicate the Squarespace approach but with v4 design.
+- [ ] **European languages (French, Italian, Spanish, German, Dutch)** — lower priority. Minimal traffic. Consider adding only if there's a meaningful parent community for each.
+- [ ] **301 redirects** — all 9 Squarespace language URLs must redirect to their v4 equivalents (or a holding page) to preserve any SEO equity.
 
 ---
 
