@@ -32,6 +32,18 @@ const link = (path: string) => asset(path);
   document.getElementById('cookie-accept').addEventListener('click', function() {
     localStorage.setItem('cookie-consent', 'accepted');
     banner.style.transform = 'translateY(100%)';
+    // Load GA4 immediately after consent
+    var id = 'GA4_MEASUREMENT_ID';
+    if (id === 'GA4_MEASUREMENT_ID') return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', id);
   });
   document.getElementById('cookie-decline').addEventListener('click', function() {
     localStorage.setItem('cookie-consent', 'declined');

@@ -1,0 +1,141 @@
+# ISJ Redirects — Squarespace → Astro v4
+# Format: /old-path /new-path 301
+# Full audit: 3 April 2026 (Squarespace sitemap + Search Console data)
+#
+# Cloudflare Pages processes this file natively.
+# Squarespace used /school-news/ prefix; v4 uses /news/
+# Squarespace used long slugs; v4 uses cleaner URLs
+
+# ─── Core pages ───
+/home / 301
+/about-us /about/why-isj 301
+/welcome-from-the-head /about/our-head 301
+/the-schools-trust /about/the-schools-trust 301
+/the-school-charter /about/why-isj 301
+/pre-prep /academics/pre-prep 301
+/the-prep-school /academics/prep-school 301
+/curriculum-guide /academics/curriculum 301
+/curriculum-guide-introduction /academics/curriculum 301
+/curriculum-guide-teaching-learning /academics/curriculum 301
+/our-campus /school-life/campus 301
+/the-arts /school-life/arts-music 301
+/character /school-life/character 301
+/sports /school-life/sport 301
+/school-calendar /school-life/calendar 301
+
+# ─── Admissions ───
+/entry-to-isj /admissions/how-to-apply 301
+/apply-now /admissions/how-to-apply 301
+/book-a-school-tour /admissions/arrange-a-tour 301
+/book-a-tour-g /admissions/arrange-a-tour 301
+/tuition-fees /admissions/fees 301
+/bursaries /admissions/scholarships 301
+/age-guidelines-international-school-jakarta /admissions/age-guide 301
+/age /admissions/age-guide 301
+/terms-conditions /admissions/terms-and-conditions 301
+/behaviour-expectations /policies/behaviour 301
+/open-house /admissions/arrange-a-tour 301
+/stayandplay /admissions/arrange-a-tour 301
+
+# ─── Careers ───
+/careers-international-school-of-jakarta /careers 301
+
+# ─── Contact & misc ───
+/contact-us /contact 301
+/faq-international-school-jakarta /faqs 301
+/brand /brand 301
+/the-term-diary /school-life/calendar 301
+/term3-diary-2026 /school-life/calendar 301
+/term-2-diary-2026 /school-life/calendar 301
+/gl-assessments-explained /faqs 301
+/leading-british-school-jakarta /about/why-isj 301
+/new / 301
+/group-events /contact 301
+/in-the-news /news 301
+/thank-you-open-house / 301
+
+# ─── Legal ───
+/privacy-policy /privacy 301
+/terms-of-service /terms 301
+
+# ─── Language landing pages ───
+# TODO: Build v4 language pages, then update these targets
+/bahasa-indonesia / 301
+/japanese / 301
+/chinese / 301
+/korean / 301
+/french / 301
+/italian / 301
+/spanish / 301
+/german / 301
+/dutch / 301
+
+# ─── Insights (matched to actual v4 slugs) ───
+/insights/expats-guide-to-international-schools-in-jakarta /insights/best-international-schools-jakarta 301
+/insights/things-to-do-with-kids-in-jakarta-2026 /insights/things-to-do-kids-jakarta 301
+/insights/35-things-to-do-with-kids-in-south-jakarta /insights/things-to-do-kids-jakarta 301
+/insights/ultimate-guide-to-jakartas-neighbourhoods-and-international-schools /insights/jakarta-commute 301
+/insights/jakartas-premier-international-schools /insights/best-international-schools-jakarta 301
+/insights/jakartas-leading-british-school /insights/best-international-schools-jakarta 301
+/insights/cost-of-living-jakarta /insights/cost-of-living-jakarta 301
+/insights/jakarta-expat-essential-contacts /insights/expat-contact-list-jakarta 301
+/insights/jakarta-school-commute-why-location-matters /insights/jakarta-school-commute-times 301
+/insights/healthcare-health-insurance-jakarta /insights/healthcare-expats-jakarta 301
+/insights/positive-feedback-international-school-jakarta-wth29-jx4sj-a568e-mrzcg /insights/positive-feedback-teaching 301
+/insights/positive-feedback-international-school-jakarta /insights/positive-feedback-teaching 301
+/insights/choir-and-music-programme-the-independent-school-of-jakarta /insights/singing-across-curriculum 301
+/insights/independent-school-jakarta-language-support /insights/embracing-linguistic-diversity 301
+/insights/outdoor-learning-the-independent-school-of-jakarta /insights/outdoor-learning-early-years 301
+/insights/physical-activity-benefits-british-international-school /insights/physical-activity-academic-attainment 301
+/insights/metacognition-the-independent-school-of-jakarta /insights/metacognition 301
+/insights/british-independent-school-history-the-independent-school-of-jakarta /insights/british-prep-schools-history 301
+/insights/science-of-happy-students-the-independent-school-of-jakarta /insights/science-happy-students 301
+/insights/global-education-passport-the-indpendent-school-of-jakarta /insights/global-education-passport 301
+/insights/behaviour /insights/positive-behaviour-management 301
+/insights/residential-trips /insights/residential-not-just-a-trip 301
+/insights/small-class-sizes-when-they-matter-and-when-they-dont /insights 301
+/insights/the-hidden-science-of-exceptional-teaching /insights 301
+/insights/academic-excellence-measuring-and-achieving-success-at-isj /insights 301
+/insights/lunch-british-international-school-jakarta /insights 301
+/insights/ai-in-schools-and-critical-thinking /insights 301
+/insights/international-school-governance /insights 301
+
+# ─── School news (Squarespace /school-news/ → v4 /news/) ───
+/school-news /news 301
+/school-news/isjinternationalweek2026 /news/international-week-2026 301
+/school-news/isjinterhousequiz2026 /news/inter-house-quiz-2026 301
+/school-news/isjchristmasconcert-s2azx /news/christmas-concert-2025 301
+/school-news/isjchristmasconcert /news/christmas-concert-2025 301
+/school-news/christmasfair2025 /news/christmas-fair-2025 301
+/school-news/tes-awards-tpln9 /news/tes-awards-2025 301
+/school-news/tes-awards /news/tes-awards-2025 301
+/school-news/early-swimming /news/early-swimming-2025 301
+/school-news/halloween-disco /news 301
+/school-news/emotional-regulation-and-behaviour-workshop /news/emotion-workshop-2025 301
+/school-news/character-building-in-the-digital-era /news 301
+/school-news/batik-day /news 301
+/school-news/early-years-end-of-year-celebration /news 301
+/school-news/reading-and-phonics-workshop /news 301
+/school-news/our-annual-art-exhibition /news 301
+/school-news/education-excitement-and-exploration /news 301
+/school-news/lunar-new-year /news 301
+
+# ─── Comparison tool & other content pages ───
+/jakarta-international-schools-comparison-tool /insights/best-international-schools-jakarta 301
+/commute-times /insights/jakarta-school-commute-times 301
+/relocating-to-jakarta-with-children /insights/best-international-schools-jakarta 301
+
+# ─── Squarespace system pages — redirect to homepage ───
+/cart / 301
+/search / 301
+/config / 301
+/login / 301
+
+# ─── Old section pages ───
+/curriculum /academics/curriculum 301
+/gallery /school-life/campus 301
+/calendar /school-life/calendar 301
+/staff /about/our-head 301
+/virtual-tour /admissions/virtual-tour 301
+/parents / 301
+/safeguarding /policies/safeguarding 301
