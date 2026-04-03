@@ -1,6 +1,6 @@
 # ISJ Website v4 — Master Plan
 
-Last updated: 2 April 2026
+Last updated: 4 April 2026
 
 ---
 
@@ -126,14 +126,14 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 
 ### SEO & Quality
 
-- [ ] **Internal linking pass** — systematic pass against SITE_ARCHITECTURE.xlsx. Includes in-content links (Pre-Prep → Prep School, Fees → Scholarships), "What Comes Next" sections, CTA buttons → Arrange a Tour.
+- [x] **Internal linking pass** — 13 in-content links added per SITE_ARCHITECTURE.xlsx audit. GCSEs/A-Levels cross-linked from Curriculum and Results, Terms & Conditions linked from How to Apply, legal pages fully cross-linked. All planned links covered by nav/footer + in-content links. Done 4 April 2026.
 - [ ] **Breadcrumb component** — add to all sub-pages (not homepage).
-- [ ] **Schema.org markup** — Homepage has EducationalOrganization. Still needed: FAQPage on FAQs, BreadcrumbList on all pages, Article on Insights posts, Event on Calendar.
+- [x] **Schema.org markup** — EducationalOrganization (all pages via BaseLayout), BreadcrumbList (all sub-pages), FAQPage (FAQs), Article (all insights + news via ArticleLayout). Domain refs fixed to international-school-jakarta.id. Trust URL fixed to schoolstrust.co.uk. Done 4 April 2026.
 - [ ] **Sitemap review** — Astro generates automatically. Verify all pages included, URLs correct.
-- [ ] **Meta tags review** — verify every page has correct title, description, OG tags, canonical per SITE_ARCHITECTURE.xlsx.
+- [x] **Meta tags review** — all 79 pages audited. Titles ≤60 chars, descriptions 70–160 chars, canonicalUrl on every page, OG tags handled by BaseLayout. 34 files updated. Done 4 April 2026.
 - [ ] **Homepage meta title** — consider Downside's approach: target "British International School Jakarta" directly.
 - [ ] **Canonical URLs** — verify policy pages using `/policies/[slug]` are indexed correctly.
-- [ ] **Image optimisation** — current JPGs are unoptimised (some 600KB+). Use Astro's built-in image optimisation or process before deploy.
+- [x] **Image optimisation** — 35 images compressed (3.8MB total savings). early-years-play.png converted to JPG (665KB → 108KB). Done 4 April 2026.
 - [ ] **Performance audit** — Lighthouse, CWV. Target 90+ on all metrics.
 - [ ] **Accessibility audit** — colour contrast, alt text, keyboard navigation, ARIA labels.
 
