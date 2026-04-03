@@ -117,6 +117,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [x] **Automate build-deploy pipeline** — Cloudflare Pages auto-builds on push. GitHub Actions workflow and `asset()` helper removed. Done 3 April 2026.
 - [x] **Move to Cloudflare Pages** — project `isj-website-v4.pages.dev`. Custom domain `international-school-jakarta.id` active. `www` initialising. Done 3 April 2026.
 - [x] **Cloudflare proxy switch** — Cloudflare Pages handles SSL and proxying automatically. Done 3 April 2026.
+- [ ] **Domain decision** — host on isj.id (existing authority, brand consistency, staff email). Use international-school-jakarta.id as 301 redirect to isj.id. Transfer isj.id registration from OnlyDomains to Namecheap, DNS to Cloudflare. Update siteUrl + schema refs (5-min find-and-replace). Decision noted 4 April 2026.
 - [ ] **Form handling** — tour + contact forms are mailto fallback. Plan: Resend + Cloudflare Workers.
 - [ ] **Tour booking system** — add Calendly or similar for admissions tour scheduling. Embed on `/admissions/arrange-a-tour`. Fields and requirements to be provided by Tiffany.
 - [x] **URL redirects** — 111 redirect rules in `public/_redirects`. Full audit against Squarespace sitemap + Search Console. All targets verified. Done 3 April 2026.
