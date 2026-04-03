@@ -114,15 +114,15 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 
 ### Infrastructure
 
-- [ ] **Automate build-deploy pipeline** — every rebuild currently requires manual sed fixes for GitHub Pages paths (images, favicon, CSS filenames with `@`). Create a proper post-build script or switch to Astro's `base` path handling.
-- [ ] **Move to Cloudflare Pages** — currently on GitHub Pages. Cloudflare gives Workers, preview deploys, `_redirects` file support.
-- [ ] **Cloudflare proxy switch** — currently DNS-only (grey cloud) for GitHub Pages SSL. Moving to Cloudflare Pages requires proxied (orange cloud).
+- [x] **Automate build-deploy pipeline** — Cloudflare Pages auto-builds on push. GitHub Actions workflow and `asset()` helper removed. Done 3 April 2026.
+- [x] **Move to Cloudflare Pages** — project `isj-website-v4.pages.dev`. Custom domain `international-school-jakarta.id` active. `www` initialising. Done 3 April 2026.
+- [x] **Cloudflare proxy switch** — Cloudflare Pages handles SSL and proxying automatically. Done 3 April 2026.
 - [ ] **Form handling** — tour + contact forms are mailto fallback. Plan: Resend + Cloudflare Workers.
 - [ ] **Tour booking system** — add Calendly or similar for admissions tour scheduling. Embed on `/admissions/arrange-a-tour`. Fields and requirements to be provided by Tiffany.
-- [ ] **URL redirects** — implement 45 redirects from `URL_REDIRECT_MAP.xlsx`. On Cloudflare Pages this is a `_redirects` file.
-- [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id.
-- [ ] **Analytics** — Google Analytics 4 + Google Search Console. Set up before launch.
-- [ ] **Cookie consent** — required for analytics. Simple banner, links to cookie policy.
+- [x] **URL redirects** — 111 redirect rules in `public/_redirects`. Full audit against Squarespace sitemap + Search Console. All targets verified. Done 3 April 2026.
+- [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id. Needs Mailchimp dashboard access to get records.
+- [x] **Analytics** — GA4 gtag snippet added to BaseLayout, gated behind cookie consent. Property ID 475879616. **TODO: replace `GA4_MEASUREMENT_ID` placeholder with actual G-XXXXXXX from GA4 Admin > Data Streams.** Google Search Console connected. Done 3 April 2026.
+- [x] **Cookie consent** — banner built and working. Fires GA4 on accept, suppresses on decline. Done 3 April 2026.
 
 ### SEO & Quality
 
