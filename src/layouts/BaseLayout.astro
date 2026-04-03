@@ -124,12 +124,10 @@ for (const segment of pathSegments) {
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Google Analytics 4 — only loaded when cookies accepted -->
-  <!-- TODO: Replace GA4_MEASUREMENT_ID with actual G-XXXXXXX from GA4 Admin > Data Streams -->
   <script is:inline>
   (function() {
     if (localStorage.getItem('cookie-consent') !== 'accepted') return;
-    var id = 'GA4_MEASUREMENT_ID';
-    if (id === 'GA4_MEASUREMENT_ID') return; // Skip until real ID is set
+    var id = 'G-TDE52R9LB1';
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
