@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -58,7 +56,7 @@ const phases = [
       heading="Tuition Fees 2026/27"
     >
       <p>
-        All fees are in Indonesian Rupiah (IDR) for the 2026/27 academic year. Payable annually or by term. <a href={link('/admissions/scholarships')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Bursaries and scholarships</a> are available for eligible families.
+        All fees are in Indonesian Rupiah (IDR) for the 2026/27 academic year. Payable annually or by term. <a href=/admissions/scholarships class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Bursaries and scholarships</a> are available for eligible families.
       </p>
     </SectionIntro>
   </section>
@@ -173,7 +171,7 @@ const phases = [
             Fees are payable annually or by term (three terms per year). Payment is due 14 days before the start of each term.
           </p>
           <p>
-            Full payment terms, withdrawal notice periods, and refund policies are set out in the <a href={link("/admissions/terms-and-conditions")} class="whisper-link">Admissions Terms and Conditions</a>. To begin the enrolment process, visit the <a href={link('/admissions/how-to-apply')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">How to Apply</a> page.
+            Full payment terms, withdrawal notice periods, and refund policies are set out in the <a href=/admissions/terms-and-conditions class="whisper-link">Admissions Terms and Conditions</a>. To begin the enrolment process, visit the <a href=/admissions/how-to-apply class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">How to Apply</a> page.
           </p>
         </div>
       </div>

@@ -1,5 +1,4 @@
 ---
-import { asset } from '../utils/paths';
 /**
  * ImageBlock — Full-bleed or contained image with subtle parallax.
  * Optional slow zoom (Ken Burns) on scroll-into-view.
@@ -25,7 +24,7 @@ const aspectClass = {
 
 <div class={`w-full overflow-hidden reveal parallax-wrap ${className}`}>
   <img
-    src={asset(src)}
+    src={src}
     alt={alt}
     loading={loading}
     decoding="async"

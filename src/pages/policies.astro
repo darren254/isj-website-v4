@@ -1,6 +1,4 @@
 ---
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const policyGroups = [
@@ -60,7 +58,7 @@ const policyGroups = [
             <div class="space-y-0">
               {group.policies.map((policy) => (
                 <a
-                  href={link(policy.href)}
+                  href={policy.href}
                   class="block py-3 text-[15px] text-navy hover:text-navy-light transition-colors duration-[var(--transition-base)] border-b border-navy/[0.04] last:border-0"
                   style="font-family: var(--font-body);"
                 >

@@ -1,6 +1,4 @@
 ---
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionIntro from '../components/SectionIntro.astro';
@@ -71,7 +69,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
         label="Pre-Prep"
         title="Where Learning Begins"
         description="Ages 2–6. Learning through play, curiosity, and structured exploration. Typically 15 children per class."
-        href={link("/academics/pre-prep")}
+        href=/academics/pre-prep
       />
       <EditorialCard
         imageSrc="/images/primary-classroom.jpg"
@@ -79,7 +77,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
         label="Prep School"
         title="Breadth, Rigour, Character"
         description="Ages 7–13. Dedicated class teachers, co-curricular breadth, residential trips, and a house system."
-        href={link("/academics/prep-school")}
+        href=/academics/prep-school
       />
       <EditorialCard
         imageSrc="/images/senior-school.jpg"
@@ -87,7 +85,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
         label="Senior School"
         title="GCSEs & A-Levels in Jakarta"
         description="Ages 14–18. British qualifications taught by experienced UK-trained teachers, preparing students for leading universities worldwide."
-        href={link("/academics/senior-school")}
+        href=/academics/senior-school
       />
     </div>
   </section>
@@ -106,7 +104,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
         <div class="overflow-hidden">
           <img
-            src={asset('/images/eileen-fisher.jpg')}
+            src=/images/eileen-fisher.jpg
             alt="Eileen Fisher, Academic Director of ISJ, with two pupils"
             loading="lazy"
             decoding="async"
@@ -122,7 +120,7 @@ import AccreditationBar from '../components/AccreditationBar.astro';
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
             Her door is open to every parent — and she means it.
           </p>
-          <a href={link("/about/our-head")} class="whisper-link">Read Eileen's full profile</a>
+          <a href=/about/our-head class="whisper-link">Read Eileen's full profile</a>
         </div>
       </div>
     </div>
@@ -153,8 +151,8 @@ import AccreditationBar from '../components/AccreditationBar.astro';
     </SectionIntro>
 
     <div class="mt-[var(--space-element)] flex flex-col sm:flex-row items-center justify-center gap-6">
-      <a href={link("/school-life/campus")} class="whisper-link">Explore the campus</a>
-      <a href={link("/admissions/virtual-tour")} class="whisper-link">Take the virtual tour</a>
+      <a href=/school-life/campus class="whisper-link">Explore the campus</a>
+      <a href=/admissions/virtual-tour class="whisper-link">Take the virtual tour</a>
     </div>
   </section>
 

@@ -1,6 +1,4 @@
 ---
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -39,7 +37,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div>
           <h2 class="text-[length:var(--text-base)] text-navy font-medium mb-3">More Information</h2>
-          <p>For more details about how ISJ handles your data, see the <a href={link("/privacy")} class="whisper-link">Privacy Policy</a>. For questions, contact ISJ at <a href="mailto:info@isj.id" class="whisper-link">info@isj.id</a>.</p>
+          <p>For more details about how ISJ handles your data, see the <a href=/privacy class="whisper-link">Privacy Policy</a>. For questions, contact ISJ at <a href="mailto:info@isj.id" class="whisper-link">info@isj.id</a>.</p>
         </div>
 
       </div>

@@ -1,6 +1,4 @@
 ---
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -17,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-10">
         The page you are looking for may have moved or no longer exists.
       </p>
-      <a href={link('/')} class="whisper-link">Return to the homepage</a>
+      <a href=/ class="whisper-link">Return to the homepage</a>
     </div>
   </section>
 

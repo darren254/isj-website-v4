@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -39,7 +37,7 @@ import Testimonial from '../../components/Testimonial.astro';
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-16 items-center reveal">
         <div class="md:col-span-3 overflow-hidden">
           <img
-            src={asset('/images/swimming-pool.jpg')}
+            src=/images/swimming-pool.jpg
             alt="25-metre swimming pool at ISJ"
             loading="lazy"
             class="w-full aspect-[4/3] object-cover"
@@ -49,7 +47,7 @@ import Testimonial from '../../components/Testimonial.astro';
           <p class="label mb-4">Swimming</p>
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">25-Metre Pool</h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            Swimming is part of the curriculum from Pre-Nursery. By the time children leave Pre-Prep, they are confident in the water. Take a closer look at the campus on the <a href={link('/admissions/virtual-tour')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">virtual tour</a>.
+            Swimming is part of the curriculum from Pre-Nursery. By the time children leave Pre-Prep, they are confident in the water. Take a closer look at the campus on the <a href=/admissions/virtual-tour class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">virtual tour</a>.
           </p>
         </div>
       </div>
@@ -64,12 +62,12 @@ import Testimonial from '../../components/Testimonial.astro';
           <p class="label mb-4">Sport</p>
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">Playing Fields</h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            A full-size football pitch, 20+ <a href={link('/school-life/sport')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">sports including netball, athletics, gymnastics, bouldering, badminton, and dance</a>. A new gymnasium is under construction.
+            A full-size football pitch, 20+ <a href=/school-life/sport class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">sports including netball, athletics, gymnastics, bouldering, badminton, and dance</a>. A new gymnasium is under construction.
           </p>
         </div>
         <div class="md:col-span-3 md:order-2 overflow-hidden">
           <img
-            src={asset('/images/football-pitch.jpg')}
+            src=/images/football-pitch.jpg
             alt="Full-size football pitch at ISJ"
             loading="lazy"
             class="w-full aspect-[4/3] object-cover"
@@ -93,7 +91,7 @@ import Testimonial from '../../components/Testimonial.astro';
         <div class="reveal">
           <div class="overflow-hidden">
             <img
-              src={asset('/images/art-class.jpg')}
+              src=/images/art-class.jpg
               alt="Creative arts at ISJ"
               loading="lazy"
               class="w-full aspect-[3/4] object-cover"
@@ -105,7 +103,7 @@ import Testimonial from '../../components/Testimonial.astro';
         <div class="reveal">
           <div class="overflow-hidden">
             <img
-              src={asset('/images/primary-classroom.jpg')}
+              src=/images/primary-classroom.jpg
               alt="Classroom at ISJ"
               loading="lazy"
               class="w-full aspect-[3/4] object-cover"
@@ -117,7 +115,7 @@ import Testimonial from '../../components/Testimonial.astro';
         <div class="reveal">
           <div class="overflow-hidden">
             <img
-              src={asset('/images/playground.jpg')}
+              src=/images/playground.jpg
               alt="Outdoor play area at ISJ"
               loading="lazy"
               class="w-full aspect-[3/4] object-cover"
@@ -136,7 +134,7 @@ import Testimonial from '../../components/Testimonial.astro';
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-16 items-center reveal">
         <div class="md:col-span-3 overflow-hidden">
           <img
-            src={asset('/images/news/christmas-concert.jpg')}
+            src=/images/news/christmas-concert.jpg
             alt="ISJ pupil performing violin at the Christmas concert"
             loading="lazy"
             class="w-full aspect-[4/3] object-cover"
@@ -146,7 +144,7 @@ import Testimonial from '../../components/Testimonial.astro';
           <p class="label mb-4">Performance</p>
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">Theatre and Music</h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
-            A dedicated theatre space for drama, concerts, and assemblies. <a href={link('/school-life/arts-music')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Music tuition across a range of instruments</a>, from piano and violin to guitar and drums.
+            A dedicated theatre space for drama, concerts, and assemblies. <a href=/school-life/arts-music class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Music tuition across a range of instruments</a>, from piano and violin to guitar and drums.
           </p>
         </div>
       </div>

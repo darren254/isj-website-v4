@@ -1,7 +1,5 @@
 ---
-import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const link = (path: string) => asset(path);
 ---
 
 <BaseLayout
@@ -15,7 +13,7 @@ const link = (path: string) => asset(path);
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <div class="reveal">
         <img
-          src={asset('/images/eileen-fisher.jpg')}
+          src=/images/eileen-fisher.jpg
           alt="Eileen Fisher, Academic Director of ISJ, with two pupils"
           loading="eager"
           decoding="async"
@@ -68,7 +66,7 @@ const link = (path: string) => asset(path);
             Earlier in her career, she held senior positions at Queen's College, London, and Ipswich High School. As Chair of the Prep Heads' Committee for the Girls' Day School Trust (GDST), she mentored Preparatory School Heads across the United Kingdom.
           </p>
           <p>
-            As an accredited ISI and Penta inspector, Eileen understands what the best schools in the world look like from the inside. She applies that standard at ISJ every day. Eileen's leadership sits within the governance of <a href={link('/about/the-schools-trust')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">The Schools Trust</a>.
+            As an accredited ISI and Penta inspector, Eileen understands what the best schools in the world look like from the inside. She applies that standard at ISJ every day. Eileen's leadership sits within the governance of <a href=/about/the-schools-trust class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">The Schools Trust</a>.
           </p>
         </div>
       </div>
@@ -89,7 +87,7 @@ const link = (path: string) => asset(path);
             Academic ambition runs high, but so does breadth. Sport, outdoor learning, creative arts, and character development sit alongside rigorous academics. The goal is a child who can think for themselves, not one who has been told what to think.
           </p>
           <p>
-            Under Eileen's leadership, ISJ pupils score in the top 10% of international schools globally in independent standardised assessments. Academic standards are high because expectations are high. Read more about <a href={link('/about/why-isj')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">what makes ISJ different</a>.
+            Under Eileen's leadership, ISJ pupils score in the top 10% of international schools globally in independent standardised assessments. Academic standards are high because expectations are high. Read more about <a href=/about/why-isj class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">what makes ISJ different</a>.
           </p>
         </div>
       </div>

@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -51,13 +49,13 @@ import Testimonial from '../../components/Testimonial.astro';
               Tours typically last around an hour, scheduled during the school day so you see ISJ as it really is.
             </p>
             <p>
-              Bringing your child along is encouraged. For families relocating to Jakarta, ISJ also offers <a href={link('/admissions/virtual-tour')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">live video tours</a> with the admissions team.
+              Bringing your child along is encouraged. For families relocating to Jakarta, ISJ also offers <a href=/admissions/virtual-tour class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">live video tours</a> with the admissions team.
             </p>
           </div>
         </div>
         <div class="overflow-hidden">
           <img
-            src={asset('/images/teacher-pupils.jpg')}
+            src=/images/teacher-pupils.jpg
             alt="A teacher working with pupils at ISJ"
             loading="lazy"
             class="w-full object-cover"
@@ -71,7 +69,7 @@ import Testimonial from '../../components/Testimonial.astro';
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/playground.jpg')}
+        src=/images/playground.jpg
         alt="Children playing at ISJ Pondok Indah"
         loading="lazy"
         decoding="async"
@@ -265,7 +263,7 @@ import Testimonial from '../../components/Testimonial.astro';
         <div class="reveal">
           <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-3">After the Tour</h3>
           <p class="text-[length:var(--text-sm)] leading-relaxed text-charcoal-light">
-            If you decide ISJ is right for your family, the admissions team will walk you through the <a href={link('/admissions/how-to-apply')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">next steps</a>. You can also reach the team directly on the <a href={link('/contact')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">contact page</a>.
+            If you decide ISJ is right for your family, the admissions team will walk you through the <a href=/admissions/how-to-apply class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">next steps</a>. You can also reach the team directly on the <a href=/contact class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">contact page</a>.
           </p>
         </div>
 

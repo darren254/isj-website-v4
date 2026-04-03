@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ImageBlock from '../../components/ImageBlock.astro';
 import Testimonial from '../../components/Testimonial.astro';
@@ -33,7 +31,7 @@ import Testimonial from '../../components/Testimonial.astro';
             Real confidence is not taught in a lesson. It is built through thousands of small moments. A child encouraged to take intellectual risks in the classroom. A pupil who leads a house team before they feel quite ready. A young person who learns to fail at something, reflect honestly, and try again.
           </p>
           <p>
-            At ISJ, character education is the daily, lived reality of how teachers teach and how children learn. It is what parents notice on a school tour, and what pupils carry with them long after they leave — and a central part of <a href={link('/about/why-isj')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">why families choose ISJ</a>.
+            At ISJ, character education is the daily, lived reality of how teachers teach and how children learn. It is what parents notice on a school tour, and what pupils carry with them long after they leave — and a central part of <a href=/about/why-isj class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">why families choose ISJ</a>.
           </p>
         </div>
       </div>
@@ -53,7 +51,7 @@ import Testimonial from '../../components/Testimonial.astro';
       <p class="label mb-5">Houses</p>
       <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Potter. Tolkien. Lewis. Rowling.</h2>
       <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-        Every child belongs to a house from their first day. Houses compete across <a href={link('/school-life/sport')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">sport</a>, the <a href={link('/school-life/arts-music')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">arts</a>, quizzes, and community challenges throughout the year. The house system builds belonging, healthy rivalry, and friendships across year groups. Older pupils take real responsibility: planning events, supporting teammates, and mentoring younger children.
+        Every child belongs to a house from their first day. Houses compete across <a href=/school-life/sport class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">sport</a>, the <a href=/school-life/arts-music class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">arts</a>, quizzes, and community challenges throughout the year. The house system builds belonging, healthy rivalry, and friendships across year groups. Older pupils take real responsibility: planning events, supporting teammates, and mentoring younger children.
       </p>
     </div>
   </section>
@@ -76,7 +74,7 @@ import Testimonial from '../../components/Testimonial.astro';
         </div>
         <div class="overflow-hidden">
           <img
-            src={asset('/images/news/residential.jpg')}
+            src=/images/news/residential.jpg
             alt="ISJ pupils and teachers before a residential trip"
             loading="lazy"
             decoding="async"

@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -69,9 +67,9 @@ const steps = [
           <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mt-3 mb-4">{step.title}</h2>
           <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
             {step.number === '02' ? (
-              <>{step.body} <a href={link('/admissions/arrange-a-tour')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Arrange a tour</a>.</>
+              <>{step.body} <a href=/admissions/arrange-a-tour class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Arrange a tour</a>.</>
             ) : step.number === '03' ? (
-              <>Complete the application form and pay the <a href={link('/admissions/fees')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">application fee</a>. ISJ accepts applications up to two years in advance, and mid-year transfers are welcome.</>
+              <>Complete the application form and pay the <a href=/admissions/fees class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">application fee</a>. ISJ accepts applications up to two years in advance, and mid-year transfers are welcome.</>
             ) : step.body}
           </p>
         </div>
@@ -83,7 +81,7 @@ const steps = [
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/playground.jpg')}
+        src=/images/playground.jpg
         alt="Children playing at ISJ Pondok Indah"
         loading="lazy"
         decoding="async"
@@ -101,13 +99,13 @@ const steps = [
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           ISJ welcomes children from age 2 (Pre-Nursery) through to Year 13 (A-Levels). The main entry points are Pre-Nursery, Reception, Year 7, and Year 12, but places may be available in any year group.
         </p>
-        <a href={link("/admissions/age-guide")} class="whisper-link mt-4 inline-block">View the Age Guide</a>
+        <a href=/admissions/age-guide class="whisper-link mt-4 inline-block">View the Age Guide</a>
       </div>
 
       <div class="reveal">
         <p class="label mb-6">Questions?</p>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          The admissions team is here to help at every stage. Get in touch by email at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or call <a href="tel:+622127826788" class="whisper-link">+62 21-2782-6788</a>. Common questions are answered in the <a href={link("/faqs")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">FAQs</a>.
+          The admissions team is here to help at every stage. Get in touch by email at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a> or call <a href="tel:+622127826788" class="whisper-link">+62 21-2782-6788</a>. Common questions are answered in the <a href=/faqs class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">FAQs</a>.
         </p>
       </div>
 

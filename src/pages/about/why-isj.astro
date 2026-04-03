@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -55,7 +53,7 @@ import Testimonial from '../../components/Testimonial.astro';
         </div>
         <div class="overflow-hidden">
           <img
-            src={asset('/images/primary-classroom.jpg')}
+            src=/images/primary-classroom.jpg
             alt="Prep School pupils working together on a science experiment"
             loading="lazy"
             decoding="async"
@@ -72,7 +70,7 @@ import Testimonial from '../../components/Testimonial.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
         <div class="overflow-hidden md:order-1">
           <img
-            src={asset('/images/teacher-pupils.jpg')}
+            src=/images/teacher-pupils.jpg
             alt="An ISJ teacher working with young pupils on the classroom floor"
             loading="lazy"
             decoding="async"
@@ -87,7 +85,7 @@ import Testimonial from '../../components/Testimonial.astro';
               Every teacher at ISJ is recruited from the UK's leading independent schools. They hold British teaching qualifications, they know the curriculum inside out, and they chose to teach at ISJ because they believe in what the school is building.
             </p>
             <p>
-              This matters because the quality of teaching is the single biggest factor in your child's education. The person standing in front of the class. <a href={link('/about/our-head')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Meet the Head</a>.
+              This matters because the quality of teaching is the single biggest factor in your child's education. The person standing in front of the class. <a href=/about/our-head class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Meet the Head</a>.
             </p>
           </div>
         </div>
@@ -112,7 +110,7 @@ import Testimonial from '../../components/Testimonial.astro';
         Your child's teacher can spot when they're struggling before they ask for help. The Head knows every family. Safeguarding is practised, every day, by people who know your child. That's what personal attention actually means.
       </p>
       <p>
-        15 children per class in Early Years. 20 from Year 1 onwards. A staff-to-pupil ratio of 1:9 across the school. <a href={link('/admissions/arrange-a-tour')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">See it for yourself</a>.
+        15 children per class in Early Years. 20 from Year 1 onwards. A staff-to-pupil ratio of 1:9 across the school. <a href=/admissions/arrange-a-tour class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">See it for yourself</a>.
       </p>
     </SectionIntro>
   </section>
@@ -137,7 +135,7 @@ import Testimonial from '../../components/Testimonial.astro';
         ISJ sits in the heart of Pondok Indah, one of Jakarta's most established residential areas, surrounded by the restaurants, clinics, and family infrastructure that make daily life work.
       </p>
       <p>
-        For families living in Pondok Indah, Cilandak, Kemang, or Kebayoran Baru, the school run is measured in minutes, not hours. <a href={link('/school-life/campus')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Explore the campus</a>.
+        For families living in Pondok Indah, Cilandak, Kemang, or Kebayoran Baru, the school run is measured in minutes, not hours. <a href=/school-life/campus class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Explore the campus</a>.
       </p>
     </SectionIntro>
   </section>
@@ -157,11 +155,11 @@ import Testimonial from '../../components/Testimonial.astro';
               The Trust's schools are ranked 1st and 2nd across a network of 200+ British schools internationally for A-Level and GCSE results. ISJ inherits that track record: the same governance, the same standards, the same expectation of excellence.
             </p>
           </div>
-          <a href={link("/about/the-schools-trust")} class="whisper-link inline-block mt-6">About The Schools Trust</a>
+          <a href=/about/the-schools-trust class="whisper-link inline-block mt-6">About The Schools Trust</a>
         </div>
         <div class="overflow-hidden">
           <img
-            src={asset('/images/woolverstone-hall.jpg')}
+            src=/images/woolverstone-hall.jpg
             alt="Woolverstone Hall in Suffolk, England. ISJ's residential trip destination"
             loading="lazy"
             decoding="async"

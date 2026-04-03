@@ -1,36 +1,34 @@
 ---
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 
 const footerLinks = {
   'About ISJ': [
-    { label: 'Why ISJ', href: link('/about/why-isj') },
-    { label: 'Our Head', href: link('/about/our-head') },
-    { label: 'The Schools Trust', href: link('/about/the-schools-trust') },
-    { label: 'Campus & Facilities', href: link('/school-life/campus') },
-    { label: 'Careers', href: link('/careers') },
-    { label: 'Contact', href: link('/contact') },
+    { label: 'Why ISJ', href: '/about/why-isj' },
+    { label: 'Our Head', href: '/about/our-head' },
+    { label: 'The Schools Trust', href: '/about/the-schools-trust' },
+    { label: 'Campus & Facilities', href: '/school-life/campus' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
   ],
   'Academics': [
-    { label: 'Pre-Prep (Ages 2\u20136)', href: link('/academics/pre-prep') },
-    { label: 'Prep School (Ages 7\u201313)', href: link('/academics/prep-school') },
-    { label: 'Senior School (Ages 14\u201318)', href: link('/academics/senior-school') },
-    { label: 'Curriculum', href: link('/academics/curriculum') },
-    { label: 'Results & Outcomes', href: link('/academics/results') },
+    { label: 'Pre-Prep (Ages 2\u20136)', href: '/academics/pre-prep' },
+    { label: 'Prep School (Ages 7\u201313)', href: '/academics/prep-school' },
+    { label: 'Senior School (Ages 14\u201318)', href: '/academics/senior-school' },
+    { label: 'Curriculum', href: '/academics/curriculum' },
+    { label: 'Results & Outcomes', href: '/academics/results' },
   ],
   'Admissions': [
-    { label: 'How to Apply', href: link('/admissions/how-to-apply') },
-    { label: 'Arrange a Tour', href: link('/admissions/arrange-a-tour') },
-    { label: 'Tuition Fees', href: link('/admissions/fees') },
-    { label: 'Age Guide', href: link('/admissions/age-guide') },
-    { label: 'Scholarships', href: link('/admissions/scholarships') },
-    { label: 'FAQs', href: link('/faqs') },
+    { label: 'How to Apply', href: '/admissions/how-to-apply' },
+    { label: 'Arrange a Tour', href: '/admissions/arrange-a-tour' },
+    { label: 'Tuition Fees', href: '/admissions/fees' },
+    { label: 'Age Guide', href: '/admissions/age-guide' },
+    { label: 'Scholarships', href: '/admissions/scholarships' },
+    { label: 'FAQs', href: '/faqs' },
   ],
   'Resources': [
-    { label: 'News & Events', href: link('/news') },
-    { label: 'Insights', href: link('/insights') },
-    { label: 'School Policies', href: link('/policies') },
-    { label: 'School Calendar', href: link('/school-life/calendar') },
+    { label: 'News & Events', href: '/news' },
+    { label: 'Insights', href: '/insights' },
+    { label: 'School Policies', href: '/policies' },
+    { label: 'School Calendar', href: '/school-life/calendar' },
   ],
 };
 
@@ -50,12 +48,12 @@ const socialLinks = [
       <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy">Begin Your Journey</h2>
       <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
-          href={link('/admissions/arrange-a-tour')}
+          href=/admissions/arrange-a-tour
           class="inline-flex items-center px-7 py-2.5 border border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)]"
         >
           Arrange a Tour
         </a>
-        <a href={link('/contact')} class="whisper-link">Contact Admissions</a>
+        <a href=/contact class="whisper-link">Contact Admissions</a>
       </div>
     </div>
   </div>
@@ -122,9 +120,9 @@ const socialLinks = [
         <span class="text-[length:var(--text-xs)] text-navy/25">
           Part of <a href="https://schoolstrust.co.uk" target="_blank" rel="noopener noreferrer" class="hover:text-navy/50 transition-colors">The Schools Trust</a>
         </span>
-        <a href={link('/privacy')} class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Privacy</a>
-        <a href={link('/terms')} class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Terms</a>
-        <a href={link('/cookies')} class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Cookies</a>
+        <a href=/privacy class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Privacy</a>
+        <a href=/terms class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Terms</a>
+        <a href=/cookies class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Cookies</a>
       </div>
       <div class="flex items-center gap-4">
         {socialLinks.map((social) => (

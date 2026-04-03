@@ -1,6 +1,4 @@
 ---
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Article data
@@ -9,34 +7,34 @@ const featured = {
   excerpt: 'A comprehensive look at the international school landscape in Jakarta, covering curriculum options, fees, locations, and what to prioritise when choosing a school for your family.',
   date: '15 Feb 2026',
   category: 'Jakarta Life',
-  href: link('/insights/best-international-schools-jakarta'),
-  image: asset('/images/campus-aerial.jpg'),
+  href: '/insights/best-international-schools-jakarta',
+  image: '/images/campus-aerial.jpg',
 };
 
 const recommended = [
-  { title: 'Cost of Living in Jakarta: What Expats Should Budget', category: 'Jakarta Life', href: link('/insights/cost-of-living-jakarta') },
-  { title: 'The Particular Agony of the Jakarta Commute for Young Families', category: 'Jakarta Life', href: link('/insights/jakarta-commute') },
-  { title: '35 Best Things to Do with Kids in Jakarta', category: 'Jakarta Life', href: link('/insights/things-to-do-kids-jakarta') },
-  { title: 'Metacognition: Teaching Children How to Think About Thinking', category: 'Education', href: link('/insights/metacognition') },
-  { title: 'Healthcare and Health Insurance for Expats in Jakarta', category: 'Jakarta Life', href: link('/insights/healthcare-expats-jakarta') },
+  { title: 'Cost of Living in Jakarta: What Expats Should Budget', category: 'Jakarta Life', href: '/insights/cost-of-living-jakarta' },
+  { title: 'The Particular Agony of the Jakarta Commute for Young Families', category: 'Jakarta Life', href: '/insights/jakarta-commute' },
+  { title: '35 Best Things to Do with Kids in Jakarta', category: 'Jakarta Life', href: '/insights/things-to-do-kids-jakarta' },
+  { title: 'Metacognition: Teaching Children How to Think About Thinking', category: 'Education', href: '/insights/metacognition' },
+  { title: 'Healthcare and Health Insurance for Expats in Jakarta', category: 'Jakarta Life', href: '/insights/healthcare-expats-jakarta' },
 ];
 
 const articles = [
-  { title: 'What Is the English National Curriculum?', excerpt: 'A guide for parents in Jakarta. What the ENC covers, how it is structured, and why internationally mobile families choose it.', date: '30 Mar 2026', category: 'Education', href: link('/insights/english-national-curriculum-guide'), image: asset('/images/primary-classroom.jpg') },
-  { title: 'GCSEs and A-Levels: What Parents in Jakarta Need to Know', excerpt: 'A straightforward guide to British qualifications. What they are, how grading works, and what universities expect.', date: '30 Mar 2026', category: 'Education', href: link('/insights/gcses-and-a-levels-guide'), image: asset('/images/senior-school.jpg') },
-  { title: 'EYFS Explained: What Your Child Learns Before Year 1', excerpt: 'The seven areas of learning, how assessment works, and what school readiness means.', date: '30 Mar 2026', category: 'Education', href: link('/insights/eyfs-explained'), image: asset('/images/pre-prep.jpg') },
+  { title: 'What Is the English National Curriculum?', excerpt: 'A guide for parents in Jakarta. What the ENC covers, how it is structured, and why internationally mobile families choose it.', date: '30 Mar 2026', category: 'Education', href: '/insights/english-national-curriculum-guide', image: '/images/primary-classroom.jpg' },
+  { title: 'GCSEs and A-Levels: What Parents in Jakarta Need to Know', excerpt: 'A straightforward guide to British qualifications. What they are, how grading works, and what universities expect.', date: '30 Mar 2026', category: 'Education', href: '/insights/gcses-and-a-levels-guide', image: '/images/senior-school.jpg' },
+  { title: 'EYFS Explained: What Your Child Learns Before Year 1', excerpt: 'The seven areas of learning, how assessment works, and what school readiness means.', date: '30 Mar 2026', category: 'Education', href: '/insights/eyfs-explained', image: '/images/pre-prep.jpg' },
 ];
 
 const moreArticles = [
-  { title: 'New to Jakarta? A Contact List for Expats', date: '21 Jan 2026', category: 'Jakarta Life', href: link('/insights/expat-contact-list-jakarta') },
-  { title: 'The Power of Singing Across the Curriculum', date: '14 Nov 2025', category: 'Education', href: link('/insights/singing-across-curriculum') },
-  { title: 'The Benefits of Outdoor Learning in Early Years', date: '14 Nov 2025', category: 'Education', href: link('/insights/outdoor-learning-early-years') },
-  { title: 'The Power of Positive Feedback in Teaching', date: '3 Nov 2025', category: 'Education', href: link('/insights/positive-feedback-teaching') },
-  { title: 'The Benefits of Physical Activity on Academic Attainment', date: '31 Oct 2025', category: 'Education', href: link('/insights/physical-activity-academic-attainment') },
-  { title: 'The Historical Foundation of British Prep Schools', date: '20 Oct 2025', category: 'Education', href: link('/insights/british-prep-schools-history') },
-  { title: 'The Science of Happy Students: Why Well-Being Is a Prerequisite for Learning', date: '20 Oct 2025', category: 'Education', href: link('/insights/science-happy-students') },
-  { title: 'The Value of Positive Behaviour Management', date: '13 Oct 2025', category: 'Education', href: link('/insights/positive-behaviour-management') },
-  { title: 'A Residential Is Not Just a Trip', date: '13 Oct 2025', category: 'School Life', href: link('/insights/residential-not-just-a-trip') },
+  { title: 'New to Jakarta? A Contact List for Expats', date: '21 Jan 2026', category: 'Jakarta Life', href: '/insights/expat-contact-list-jakarta' },
+  { title: 'The Power of Singing Across the Curriculum', date: '14 Nov 2025', category: 'Education', href: '/insights/singing-across-curriculum' },
+  { title: 'The Benefits of Outdoor Learning in Early Years', date: '14 Nov 2025', category: 'Education', href: '/insights/outdoor-learning-early-years' },
+  { title: 'The Power of Positive Feedback in Teaching', date: '3 Nov 2025', category: 'Education', href: '/insights/positive-feedback-teaching' },
+  { title: 'The Benefits of Physical Activity on Academic Attainment', date: '31 Oct 2025', category: 'Education', href: '/insights/physical-activity-academic-attainment' },
+  { title: 'The Historical Foundation of British Prep Schools', date: '20 Oct 2025', category: 'Education', href: '/insights/british-prep-schools-history' },
+  { title: 'The Science of Happy Students: Why Well-Being Is a Prerequisite for Learning', date: '20 Oct 2025', category: 'Education', href: '/insights/science-happy-students' },
+  { title: 'The Value of Positive Behaviour Management', date: '13 Oct 2025', category: 'Education', href: '/insights/positive-behaviour-management' },
+  { title: 'A Residential Is Not Just a Trip', date: '13 Oct 2025', category: 'School Life', href: '/insights/residential-not-just-a-trip' },
 ];
 ---
 
@@ -70,7 +68,7 @@ const moreArticles = [
         <a href={featured.href} class="lg:col-span-3 group reveal">
           <div class="overflow-hidden">
             <img
-              src={asset(featured.image)}
+              src={featured.image}
               alt=""
               loading="lazy"
               class="w-full aspect-[16/10] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
@@ -110,7 +108,7 @@ const moreArticles = [
           <a href={article.href} class="group reveal">
             <div class="overflow-hidden">
               <img
-                src={asset(article.image)}
+                src={article.image}
                 alt=""
                 loading="lazy"
                 class="w-full aspect-[4/3] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"
@@ -146,10 +144,10 @@ const moreArticles = [
         </div>
 
         <!-- Highlight article -->
-        <a href={link("/insights/outdoor-learning-early-years")} class="lg:col-span-3 group reveal flex flex-col">
+        <a href=/insights/outdoor-learning-early-years class="lg:col-span-3 group reveal flex flex-col">
           <div class="overflow-hidden flex-1">
             <img
-              src={asset('/images/playground.jpg')}
+              src=/images/playground.jpg
               alt=""
               loading="lazy"
               class="w-full h-full min-h-[300px] object-cover transition-transform duration-[var(--transition-glacial)] group-hover:scale-[1.02]"

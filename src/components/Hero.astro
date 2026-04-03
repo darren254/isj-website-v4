@@ -1,5 +1,4 @@
 ---
-import { asset } from '../utils/paths';
 /**
  * Hero — Aman-style full-bleed visual with NO text overlay.
  * Text appears below the image in a centred column.
@@ -34,14 +33,14 @@ const heightClass = {
       muted
       loop
       playsinline
-      poster={asset(imageSrc)}
+      poster={imageSrc}
       class="absolute inset-0 w-full h-full object-cover"
     >
       <source src={videoSrc} type="video/mp4" />
     </video>
   ) : (
     <img
-      src={asset(imageSrc)}
+      src={imageSrc}
       alt={imageAlt}
       class="absolute inset-0 w-full h-full object-cover"
       style={`object-position: ${objectPosition}`}

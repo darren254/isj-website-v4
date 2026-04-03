@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 ---
@@ -26,7 +24,7 @@ import Hero from '../../components/Hero.astro';
         <p class="label mb-5">Academic Year</p>
         <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">School Calendar 2025/26</h1>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          ISJ follows a three-term academic year running from September to July, aligned with the British school calendar. Staff study days precede the start of each term. Term 3 dates will be confirmed and published here in due course. For enquiries about specific dates, <a href={link('/contact')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">contact the school office</a>.
+          ISJ follows a three-term academic year running from September to July, aligned with the British school calendar. Staff study days precede the start of each term. Term 3 dates will be confirmed and published here in due course. For enquiries about specific dates, <a href=/contact class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">contact the school office</a>.
         </p>
       </div>
     </div>

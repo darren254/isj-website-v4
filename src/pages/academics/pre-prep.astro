@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -31,7 +29,7 @@ import Testimonial from '../../components/Testimonial.astro';
         Pre-Nursery, Nursery, Reception, Year 1, and Year 2. The years that shape how your child feels about learning, about school, and about themselves. ISJ takes them seriously.
       </p>
       <p>
-        ISJ Pre-Prep follows the Early Years Foundation Stage and Key Stage 1 of the <a href={link("/academics/curriculum")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">English National Curriculum</a>. Children learn through structured play, curiosity, and exploration, with specialist teaching in music, art, drama, PE, swimming, Bahasa Indonesia, and Mandarin Chinese.
+        ISJ Pre-Prep follows the Early Years Foundation Stage and Key Stage 1 of the <a href=/academics/curriculum class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">English National Curriculum</a>. Children learn through structured play, curiosity, and exploration, with specialist teaching in music, art, drama, PE, swimming, Bahasa Indonesia, and Mandarin Chinese.
       </p>
     </SectionIntro>
   </section>
@@ -54,7 +52,7 @@ import Testimonial from '../../components/Testimonial.astro';
         </div>
         <div class="overflow-hidden">
           <img
-            src={asset('/images/playground.jpg')}
+            src=/images/playground.jpg
             alt="Young children playing on the outdoor climbing structure at ISJ"
             loading="lazy"
             decoding="async"
@@ -78,7 +76,7 @@ import Testimonial from '../../components/Testimonial.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
         <div class="overflow-hidden md:order-1">
           <img
-            src={asset('/images/happy-children-outdoor.jpg')}
+            src=/images/happy-children-outdoor.jpg
             alt="Pre-Prep children playing with hoops outdoors"
             loading="lazy"
             decoding="async"
@@ -105,7 +103,7 @@ import Testimonial from '../../components/Testimonial.astro';
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/tortoises-girls.jpg')}
+        src=/images/tortoises-girls.jpg
         alt="ISJ Pre-Prep children meeting tortoises during an outdoor learning session"
         loading="lazy"
         decoding="async"
@@ -136,12 +134,12 @@ import Testimonial from '../../components/Testimonial.astro';
       <p class="label mb-5">What Comes Next</p>
       <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Into Prep School</h2>
       <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mb-8">
-        At the end of Year 2, children move into <a href={link("/academics/prep-school")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Prep School</a> (Ages 7 to 13), where they continue with the English National Curriculum through Key Stages 2 and 3. The transition is seamless because the teachers already know your child.
+        At the end of Year 2, children move into <a href=/academics/prep-school class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Prep School</a> (Ages 7 to 13), where they continue with the English National Curriculum through Key Stages 2 and 3. The transition is seamless because the teachers already know your child.
       </p>
       <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed mt-6">
-        To see the school, <a href={link("/admissions/arrange-a-tour")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">arrange a visit</a>.
+        To see the school, <a href=/admissions/arrange-a-tour class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">arrange a visit</a>.
       </p>
-      <a href={link("/academics/prep-school")} class="whisper-link">Discover Prep School</a>
+      <a href=/academics/prep-school class="whisper-link">Discover Prep School</a>
     </div>
   </section>
 

@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionIntro from '../../components/SectionIntro.astro';
@@ -79,8 +77,8 @@ const yearGroups = [
           <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-3" id="result-year"></h2>
           <p class="text-[length:var(--text-base)] text-charcoal-light" id="result-detail"></p>
           <div class="mt-6 flex flex-col sm:flex-row gap-4">
-            <a href={link("/admissions/how-to-apply")} class="whisper-link">How to apply</a>
-            <a href={link("/admissions/fees")} class="whisper-link">View fees</a>
+            <a href=/admissions/how-to-apply class="whisper-link">How to apply</a>
+            <a href=/admissions/fees class="whisper-link">View fees</a>
           </div>
         </div>
       </div>
@@ -125,14 +123,14 @@ const yearGroups = [
       <div class="reveal">
         <p class="label mb-6">Entry Points</p>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          The main entry points are Pre-Nursery (entering <a href={link('/academics/pre-prep')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Pre-Prep</a>), Reception, Year 7 (entering <a href={link('/academics/senior-school')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Senior School</a>), and Year 12. Places may be available in any year group, and mid-year transfers are welcome subject to available space.
+          The main entry points are Pre-Nursery (entering <a href=/academics/pre-prep class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Pre-Prep</a>), Reception, Year 7 (entering <a href=/academics/senior-school class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Senior School</a>), and Year 12. Places may be available in any year group, and mid-year transfers are welcome subject to available space.
         </p>
       </div>
 
       <div class="reveal mt-12">
         <p class="label mb-6">Assessment</p>
         <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-          Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children in <a href={link('/academics/prep-school')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Prep School</a> complete an age-appropriate assessment in literacy, numeracy, and reasoning.
+          Pre-Nursery, Nursery, and Reception have no formal assessment. From Year 1, children in <a href=/academics/prep-school class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Prep School</a> complete an age-appropriate assessment in literacy, numeracy, and reasoning.
         </p>
 
       </div>

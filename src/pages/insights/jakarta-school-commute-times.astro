@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 ---
 
@@ -37,7 +35,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
   <div class="img-wide" style="margin-top:2em;margin-bottom:2em;">
     <iframe
-      src={asset('/tools/commute-times.html')}
+      src=/tools/commute-times.html
       title="Jakarta School Commute Times Comparison Tool"
       style="width:100%;height:800px;border:0;border-radius:4px;"
       loading="lazy"
@@ -79,7 +77,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   </p>
 
   <p>
-    For a broader look at all 72 international schools in Jakarta, including fees, curricula, and locations, see the <a href={asset('/insights/best-international-schools-jakarta')}>Best International Schools in Jakarta</a> guide. Families interested in ISJ can <a href={asset('/admissions/arrange-a-tour')}>arrange a campus tour</a> to see the Pondok Indah location for themselves.
+    For a broader look at all 72 international schools in Jakarta, including fees, curricula, and locations, see the <a href=/insights/best-international-schools-jakarta>Best International Schools in Jakarta</a> guide. Families interested in ISJ can <a href=/admissions/arrange-a-tour>arrange a campus tour</a> to see the Pondok Indah location for themselves.
   </p>
 
 </ArticleLayout>

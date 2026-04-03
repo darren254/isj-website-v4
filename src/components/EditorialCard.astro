@@ -1,5 +1,4 @@
 ---
-import { asset } from '../utils/paths';
 /**
  * EditorialCard — Image + label + title + link.
  * Aman-style: no container, no shadow, no border. Content floats.
@@ -20,7 +19,7 @@ const { imageSrc, imageAlt, label, title, description, href, linkText = 'Discove
 <a href={href} class="group block reveal">
   <div class="overflow-hidden">
     <img
-      src={asset(imageSrc)}
+      src={imageSrc}
       alt={imageAlt}
       loading="lazy"
       decoding="async"

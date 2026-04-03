@@ -1,5 +1,4 @@
 ---
-import { asset } from '../utils/paths';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -39,7 +38,7 @@ const hasHero = !!heroImage;
     <!-- Style A: Full-bleed hero -->
     <div class="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
       <img
-        src={asset(heroImage!)}
+        src={heroImage!}
         alt={heroAlt || ''}
         class="absolute inset-0 w-full h-full object-cover"
       />

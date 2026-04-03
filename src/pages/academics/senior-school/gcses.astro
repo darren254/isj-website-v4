@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
@@ -18,7 +16,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">GCSEs</h1>
         <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           <p>
-            GCSEs are the standard qualification for 14 to 16 year olds in the British education system. Students study a range of subjects over two years and sit formal examinations at the end of Year 11. Results are graded 9 to 1, with 9 the highest. For a full overview of how GCSEs and A-Levels work, see the <a href={link("/insights/gcses-and-a-levels-guide")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">GCSEs and A-Levels guide</a>.
+            GCSEs are the standard qualification for 14 to 16 year olds in the British education system. Students study a range of subjects over two years and sit formal examinations at the end of Year 11. Results are graded 9 to 1, with 9 the highest. For a full overview of how GCSEs and A-Levels work, see the <a href=/insights/gcses-and-a-levels-guide class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">GCSEs and A-Levels guide</a>.
           </p>
           <p>
             At ISJ, the GCSE programme covers 11 subjects. The core is English Language, Mathematics, and the three sciences (Biology, Chemistry, and Physics). Beyond that, students choose from English Literature, History, Economics, Computer Science, Art and Design, and a Modern Foreign Language.
@@ -32,7 +30,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/senior-school.jpg')}
+        src=/images/senior-school.jpg
         alt="ISJ Senior School students"
         loading="lazy"
         decoding="async"
@@ -52,7 +50,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
             The subject range is designed to keep options open. A student considering medicine needs strong sciences. A student drawn to law or politics benefits from History and Economics. A student with creative ambitions has Art and Design alongside a strong academic core. The GCSE programme supports all of these pathways.
           </p>
           <p>
-            Subject specialists lead every class. Teaching is rigorous, structured, and focused on depth of understanding rather than surface coverage. Pupils are expected to think critically, write clearly, and develop the independent study habits they will need at <a href={link("/academics/senior-school/a-levels")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">A-Level</a>.
+            Subject specialists lead every class. Teaching is rigorous, structured, and focused on depth of understanding rather than surface coverage. Pupils are expected to think critically, write clearly, and develop the independent study habits they will need at <a href=/academics/senior-school/a-levels class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">A-Level</a>.
           </p>
         </div>
       </div>
@@ -85,15 +83,15 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-6">Into A-Levels</h2>
         <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           <p>
-            GCSE results determine A-Level subject choices. Strong performance at GCSE opens the widest range of options at <a href={link("/academics/senior-school/a-levels")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">A-Level</a>. The transition is seamless at <a href={link("/academics/senior-school")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">ISJ Senior School</a> because the same teachers, the same expectations, and the same culture carry through from Year 10 to Year 13.
+            GCSE results determine A-Level subject choices. Strong performance at GCSE opens the widest range of options at <a href=/academics/senior-school/a-levels class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">A-Level</a>. The transition is seamless at <a href=/academics/senior-school class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">ISJ Senior School</a> because the same teachers, the same expectations, and the same culture carry through from Year 10 to Year 13.
           </p>
           <p>
-            University preparation begins in Year 11, with early conversations about courses, countries, and application systems. By the time students enter Year 12, they have a clear sense of direction. The <a href={link("/academics/results")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">results this model produces</a> across the Schools Trust network are detailed on the outcomes page.
+            University preparation begins in Year 11, with early conversations about courses, countries, and application systems. By the time students enter Year 12, they have a clear sense of direction. The <a href=/academics/results class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">results this model produces</a> across the Schools Trust network are detailed on the outcomes page.
           </p>
         </div>
         <div class="mt-8 flex flex-col sm:flex-row gap-6">
-          <a href={link("/academics/senior-school/a-levels")} class="whisper-link">A-Levels at ISJ</a>
-          <a href={link("/academics/senior-school")} class="whisper-link">Senior School</a>
+          <a href=/academics/senior-school/a-levels class="whisper-link">A-Levels at ISJ</a>
+          <a href=/academics/senior-school class="whisper-link">Senior School</a>
         </div>
       </div>
     </div>

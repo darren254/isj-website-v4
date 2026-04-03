@@ -1,6 +1,4 @@
 ---
-import { asset } from '../../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Testimonial from '../../components/Testimonial.astro';
@@ -30,7 +28,7 @@ import Testimonial from '../../components/Testimonial.astro';
             Years 3 to 8. The years when children discover what they love, develop habits that last, and start to understand who they are. Academic rigour meets genuine breadth, and children learn how to think, not what to think.
           </p>
           <p>
-            ISJ follows the <a href={link("/academics/curriculum")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">English National Curriculum</a> through Key Stages 2 and 3. Every class is led by a teacher who knows your child deeply, supported by specialists in music, art, PE, swimming, and languages.
+            ISJ follows the <a href=/academics/curriculum class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">English National Curriculum</a> through Key Stages 2 and 3. Every class is led by a teacher who knows your child deeply, supported by specialists in music, art, PE, swimming, and languages.
           </p>
         </div>
       </div>
@@ -59,7 +57,7 @@ import Testimonial from '../../components/Testimonial.astro';
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/science-experiment.jpg')}
+        src=/images/science-experiment.jpg
         alt="Prep School pupils conducting a science experiment"
         loading="lazy"
         decoding="async"
@@ -90,7 +88,7 @@ import Testimonial from '../../components/Testimonial.astro';
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/house-sports.jpg')}
+        src=/images/house-sports.jpg
         alt="ISJ house sports competition"
         loading="lazy"
         decoding="async"
@@ -146,7 +144,7 @@ import Testimonial from '../../components/Testimonial.astro';
   <section class="px-6 pb-[var(--space-section)]">
     <div class="mx-auto max-w-[var(--content-narrow)]">
       <img
-        src={asset('/images/residential-trip.jpg')}
+        src=/images/residential-trip.jpg
         alt="ISJ pupils on a residential trip to Woolverstone Hall"
         loading="lazy"
         decoding="async"
@@ -163,11 +161,11 @@ import Testimonial from '../../components/Testimonial.astro';
         <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-8">Into Senior School</h2>
         <div class="space-y-6 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
           <p>
-            At the end of Year 8, pupils move into <a href={link("/academics/senior-school")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Senior School</a> for GCSEs and A-Levels. The same teachers, the same ethos, the same expectation of excellence. The transition is seamless because your child is already known. Younger siblings joining from age 2 start in <a href={link("/academics/pre-prep")} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Pre-Prep</a>.
+            At the end of Year 8, pupils move into <a href=/academics/senior-school class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Senior School</a> for GCSEs and A-Levels. The same teachers, the same ethos, the same expectation of excellence. The transition is seamless because your child is already known. Younger siblings joining from age 2 start in <a href=/academics/pre-prep class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Pre-Prep</a>.
           </p>
         </div>
         <div class="mt-8">
-          <a href={link("/academics/senior-school")} class="whisper-link">Discover Senior School</a>
+          <a href=/academics/senior-school class="whisper-link">Discover Senior School</a>
         </div>
       </div>
     </div>

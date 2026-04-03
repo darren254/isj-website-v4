@@ -1,9 +1,7 @@
 ---
-import { asset } from '../../utils/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import StatBar from '../../components/StatBar.astro';
-const link = (path: string) => asset(path);
 ---
 
 <BaseLayout
@@ -62,7 +60,7 @@ const link = (path: string) => asset(path);
             Every school operated by Trustees of The Schools Trust has achieved "Excellent" in all categories of UK government-accredited ISI inspections. 94% of students outperform the UK national average. Schools within the network have been ranked 1st and 2nd across 200+ British schools for A-Level and GCSE results.
           </p>
           <p>
-            ISJ follows the same path. The school is progressing toward full BSO (British Schools Overseas) accreditation, inspected by UK-qualified inspectors from ISI and Penta International. See <a href={link('/academics/results')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">ISJ's academic results</a> and learn <a href={link('/about/why-isj')} class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">why families choose ISJ</a>.
+            ISJ follows the same path. The school is progressing toward full BSO (British Schools Overseas) accreditation, inspected by UK-qualified inspectors from ISI and Penta International. See <a href=/academics/results class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">ISJ's academic results</a> and learn <a href=/about/why-isj class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">why families choose ISJ</a>.
           </p>
         </div>
       </div>

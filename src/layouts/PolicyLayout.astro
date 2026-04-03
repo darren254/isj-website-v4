@@ -12,8 +12,6 @@
  * - Monochromatic: dark charcoal text on cream
  * - No decorative elements, borders between sections, or icons
  */
-import { asset } from '../utils/paths';
-const link = (path: string) => asset(path);
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -38,7 +36,7 @@ const { title, description, policyName, lastReviewed, category, canonicalUrl } =
     <div class="mx-auto max-w-[640px]">
 
       <!-- Back link -->
-      <a href={link('/policies')} class="inline-flex items-center gap-2 text-[13px] text-charcoal-muted hover:text-navy transition-colors duration-[var(--transition-base)] mb-16">
+      <a href=/policies class="inline-flex items-center gap-2 text-[13px] text-charcoal-muted hover:text-navy transition-colors duration-[var(--transition-base)] mb-16">
         <span aria-hidden="true">&larr;</span> All Policies
       </a>
 
@@ -54,7 +52,7 @@ const { title, description, policyName, lastReviewed, category, canonicalUrl } =
 
       <!-- Back link (bottom) -->
       <div class="mt-20">
-        <a href={link('/policies')} class="inline-flex items-center gap-2 text-[13px] text-charcoal-muted hover:text-navy transition-colors duration-[var(--transition-base)]">
+        <a href=/policies class="inline-flex items-center gap-2 text-[13px] text-charcoal-muted hover:text-navy transition-colors duration-[var(--transition-base)]">
           <span aria-hidden="true">&larr;</span> All Policies
         </a>
       </div>
