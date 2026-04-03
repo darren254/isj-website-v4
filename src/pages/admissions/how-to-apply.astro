@@ -27,7 +27,7 @@ const steps = [
   {
     number: '05',
     title: 'Offer and Enrolment',
-    body: 'If ISJ is the right fit, an offer letter will be issued. Confirm your place with the enrolment deposit, which is refundable on departure.',
+    body: 'If ISJ is the right fit, an offer letter will be issued. Confirm your place with the enrolment deposit, which is refundable on departure. Full details are in the admissions terms and conditions.',
   },
 ];
 ---
@@ -70,6 +70,8 @@ const steps = [
               <>{step.body} <a href=/admissions/arrange-a-tour class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Arrange a tour</a>.</>
             ) : step.number === '03' ? (
               <>Complete the application form and pay the <a href=/admissions/fees class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">application fee</a>. ISJ accepts applications up to two years in advance, and mid-year transfers are welcome.</>
+            ) : step.number === '05' ? (
+              <>If ISJ is the right fit, an offer letter will be issued. Confirm your place with the enrolment deposit, which is refundable on departure. Full details are in the <a href="/admissions/terms-and-conditions" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions terms and conditions</a>.</>
             ) : step.body}
           </p>
         </div>
