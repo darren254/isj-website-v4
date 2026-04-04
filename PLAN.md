@@ -423,6 +423,7 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 ## Change Log
 
 ### 4 April 2026 (session 3)
+- Replaced 6 Jakarta-life article hero images with relevant photos pulled from the original Squarespace articles: things-to-do → SuperPark playground, jakarta-commute → Pondok Indah aerial, cost-of-living → Jakarta CBD dusk, expat-contacts → Kemang street scene, healthcare → Jakarta skyline daytime, commute-times → ISJ football kids. All images optimised to JPG, under 400KB each.
 - Insights article layout fixes:
   - `/insights/best-international-schools-jakarta` — moved interactive Mapbox location map from line 648 to directly below intro section, so map is visible without deep scrolling.
   - `/insights/expat-contact-list-jakarta` — trimmed real estate agents from 4 to 3 (removed Jakarta Luxury Homes), kept Savills, Colliers, Knight Frank. Added `rel="nofollow"` to all three agent website links.
