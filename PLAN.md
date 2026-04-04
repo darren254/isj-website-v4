@@ -422,6 +422,12 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 
 ## Change Log
 
+### 4 April 2026 (session 3)
+- Insights article layout fixes:
+  - `/insights/best-international-schools-jakarta` — moved interactive Mapbox location map from line 648 to directly below intro section, so map is visible without deep scrolling.
+  - `/insights/expat-contact-list-jakarta` — trimmed real estate agents from 4 to 3 (removed Jakarta Luxury Homes), kept Savills, Colliers, Knight Frank. Added `rel="nofollow"` to all three agent website links.
+  - Audited all 6 Jakarta-life insight articles for duplicate hero images (pondok-indah.webp was used 4×). Assigned unique images: cost-of-living → happy-children-outdoor.jpg, expat-contacts → outdoor-cooking-activity.jpg, healthcare → swimming-pool.jpg, things-to-do → playground.jpg, jakarta-commute → secondary-students-laptop.jpg, commute-times → boys-football-laughing.jpg.
+
 ### 4 April 2026 (session 2)
 - Rebuilt `/admissions/arrange-a-tour` — form moved above fold (was buried below ~4vh of content), trust signals converted to scannable checklist, parent testimonial placed adjacent to form, "Age" changed to "Date of Birth", "Preferred Date" field added, duplicate content removed, practical details condensed to 3-column grid. Redundant inline WhatsApp CTA removed (floating button is site-wide). Committed `8f0429e`.
 - Summary email sent to Darren with CRO/copywriter/CMO rationale.
