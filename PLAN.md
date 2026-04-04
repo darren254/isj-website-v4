@@ -118,8 +118,8 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [x] **Move to Cloudflare Pages** — project `isj-website-v4.pages.dev`. Custom domain `international-school-jakarta.id` active. `www` initialising. Done 3 April 2026.
 - [x] **Cloudflare proxy switch** — Cloudflare Pages handles SSL and proxying automatically. Done 3 April 2026.
 - [ ] **Domain decision** — host on isj.id (existing authority, brand consistency, staff email). Use international-school-jakarta.id as 301 redirect to isj.id. Transfer isj.id registration from OnlyDomains to Namecheap, DNS to Cloudflare. Update siteUrl + schema refs (5-min find-and-replace). Decision noted 4 April 2026.
-- [ ] **Form handling** — tour + contact forms are mailto fallback. Plan: Resend + Cloudflare Workers.
-- [ ] **Tour booking system** — add Calendly or similar for admissions tour scheduling. Embed on `/admissions/arrange-a-tour`. Fields and requirements to be provided by Tiffany.
+- [x] **Form handling** — mailto fallback is fine for now. Calendly embed will replace once Tiffany provides tour slot details. No interim form solution needed.
+- [ ] **Tour booking system** — add Calendly embed on `/admissions/arrange-a-tour` once Tiffany provides slot details and requirements.
 - [x] **URL redirects** — 111 redirect rules in `public/_redirects`. Full audit against Squarespace sitemap + Search Console. All targets verified. Done 3 April 2026.
 - [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id. Needs Mailchimp dashboard access to get records.
 - [x] **Analytics** — GA4 gtag snippet added to BaseLayout (measurement ID `G-TDE52R9LB1`), gated behind cookie consent. Property ID 475879616. Google Search Console connected. Done 3 April 2026.
@@ -314,48 +314,39 @@ These pages are doing real SEO work on isj.id and need v4 equivalents or proper 
 
 - [ ] **Full 301 redirect audit** — cross-check every Squarespace sitemap URL and every URL with Search Console traffic against the redirect map. The current `URL_REDIRECT_MAP.xlsx` has 45 entries but the Squarespace sitemap has 80+ URLs and Search Console shows traffic to pages not in the sitemap (e.g. `/insights/35-things-to-do-with-kids-in-south-jakarta`, `/relocating-to-jakarta-with-children`, `/gl-assessments-explained`). No page with traffic should 404 after launch.
 
-### Unique content pages — review for repurposing
+### Unique content pages — all redirected
 
-Pulled from Squarespace. Review at a later date to decide what to keep, rewrite, or redirect.
+All 10 unique Squarespace pages have 301 redirects to equivalent v4 content. No pages will 404.
 
-- [ ] `/jakarta-international-schools-comparison-tool` — 21 clicks, 2.7K impressions. Interactive comparison tool.
-- [ ] `/the-school-charter` — school values/charter document
-- [ ] `/stayandplay` — Stay and Play programme page
-- [ ] `/in-the-news` — press/media coverage page
-- [ ] `/relocating-to-jakarta-with-children` — 5 clicks (not even in Squarespace sitemap but getting traffic)
-- [ ] `/gl-assessments-explained` — assessment explainer, 2 clicks
-- [ ] `/commute-times` — commute data page
-- [ ] `/leading-british-school-jakarta` — 2 clicks, 267 impressions
-- [ ] `/curriculum-guide-teaching-learning` — 4 clicks, 481 impressions
-- [ ] `/curriculum-guide-introduction` — 2 clicks, 229 impressions
+- [x] `/jakarta-international-schools-comparison-tool` → `best-international-schools-jakarta` (has comparison table)
+- [x] `/the-school-charter` → `/about/why-isj`
+- [x] `/stayandplay` → `/admissions/arrange-a-tour`
+- [x] `/in-the-news` → `/news`
+- [x] `/relocating-to-jakarta-with-children` → `best-international-schools-jakarta`
+- [x] `/gl-assessments-explained` → `/faqs`
+- [x] `/commute-times` → covered by `jakarta-school-commute-times` + `jakarta-commute`
+- [x] `/leading-british-school-jakarta` → `/about/why-isj`
+- [x] `/curriculum-guide-teaching-learning` → `/academics/curriculum`
+- [x] `/curriculum-guide-introduction` → `/academics/curriculum`
 
-### Squarespace insights to add to v4
+### Squarespace insights — status
 
-These articles exist on Squarespace but have no v4 equivalent. Low or no traffic currently but add to indexed page count.
+All 8 Squarespace insight articles have 301 redirects in place. 2 redirect to equivalent v4 content, 6 redirect to `/insights` hub (low/zero traffic, not worth dedicated pages now). Content engine work for later if page count matters.
 
-- [ ] `/insights/small-class-sizes-when-they-matter-and-when-they-dont`
-- [ ] `/insights/the-hidden-science-of-exceptional-teaching`
-- [ ] `/insights/academic-excellence-measuring-and-achieving-success-at-isj`
-- [ ] `/insights/lunch-british-international-school-jakarta`
-- [ ] `/insights/ai-in-schools-and-critical-thinking`
-- [ ] `/insights/international-school-governance` — 2 clicks, 177 impressions
-- [ ] `/insights/choir-and-music-programme-the-independent-school-of-jakarta`
-- [ ] `/insights/jakartas-leading-british-school`
+- [x] `choir-and-music-programme` → redirects to `singing-across-curriculum` (direct match)
+- [x] `jakartas-leading-british-school` → redirects to `best-international-schools-jakarta` (absorbed)
+- [ ] `small-class-sizes` → redirects to `/insights` hub (0 traffic, rebuild later for page count)
+- [ ] `hidden-science-of-exceptional-teaching` → redirects to `/insights` hub
+- [ ] `academic-excellence` → redirects to `/insights` hub
+- [ ] `lunch-british-international-school-jakarta` → redirects to `/insights` hub
+- [ ] `ai-in-schools-and-critical-thinking` → redirects to `/insights` hub
+- [ ] `international-school-governance` → redirects to `/insights` hub (2 clicks)
 
-Action: pull content from Squarespace, review quality, rebuild as v4 insights articles where content is worth keeping.
+### Squarespace news — status
 
-### Squarespace news articles to migrate
+All 8 Squarespace news articles redirect to `/news` hub. All zero traffic. Rebuild as part of content engine when publishing cadence ramps up.
 
-These news articles are on Squarespace but not in the v4 news section. Add to v4.
-
-- [ ] `/school-news/halloween-disco`
-- [ ] `/school-news/batik-day`
-- [ ] `/school-news/early-years-end-of-year-celebration`
-- [ ] `/school-news/reading-and-phonics-workshop`
-- [ ] `/school-news/our-annual-art-exhibition`
-- [ ] `/school-news/education-excitement-and-exploration`
-- [ ] `/school-news/lunar-new-year`
-- [ ] `/school-news/character-building-in-the-digital-era`
+- [ ] halloween-disco, batik-day, early-years-celebration, reading-and-phonics-workshop, art-exhibition, education-excitement, lunar-new-year, character-building-in-the-digital-era
 
 ---
 
