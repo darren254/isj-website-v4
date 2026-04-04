@@ -84,7 +84,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 | 19 | Scholarships & Bursaries | `/admissions/scholarships` | |
 | 20 | Admissions T&Cs | `/admissions/terms-and-conditions` | |
 
-### Phase 2 — Depth Pages (P2) ✅ MOSTLY DONE
+### Phase 2 — Depth Pages (P2) ✅ ALL DONE
 
 | # | Page | URL | Status |
 |---|------|-----|--------|
@@ -97,8 +97,8 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 | 27 | Sport | `/school-life/sport` | DONE |
 | 28 | Arts & Music | `/school-life/arts-music` | DONE |
 | 29 | Character & Values | `/school-life/character` | DONE |
-| 30 | Expat Guide | `/insights/expat-guide-jakarta` | NOT STARTED — cornerstone SEO content |
-| 31 | Commute Times | `/explore-jakarta/commute-times-pondok-indah` | NOT STARTED — moved to Explore Jakarta hub |
+| 30 | Expat Guide | `/insights/best-international-schools-jakarta` | DONE — cornerstone 98KB guide with Mapbox map, school comparison table, neighbourhood breakdown. Squarespace redirect in place. |
+| 31 | Commute Times | `/insights/jakarta-school-commute-times` | DONE — real commute data from 4 schools to key destinations. Also `/insights/jakarta-commute` covers neighbourhood angle. |
 
 ### Phase 3 — Nice to Have (P3)
 
