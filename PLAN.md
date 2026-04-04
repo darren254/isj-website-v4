@@ -68,7 +68,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 | 3 | Pre-Prep | `/academics/pre-prep` | |
 | 4 | Prep School | `/academics/prep-school` | |
 | 5 | Senior School | `/academics/senior-school` | Biggest SEO opportunity |
-| 6 | Arrange a Tour | `/admissions/arrange-a-tour` | Form uses mailto fallback until Cloudflare Workers |
+| 6 | Arrange a Tour | `/admissions/arrange-a-tour` | Rebuilt 4 April 2026 — form above fold, trust checklist, social proof adjacent to form. mailto fallback until Cloudflare Workers |
 | 7 | Fees | `/admissions/fees` | |
 | 8 | How to Apply | `/admissions/how-to-apply` | |
 | 9 | Age Guide | `/admissions/age-guide` | |
@@ -122,7 +122,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [ ] **Tour booking system** — add Calendly or similar for admissions tour scheduling. Embed on `/admissions/arrange-a-tour`. Fields and requirements to be provided by Tiffany.
 - [x] **URL redirects** — 111 redirect rules in `public/_redirects`. Full audit against Squarespace sitemap + Search Console. All targets verified. Done 3 April 2026.
 - [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id. Needs Mailchimp dashboard access to get records.
-- [x] **Analytics** — GA4 gtag snippet added to BaseLayout, gated behind cookie consent. Property ID 475879616. **TODO: replace `GA4_MEASUREMENT_ID` placeholder with actual G-XXXXXXX from GA4 Admin > Data Streams.** Google Search Console connected. Done 3 April 2026.
+- [x] **Analytics** — GA4 gtag snippet added to BaseLayout (measurement ID `G-TDE52R9LB1`), gated behind cookie consent. Property ID 475879616. Google Search Console connected. Done 3 April 2026.
 - [x] **Cookie consent** — banner built and working. Fires GA4 on accept, suppresses on decline. Done 3 April 2026.
 
 ### SEO & Quality
@@ -417,3 +417,19 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 2. **Senior School photography** — current images skew primary-age. Need Senior School photos as programme grows.
 3. **Sanity CMS timing** — before launch or after static launch?
 4. **Form provider for launch** — Resend + Cloudflare Workers is the plan. Alternative: Formspree/Netlify Forms as interim?
+
+---
+
+## Change Log
+
+### 4 April 2026 (session 2)
+- Rebuilt `/admissions/arrange-a-tour` — form moved above fold (was buried below ~4vh of content), trust signals converted to scannable checklist, parent testimonial placed adjacent to form, "Age" changed to "Date of Birth", "Preferred Date" field added, duplicate content removed, practical details condensed to 3-column grid. Redundant inline WhatsApp CTA removed (floating button is site-wide). Committed `8f0429e`.
+- Summary email sent to Darren with CRO/copywriter/CMO rationale.
+
+### 4 April 2026 (session 1)
+- Fixed early-years-play.png → .jpg reference, deleted old PNG, committed image compression + schema fixes (43 files).
+- Internal linking pass: 13 in-content links added across 9 pages per SITE_ARCHITECTURE.xlsx audit.
+- Meta tags audit: trimmed 4 titles, 18 descriptions, expanded 2, added canonical to brand.astro (34 files).
+- Domain decision recorded: host on isj.id, 301 from international-school-jakarta.id. Transfer isj.id from OnlyDomains → Namecheap, DNS → Cloudflare.
+- Registrar note: move domains from OnlyDomains to Namecheap + Cloudflare DNS.
+- GA4 measurement ID confirmed: `G-TDE52R9LB1` (placeholder was in code from previous session, now replaced).
