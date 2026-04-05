@@ -132,7 +132,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [x] **Schema.org markup** — EducationalOrganization (all pages via BaseLayout), BreadcrumbList (all sub-pages), FAQPage (FAQs), Article (all insights + news via ArticleLayout). Domain refs fixed to international-school-jakarta.id. Trust URL fixed to schoolstrust.co.uk. Done 4 April 2026.
 - [ ] **Sitemap review** — Astro generates automatically. Verify all pages included, URLs correct.
 - [x] **Meta tags review** — all 79 pages audited. Titles ≤60 chars, descriptions 70–160 chars, canonicalUrl on every page, OG tags handled by BaseLayout. 34 files updated. Done 4 April 2026.
-- [ ] **Homepage meta title** — consider Downside's approach: target "British International School Jakarta" directly.
+- [x] **Homepage meta title** — already targets "British International School Jakarta" and "International School Jakarta". Current title: `ISJ | British International School Jakarta | Ages 2–18`. Done.
 - [ ] **Canonical URLs** — verify policy pages using `/policies/[slug]` are indexed correctly.
 - [x] **Image optimisation** — 35 images compressed (3.8MB total savings). early-years-play.png converted to JPG (665KB → 108KB). Done 4 April 2026.
 - [ ] **Performance audit** — Lighthouse, CWV. Target 90+ on all metrics.
