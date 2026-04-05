@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Testimonial from '../../components/Testimonial.astro';
 ---
 
 <ArticleLayout
@@ -47,18 +48,20 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     ISJ is part of The Schools Trust, which has established 16 British international schools across 11 countries since 2004. Trust schools are ranked 1st and 2nd for A-Level and GCSE results across more than 200 British schools internationally, with 94% of students outperforming the UK national average. Graduates have gone on to Cambridge, Oxford, Imperial, UCL, Edinburgh, the University of Melbourne, Harvard, Georgetown, and the University of Toronto, among others.
   </p>
 
-  <blockquote>
-    <p>"This development ensures that families can stay with us through to graduation, benefiting from the same values and continuity of care."</p>
-    <footer>Eileen Fisher, Head of ISJ</footer>
-  </blockquote>
-
-  <blockquote>
-    <p>"I'm so proud of what the ISJ community is building. A new campus and a complete pathway through to A-Levels. Exciting times!"</p>
-    <footer>Darren Brown, Trustee, The Schools Trust</footer>
-  </blockquote>
-
   <p>
     More details and architectural sketches are available on the <a href="/senior-campus">Senior Campus</a> page.
   </p>
+
+  <Fragment slot="related">
+    <Testimonial
+      quote="This development ensures that families can stay with us through to graduation, benefiting from the same values and continuity of care."
+      attribution="Eileen Fisher, Head of ISJ"
+      variant="dark"
+    />
+    <Testimonial
+      quote="I'm so proud of what the ISJ community is building. A new campus and a complete pathway through to A-Levels. Exciting times!"
+      attribution="Darren Brown, Trustee, The Schools Trust"
+    />
+  </Fragment>
 
 </ArticleLayout>
