@@ -413,6 +413,17 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 
 ## Change Log
 
+### 5 April 2026 (session 4)
+- Built `/senior-campus` dedicated page with architectural renders (hero, 2 asymmetric sections, full-bleed image break, testimonials, StatBar). Follows campus page patterns.
+- Published `/news/senior-campus-announcement` news article with adapted press release, inline renders, Eileen + Darren quotes.
+- Terminology swap: "Secondary Campus" / "New Secondary Campus" replaced with "Senior Campus" across campus page, senior school page, and careers page. "Junior Campus" introduced where both campuses are referenced.
+- Added Senior Campus section to homepage (asymmetric render + 2 sentences between Life at ISJ and second testimonial).
+- Added 3 Senior Campus FAQ entries (when, where, will my child move).
+- Added senior campus link to admissions how-to-apply entry points section.
+- Updated PAGE_MESSAGING.md with Senior Campus and news article briefs.
+- Created docs/SENIOR_CAMPUS_BRIEF.md execution plan with press release, layout brief, and image inventory.
+- 8 architectural renders optimised and added to `public/images/senior-campus/`.
+
 ### 4 April 2026 (session 3)
 - Replaced 6 Jakarta-life article hero images with relevant photos pulled from the original Squarespace articles: things-to-do → SuperPark playground, jakarta-commute → Pondok Indah aerial, cost-of-living → Jakarta CBD dusk, expat-contacts → Kemang street scene, healthcare → Jakarta skyline daytime, commute-times → ISJ football kids. All images optimised to JPG, under 400KB each.
 - Insights article layout fixes:

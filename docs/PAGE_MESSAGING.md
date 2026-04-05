@@ -131,6 +131,21 @@ Themes that run through the whole site:
 **Job:** Compliance. Just needs to exist and be correct.
 **Status:** TODO.
 
+### Senior Campus `/senior-campus`
+**Job:** Show prospective families what ISJ is building. Architectural sketches + key facts from press release.
+**SEO:** new international school campus Jakarta, British school senior campus Jakarta
+**Core message:** A purpose-built senior campus opens in 2028. 300 metres from the junior campus. Science labs, technology labs, art and music studios, a theatre, a library, and a football pitch.
+**Supporting:** First cohort (current Year 7s) will go all the way to A-Levels. Schools Trust track record. Eileen + Darren quotes.
+**Tone:** Confident, measured, forward-looking. Match the careers page "Growth" section tone. Not breathless. Factual and specific.
+**Do not include:** Specific construction timeline, dates beyond "2028", unconfirmed details.
+**Status:** DONE.
+
+### Senior Campus News `/news/senior-campus-announcement`
+**Job:** Announce the senior campus. Shareable on socials and Mailchimp.
+**Core message:** ISJ will open a purpose-built senior campus in Pondok Indah in 2028.
+**Tone:** Press-release adapted to ISJ editorial voice. Third person. Includes both Eileen and Darren quotes.
+**Status:** DONE.
+
 ---
 
 ## P2 Pages (lighter outlines)

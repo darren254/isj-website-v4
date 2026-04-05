@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import StatBar from '../components/StatBar.astro';
+import Testimonial from '../components/Testimonial.astro';
+---
+
+<BaseLayout
+  title="Senior Campus | The Independent School of Jakarta"
+  description="ISJ opens a purpose-built senior campus in Pondok Indah in 2028. Science labs, art studios, a theatre, a library, and a football pitch, 300 metres from the junior campus."
+  canonicalUrl="/senior-campus"
+>
+
+  <!-- ═══════ Hero ═══════ -->
+  <Hero
+    imageSrc="/images/senior-campus/aerial-colour.jpg"
+    imageAlt="Architectural render of the ISJ Senior Campus in Pondok Indah"
+    aspectRatio="standard"
+    objectPosition="center 40%"
+  />
+
+  <!-- ═══════ Introduction ═══════ -->
+  <section class="section-pad px-6">
+    <SectionIntro headingLevel="h1"
+      label="Opening 2028"
+      heading="The Senior Campus"
+    >
+      <p>
+        The Independent School of Jakarta will open a purpose-built senior campus in Pondok Indah, South Jakarta, in 2028. Located 300 metres from the junior campus, it completes a gold standard British international school offering the English National Curriculum from age 2 through to A-Levels.
+      </p>
+    </SectionIntro>
+  </section>
+
+  <!-- ═══════ Facilities — asymmetric split ═══════ -->
+  <section class="px-6 pb-[var(--space-section)] border-t border-charcoal/10">
+    <div class="mx-auto max-w-[var(--content-wide)] pt-[var(--space-section)]">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-16 items-center reveal">
+        <div class="md:col-span-3 overflow-hidden">
+          <img
+            src="/images/senior-campus/street-perspective.jpg"
+            alt="Street-level render of the ISJ Senior Campus showing the full building and football pitch"
+            loading="lazy"
+            class="w-full aspect-[16/9] object-cover"
+          />
+        </div>
+        <div class="md:col-span-2">
+          <p class="label mb-4">Facilities</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">Built Around Learning</h2>
+          <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            Science laboratories, technology labs, dedicated art and music studios, a theatre, a secondary library, and a football pitch. Every space designed to support the breadth of GCSEs and A-Levels.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Complete Pathway — reversed split ═══════ -->
+  <section class="px-6 pb-[var(--space-section)] border-t border-charcoal/10">
+    <div class="mx-auto max-w-[var(--content-wide)] pt-[var(--space-section)]">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-16 items-center reveal">
+        <div class="md:col-span-2 md:order-1">
+          <p class="label mb-4">A Complete Pathway</p>
+          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-4">From Age Two to A-Levels</h2>
+          <p class="text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
+            Current Year 7 pupils at the junior campus will be the first cohort to progress through to A-Levels. For the first time, ISJ families have a continuous educational journey from Early Years through to university entrance.
+          </p>
+        </div>
+        <div class="md:col-span-3 md:order-2 overflow-hidden">
+          <img
+            src="/images/senior-campus/courtyard-colour.jpg"
+            alt="Render of the Senior Campus courtyard with sports hall and classroom block"
+            loading="lazy"
+            class="w-full aspect-[16/9] object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Full-bleed image break ═══════ -->
+  <section class="w-full overflow-hidden border-t border-charcoal/10">
+    <img
+      src="/images/senior-campus/sports-hall-colour.jpg"
+      alt="Render of the Senior Campus sports hall with courtyard"
+      loading="lazy"
+      class="w-full aspect-[16/9] object-cover"
+    />
+  </section>
+
+  <!-- ═══════ Testimonial — Eileen Fisher ═══════ -->
+  <Testimonial
+    quote="Our Year 7s have been with us since they were five. It will be a wonderful feeling to see them grow and graduate with A-Levels."
+    attribution="Eileen Fisher, Head of ISJ"
+    variant="dark"
+  />
+
+  <!-- ═══════ StatBar ═══════ -->
+  <StatBar stats={[
+    { value: '2028', label: 'Opening Year' },
+    { value: '300m', label: 'From Junior Campus' },
+    { value: '2–18', label: 'One School, All Ages' },
+  ]} />
+
+  <!-- ═══════ Testimonial — Darren Brown ═══════ -->
+  <Testimonial
+    quote="After a couple of detours, I'm really proud of what the ISJ community has built. A new campus and a complete pathway through to A-Levels."
+    attribution="Darren Brown, Trustee, The Schools Trust"
+    variant="light"
+  />
+
+</BaseLayout>
