@@ -128,7 +128,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 ### SEO & Quality
 
 - [x] **Internal linking pass** — 13 in-content links added per SITE_ARCHITECTURE.xlsx audit. GCSEs/A-Levels cross-linked from Curriculum and Results, Terms & Conditions linked from How to Apply, legal pages fully cross-linked. All planned links covered by nav/footer + in-content links. Done 4 April 2026.
-- [ ] **Breadcrumb component** — add to all sub-pages (not homepage).
+- [x] **Breadcrumb component** — REMOVED. BreadcrumbList schema.org structured data already on all sub-pages (SEO value captured). Visible UI breadcrumbs dropped to preserve clean Aman-style layout.
 - [x] **Schema.org markup** — EducationalOrganization (all pages via BaseLayout), BreadcrumbList (all sub-pages), FAQPage (FAQs), Article (all insights + news via ArticleLayout). Domain refs fixed to international-school-jakarta.id. Trust URL fixed to schoolstrust.co.uk. Done 4 April 2026.
 - [ ] **Sitemap review** — Astro generates automatically. Verify all pages included, URLs correct.
 - [x] **Meta tags review** — all 79 pages audited. Titles ≤60 chars, descriptions 70–160 chars, canonicalUrl on every page, OG tags handled by BaseLayout. 34 files updated. Done 4 April 2026.
