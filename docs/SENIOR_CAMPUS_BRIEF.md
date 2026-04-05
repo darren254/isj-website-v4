@@ -15,7 +15,7 @@
 
 ## Copy Rules (from DECISIONS.md + DESIGN_PROCESS.md)
 - No em dashes
-- No "we" or "our" — third person only (ISJ, the school)
+- No "we" or "our" when ISJ is referring to itself in marketing copy — use third person (ISJ, the school). Direct quotes from named individuals may use first person naturally.
 - No negative framing
 - No competitor references
 - One vivid detail beats three bullet points

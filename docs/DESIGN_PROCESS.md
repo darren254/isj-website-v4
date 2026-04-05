@@ -74,7 +74,7 @@ Get sign-off on the layout brief before building.
 
 ### Copy Rules
 - No em dashes
-- No "we" or "our" — third person only (ISJ, the school)
+- No "we" or "our" when ISJ is referring to itself in marketing copy — use third person (ISJ, the school). Direct quotes from named individuals may use first person naturally.
 - No negative framing
 - No mention of exam boards
 - No competitor references

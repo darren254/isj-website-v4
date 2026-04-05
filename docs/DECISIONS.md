@@ -20,5 +20,5 @@ Settled decisions. Don't re-debate these.
 | 14 | **SEO-first architecture** | Every page has keywords, meta, schema defined before content is written. Architecture doc is source of truth. | 2026-03-22 |
 | 15 | **Never praise Darren** | No compliments, no flattery. Just do the work. | 2026-03-22 |
 | 16 | **Warm stone footer (#E8E4DD)** | Replaces dark charcoal #1E1D1B. Navy text on warm stone. Lighter, more consistent with Aman-inspired cream aesthetic. | 2026-03-29 |
-| 17 | **No "we" or "our" pronouns** | All copy uses "ISJ", "the school", or third-person framing. Avoids institutional voice. Applies to all pages and documents. | 2026-03-30 |
+| 17 | **No "we" or "our" when ISJ refers to itself** | Marketing copy uses "ISJ", "the school", or third-person framing. Avoids institutional voice. Does not apply to: direct quotes from named individuals (first person is natural), general English usage where "we" is not ISJ self-referencing. | 2026-03-30 |
 | 18 | **Budget is not a constraint on tooling** | Happy to upgrade Cloudflare (paid plans, Workers, Access), hosting, or other infrastructure if the use case calls for it. Do not restrict recommendations to free tiers or current stack choices. Quality and correctness come first. | 2026-04-01 |
