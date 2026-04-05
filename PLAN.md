@@ -346,7 +346,7 @@ All 8 Squarespace insight articles have 301 redirects in place. 2 redirect to eq
 
 All 8 Squarespace news articles redirect to `/news` hub. All zero traffic. Rebuild as part of content engine when publishing cadence ramps up.
 
-- [ ] halloween-disco, batik-day, early-years-celebration, reading-and-phonics-workshop, art-exhibition, education-excitement, lunar-new-year, character-building-in-the-digital-era
+- [x] All 8 news articles migrated. Content, images, and redirects updated. Done 6 April 2026.
 
 ---
 
