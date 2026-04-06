@@ -271,6 +271,17 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
+// --- Blob URL cache to avoid re-fetching ---
+const blobCache = {};
+async function getBlobUrl(url) {
+  if (blobCache[url]) return blobCache[url];
+  const res = await fetch(url, { headers: HEADERS });
+  const blob = await res.blob();
+  const objectUrl = URL.createObjectURL(blob);
+  blobCache[url] = objectUrl;
+  return objectUrl;
+}
+
 // --- Render ---
 function renderGallery() {
   const gallery = document.getElementById('gallery');
@@ -281,14 +292,25 @@ function renderGallery() {
     card.dataset.index = i;
 
     card.innerHTML = `
-      <img src="${img.url}" alt="${img.label}" loading="lazy" />
+      <img src="" alt="${img.label}" />
       <div class="img-caption">${img.label}</div>
       <div class="delete-x">✕</div>
       <div class="mark-btn" title="Mark for deletion">✕</div>
     `;
 
+    const imgEl = card.querySelector('img');
+
+    // Lazy-load via IntersectionObserver
+    const observer = new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        obs.disconnect();
+        getBlobUrl(img.url).then(src => { imgEl.src = src; });
+      }
+    }, { rootMargin: '200px' });
+    observer.observe(card);
+
     // Open lightbox on image click
-    card.querySelector('img').addEventListener('click', (e) => {
+    imgEl.addEventListener('click', (e) => {
       e.stopPropagation();
       openLightbox(i);
     });
@@ -370,7 +392,7 @@ document.getElementById('delete-btn').addEventListener('click', async () => {
 function openLightbox(index) {
   lightboxIndex = index;
   const img = filtered[index];
-  document.getElementById('lightbox-img').src = img.url;
+  getBlobUrl(img.url).then(src => { document.getElementById('lightbox-img').src = src; });
   document.getElementById('lightbox-caption').textContent = img.label;
   document.getElementById('lightbox').classList.add('open');
 }
