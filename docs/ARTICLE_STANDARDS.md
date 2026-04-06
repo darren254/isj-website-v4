@@ -28,6 +28,8 @@ Follow the rules in `docs/staff-team-2026.md`:
 - Teacher is quoted in the article → that teacher is the author
 - Otherwise → alternate Eileen Fisher / Darren Brown
 
+Note: all Jakarta Life articles up to and including `best-neighbourhoods-jakarta` were incorrectly assigned to Darren Brown. `moving-to-jakarta-checklist` (April 2026) is Eileen Fisher. The next non-school-comparison Jakarta Life article should be Darren Brown, then alternate from there.
+
 ---
 
 ## 2. ArticleLayout Props — Required Every Time

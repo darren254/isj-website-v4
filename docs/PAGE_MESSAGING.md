@@ -166,7 +166,7 @@ All Jakarta Life insight articles follow this template.
 ### Moving to Jakarta: A Checklist `/insights/moving-to-jakarta-checklist`
 **SEO:** moving to Jakarta expat checklist
 **Core message:** What to sort before you arrive, and what to tackle in the first month.
-**Status:** TODO.
+**Status:** DONE.
 
 ### Navigating the Indonesian School System `/insights/indonesian-school-system-expats`
 **SEO:** Indonesian school system expat guide
