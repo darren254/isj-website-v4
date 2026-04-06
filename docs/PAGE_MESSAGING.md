@@ -161,7 +161,7 @@ All Jakarta Life insight articles follow this template.
 ### Weekend Trips from Jakarta with Kids `/insights/weekend-trips-from-jakarta`
 **SEO:** weekend trips Jakarta family
 **Core message:** Bandung, Bogor, Puncak, and Bali are all viable from Jakarta with children.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Moving to Jakarta: A Checklist `/insights/moving-to-jakarta-checklist`
 **SEO:** moving to Jakarta expat checklist
@@ -171,44 +171,44 @@ All Jakarta Life insight articles follow this template.
 ### Navigating the Indonesian School System `/insights/indonesian-school-system-expats`
 **SEO:** Indonesian school system expat guide
 **Core message:** Understanding the local system helps families make better international school decisions.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### International School Fees in Jakarta `/insights/international-school-fees-jakarta`
 **SEO:** international school fees Jakarta
 **Core message:** Fees vary enormously. What they include (and don't) matters as much as the headline number.
 **Do not:** State ISJ fees. Refer readers to the fees page.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Where Do Expats Go at Weekends? `/insights/expat-weekends-jakarta`
 **SEO:** expat weekends Jakarta
 **Core message:** South Jakarta has a strong weekend scene that new arrivals often don't discover quickly enough.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Quality of Life in Jakarta for Expat Families `/insights/quality-of-life-jakarta`
 **SEO:** quality of life Jakarta expat
 **Core message:** Jakarta is harder than many cities, but the compensations are real.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Adapting to Life in Jakarta `/insights/adapting-to-life-jakarta`
 **SEO:** adapting to life Jakarta expat tips
 **Core message:** Practical, honest advice for the first 90 days.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Best Restaurants and Cafes Near Pondok Indah `/insights/restaurants-pondok-indah`
 **SEO:** restaurants cafes Pondok Indah Jakarta
 **Core message:** Pondok Indah has more dining options than people expect.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Helpers, Drivers and Household Staff in Jakarta `/insights/helpers-drivers-jakarta`
 **SEO:** helper driver Jakarta expat
 **Core message:** Domestic help is common and affordable. How it works, what to expect, what to pay.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ### Jakarta vs Singapore vs Bangkok for Expat Families `/insights/jakarta-vs-singapore-bangkok`
 **SEO:** Jakarta vs Singapore expat families
 **Core message:** Each city has a different trade-off. Jakarta's case is underrated.
 **Author:** Darren Brown (comparison article)
-**Status:** TODO.
+**Status:** DONE — 6 April 2026.
 
 ---
 
