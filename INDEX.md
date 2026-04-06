@@ -48,6 +48,16 @@ Point any AI session here first. Lists every resource available and when to use 
 
 ---
 
+## Image Library
+
+| Resource | What it is |
+|----------|-----------|
+| `darren254/tst-image-library` (GitHub repo) | All school images — ISJ, BS Portugal (`pt--`), BS Lithuania (`lt--`). ~285 files. Optimised: max 2000px, JPEG 85, PNG for transparency. This is the single source of truth for all school photography. |
+| `/staff/image-library` (site page) | **Currently a placeholder.** A browsable gallery UI was built in a previous session but never committed — it needs to be rebuilt and committed permanently. When built, it should live here, served from raw GitHub URLs pointing at tst-image-library. |
+| `/brand` (site page) | Brand assets — logos, colours, typography, houses, Lions sports badge. Separate from the image library. |
+
+---
+
 ## Staff & People
 
 | File | What it is |
