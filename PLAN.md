@@ -211,7 +211,7 @@ Modelled on Harrow Hong Kong's `/his/explore-hong-kong/` section — a dedicated
 | # | Article | Slug | Target query |
 |---|---------|------|--------------|
 | 1 | Best Neighbourhoods for Expat Families in Jakarta | `best-neighbourhoods-expat-families` | expat neighbourhoods jakarta |
-| 2 | Things to Do with Kids in Jakarta | `things-to-do-with-kids` | things to do with kids jakarta |
+| 2 | ~~Things to Do with Kids in Jakarta~~ | — | DONE — `/insights/things-to-do-kids-jakarta` |
 | 3 | Things to Do in South Jakarta with Kids | `things-to-do-south-jakarta-kids` | things to do south jakarta kids |
 | 4 | Weekend Trips from Jakarta with Kids | `weekend-trips-from-jakarta` | weekend trips jakarta family |
 | 5 | Moving to Jakarta: A Checklist for Expat Families | `moving-to-jakarta-checklist` | moving to jakarta expat |
@@ -220,9 +220,9 @@ Modelled on Harrow Hong Kong's `/his/explore-hong-kong/` section — a dedicated
 | 8 | Where Do Expats in Jakarta Go at Weekends? | `where-expats-go-weekends` | expat weekends jakarta |
 | 9 | Quality of Life in Jakarta for Expat Families | `quality-of-life-jakarta` | quality of life jakarta expat |
 | 10 | Adapting to Life in Jakarta: Tips for New Arrivals | `adapting-to-life-jakarta` | adapting life jakarta expat |
-| 11 | Commute Times to Pondok Indah from Across Jakarta | `commute-times-pondok-indah` | commute times pondok indah |
+| 11 | ~~Commute Times to Pondok Indah~~ | — | DONE — `/insights/jakarta-school-commute-times` |
 | 12 | Best Restaurants and Cafes Near Pondok Indah | `restaurants-cafes-pondok-indah` | restaurants near pondok indah |
-| 13 | Healthcare in Jakarta: A Guide for Expat Families | `healthcare-jakarta-expat-guide` | healthcare jakarta expat |
+| 13 | ~~Healthcare in Jakarta~~ | — | DONE — `/insights/healthcare-expats-jakarta` |
 | 14 | Helpers, Drivers and Household Staff in Jakarta | `helpers-drivers-household-staff` | helper jakarta expat |
 | 15 | Jakarta vs Singapore vs Bangkok for Expat Families | `jakarta-vs-singapore-vs-bangkok` | jakarta vs singapore expat families |
 
