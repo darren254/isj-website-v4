@@ -73,19 +73,23 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
       <p class="label mb-10">Logo Assets</p>
 
       {logoSets.map((set) => (
-        <div class="mb-16 last:mb-0">
-          <h2 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-6">{set.label}</h2>
+        <div class="mb-20 last:mb-0">
+          <h2 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-8">{set.label}</h2>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Horizontal -->
-            <div>
+          <div class="flex flex-col lg:flex-row gap-8 items-start">
+
+            <!-- Horizontal lockup — wide landscape canvas -->
+            <div class="flex-1 min-w-0">
               <p class="label mb-3 text-[length:var(--text-xs)]">Horizontal</p>
-              <div class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`} style="height: 140px;">
+              <div
+                class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`}
+                style="aspect-ratio: 16/6;"
+              >
                 <img
                   src={`/images/brand/isj-logo-horizontal-${set.colourKey}-800.png`}
                   alt={`ISJ logo horizontal — ${set.label}`}
                   loading="lazy"
-                  class="max-h-20 max-w-[280px] w-auto object-contain"
+                  style="max-height: 50%; max-width: 55%; width: auto;"
                 />
               </div>
               {set.note && (
@@ -103,15 +107,18 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
               </div>
             </div>
 
-            <!-- Square -->
-            <div>
+            <!-- Square / Social — true square canvas -->
+            <div class="flex-shrink-0" style="width: 210px;">
               <p class="label mb-3 text-[length:var(--text-xs)]">Square / Social</p>
-              <div class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`} style="height: 140px;">
+              <div
+                class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`}
+                style="width: 210px; height: 210px;"
+              >
                 <img
                   src={`/images/brand/isj-logo-square-${set.colourKey}-800.png`}
                   alt={`ISJ logo square — ${set.label}`}
                   loading="lazy"
-                  class="max-h-24 max-w-[120px] w-auto object-contain"
+                  style="max-height: 65%; max-width: 65%; width: auto;"
                 />
               </div>
               {set.note && (
@@ -128,6 +135,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       ))}
