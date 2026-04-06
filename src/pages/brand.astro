@@ -27,7 +27,7 @@ const logoSets = [
     colourKey: 'white',
     bg: 'bg-navy',
     border: 'border-navy-light',
-    note: 'Transparent background — place on a dark surface.',
+    note: 'White logo on transparent background. Will appear invisible when opened in Finder or on a white surface — this is correct. Place on navy or dark photography.',
   },
   {
     label: 'Gold',
@@ -93,7 +93,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
                 />
               </div>
               {set.note && (
-                <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-muted italic">{set.note}</p>
+                <p class="mt-3 px-3 py-2 bg-charcoal/5 border-l-2 border-charcoal/20 text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
               )}
               <div class="mt-3 flex flex-wrap gap-2">
                 {sizes.map((s) => (
@@ -122,7 +122,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
                 />
               </div>
               {set.note && (
-                <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-muted italic">{set.note}</p>
+                <p class="mt-3 px-3 py-2 bg-charcoal/5 border-l-2 border-charcoal/20 text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
               )}
               <div class="mt-3 flex flex-wrap gap-2">
                 {sizes.map((s) => (
