@@ -93,12 +93,12 @@
 /insights/global-education-passport-the-indpendent-school-of-jakarta /insights/global-education-passport 301
 /insights/behaviour /insights/positive-behaviour-management 301
 /insights/residential-trips /insights/residential-not-just-a-trip 301
-/insights/small-class-sizes-when-they-matter-and-when-they-dont /insights 301
-/insights/the-hidden-science-of-exceptional-teaching /insights 301
-/insights/academic-excellence-measuring-and-achieving-success-at-isj /insights 301
-/insights/lunch-british-international-school-jakarta /insights 301
-/insights/ai-in-schools-and-critical-thinking /insights 301
-/insights/international-school-governance /insights 301
+/insights/small-class-sizes-when-they-matter-and-when-they-dont /insights/small-class-sizes 301
+/insights/the-hidden-science-of-exceptional-teaching /insights/exceptional-teaching 301
+/insights/academic-excellence-measuring-and-achieving-success-at-isj /insights/academic-excellence 301
+/insights/lunch-british-international-school-jakarta /insights/isj-lunch 301
+/insights/ai-in-schools-and-critical-thinking /insights/ai-critical-thinking 301
+/insights/international-school-governance /insights/school-governance 301
 
 # ─── School news (Squarespace /school-news/ → v4 /news/) ───
 /school-news /news 301

@@ -335,12 +335,7 @@ All 8 Squarespace insight articles have 301 redirects in place. 2 redirect to eq
 
 - [x] `choir-and-music-programme` → redirects to `singing-across-curriculum` (direct match)
 - [x] `jakartas-leading-british-school` → redirects to `best-international-schools-jakarta` (absorbed)
-- [ ] `small-class-sizes` → redirects to `/insights` hub (0 traffic, rebuild later for page count)
-- [ ] `hidden-science-of-exceptional-teaching` → redirects to `/insights` hub
-- [ ] `academic-excellence` → redirects to `/insights` hub
-- [ ] `lunch-british-international-school-jakarta` → redirects to `/insights` hub
-- [ ] `ai-in-schools-and-critical-thinking` → redirects to `/insights` hub
-- [ ] `international-school-governance` → redirects to `/insights` hub (2 clicks)
+- [x] All 6 insight articles rebuilt as v4 pages. Redirects updated. Done 6 April 2026.
 
 ### Squarespace news — status
 
