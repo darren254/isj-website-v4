@@ -122,6 +122,16 @@ Themes that run through the whole site:
 **Tone:** Editorial, helpful.
 **Status:** TODO.
 
+### ISJ in the News `/insights/isj-in-the-news`
+**Job:** Topical authority signal for Google. Not a parent-facing page. Aggregates external press coverage and directory listings to show third-party validation of ISJ.
+**SEO keyword:** None targeted — page exists for topical authority, not search traffic.
+**Target reader:** Search crawlers and journalists doing due diligence. Not prospective parents.
+**Tone:** Factual, reference-style. No editorial voice.
+**Structure:** Intro para, H2 sections per story cluster with intro para + link list, Directory section at bottom with H3 sub-categories.
+**Author:** Engelina Sutantio (per rotation at time of creation, April 2026).
+**Known exceptions:** Title is 47 chars (below 50-char target) — acceptable given the page name is fixed. H3s used in Directory section — justified by genuinely distinct sub-categories.
+**Status:** LIVE — 6 April 2026. Update as new coverage is added (automated monthly via cron job — see AUTOMATIONS.md).
+
 ### News Hub `/news`
 **Job:** Show the school is alive and active.
 **Core message:** What's happening at ISJ.
