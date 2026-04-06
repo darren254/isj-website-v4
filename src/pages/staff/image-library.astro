@@ -10,36 +10,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
 
 <style is:global>
-  #login-screen {
-    position: fixed; inset: 0; background: #F7F5F0;
-    display: flex; align-items: center; justify-content: center; z-index: 100;
-  }
-  #login-box {
-    background: white; border: 1px solid rgba(44,43,41,0.1);
-    padding: 48px; width: 360px; text-align: center;
-  }
-  #login-box h1 { font-family: var(--font-heading); font-weight: 300; font-size: 1.6rem; color: #1B2A4A; margin-bottom: 8px; }
-  #login-box p { font-size: 0.8rem; color: #6b6b68; margin-bottom: 28px; }
-  #login-box input {
-    width: 100%; padding: 10px 14px; border: 1px solid rgba(44,43,41,0.2);
-    font-size: 0.875rem; color: #2C2B29; background: #fafafa;
-    margin-bottom: 12px; box-sizing: border-box; outline: none;
-  }
-  #login-box input:focus { border-color: #1B2A4A; }
-  #login-btn {
-    width: 100%; padding: 10px; background: #1B2A4A; color: white;
-    border: none; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; transition: background 0.2s;
-  }
-  #login-btn:hover { background: #2A3D66; }
-  #login-error { color: #ce2611; font-size: 0.75rem; margin-top: 8px; display: none; }
-
-  #library { display: none; }
-
   .toolbar {
     position: sticky; top: 0; z-index: 50;
     background: #F7F5F0; border-bottom: 1px solid rgba(44,43,41,0.08);
-    padding: 12px 32px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 12px 32px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   }
   .toolbar-title { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #1B2A4A; font-weight: 600; margin-right: 8px; }
   .filter-btn {
@@ -48,14 +22,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transition: all 0.15s; white-space: nowrap;
   }
   .filter-btn:hover, .filter-btn.active { background: #1B2A4A; color: white; border-color: #1B2A4A; }
-  .toolbar-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-  #delete-btn {
-    display: none; padding: 6px 16px; background: #ce2611; color: white;
-    border: none; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    cursor: pointer; border-radius: 2px;
-  }
-  #delete-count { font-size: 0.75rem; color: #ce2611; font-weight: 600; display: none; }
-  #img-count { font-size: 0.72rem; color: #9b9b98; }
+  #img-count { margin-left: auto; font-size: 0.72rem; color: #9b9b98; }
 
   .gallery {
     padding: 32px; display: grid;
@@ -63,30 +30,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     gap: 12px;
   }
   .img-card {
-    position: relative; background: white;
+    position: relative; background: #eee;
     border: 1px solid rgba(44,43,41,0.08); border-radius: 2px;
     overflow: hidden; cursor: pointer; aspect-ratio: 4/3;
     transition: transform 0.15s, box-shadow 0.15s;
   }
   .img-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
   .img-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .img-card.marked { outline: 3px solid #ce2611; outline-offset: -3px; }
-  .img-card.marked .delete-x { display: flex; }
-  .delete-x {
-    display: none; position: absolute; top: 6px; right: 6px;
-    width: 26px; height: 26px; background: #ce2611; color: white;
-    border-radius: 50%; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: bold; z-index: 2; pointer-events: none;
-  }
-  .mark-btn {
-    position: absolute; top: 6px; right: 6px;
-    width: 26px; height: 26px; background: rgba(255,255,255,0.85);
-    border: 1.5px solid rgba(44,43,41,0.2); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; cursor: pointer; z-index: 2;
-    transition: all 0.15s;
-  }
-  .mark-btn:hover { background: #ce2611; color: white; border-color: #ce2611; }
   .img-caption {
     position: absolute; bottom: 0; left: 0; right: 0;
     background: linear-gradient(transparent, rgba(0,0,0,0.6));
@@ -123,43 +73,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   #lightbox-nav-prev:hover, #lightbox-nav-next:hover { background: rgba(255,255,255,0.2); }
 
   .no-results { padding: 80px 32px; text-align: center; color: #9b9b98; font-size: 0.875rem; }
-
-  /* Loading */
   #loading { padding: 80px 32px; text-align: center; color: #9b9b98; font-size: 0.875rem; }
 </style>
 
-<!-- Login -->
-<div id="login-screen">
-  <div id="login-box">
-    <h1>Image Library</h1>
-    <p>Staff access only</p>
-    <input type="password" id="pw-input" placeholder="Password" autocomplete="current-password" />
-    <button id="login-btn">Enter</button>
-    <div id="login-error">Incorrect password</div>
-  </div>
+<div class="toolbar">
+  <span class="toolbar-title">Image Library</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="sport">Sport</button>
+  <button class="filter-btn" data-filter="classroom">Classroom</button>
+  <button class="filter-btn" data-filter="campus">Campus</button>
+  <button class="filter-btn" data-filter="events">Events</button>
+  <button class="filter-btn" data-filter="brand">Brand</button>
+  <span id="img-count"></span>
 </div>
 
-<!-- Library -->
-<div id="library">
-  <div class="toolbar">
-    <span class="toolbar-title">Image Library</span>
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="sport">Sport</button>
-    <button class="filter-btn" data-filter="classroom">Classroom</button>
-    <button class="filter-btn" data-filter="campus">Campus</button>
-    <button class="filter-btn" data-filter="events">Events</button>
-    <button class="filter-btn" data-filter="brand">Brand</button>
-    <div class="toolbar-right">
-      <span id="delete-count"></span>
-      <button id="delete-btn">Delete marked</button>
-      <span id="img-count"></span>
-    </div>
-  </div>
-
-  <div id="loading">Loading images…</div>
-  <div class="gallery" id="gallery"></div>
-  <div class="no-results" id="no-results" style="display:none;">No images in this category.</div>
-</div>
+<div id="loading">Loading images…</div>
+<div class="gallery" id="gallery"></div>
+<div class="no-results" id="no-results" style="display:none;">No images in this category.</div>
 
 <!-- Lightbox -->
 <div id="lightbox">
@@ -170,45 +100,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <div id="lightbox-caption"></div>
 </div>
 
-<script define:vars={{ T1: 'ghp_27UsZlPd', T2: 'JWkJF4T36yyn', T3: 'X1O9UKvLj54aCO9p', REPO: 'darren254/tst-image-library', PASSWORD: 'pass' }}>
-
-const TOKEN = T1 + T2 + T3;
+<script>
+const REPO = 'darren254/tst-image-library';
 const BRANCH = 'main';
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
 const API_BASE = `https://api.github.com/repos/${REPO}/contents/`;
-const HEADERS = { Authorization: `token ${TOKEN}`, Accept: 'application/vnd.github.v3+json' };
 
-// --- Login ---
-const loginScreen = document.getElementById('login-screen');
-const loginBtn = document.getElementById('login-btn');
-const pwInput = document.getElementById('pw-input');
-const loginError = document.getElementById('login-error');
-
-function tryLogin() {
-  if (pwInput.value === PASSWORD) {
-    loginScreen.style.display = 'none';
-    document.getElementById('library').style.display = 'block';
-    loadImages();
-  } else {
-    loginError.style.display = 'block';
-    pwInput.value = '';
-    pwInput.focus();
-  }
-}
-loginBtn.addEventListener('click', tryLogin);
-pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
-
-// --- Category tagging ---
 function getCategories(filename) {
   const f = filename.toLowerCase();
   const cats = new Set();
-
   if (f.startsWith('isj--v4-brand') || f.startsWith('isj--v4-houses') || f.includes('logo') || f.includes('lion') || f.includes('houses') || f.startsWith('lewis') || f.startsWith('potter') || f.startsWith('rowling') || f.startsWith('tolkien')) cats.add('brand');
   if (f.includes('sport') || f.includes('football') || f.includes('rugby') || f.includes('swimming') || f.includes('running') || f.includes('hurdles') || f.includes('cricket') || f.includes('tennis') || f.includes('athletics') || f.includes('gym') || f.includes('pe-') || f.includes('pitch') || f.includes('lions')) cats.add('sport');
   if (f.includes('classroom') || f.includes('teaching') || f.includes('learning') || f.includes('reading') || f.includes('science') || f.includes('lesson') || f.includes('phonics') || f.includes('math') || f.includes('art') || f.includes('music') || f.includes('choir') || f.includes('engineering') || f.includes('prep-') || f.includes('primary') || f.includes('secondary') || f.includes('pre-prep') || f.includes('eyfs') || f.includes('pupils')) cats.add('classroom');
   if (f.includes('campus') || f.includes('aerial') || f.includes('playground') || f.includes('outdoor') || f.includes('garden') || f.includes('building') || f.includes('facility') || f.includes('pool') || f.includes('field')) cats.add('campus');
   if (f.includes('christmas') || f.includes('event') || f.includes('fair') || f.includes('concert') || f.includes('week') || f.includes('trip') || f.includes('residential') || f.includes('house-sports') || f.includes('batik') || f.includes('lunar') || f.includes('halloween') || f.includes('ceremony') || f.includes('awards') || f.includes('exhibition') || f.includes('workshop') || f.includes('quiz') || f.includes('disco')) cats.add('events');
-
   return [...cats];
 }
 
@@ -223,23 +128,20 @@ function prettifyName(filename) {
     .trim();
 }
 
-// --- State ---
 let allImages = [];
 let filtered = [];
-let marked = new Set();
 let activeFilter = 'all';
 let lightboxIndex = 0;
 
-// --- Load ---
 async function loadImages() {
   try {
-    const res = await fetch(API_BASE + '?per_page=1000', { headers: HEADERS });
+    const res = await fetch(API_BASE + '?per_page=1000');
     const files = await res.json();
     allImages = files
       .filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f.name))
       .map(f => ({
         name: f.name,
-        url: f.download_url,
+        url: RAW_BASE + f.name.split('/').map(encodeURIComponent).join('/'),
         sha: f.sha,
         categories: getCategories(f.name),
         label: prettifyName(f.name),
@@ -247,16 +149,14 @@ async function loadImages() {
     document.getElementById('loading').style.display = 'none';
     applyFilter();
   } catch(e) {
-    document.getElementById('loading').textContent = 'Failed to load images. Check token/repo access.';
+    document.getElementById('loading').textContent = 'Failed to load images.';
   }
 }
 
-// --- Filter ---
 function applyFilter() {
   filtered = activeFilter === 'all'
     ? [...allImages]
     : allImages.filter(img => img.categories.includes(activeFilter));
-
   document.getElementById('img-count').textContent = `${filtered.length} images`;
   document.getElementById('no-results').style.display = filtered.length === 0 ? 'block' : 'none';
   renderGallery();
@@ -271,104 +171,21 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// --- Render ---
 function renderGallery() {
   const gallery = document.getElementById('gallery');
   gallery.innerHTML = '';
   filtered.forEach((img, i) => {
     const card = document.createElement('div');
-    card.className = 'img-card' + (marked.has(img.name) ? ' marked' : '');
-    card.dataset.index = i;
-
+    card.className = 'img-card';
     card.innerHTML = `
       <img src="${img.url}" alt="${img.label}" loading="lazy" />
       <div class="img-caption">${img.label}</div>
-      <div class="delete-x">✕</div>
-      <div class="mark-btn" title="Mark for deletion">✕</div>
     `;
-
-    const imgEl = card.querySelector('img');
-
-    // Open lightbox on image click
-    imgEl.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openLightbox(i);
-    });
-    card.querySelector('.img-caption').addEventListener('click', (e) => {
-      e.stopPropagation();
-      openLightbox(i);
-    });
-
-    // Mark/unmark on X button
-    card.querySelector('.mark-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleMark(img.name, card);
-    });
-
+    card.addEventListener('click', () => openLightbox(i));
     gallery.appendChild(card);
   });
 }
 
-function toggleMark(name, card) {
-  if (marked.has(name)) {
-    marked.delete(name);
-    card.classList.remove('marked');
-  } else {
-    marked.add(name);
-    card.classList.add('marked');
-  }
-  updateDeleteBtn();
-}
-
-function updateDeleteBtn() {
-  const btn = document.getElementById('delete-btn');
-  const count = document.getElementById('delete-count');
-  if (marked.size > 0) {
-    btn.style.display = 'inline-block';
-    count.style.display = 'inline';
-    count.textContent = `${marked.size} marked`;
-  } else {
-    btn.style.display = 'none';
-    count.style.display = 'none';
-  }
-}
-
-// --- Delete ---
-document.getElementById('delete-btn').addEventListener('click', async () => {
-  if (marked.size === 0) return;
-  if (!confirm(`Permanently delete ${marked.size} image${marked.size > 1 ? 's' : ''} from the repository? This cannot be undone.`)) return;
-
-  const btn = document.getElementById('delete-btn');
-  btn.textContent = 'Deleting…';
-  btn.disabled = true;
-
-  let deleted = 0;
-  for (const name of [...marked]) {
-    const img = allImages.find(i => i.name === name);
-    if (!img) continue;
-    try {
-      await fetch(API_BASE + encodeURIComponent(name), {
-        method: 'DELETE',
-        headers: { ...HEADERS, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: `Remove image: ${name}`, sha: img.sha, branch: BRANCH }),
-      });
-      deleted++;
-    } catch(e) { console.error('Failed to delete', name, e); }
-  }
-
-  marked.clear();
-  btn.style.display = 'none';
-  document.getElementById('delete-count').style.display = 'none';
-  btn.textContent = 'Delete marked';
-  btn.disabled = false;
-
-  // Reload
-  allImages = allImages.filter(i => !marked.has(i.name));
-  await loadImages();
-  alert(`Deleted ${deleted} image${deleted > 1 ? 's' : ''}.`);
-});
-
-// --- Lightbox ---
 function openLightbox(index) {
   lightboxIndex = index;
   const img = filtered[index];
@@ -380,25 +197,19 @@ function openLightbox(index) {
 document.getElementById('lightbox-close').addEventListener('click', () => {
   document.getElementById('lightbox').classList.remove('open');
 });
-
 document.getElementById('lightbox').addEventListener('click', (e) => {
-  if (e.target === document.getElementById('lightbox')) {
-    document.getElementById('lightbox').classList.remove('open');
-  }
+  if (e.target === document.getElementById('lightbox')) document.getElementById('lightbox').classList.remove('open');
 });
-
 document.getElementById('lightbox-nav-prev').addEventListener('click', (e) => {
   e.stopPropagation();
   lightboxIndex = (lightboxIndex - 1 + filtered.length) % filtered.length;
   openLightbox(lightboxIndex);
 });
-
 document.getElementById('lightbox-nav-next').addEventListener('click', (e) => {
   e.stopPropagation();
   lightboxIndex = (lightboxIndex + 1) % filtered.length;
   openLightbox(lightboxIndex);
 });
-
 document.addEventListener('keydown', (e) => {
   const lb = document.getElementById('lightbox');
   if (!lb.classList.contains('open')) return;
@@ -406,6 +217,8 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') { lightboxIndex = (lightboxIndex + 1) % filtered.length; openLightbox(lightboxIndex); }
   if (e.key === 'ArrowLeft') { lightboxIndex = (lightboxIndex - 1 + filtered.length) % filtered.length; openLightbox(lightboxIndex); }
 });
+
+loadImages();
 </script>
 
 </BaseLayout>
