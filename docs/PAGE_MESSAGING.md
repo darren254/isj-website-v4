@@ -153,10 +153,10 @@ All Jakarta Life insight articles follow this template.
 **Core message:** Most families end up in a small slice of the city. School location is the biggest constraint.
 **Status:** DONE — 6 April 2026.
 
-### Things to Do in South Jakarta with Kids `/insights/things-to-do-south-jakarta`
+### Things to Do in South Jakarta with Kids `/insights/things-to-do-kids-jakarta`
 **SEO:** things to do south Jakarta kids
 **Core message:** South Jakarta has more family-focused activities than most new arrivals expect.
-**Status:** TODO.
+**Status:** DONE — 6 April 2026. (Article was pre-existing; fixed author, TL;DR, em dashes.)
 
 ### Weekend Trips from Jakarta with Kids `/insights/weekend-trips-from-jakarta`
 **SEO:** weekend trips Jakarta family
