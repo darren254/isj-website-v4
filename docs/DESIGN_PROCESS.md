@@ -99,6 +99,8 @@ Only use these when they genuinely serve the page:
 
 ## Article Standards (Insights + News)
 
+**Read `docs/ARTICLE_STANDARDS.md` before writing any article.** It is the single reference for design, copy, SEO, and structure. Do not rely on memory.
+
 Every article using `ArticleLayout` must have:
 
 - **`summary` prop** — 1-3 sentences. This renders automatically as the **TL;DR** block below the title, labelled in gold. It is the reader's first touchpoint after the headline. Make it specific and honest, not a teaser.
