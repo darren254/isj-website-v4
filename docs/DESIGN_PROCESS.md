@@ -97,6 +97,20 @@ Only use these when they genuinely serve the page:
 
 ---
 
+## Article Standards (Insights + News)
+
+Every article using `ArticleLayout` must have:
+
+- **`summary` prop** — 1-3 sentences. This renders automatically as the **TL;DR** block below the title, labelled in gold. It is the reader's first touchpoint after the headline. Make it specific and honest, not a teaser.
+- **`heroImage`** — relevant, real photo. No AI-generated images.
+- **`author`** — follow authorship rules in `docs/staff-team-2026.md`
+- **`publishedDate`** — set correctly
+- **`category` + `categoryHref`** — Education/Jakarta Life + /insights, or School News + /news
+
+The TL;DR is built into `ArticleLayout.astro`. It renders automatically from the `summary` prop. Do not add a separate TL;DR block in the article body.
+
+---
+
 ## Reference Files
 
 - `docs/PAGE_MESSAGING.md` — content briefs per page

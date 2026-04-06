@@ -64,10 +64,13 @@ const hasHero = !!heroImage;
   <section class="px-6 mt-10">
     <div class="mx-auto max-w-[var(--content-narrow)]">
 
-      <!-- At a Glance -->
-      <p class="text-[length:var(--text-base)] text-charcoal font-medium leading-relaxed mb-8">
-        {summary}
-      </p>
+      <!-- TL;DR -->
+      <div class="mb-8">
+        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase text-gold font-medium mb-3">TL;DR</p>
+        <p class="text-[length:var(--text-base)] text-charcoal font-medium leading-relaxed">
+          {summary}
+        </p>
+      </div>
 
       <!-- Share + Meta bar -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-5 border-t border-b border-charcoal/10 mb-12">
