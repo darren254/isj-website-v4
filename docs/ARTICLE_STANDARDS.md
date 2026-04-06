@@ -70,11 +70,11 @@ Rules:
 - Each bullet stands alone — a reader who only reads the TL;DR should leave knowing the key facts.
 - Specific and honest. State the actual conclusion, not a teaser.
 - No "Read on to find out...". No superlatives. No vague reassurance.
-- Em dashes are acceptable within bullet text as internal separators.
+- No em dashes. The no-em-dash rule applies inside bullets too. Use a full stop and a new sentence.
 
 **Good:**
 ```
-summary="Start the visa process 3+ months before arrival — Work KITAS takes 6–10 weeks | Secure a school place before you arrive. Housing should follow school choice, not the other way around | Household goods must arrive within 90 days and must have been owned for 12+ months | Register your KITAS with civil authorities within 14 days of arrival"
+summary="Start the visa process 3 months before arrival. Work KITAS takes 6-10 weeks and school places depend on it | Secure a school place before you arrive. Housing should follow school choice, not the other way around | Household goods must arrive within 90 days and must have been owned for 12 months or more | Register your KITAS with civil authorities within 14 days of arrival"
 ```
 
 **Bad:**
