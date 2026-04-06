@@ -21,9 +21,15 @@ Pull the primary keyword from the brief. Check `docs/keyword-research.md` to con
 
 ### Choose the layout: full-bleed hero or text header
 
-**Style A — Full-bleed hero** (`heroImage` prop set): Use when a strong, relevant photo exists that meets the minimum size spec below.
+Articles strictly alternate between Style A and Style B. Before writing a new article, check the most recently published article in `/src/pages/insights/` or `/src/pages/news/`. If it used a hero image, use Style B (no hero) for the new article. If it used no hero, use Style A (hero) for the new article.
 
-**Style B — Text header** (`heroImage` prop omitted): Use when no suitable image exists. Clean title over cream background.
+**Style A — Full-bleed hero** (`heroImage` prop set): Hero image fills the top of the page. Title overlays the image.
+
+**Style B — Text header** (`heroImage` prop omitted): Clean title over cream background, no image.
+
+**Current state:** `moving-to-jakarta-checklist` (April 2026) used Style A (hero). Next article uses Style B.
+
+Update this "Current state" line every time a new article is published.
 
 ### Pick the hero image (Style A only)
 Real photo. No AI-generated images. Relevant to the article subject, not generic. Do not reuse an image already used on another article.
