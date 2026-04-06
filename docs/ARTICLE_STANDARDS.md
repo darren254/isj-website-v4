@@ -19,8 +19,22 @@ Pull the primary keyword from the brief. Check `docs/keyword-research.md` to con
 - Jakarta Life articles → Tier 3 keywords
 - Education articles → education/pedagogy queries, not location queries
 
-### Pick the hero image
-Real photo. No AI-generated images. Must be relevant to the article subject, not generic. Check `/public/images/insights/` and `/public/images/news/` — do not reuse an image already used on another article.
+### Choose the layout: full-bleed hero or text header
+
+Articles alternate between two layouts. Do not use full-bleed hero for every article.
+
+**Style A — Full-bleed hero** (`heroImage` prop set): Large dramatic photo fills the top of the page. Title overlays the image. Use when a strong, relevant location or scene photo exists. Typical for: Jakarta Life articles, campus/school-life pieces, anything visually grounded in a place or activity.
+
+**Style B — Text header** (`heroImage` prop omitted): Clean title over cream background, no image. Use when no strong photo exists, or when the subject is conceptual. Typical for: curriculum/pedagogy articles, policy explainers, abstract education topics.
+
+Pattern so far: Jakarta Life = Style A. Education/pedagogy = Style B. Follow this unless there is a good reason not to.
+
+When alternating across consecutive articles of the same type, vary the layout to avoid monotony — two Style A in a row is fine, but three or more should be broken by a Style B.
+
+### Pick the hero image (Style A only)
+Real photo. No AI-generated images. Relevant to the article subject, not generic. Do not reuse an image already used on another article.
+
+**Minimum image spec for full-bleed hero use:** 1400px wide, 200KB or more after compression. Images smaller than this will look blurry at full viewport width. If the only available image is undersized, use Style B instead or source a better image.
 
 ### Assign the author
 Follow the rules in `docs/staff-team-2026.md`:
