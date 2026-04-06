@@ -65,11 +65,16 @@ const hasHero = !!heroImage;
     <div class="mx-auto max-w-[var(--content-narrow)]">
 
       <!-- TL;DR -->
-      <div class="mb-8">
-        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase text-gold font-medium mb-3">TL;DR</p>
-        <p class="text-[length:var(--text-base)] text-charcoal font-medium leading-relaxed">
-          {summary}
-        </p>
+      <div class="mb-10 rounded-sm" style="background-color: var(--color-cream-dark); border-left: 3px solid var(--color-gold-muted); padding: 1.5rem 1.75rem;">
+        <p class="text-[length:var(--text-xs)] tracking-[0.2em] uppercase font-semibold mb-4" style="color: var(--color-gold-muted);">TL;DR</p>
+        <ul class="space-y-2.5" style="list-style: none; padding: 0; margin: 0;">
+          {summary.split('|').map(point => point.trim()).filter(Boolean).map(point => (
+            <li class="flex items-start gap-3">
+              <span class="mt-[0.35em] shrink-0 w-1.5 h-1.5 rounded-full" style="background-color: var(--color-gold-muted);"></span>
+              <span class="text-[length:var(--text-sm)] leading-relaxed" style="color: var(--color-navy);">{point}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <!-- Share + Meta bar -->
