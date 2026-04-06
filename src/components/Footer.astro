@@ -114,10 +114,19 @@ const { hideCta = false } = Astro.props;
     </div>
   </div>
 
-  <!-- Bottom bar — same darker stone, thin top line -->
-  <div class="bg-[#DDD9D1] border-t border-navy/8 px-6 py-4">
-    <div class="mx-auto max-w-[var(--content-wide)] flex flex-col md:flex-row items-center justify-between gap-3">
-      <div class="flex items-center gap-5 flex-wrap">
+  <!-- Bottom bar -->
+  <div class="bg-[#DDD9D1] border-t border-navy/8 px-6 py-5">
+    <div class="mx-auto max-w-[var(--content-wide)] flex flex-col items-center gap-3">
+      <!-- Socials -->
+      <div class="flex items-center gap-5 flex-wrap justify-center">
+        {socialLinks.map((social) => (
+          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/25 hover:text-navy/50 transition-colors" aria-label={social.label}>
+            <span class="text-[length:var(--text-xs)] uppercase tracking-wider">{social.label}</span>
+          </a>
+        ))}
+      </div>
+      <!-- Legal -->
+      <div class="flex items-center gap-5 flex-wrap justify-center">
         <span class="text-[length:var(--text-xs)] text-navy/25">
           &copy; {new Date().getFullYear()} The Independent School of Jakarta
         </span>
@@ -129,13 +138,6 @@ const { hideCta = false } = Astro.props;
         <a href=/cookies class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Cookies</a>
         <a href=/brand class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Brand Guide</a>
         <a href=/staff/image-library class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Image Library</a>
-      </div>
-      <div class="flex items-center gap-4 md:pr-16">
-        {socialLinks.map((social) => (
-          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/25 hover:text-navy/50 transition-colors" aria-label={social.label}>
-            <span class="text-[length:var(--text-xs)] uppercase tracking-wider">{social.label}</span>
-          </a>
-        ))}
       </div>
     </div>
   </div>
