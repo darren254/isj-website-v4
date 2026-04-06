@@ -6,7 +6,7 @@ const policyGroups = [
     category: 'Safeguarding and Welfare',
     policies: [
       { name: 'Child Protection and Safeguarding Policy', href: '/policies/safeguarding' },
-      { name: 'Behaviour Policy', href: '/policies/behaviour' },
+      { name: 'Behaviour Policy (incl. Anti-Bullying)', href: '/policies/behaviour' },
       { name: 'Missing Child Policy', href: '/policies/missing-child' },
       { name: 'Online Safety and Acceptable Use Policy', href: '/policies/online-safety' },
       { name: 'Campus Access and Security Policy', href: '/policies/campus-security' },
@@ -30,6 +30,7 @@ const policyGroups = [
   {
     category: 'Admissions and Operations',
     policies: [
+      { name: 'Admissions Policy', href: '/policies/admissions' },
       { name: 'Admissions Terms and Conditions', href: '/admissions/terms-and-conditions' },
       { name: 'Complaints Policy', href: '/policies/complaints' },
       { name: 'Health and Safety Policy', href: '/policies/health-and-safety' },
@@ -50,6 +51,9 @@ const policyGroups = [
   {
     category: 'Operations and Governance',
     policies: [
+      { name: 'Equal Opportunities Policy', href: '/policies/equal-opportunities' },
+      { name: 'Remote Learning and Continuity of Education Policy', href: '/policies/remote-learning' },
+      { name: 'Accessibility Statement', href: '/policies/accessibility' },
       { name: 'Parent Communication and Engagement Policy', href: '/policies/parent-communication' },
       { name: 'Policy Management and Review', href: '/policies/policy-management' },
       { name: 'Risk Management and Business Continuity Policy', href: '/policies/risk-management' },
@@ -71,7 +75,8 @@ const policyGroups = [
       <div class="text-center mb-10">
         <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1]">School Policies</h1>
       </div>
-      <p class="text-center text-[15px] text-charcoal-muted mb-20 max-w-[520px] mx-auto leading-relaxed">ISJ maintains a full set of school policies aligned with UK independent school standards and Indonesian regulatory requirements. All policies are published here for the school community. See also the <a href=/privacy class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Privacy Policy</a>, <a href=/terms class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Terms of Service</a>, and <a href=/contact class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Contact</a> pages.</p>
+      <p class="text-center text-[15px] text-charcoal-muted mb-6 max-w-[520px] mx-auto leading-relaxed">ISJ maintains a full set of school policies aligned with UK independent school standards and Indonesian regulatory requirements. All policies are published here for the school community. See also the <a href=/privacy class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Privacy Policy</a>, <a href=/terms class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Terms of Service</a>, and <a href=/contact class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Contact</a> pages.</p>
+      <p class="text-center text-[14px] text-charcoal-muted mb-20 max-w-[520px] mx-auto leading-relaxed">For queries about any policy, contact <a href="mailto:admissions@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions@isj.id</a>.</p>
 
       <!-- Policy groups -->
       <div class="space-y-16">

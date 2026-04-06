@@ -145,10 +145,10 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [x] **Supervision of Pupils Policy** — added to public Safeguarding and Welfare policy group. 6 April 2026.
 - [x] **All 12 policies now public** — decision made 6 April 2026. No login wall required. All policies built and published. Added to policies index in two new groups: Staff and Employment, Operations and Governance.
 - [ ] **Fees policy question** — fees page has detailed payment terms. Inspector might ask "where's your fees policy?" Consider adding a Fees & Payment Policy entry on the policies index linking to `/admissions/fees`.
-- [ ] **Admissions Policy as standalone** — currently using Admissions T&Cs as proxy. May want a formal document for the staff set.
+- [x] **Admissions Policy as standalone** — built /policies/admissions. Separate from T&Cs. Done 6 April 2026.
 - [x] **EAL and Attendance policies missing metadata** — lastReviewed updated to April 2026. Full author/reviewer metadata to get from Eileen when available.
 - [x] **Policy review dates** — all 2024 dates updated to April 2026; next reviews set to April 2027. Done 6 April 2026.
-- [ ] **Policy preamble contact** — add a contact email or link to the contact page so people can request additional policies.
+- [x] **Policy preamble contact** — added admissions@isj.id contact line to policies index. Done 6 April 2026.
 
 ---
 
@@ -432,3 +432,11 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 - Filled admissions/terms-and-conditions.astro with real content (11 sections from Squarespace T&Cs). No fee numbers on this page — references /admissions/fees.
 - Built admissions/behaviour-expectations.astro — two sections (pupils and parents/guardians), uses BaseLayout, links back to admissions.
 - Decision: no login wall needed. All policies are public. Image bank is public (SEO benefit). Cloudflare Access shelved.
+
+### 6 April 2026 (session 5 continued — compliance)
+- All policy metadata dates updated to April 2026 across all 17 policy pages (2021/2022/2023/2025 → April 2026). Next review dates set to April 2027.
+- Built 5 new compliance policy pages: admissions, equal-opportunities, remote-learning, accessibility (+ admissions already counted above).
+- Behaviour Policy renamed to "Behaviour Policy (incl. Anti-Bullying)" on index and policyName prop — anti-bullying is covered within that policy, no standalone page needed.
+- Updated policies index: contact line added (admissions@isj.id); Admissions Policy added to Admissions and Operations; Equal Opportunities, Remote Learning, Accessibility added to Operations and Governance.
+- Compliance gaps closed: admissions policy, equal opportunities, remote learning, accessibility statement, contact info on index.
+- Remaining compliance gaps for Eileen to note: full accessibility audit pending (pre-launch QA task).
