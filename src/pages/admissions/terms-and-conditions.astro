@@ -1,23 +1,90 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionIntro from '../../components/SectionIntro.astro';
 ---
 
 <BaseLayout
-  title="Admissions Terms & Conditions | ISJ Jakarta"
-  description="Admissions terms and conditions for The Independent School of Jakarta."
+  title="Admissions Terms and Conditions | ISJ Jakarta"
+  description="Admissions terms and conditions for The International School of Jakarta. Covers fees and payment, withdrawal notice, attendance, privacy, and complaint resolution."
   canonicalUrl="/admissions/terms-and-conditions"
 >
 
-  <section class="pt-32 lg:pt-40 section-pad px-6">
-    <SectionIntro headingLevel="h1"
-      label="Admissions"
-      heading="Admissions Terms and Conditions"
-    >
-      <p>
-        This page is being prepared. For questions about admissions terms, fee payment, or withdrawal policies, contact the admissions team at <a href="mailto:admissions@isj.id" class="whisper-link">admissions@isj.id</a>. See also the <a href="/admissions/fees" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">fees page</a>, <a href="/admissions/how-to-apply" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">how to apply</a>, and the school's <a href="/privacy" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">privacy policy</a>.
-      </p>
-    </SectionIntro>
+  <section class="pt-32 lg:pt-40 pb-20 lg:pb-28 px-6">
+    <div class="mx-auto max-w-[640px]">
+
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-[12px] font-semibold tracking-[0.1em] uppercase text-charcoal-muted mb-4" style="font-family: var(--font-body);">Admissions</p>
+        <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Terms and Conditions</h1>
+        <p class="text-[15px] text-charcoal-muted leading-relaxed" style="font-family: var(--font-body);">
+          These terms govern the relationship between ISJ and families from the point a place is accepted. For fee amounts and payment schedules, see the <a href="/admissions/fees" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">fees page</a>. For questions, contact <a href="mailto:admissions@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions@isj.id</a>.
+        </p>
+      </div>
+
+      <!-- Contents -->
+      <nav class="mb-14" style="font-size: 13px; font-family: var(--font-body);">
+        <p class="font-semibold text-navy mb-3" style="font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;">Contents</p>
+        <ol class="space-y-1" style="list-style: decimal; padding-left: 1.25rem; color: var(--color-charcoal-muted);">
+          <li><a href="#application" class="hover:text-navy transition-colors">Application of Terms</a></li>
+          <li><a href="#fees" class="hover:text-navy transition-colors">Fees and Payment</a></li>
+          <li><a href="#withdrawal" class="hover:text-navy transition-colors">Notice of Withdrawal</a></li>
+          <li><a href="#attendance" class="hover:text-navy transition-colors">Attendance, Conduct, and Expectations</a></li>
+          <li><a href="#learning-needs" class="hover:text-navy transition-colors">Learning Needs and Disclosures</a></li>
+          <li><a href="#privacy" class="hover:text-navy transition-colors">Privacy and Data Use</a></li>
+          <li><a href="#operations" class="hover:text-navy transition-colors">School Operations and Policy Updates</a></li>
+          <li><a href="#force-majeure" class="hover:text-navy transition-colors">Force Majeure</a></li>
+          <li><a href="#photography" class="hover:text-navy transition-colors">Photography and Communication</a></li>
+          <li><a href="#complaints" class="hover:text-navy transition-colors">Complaint Resolution</a></li>
+          <li><a href="#contact" class="hover:text-navy transition-colors">Communication with the School</a></li>
+        </ol>
+      </nav>
+
+      <!-- Sections -->
+      <div style="font-size: 15px; font-family: var(--font-body); color: var(--color-charcoal); line-height: 1.75;">
+
+        <h2 id="application" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">1. Application of Terms</h2>
+        <p>A place at ISJ is accepted when a signed Offer and Acceptance Letter has been returned to the school and the required fees have been paid. These terms come into effect at that point and remain in place for the duration of the pupil's enrolment.</p>
+
+        <h2 id="fees" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">2. Fees and Payment</h2>
+        <p>Fees are payable in full as invoiced. Current fee amounts and payment schedules are set out on the <a href="/admissions/fees" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">fees page</a>.</p>
+        <p>A late payment charge of 2% per month applies to any outstanding balance after a 14-day grace period. ISJ reserves the right to withhold reports, assessments, or access to school systems where fees remain unpaid. Where fees remain outstanding for 60 days or more, ISJ may withdraw the pupil's place.</p>
+
+        <h2 id="withdrawal" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">3. Notice of Withdrawal</h2>
+        <p>One full term's written notice of withdrawal must be given to the admissions team at <a href="mailto:admissions@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions@isj.id</a>. Where the required notice is not given, one full term's fees will be charged in lieu of notice.</p>
+
+        <h2 id="attendance" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">4. Attendance, Conduct, and Expectations</h2>
+        <p>All pupils and families are expected to follow ISJ's <a href="/admissions/behaviour-expectations" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Behaviour Expectations</a> and the <a href="/policies/behaviour" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Behaviour Policy</a>. ISJ may review a pupil's placement where the school determines that the pupil's needs exceed what ISJ can reasonably provide.</p>
+
+        <h2 id="learning-needs" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">5. Learning Needs and Disclosures</h2>
+        <p>Families must disclose any known medical, learning, or additional needs at the point of application or as soon as they become known. ISJ will make reasonable adjustments to support all pupils. Specialist support that goes beyond what ISJ can provide in-house may carry a separate charge, which will be agreed with the family in advance.</p>
+
+        <h2 id="privacy" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">6. Privacy and Data Use</h2>
+        <p>ISJ processes personal data in accordance with its <a href="/privacy" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Privacy Notice</a>, which sets out what data is collected, how it is used, and the rights of families.</p>
+
+        <h2 id="operations" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">7. School Operations and Policy Updates</h2>
+        <p>ISJ may update its policies from time to time. Current versions of all school policies are published on this website. Significant changes will be communicated to families directly. Continued enrolment constitutes acceptance of any updated terms.</p>
+
+        <h2 id="force-majeure" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">8. Force Majeure</h2>
+        <p>In the event of school closure or a move to remote learning caused by circumstances outside ISJ's control, including but not limited to natural disaster, public health emergency, or government direction, fees remain payable in full. ISJ will continue to provide education in whatever form is available.</p>
+
+        <h2 id="photography" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">9. Photography and Communication</h2>
+        <p>Pupils may be photographed during the course of normal school activities. Images may be used in school newsletters, on the school website, and in marketing materials. Families who wish to opt out should notify <a href="mailto:admissions@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions@isj.id</a> in writing. Families are responsible for keeping their contact details up to date with the school.</p>
+
+        <h2 id="complaints" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">10. Complaint Resolution</h2>
+        <p>Concerns should be raised with the class teacher in the first instance. If the matter is not resolved, it should be escalated to the Academic Director. Formal complaints must be submitted in writing to <a href="mailto:admissions@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions@isj.id</a> and will be acknowledged within three working days. See also the <a href="/policies/complaints" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">Complaints Policy</a>.</p>
+
+        <h2 id="contact" class="font-heading font-light text-navy mt-12 mb-4" style="font-size: clamp(1.15rem, 2vw, 1.35rem);">11. Communication with the School</h2>
+        <p>Administrative and admissions matters should be directed to <a href="mailto:admissions@isj.id" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">admissions@isj.id</a>. Queries about classroom learning, homework, or a pupil's progress should be directed to the class teacher.</p>
+
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-16 pt-8 border-t border-navy/[0.06]">
+        <a href="/admissions/how-to-apply" class="text-[13px] text-charcoal-muted hover:text-navy transition-colors" style="font-family: var(--font-body);">
+          &larr; Back to How to Apply
+        </a>
+      </div>
+
+    </div>
   </section>
 
 </BaseLayout>

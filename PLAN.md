@@ -142,20 +142,8 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 
 ## Policies
 
-- [ ] **Supervision of Pupils Policy** — document not yet provided. Add to public policies when received.
-- [ ] **Staff-only policies behind Cloudflare Access** — 12 internal policies need `/staff/policies` section protected by email-based auth. Cloudflare Access free tier (50 users) or paid.
-  - Staff Code of Conduct
-  - Safer Recruitment Policy
-  - Whistleblowing Policy
-  - Teaching & Learning Policy
-  - Curriculum Policy
-  - Assessment, Recording & Reporting Policy
-  - More Able / Gifted & Talented Policy
-  - Homework & Marking Policy
-  - Staff Appraisal & Development Policy
-  - Risk Management & Business Continuity Plan
-  - Policy Management & Review Schedule
-  - Parent Communication & Engagement Policy
+- [x] **Supervision of Pupils Policy** — added to public Safeguarding and Welfare policy group. 6 April 2026.
+- [x] **All 12 policies now public** — decision made 6 April 2026. No login wall required. All policies built and published. Added to policies index in two new groups: Staff and Employment, Operations and Governance.
 - [ ] **Fees policy question** — fees page has detailed payment terms. Inspector might ask "where's your fees policy?" Consider adding a Fees & Payment Policy entry on the policies index linking to `/admissions/fees`.
 - [ ] **Admissions Policy as standalone** — currently using Admissions T&Cs as proxy. May want a formal document for the staff set.
 - [ ] **EAL and Attendance policies missing metadata** — no author/reviewed/next review. Get from Eileen.
@@ -436,3 +424,11 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 - Domain decision recorded: host on isj.id, 301 from international-school-jakarta.id. Transfer isj.id from OnlyDomains → Namecheap, DNS → Cloudflare.
 - Registrar note: move domains from OnlyDomains to Namecheap + Cloudflare DNS.
 - GA4 measurement ID confirmed: `G-TDE52R9LB1` (placeholder was in code from previous session, now replaced).
+
+### 6 April 2026 (session 5)
+- Built 12 new policy pages: staff-code-of-conduct, safer-recruitment, whistleblowing, teaching-and-learning, parent-communication, policy-management, risk-management, staff-appraisal, marking-and-feedback, more-able, assessment-and-reporting, curriculum. All use PolicyLayout with full metadata and table of contents.
+- Added supervision-of-pupils to public policies index (page was already built, just missing from index).
+- Updated policies.astro index: added supervision-of-pupils to Safeguarding and Welfare; added 5 new academic policies to Academic group; added two new groups — Staff and Employment (4 policies), Operations and Governance (3 policies). Updated intro paragraph (removed "available on request" language — all policies now public).
+- Filled admissions/terms-and-conditions.astro with real content (11 sections from Squarespace T&Cs). No fee numbers on this page — references /admissions/fees.
+- Built admissions/behaviour-expectations.astro — two sections (pupils and parents/guardians), uses BaseLayout, links back to admissions.
+- Decision: no login wall needed. All policies are public. Image bank is public (SEO benefit). Cloudflare Access shelved.
