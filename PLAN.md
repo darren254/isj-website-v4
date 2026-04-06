@@ -1,6 +1,26 @@
 # ISJ Website v4 — Master Plan
 
-Last updated: 4 April 2026
+Last updated: 6 April 2026
+
+---
+
+## Mandatory Reading (every session, before touching anything)
+
+This file (`PLAN.md`) is the single source of truth for the project. Read it first.
+Then read these docs before any relevant work:
+
+| File | Read when |
+|------|-----------|
+| `docs/ARTICLE_STANDARDS.md` | Writing or editing any Insights or News article. Full workflow: brief → write → props → SEO → quality check → commit. |
+| `docs/keyword-research.md` | Any SEO work, article planning, or keyword targeting. Tier 1–5 keyword targets with competitive analysis. **Read this before choosing a keyword.** |
+| `docs/BUSINESS_CONTEXT.md` | Any copy, messaging, or page work. School facts, fees, competitor comparison, differentiators, staff rules, brand colours. |
+| `docs/PAGE_MESSAGING.md` | Building or editing any page. Briefs for all 34 pages — the one job, key messages, tone, and SEO keywords per page. |
+| `docs/DECISIONS.md` | Before proposing any technical or design change. 18 settled decisions. Don’t re-debate them. |
+| `docs/DESIGN_PROCESS.md` | Before building any new page. Content brief → layout brief → build. No exceptions. |
+| `docs/staff-team-2026.md` | Assigning article authors. Rules for authorship rotation (Eileen Fisher / Engelina Sutantio) and staff profile restrictions. |
+| `docs/SENIOR_CAMPUS_BRIEF.md` | Any work touching the Senior Campus — page, press release, FAQs, or news article. |
+| `docs/parent-quotes-2025.md` | Source material. 22 parent quotes for testimonials. |
+| `docs/school-messaging-research.md` | Background. Competitor and market messaging analysis. |
 
 ---
 
