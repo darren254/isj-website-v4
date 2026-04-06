@@ -56,9 +56,10 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
   canonicalUrl="/brand"
   hideCta={true}
 >
+
   <!-- Hero -->
-  <section class="pt-20 pb-12 px-6">
-    <div class="mx-auto max-w-[var(--content-narrow)] text-center">
+  <section style="padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 560px;">
       <p class="label label-gold mb-4">Staff Resource</p>
       <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy">Brand Guide</h1>
       <p class="mt-4 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
@@ -67,69 +68,77 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
     </div>
   </section>
 
-  <!-- Logos -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-10">Logo Assets</p>
+  <!-- Logo Assets -->
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="label mb-8" style="letter-spacing: 0.12em; font-size: 0.7rem;">LOGO ASSETS</p>
 
       {logoSets.map((set) => (
-        <div class="mb-20 last:mb-0">
-          <h2 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-8">{set.label}</h2>
+        <div style="margin-bottom: 64px;">
+          <!-- Variant heading -->
+          <h2 class="font-heading text-[length:var(--text-lg)] font-light text-navy" style="margin-bottom: 24px;">{set.label}</h2>
 
-          <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <!-- Two containers on one row -->
+          <div style="display: flex; align-items: flex-start; gap: 24px; flex-wrap: wrap;">
 
-            <!-- Horizontal lockup — wide landscape canvas -->
-            <div class="flex-1 min-w-0">
-              <p class="label mb-3 text-[length:var(--text-xs)]">Horizontal</p>
+            <!-- Horizontal lockup -->
+            <div style="flex: 0 0 auto;">
+              <p class="label" style="font-size: 0.65rem; letter-spacing: 0.14em; margin-bottom: 10px; color: rgba(44,43,41,0.5);">HORIZONTAL</p>
               <div
-                class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`}
-                style="aspect-ratio: 16/6;"
+                class={`${set.bg} ${set.border} border rounded-sm`}
+                style="width: 100%; max-width: 560px; width: 560px; height: 200px; display: flex; align-items: center; justify-content: center;"
               >
                 <img
                   src={`/images/brand/isj-logo-horizontal-${set.colourKey}-800.png`}
                   alt={`ISJ logo horizontal — ${set.label}`}
                   loading="lazy"
-                  style="max-height: 50%; max-width: 55%; width: auto;"
+                  style="max-width: 260px; max-height: 80px; width: auto; height: auto; display: block;"
                 />
               </div>
               {set.note && (
-                <p class="mt-3 px-3 py-2 bg-charcoal/5 border-l-2 border-charcoal/20 text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
+                <div style="margin-top: 10px; padding: 10px 14px; background: rgba(44,43,41,0.04); border-left: 3px solid rgba(44,43,41,0.2); max-width: 560px;">
+                  <p class="text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
+                </div>
               )}
-              <div class="mt-3 flex flex-wrap gap-2">
+              <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
                 {sizes.map((s) => (
                   <a
                     href={`/images/brand/isj-logo-horizontal-${set.colourKey}-${s}.png`}
                     download={`isj-logo-horizontal-${set.colourKey}-${s}.png`}
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                    class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                    style="padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
                     set:html={`${downloadIcon} ${s}px`}
                   />
                 ))}
               </div>
             </div>
 
-            <!-- Square / Social — true square canvas -->
-            <div class="flex-shrink-0" style="width: 210px;">
-              <p class="label mb-3 text-[length:var(--text-xs)]">Square / Social</p>
+            <!-- Square / Social -->
+            <div style="flex: 0 0 auto;">
+              <p class="label" style="font-size: 0.65rem; letter-spacing: 0.14em; margin-bottom: 10px; color: rgba(44,43,41,0.5);">SQUARE / SOCIAL</p>
               <div
-                class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`}
-                style="width: 210px; height: 210px;"
+                class={`${set.bg} ${set.border} border rounded-sm`}
+                style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;"
               >
                 <img
                   src={`/images/brand/isj-logo-square-${set.colourKey}-800.png`}
                   alt={`ISJ logo square — ${set.label}`}
                   loading="lazy"
-                  style="max-height: 65%; max-width: 65%; width: auto;"
+                  style="max-width: 110px; max-height: 110px; width: auto; height: auto; display: block;"
                 />
               </div>
               {set.note && (
-                <p class="mt-3 px-3 py-2 bg-charcoal/5 border-l-2 border-charcoal/20 text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
+                <div style="margin-top: 10px; padding: 10px 14px; background: rgba(44,43,41,0.04); border-left: 3px solid rgba(44,43,41,0.2); max-width: 200px;">
+                  <p class="text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
+                </div>
               )}
-              <div class="mt-3 flex flex-wrap gap-2">
+              <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
                 {sizes.map((s) => (
                   <a
                     href={`/images/brand/isj-logo-square-${set.colourKey}-${s}.png`}
                     download={`isj-logo-square-${set.colourKey}-${s}.png`}
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                    class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                    style="padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
                     set:html={`${downloadIcon} ${s}px`}
                   />
                 ))}
@@ -143,103 +152,98 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
   </section>
 
   <!-- Lion Mark -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-3">Lion Mark</p>
-      <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 10px;">LION MARK</p>
+      <p class="text-[length:var(--text-sm)] text-charcoal-light" style="margin-bottom: 32px; max-width: 52ch;">
         Standalone mark for contexts where the full lockup is too large — favicons, watermarks, embossing, social avatars.
       </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+
         <!-- Navy on cream -->
-        <div>
-          <div class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm flex items-center justify-center" style="height: 120px;">
-            <img src="/images/brand/isj-lion-blue.png" alt="ISJ lion mark — Navy" class="max-h-16 w-auto object-contain" loading="lazy" />
+        <div style="flex: 0 0 auto;">
+          <div
+            class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm"
+            style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;"
+          >
+            <img src="/images/brand/isj-lion-blue.png" alt="ISJ lion mark — Navy" loading="lazy" style="max-width: 80px; max-height: 80px; width: auto; height: auto; display: block;" />
           </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Navy on cream</p>
-          <a href="/images/brand/isj-lion-blue.png" download="isj-lion-navy.png" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="margin-top: 8px;">Navy on cream</p>
+          <a
+            href="/images/brand/isj-lion-blue.png"
+            download="isj-lion-navy.png"
+            class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+            style="margin-top: 8px; padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
+            set:html={`${downloadIcon} Download`}
+          />
         </div>
+
         <!-- Gold on cream -->
-        <div>
-          <div class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm flex items-center justify-center" style="height: 120px;">
-            <img src="/images/brand/isj-lion-gold.png" alt="ISJ lion mark — Gold" class="max-h-16 w-auto object-contain" loading="lazy" />
+        <div style="flex: 0 0 auto;">
+          <div
+            class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm"
+            style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;"
+          >
+            <img src="/images/brand/isj-lion-gold.png" alt="ISJ lion mark — Gold" loading="lazy" style="max-width: 80px; max-height: 80px; width: auto; height: auto; display: block;" />
           </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Gold on cream</p>
-          <a href="/images/brand/isj-lion-gold.png" download="isj-lion-gold.png" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="margin-top: 8px;">Gold on cream</p>
+          <a
+            href="/images/brand/isj-lion-gold.png"
+            download="isj-lion-gold.png"
+            class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+            style="margin-top: 8px; padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
+            set:html={`${downloadIcon} Download`}
+          />
         </div>
-        <!-- Navy on navy (gold mark) -->
-        <div>
-          <div class="bg-navy border border-navy-light rounded-sm flex items-center justify-center" style="height: 120px;">
-            <img src="/images/brand/isj-lion-gold-800.png" alt="ISJ lion mark — Gold on navy" class="max-h-16 w-auto object-contain" loading="lazy" />
+
+        <!-- Gold on navy -->
+        <div style="flex: 0 0 auto;">
+          <div
+            class="bg-navy border border-navy-light rounded-sm"
+            style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;"
+          >
+            <img src="/images/brand/isj-lion-gold-800.png" alt="ISJ lion mark — Gold on navy" loading="lazy" style="max-width: 80px; max-height: 80px; width: auto; height: auto; display: block;" />
           </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Gold on navy</p>
-          <a href="/images/brand/isj-lion-gold-800.png" download="isj-lion-gold-800.png" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="margin-top: 8px;">Gold on navy</p>
+          <a
+            href="/images/brand/isj-lion-gold-800.png"
+            download="isj-lion-gold-800.png"
+            class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+            style="margin-top: 8px; padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
+            set:html={`${downloadIcon} Download`}
+          />
         </div>
+
         <!-- Watermark -->
-        <div>
-          <div class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm flex items-center justify-center overflow-hidden" style="height: 120px;">
-            <img src="/images/brand/isj-lion-watermark.jpg" alt="ISJ lion watermark" class="max-h-20 w-auto object-contain opacity-60" loading="lazy" />
+        <div style="flex: 0 0 auto;">
+          <div
+            class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm overflow-hidden"
+            style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;"
+          >
+            <img src="/images/brand/isj-lion-watermark.jpg" alt="ISJ lion watermark" loading="lazy" style="max-width: 80px; max-height: 80px; width: auto; height: auto; display: block; opacity: 0.6;" />
           </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Watermark</p>
-          <a href="/images/brand/isj-lion-watermark.jpg" download="isj-lion-watermark.jpg" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="margin-top: 8px;">Watermark</p>
+          <a
+            href="/images/brand/isj-lion-watermark.jpg"
+            download="isj-lion-watermark.jpg"
+            class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+            style="margin-top: 8px; padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
+            set:html={`${downloadIcon} Download`}
+          />
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Colour Palette -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-8">Colour Palette</p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-        {colours.map((c) => (
-          <div class="group">
-            <div
-              class="aspect-square rounded-sm border border-charcoal/15 flex items-end p-3 transition-transform duration-[var(--transition-base)] group-hover:scale-[1.02]"
-              style={`background-color: ${c.hex};`}
-            >
-              <span
-                class="text-[length:var(--text-xs)] font-medium tracking-wide opacity-80"
-                style={`color: ${c.text};`}
-              >
-                {c.hex}
-              </span>
-            </div>
-            <p class="mt-2 text-[length:var(--text-sm)] text-charcoal font-medium">{c.name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Typography -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-8">Typography</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>
-          <p class="label mb-4 text-[length:var(--text-xs)]">Headings</p>
-          <p class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-tight">Cormorant Garamond</p>
-          <p class="font-heading text-[length:var(--text-lg)] font-light text-navy leading-tight mt-1">Light 300</p>
-          <p class="mt-3 text-[length:var(--text-sm)] text-charcoal-light">All headings and display text.</p>
-        </div>
-        <div>
-          <p class="label mb-4 text-[length:var(--text-xs)]">Body</p>
-          <p class="text-[length:var(--text-xl)] text-charcoal">DM Sans</p>
-          <p class="text-[length:var(--text-lg)] text-charcoal mt-1">Regular 400</p>
-          <p class="mt-3 text-[length:var(--text-sm)] text-charcoal-light">Body copy, labels, and UI elements.</p>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Houses -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-3">Houses</p>
-      <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 10px;">HOUSES</p>
+      <p class="text-[length:var(--text-sm)] text-charcoal-light" style="margin-bottom: 32px; max-width: 52ch;">
         Four houses, each with a dedicated badge and colour palette. Use for certificates, scorecards, newsletters, and event materials.
       </p>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
         {houses.map((house) => (
           <div>
             <div class="rounded-sm overflow-hidden" style="aspect-ratio: 1;">
@@ -250,13 +254,13 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
                 loading="lazy"
               />
             </div>
-            <p class="mt-3 text-[length:var(--text-sm)] font-medium text-charcoal">{house.name}</p>
-            <div class="mt-1.5 flex items-center gap-3">
+            <p class="text-[length:var(--text-sm)] font-medium text-charcoal" style="margin-top: 12px;">{house.name}</p>
+            <div style="margin-top: 6px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
               {house.colours.map((hex) => (
-                <div class="flex items-center gap-1.5">
+                <div style="display: flex; align-items: center; gap: 6px;">
                   <div
-                    class="w-3.5 h-3.5 rounded-full border border-charcoal/20 flex-shrink-0"
-                    style={`background-color: ${hex};`}
+                    class="rounded-full border border-charcoal/20 flex-shrink-0"
+                    style={`width: 14px; height: 14px; background-color: ${hex};`}
                   />
                   <span class="text-[length:var(--text-xs)] text-charcoal-light font-mono">{hex}</span>
                 </div>
@@ -265,7 +269,8 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
             <a
               href={`/images/brand/houses/${house.name.toLowerCase()}-back.png`}
               download={`isj-house-${house.name.toLowerCase()}.png`}
-              class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+              class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+              style="margin-top: 12px; padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem;"
               set:html={`${downloadIcon} Badge`}
             />
           </div>
@@ -274,32 +279,88 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
     </div>
   </section>
 
+  <!-- Colour Palette -->
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 32px;">COLOUR PALETTE</p>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;">
+        {colours.map((c) => (
+          <div class="group">
+            <div
+              class="rounded-sm transition-transform duration-[var(--transition-base)] group-hover:scale-[1.02]"
+              style={`aspect-ratio: 1; background-color: ${c.hex}; display: flex; align-items: flex-end; padding: 12px;${c.hex === '#F7F5F0' ? ' border: 1px solid rgba(44,43,41,0.15);' : ''}`}
+            >
+              <span
+                class="text-[length:var(--text-xs)] font-medium tracking-wide"
+                style={`color: ${c.text}; opacity: 0.85; font-size: 0.65rem; font-family: monospace;`}
+              >
+                {c.hex}
+              </span>
+            </div>
+            <p class="text-[length:var(--text-sm)] text-charcoal font-medium" style="margin-top: 8px;">{c.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 32px;">TYPOGRAPHY</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+
+        <!-- Cormorant Garamond -->
+        <div>
+          <p class="label" style="font-size: 0.65rem; letter-spacing: 0.14em; color: rgba(44,43,41,0.5); margin-bottom: 16px;">HEADINGS</p>
+          <p class="font-heading text-navy" style="font-size: 2.8rem; font-weight: 300; line-height: 1.1; margin-bottom: 8px;">The quick brown fox</p>
+          <p class="font-heading text-navy" style="font-size: 1.4rem; font-weight: 300; line-height: 1.3; margin-bottom: 16px;">jumps over the lazy dog</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="letter-spacing: 0.04em;">Cormorant Garamond — Light 300</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="margin-top: 4px;">All headings and display text.</p>
+        </div>
+
+        <!-- DM Sans -->
+        <div>
+          <p class="label" style="font-size: 0.65rem; letter-spacing: 0.14em; color: rgba(44,43,41,0.5); margin-bottom: 16px;">BODY</p>
+          <p class="text-charcoal" style="font-size: 2rem; font-weight: 400; line-height: 1.15; margin-bottom: 8px;">The quick brown fox</p>
+          <p class="text-charcoal" style="font-size: 1.1rem; font-weight: 400; line-height: 1.5; margin-bottom: 16px;">jumps over the lazy dog</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="letter-spacing: 0.04em;">DM Sans — Regular 400</p>
+          <p class="text-[length:var(--text-xs)] text-charcoal-light" style="margin-top: 4px;">Body copy, labels, and UI elements.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Lions Sports Identity -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-3">Lions — Sports Identity</p>
-      <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 10px;">LIONS — SPORTS IDENTITY</p>
+      <p class="text-[length:var(--text-sm)] text-charcoal-light" style="margin-bottom: 32px; max-width: 52ch;">
         Used for all competitive sport — kit, match programmes, fixture lists, and social posts. Navy and Gold, consistent with the main palette.
       </p>
-      <div class="flex flex-col sm:flex-row gap-10 items-start">
-        <div class="bg-white border border-charcoal/10 rounded-sm flex items-center justify-center flex-shrink-0" style="width: 180px; height: 180px;">
+      <div style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+        <div
+          class="bg-white border border-charcoal/10 rounded-sm"
+          style="width: 180px; height: 180px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"
+        >
           <img
             src="/images/brand/isj-lions-sports.jpg"
             alt="ISJ Lions sports badge"
-            class="max-h-36 max-w-[150px] w-auto object-contain"
             loading="lazy"
+            style="max-width: 140px; max-height: 140px; width: auto; height: auto; display: block; object-fit: contain;"
           />
         </div>
-        <div class="flex flex-col justify-center gap-4 pt-2">
-          <div class="flex items-center gap-3">
-            <div class="w-7 h-7 rounded-sm border border-charcoal/10 flex-shrink-0" style="background-color: #1B2A4A;"></div>
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px; padding-top: 8px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="rounded-sm border border-charcoal/10 flex-shrink-0" style="width: 28px; height: 28px; background-color: #1B2A4A;"></div>
             <div>
               <p class="text-[length:var(--text-sm)] text-charcoal font-medium">Navy</p>
               <p class="text-[length:var(--text-xs)] text-charcoal-muted font-mono">#1B2A4A</p>
             </div>
           </div>
-          <div class="flex items-center gap-3">
-            <div class="w-7 h-7 rounded-sm border border-charcoal/10 flex-shrink-0" style="background-color: #FFC43D;"></div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="rounded-sm border border-charcoal/10 flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFC43D;"></div>
             <div>
               <p class="text-[length:var(--text-sm)] text-charcoal font-medium">Gold</p>
               <p class="text-[length:var(--text-xs)] text-charcoal-muted font-mono">#FFC43D</p>
@@ -308,7 +369,8 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
           <a
             href="/images/brand/isj-lions-sports.jpg"
             download="isj-lions-sports.jpg"
-            class="mt-1 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)] w-fit"
+            class="inline-flex items-center gap-1.5 text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+            style="padding: 6px 12px; border: 1px solid rgba(44,43,41,0.15); border-radius: 2px; font-size: 0.7rem; width: fit-content;"
             set:html={`${downloadIcon} Download badge`}
           />
         </div>
@@ -317,10 +379,10 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
   </section>
 
   <!-- Usage Notes -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-narrow)]">
-      <p class="label mb-8">Usage Notes</p>
-      <ul class="space-y-4 text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">
+  <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
+    <div style="max-width: 600px; margin: 0 auto 0 0;">
+      <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 32px;">USAGE NOTES</p>
+      <ul class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed" style="display: flex; flex-direction: column; gap: 16px; list-style: none; padding: 0;">
         <li>Use the <strong class="text-charcoal font-medium">navy logo</strong> on light backgrounds (cream, white).</li>
         <li>Use the <strong class="text-charcoal font-medium">white logo</strong> on dark backgrounds (navy, photography). The file has a transparent background — it will appear invisible on white.</li>
         <li>Use the <strong class="text-charcoal font-medium">gold logo</strong> sparingly — accent and special applications only.</li>
@@ -330,4 +392,5 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
       </ul>
     </div>
   </section>
+
 </BaseLayout>
