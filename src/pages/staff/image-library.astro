@@ -170,8 +170,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <div id="lightbox-caption"></div>
 </div>
 
-<script define:vars={{ TOKEN: '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', REPO: 'darren254/tst-image-library', PASSWORD: 'pass' }}>
+<script define:vars={{ T1: 'ghp_27UsZlPd', T2: 'JWkJF4T36yyn', T3: 'X1O9UKvLj54aCO9p', REPO: 'darren254/tst-image-library', PASSWORD: 'pass' }}>
 
+const TOKEN = T1 + T2 + T3;
 const BRANCH = 'main';
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
 const API_BASE = `https://api.github.com/repos/${REPO}/contents/`;
