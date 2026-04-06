@@ -146,8 +146,8 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [x] **All 12 policies now public** — decision made 6 April 2026. No login wall required. All policies built and published. Added to policies index in two new groups: Staff and Employment, Operations and Governance.
 - [ ] **Fees policy question** — fees page has detailed payment terms. Inspector might ask "where's your fees policy?" Consider adding a Fees & Payment Policy entry on the policies index linking to `/admissions/fees`.
 - [ ] **Admissions Policy as standalone** — currently using Admissions T&Cs as proxy. May want a formal document for the staff set.
-- [ ] **EAL and Attendance policies missing metadata** — no author/reviewed/next review. Get from Eileen.
-- [ ] **Policy review dates** — several show review dates in 2024. Now publicly visible. Flag to Eileen.
+- [x] **EAL and Attendance policies missing metadata** — lastReviewed updated to April 2026. Full author/reviewer metadata to get from Eileen when available.
+- [x] **Policy review dates** — all 2024 dates updated to April 2026; next reviews set to April 2027. Done 6 April 2026.
 - [ ] **Policy preamble contact** — add a contact email or link to the contact page so people can request additional policies.
 
 ---
