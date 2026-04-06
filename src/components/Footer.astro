@@ -123,8 +123,10 @@ const socialLinks = [
         <a href=/privacy class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Privacy</a>
         <a href=/terms class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Terms</a>
         <a href=/cookies class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Cookies</a>
+        <a href=/brand class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Brand Guide</a>
+        <a href=/staff/image-library class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Image Library</a>
       </div>
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 md:pr-16">
         {socialLinks.map((social) => (
           <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/25 hover:text-navy/50 transition-colors" aria-label={social.label}>
             <span class="text-[length:var(--text-xs)] uppercase tracking-wider">{social.label}</span>
