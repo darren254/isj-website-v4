@@ -10,7 +10,7 @@ Point any AI session here first. Lists every resource available and when to use 
 |------|-----------|
 | `PLAN.md` | Master project plan. Build status, pre-launch checklist, content roadmap, decisions log, open questions, change log. Read for project context. |
 | `docs/DECISIONS.md` | 18 settled decisions. Check before proposing any technical or design change. |
-| `docs/AUTOMATIONS.md` | All active scheduled automations — cron IDs, schedules, what they do, how to cancel. Check before adding new automations. |
+| `docs/AUTOMATIONS.md` | All active automations — what they do, schedules, feed URLs, sheet ID, how to pause or update. Check before adding new automations. |
 | `docs/BUSINESS_CONTEXT.md` | School facts, fees, competitor comparison, differentiators, staff profile rules, brand colours. Read before any copy or page work. |
 
 ---
@@ -35,6 +35,16 @@ Point any AI session here first. Lists every resource available and when to use 
 | `docs/SITE_ARCHITECTURE.xlsx` | 34 pages fully specced — URLs, keywords, meta descriptions, internal links, content briefs. Source of truth for page architecture. |
 | `docs/URL_REDIRECT_MAP.xlsx` | 111 redirect rules from Squarespace → v4. Reference before changing any URL. |
 | `docs/SENIOR_CAMPUS_BRIEF.md` | Execution plan for the Senior Campus launch — press release, layout brief, image inventory. Read for any Senior Campus work. |
+
+---
+
+## Scripts & Automations
+
+| File | What it is |
+|------|-----------|
+| `scripts/press-monitor/rss-to-sheet.js` | Pipedream workflow code: RSS feeds (Google Alerts + Talkwalker) → Google Sheet. Fires on every new mention. Edit here, paste into Pipedream. |
+| `scripts/press-monitor/monthly-digest.js` | Pipedream workflow code: monthly email digest to darren@schoolstrust.co.uk with sheet link and approval status. Runs 1st of month 08:00 WIB. |
+| `scripts/press-monitor/README.md` | **Read before touching any press monitoring workflow.** Full Pipedream setup steps, feed URLs, env vars, how to pause/duplicate. |
 
 ---
 
