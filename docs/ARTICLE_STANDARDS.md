@@ -55,21 +55,32 @@ Every prop is required. No exceptions. The build will not fail if props are miss
 
 ## 3. How to Write the TL;DR (`summary` prop)
 
-The `summary` prop renders automatically as the first thing a reader sees after the headline, labelled in gold. Do not add a separate TL;DR block anywhere in the article body.
+The `summary` prop renders as a boxed bullet list: cream-dark background, gold left border, gold dot markers, navy text. It is the first thing a reader sees after the headline. Do not add a separate TL;DR block anywhere in the article body.
 
-**Write it last** — after the article is complete. Distil what the article actually concludes.
+**Format:** Pipe-delimited string. Each segment separated by ` | ` becomes one bullet point.
+
+```
+summary="First key point | Second key point | Third key point"
+```
+
+**Write it last** — after the article is complete.
 
 Rules:
-- Specific and honest. If the article concludes Pondok Indah suits families but Kemang suits younger professionals, say that.
-- No teasing ("Read on to find out..."). State the answer.
-- No superlatives ("the most important thing to know").
-- 1–3 sentences. Does not need to cover every section — pick the one or two things that matter most.
+- 3–5 bullets. Each is one complete, useful sentence.
+- Each bullet stands alone — a reader who only reads the TL;DR should leave knowing the key facts.
+- Specific and honest. State the actual conclusion, not a teaser.
+- No "Read on to find out...". No superlatives. No vague reassurance.
+- Em dashes are acceptable within bullet text as internal separators.
 
 **Good:**
-> Jakarta is a large and complicated city. Where families end up living makes an enormous difference to daily life. This guide covers the areas that expat and internationally-minded families actually choose, and what drives those decisions.
+```
+summary="Start the visa process 3+ months before arrival — Work KITAS takes 6–10 weeks | Secure a school place before you arrive. Housing should follow school choice, not the other way around | Household goods must arrive within 90 days and must have been owned for 12+ months | Register your KITAS with civil authorities within 14 days of arrival"
+```
 
 **Bad:**
-> Discover everything you need to know about living in Jakarta as an expat family. Read on for our expert guide.
+```
+summary="Discover everything you need to know about moving to Jakarta as an expat family."
+```
 
 ---
 
