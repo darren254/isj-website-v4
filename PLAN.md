@@ -254,7 +254,7 @@ Originally planned as a separate `/explore-jakarta/` hub — **scrapped**. All J
 
 ## Image Library
 
-- [ ] **Cloud-hosted solution** — currently 477 images in GitHub repo (darren254/tst-image-library). Need a visual gallery where staff can browse, add, delete via web. Candidate: Cloudflare R2 with gallery frontend, or Sanity media library.
+- [ ] **Cloud-hosted image library** — currently 477 images in GitHub repo (darren254/tst-image-library). Need a visual gallery where staff can browse, add, delete via web.
 
 ---
 
@@ -276,7 +276,7 @@ Originally planned as a separate `/explore-jakarta/` hub — **scrapped**. All J
 - **Squarespace** — commerce API only. Content audit done via sitemap + Search Console (2 April 2026).
 
 ### Future (connect when ready to implement)
-- [ ] **Sanity CMS** — see Post-Launch section. Priority use case: Tiffany publishing news/insights articles and uploading images.
+- [ ] **CMS (TBD)** — Tiffany needs to publish news/insights articles and upload images. To be scoped later.
 - [ ] **Resend** — transactional email for tour/contact forms via Cloudflare Workers
 - [ ] **WhatsApp Business** — automate admissions enquiry responses beyond the floating button
 - [ ] **Ahrefs or DataForSEO** — keyword rank tracking, backlink monitoring, feeds content roadmap decisions
@@ -334,7 +334,7 @@ All 8 Squarespace news articles redirect to `/news` hub. All zero traffic. Rebui
 
 ## Post-Launch
 
-- [ ] **Sanity CMS** — Tiffany needs to publish news and insight articles, upload images, and potentially manage other content without touching code. This is the priority CMS use case. Requires decoupling content from .astro files into a Sanity data layer. Significant project — scope separately before starting.
+- [ ] **CMS (TBD)** — Tiffany to publish news/insights and upload images without code access. Solution not yet chosen. Revisit when ready.
 - [ ] **Image refresh** — more photography as school grows, especially Senior School.
 - [ ] **A/B testing** — CTA copy, hero images, form placement.
 
@@ -388,7 +388,7 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 
 1. **Hero video** — Darren mentioned having one ready. Replace homepage hero image with autoplay video + image fallback when provided.
 2. **Senior School photography** — current images skew primary-age. Need Senior School photos as programme grows.
-3. **Sanity CMS timing** — before launch or after static launch?
+3. **CMS timing** — TBD. Content publishing handled manually (email) for now.
 4. **Form provider for launch** — Resend + Cloudflare Workers is the plan. Alternative: Formspree/Netlify Forms as interim?
 
 ---
