@@ -198,43 +198,40 @@ Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ 
 - [ ] **Student/parent voice content** — testimonials, day-in-the-life features, parent Q&As. Each as its own page.
 - [ ] **Seasonal content** — term dates, end-of-term round-ups, results day coverage
 
-### Content Phase 2b: Explore Jakarta Hub
+### Content Phase 2b: Jakarta Life Articles (in /insights/)
 
-Modelled on Harrow Hong Kong's `/his/explore-hong-kong/` section — a dedicated content hub at `/explore-jakarta/` targeting expat families researching Jakarta before or after arrival. Each article is a standalone page optimised for long-tail SEO, funnelling readers toward admissions/tour booking.
+Originally planned as a separate `/explore-jakarta/` hub — **scrapped**. All Jakarta life content lives in `/insights/` under the "Jakarta Life" category. No separate nav item, no redirect complexity, no new hub page needed.
 
-**URL structure:** `/explore-jakarta/[slug]`
+**URL structure:** `/insights/[slug]`
 
-**Hub page:** `/explore-jakarta/` — editorial listing page (same pattern as `/insights/`)
+**Hub:** `/insights/` already lists by category — Jakarta Life articles appear there automatically.
 
 **Planned articles:**
 
 | # | Article | Slug | Target query |
 |---|---------|------|--------------|
-| 0 | ~~Cost of Living in Jakarta~~ | — | DONE — `/insights/cost-of-living-jakarta` |
-| 0 | ~~Essential Contacts for Expats~~ | — | DONE — `/insights/expat-contact-list-jakarta` |
-| 1 | Best Neighbourhoods for Expat Families in Jakarta | `best-neighbourhoods-expat-families` | expat neighbourhoods jakarta |
-| 2 | ~~Things to Do with Kids in Jakarta~~ | — | DONE — `/insights/things-to-do-kids-jakarta` |
-| 3 | Things to Do in South Jakarta with Kids | `things-to-do-south-jakarta-kids` | things to do south jakarta kids |
-| 4 | Weekend Trips from Jakarta with Kids | `weekend-trips-from-jakarta` | weekend trips jakarta family |
-| 5 | Moving to Jakarta: A Checklist for Expat Families | `moving-to-jakarta-checklist` | moving to jakarta expat |
-| 6 | Navigating the Indonesian School System as an Expat | `indonesian-school-system-expats` | indonesian school system expat |
-| 7 | International School Fees in Jakarta: What to Expect | `international-school-fees-jakarta` | international school fees jakarta |
-| 8 | Where Do Expats in Jakarta Go at Weekends? | `where-expats-go-weekends` | expat weekends jakarta |
-| 9 | Quality of Life in Jakarta for Expat Families | `quality-of-life-jakarta` | quality of life jakarta expat |
-| 10 | Adapting to Life in Jakarta: Tips for New Arrivals | `adapting-to-life-jakarta` | adapting life jakarta expat |
-| 11 | ~~Commute Times to Pondok Indah~~ | — | DONE — `/insights/jakarta-school-commute-times` |
-| 12 | Best Restaurants and Cafes Near Pondok Indah | `restaurants-cafes-pondok-indah` | restaurants near pondok indah |
-| 13 | ~~Healthcare in Jakarta~~ | — | DONE — `/insights/healthcare-expats-jakarta` |
-| 14 | Helpers, Drivers and Household Staff in Jakarta | `helpers-drivers-household-staff` | helper jakarta expat |
-| 15 | Jakarta vs Singapore vs Bangkok for Expat Families | `jakarta-vs-singapore-vs-bangkok` | jakarta vs singapore expat families |
+| — | ~~Cost of Living in Jakarta~~ | DONE | `/insights/cost-of-living-jakarta` |
+| — | ~~Essential Contacts for Expats~~ | DONE | `/insights/expat-contact-list-jakarta` |
+| — | ~~Things to Do with Kids in Jakarta~~ | DONE | `/insights/things-to-do-kids-jakarta` |
+| — | ~~Commute Times to Pondok Indah~~ | DONE | `/insights/jakarta-school-commute-times` |
+| — | ~~Healthcare in Jakarta~~ | DONE | `/insights/healthcare-expats-jakarta` |
+| 1 | Best Neighbourhoods for Expat Families | `best-neighbourhoods-jakarta` | expat neighbourhoods jakarta |
+| 2 | Things to Do in South Jakarta with Kids | `things-to-do-south-jakarta` | things to do south jakarta kids |
+| 3 | Weekend Trips from Jakarta with Kids | `weekend-trips-from-jakarta` | weekend trips jakarta family |
+| 4 | Moving to Jakarta: A Checklist for Expat Families | `moving-to-jakarta-checklist` | moving to jakarta expat |
+| 5 | Navigating the Indonesian School System as an Expat | `indonesian-school-system-expats` | indonesian school system expat |
+| 6 | International School Fees in Jakarta | `international-school-fees-jakarta` | international school fees jakarta |
+| 7 | Where Do Expats Go at Weekends in Jakarta? | `expat-weekends-jakarta` | expat weekends jakarta |
+| 8 | Quality of Life in Jakarta for Expat Families | `quality-of-life-jakarta` | quality of life jakarta expat |
+| 9 | Adapting to Life in Jakarta: Tips for New Arrivals | `adapting-to-life-jakarta` | adapting life jakarta expat |
+| 10 | Best Restaurants and Cafes Near Pondok Indah | `restaurants-pondok-indah` | restaurants near pondok indah |
+| 11 | Helpers, Drivers and Household Staff in Jakarta | `helpers-drivers-jakarta` | helper jakarta expat |
+| 12 | Jakarta vs Singapore vs Bangkok for Expat Families | `jakarta-vs-singapore-bangkok` | jakarta vs singapore expat families |
 
 **Notes:**
-- Articles 1-5 overlap with existing Squarespace insights that have real traffic. Migrate and improve those first, redirect old URLs.
-- Article 11 replaces the planned standalone `/insights/commute-times-pondok-indah` — lives in Explore Jakarta instead.
-- Keep ISJ mentions light and natural — one contextual mention per article plus a standard CTA at the bottom. This is content marketing, not advertorial.
-- Same design treatment as Insights articles (hero image, editorial layout, related articles sidebar or footer).
-- Publish cadence: 2-3 per month until the hub has 10+ articles, then 1/month maintenance.
-- Reference: Harrow HK's approach at `harrowhongkong.hk/his/explore-hong-kong/` — lifestyle content targeting expat families searching for Hong Kong relocation info, funnelling toward the school.
+- Keep ISJ mentions light and natural — one contextual mention per article plus a standard footer CTA. Content marketing, not advertorial.
+- Category label: "Jakarta Life" — same as existing Jakarta articles in /insights/.
+- Publish cadence: 2-3 per month.
 
 ### Content Phase 3: Structural expansion
 
