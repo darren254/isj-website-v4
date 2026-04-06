@@ -210,6 +210,8 @@ Modelled on Harrow Hong Kong's `/his/explore-hong-kong/` section — a dedicated
 
 | # | Article | Slug | Target query |
 |---|---------|------|--------------|
+| 0 | ~~Cost of Living in Jakarta~~ | — | DONE — `/insights/cost-of-living-jakarta` |
+| 0 | ~~Essential Contacts for Expats~~ | — | DONE — `/insights/expat-contact-list-jakarta` |
 | 1 | Best Neighbourhoods for Expat Families in Jakarta | `best-neighbourhoods-expat-families` | expat neighbourhoods jakarta |
 | 2 | ~~Things to Do with Kids in Jakarta~~ | — | DONE — `/insights/things-to-do-kids-jakarta` |
 | 3 | Things to Do in South Jakarta with Kids | `things-to-do-south-jakarta-kids` | things to do south jakarta kids |
