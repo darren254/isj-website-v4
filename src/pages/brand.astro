@@ -59,7 +59,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Hero -->
   <section style="padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 560px;">
+    <div style="max-width: 460px;">
       <p class="label label-gold mb-4">Staff Resource</p>
       <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy">Brand Guide</h1>
       <p class="mt-4 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
@@ -70,7 +70,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Logo Assets -->
   <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 800px; margin: 0 auto;">
       <p class="label mb-8" style="letter-spacing: 0.12em; font-size: 0.7rem;">LOGO ASSETS</p>
 
       {logoSets.map((set) => (
@@ -86,7 +86,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
               <p class="label" style="font-size: 0.65rem; letter-spacing: 0.14em; margin-bottom: 10px; color: rgba(44,43,41,0.5);">HORIZONTAL</p>
               <div
                 class={`${set.bg} ${set.border} border rounded-sm`}
-                style="width: 100%; max-width: 560px; width: 560px; height: 200px; display: flex; align-items: center; justify-content: center;"
+                style="width: 460px; height: 200px; display: flex; align-items: center; justify-content: center;"
               >
                 <img
                   src={`/images/brand/isj-logo-horizontal-${set.colourKey}-800.png`}
@@ -96,7 +96,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
                 />
               </div>
               {set.note && (
-                <div style="margin-top: 10px; padding: 10px 14px; background: rgba(44,43,41,0.04); border-left: 3px solid rgba(44,43,41,0.2); max-width: 560px;">
+                <div style="margin-top: 10px; padding: 10px 14px; background: rgba(44,43,41,0.04); border-left: 3px solid rgba(44,43,41,0.2); max-width: 460px;">
                   <p class="text-[length:var(--text-xs)] text-charcoal-light leading-relaxed">{set.note}</p>
                 </div>
               )}
@@ -153,7 +153,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Lion Mark -->
   <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 800px; margin: 0 auto;">
       <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 10px;">LION MARK</p>
       <p class="text-[length:var(--text-sm)] text-charcoal-light" style="margin-bottom: 32px; max-width: 52ch;">
         Standalone mark for contexts where the full lockup is too large — favicons, watermarks, embossing, social avatars.
@@ -238,7 +238,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Houses -->
   <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 800px; margin: 0 auto;">
       <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 10px;">HOUSES</p>
       <p class="text-[length:var(--text-sm)] text-charcoal-light" style="margin-bottom: 32px; max-width: 52ch;">
         Four houses, each with a dedicated badge and colour palette. Use for certificates, scorecards, newsletters, and event materials.
@@ -281,7 +281,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Colour Palette -->
   <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 800px; margin: 0 auto;">
       <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 32px;">COLOUR PALETTE</p>
       <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;">
         {colours.map((c) => (
@@ -306,7 +306,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Typography -->
   <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 800px; margin: 0 auto;">
       <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 32px;">TYPOGRAPHY</p>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
 
@@ -334,7 +334,7 @@ const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height=
 
   <!-- Lions Sports Identity -->
   <section style="border-top: 1px solid rgba(44,43,41,0.06); padding-top: 64px; padding-bottom: 64px; padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 800px; margin: 0 auto;">
       <p class="label" style="font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 10px;">LIONS — SPORTS IDENTITY</p>
       <p class="text-[length:var(--text-sm)] text-charcoal-light" style="margin-bottom: 32px; max-width: 52ch;">
         Used for all competitive sport — kit, match programmes, fixture lists, and social posts. Navy and Gold, consistent with the main palette.
