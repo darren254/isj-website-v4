@@ -25,5 +25,5 @@ Source: Meet The ISJ Team 2026.pdf
 
 ## Article Authorship Rules
 - If a teacher quote appears in the article, that teacher is the author (name only, no title)
-- If authorship is unclear, alternate between **Eileen Fisher** and **Engelina Sutantio**
-- If the article compares other schools in any way, use **Darren Brown** as the author
+- All other articles: alternate between **Eileen Fisher** and **Engelina Sutantio**
+- Darren Brown is not used as an article author

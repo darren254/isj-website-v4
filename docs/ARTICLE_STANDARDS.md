@@ -24,11 +24,11 @@ Real photo. No AI-generated images. Must be relevant to the article subject, not
 
 ### Assign the author
 Follow the rules in `docs/staff-team-2026.md`:
-- Article compares other schools → Darren Brown
 - Teacher is quoted in the article → that teacher is the author
-- Otherwise → alternate Eileen Fisher / Darren Brown
+- All other articles → alternate Eileen Fisher / Engelina Sutantio
+- Darren Brown is not used as an article author
 
-Note: all Jakarta Life articles up to and including `best-neighbourhoods-jakarta` were incorrectly assigned to Darren Brown. `moving-to-jakarta-checklist` (April 2026) is Eileen Fisher. The next non-school-comparison Jakarta Life article should be Darren Brown, then alternate from there.
+Rotation state: `moving-to-jakarta-checklist` (April 2026) is Eileen Fisher. Next article is Engelina Sutantio.
 
 ---
 
