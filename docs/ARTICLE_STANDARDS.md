@@ -27,7 +27,7 @@ Articles strictly alternate between Style A and Style B. Before writing a new ar
 
 **Style B — Text header** (`heroImage` prop omitted): Clean title over cream background, no image.
 
-**Current state:** `admissions-eal-children-jakarta` (April 2026) used Style A (hero image). Next article uses Style B.
+**Current state:** `choosing-early-years-programme-jakarta` (April 2026) used Style B (no hero image). Next article uses Style A.
 
 Update this "Current state" line every time a new article is published.
 
@@ -42,7 +42,7 @@ Follow the rules in `docs/staff-team-2026.md`:
 - All other articles → alternate Eileen Fisher / Engelina Sutantio
 - Darren Brown is not used as an article author
 
-Rotation state: `admissions-eal-children-jakarta` (April 2026) is Eileen Fisher. Next article is Engelina Sutantio.
+Rotation state: `choosing-early-years-programme-jakarta` (April 2026) is Engelina Sutantio. Next article is Eileen Fisher.
 
 ---
 
