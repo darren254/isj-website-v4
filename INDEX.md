@@ -10,6 +10,7 @@ Point any AI session here first. Lists every resource available and when to use 
 |------|-----------|
 | `PLAN.md` | Master project plan. Build status, pre-launch checklist, content roadmap, decisions log, open questions, change log. Read for project context. |
 | `docs/DECISIONS.md` | 18 settled decisions. Check before proposing any technical or design change. |
+| `docs/AUTOMATIONS.md` | All active scheduled automations — cron IDs, schedules, what they do, how to cancel. Check before adding new automations. |
 | `docs/BUSINESS_CONTEXT.md` | School facts, fees, competitor comparison, differentiators, staff profile rules, brand colours. Read before any copy or page work. |
 
 ---
