@@ -38,12 +38,16 @@ const socialLinks = [
   { label: 'LinkedIn', href: 'https://linkedin.com/school/isjjakarta' },
   { label: 'YouTube', href: 'https://youtube.com/@isjjakarta' },
 ];
+interface Props {
+  hideCta?: boolean;
+}
+const { hideCta = false } = Astro.props;
 ---
 
 <footer class="text-navy">
 
   <!-- CTA band — warm stone -->
-  <div class="bg-[#E8E4DD] px-6 py-14 lg:py-16">
+  {!hideCta && <div class="bg-[#E8E4DD] px-6 py-14 lg:py-16">
     <div class="mx-auto max-w-[var(--content-narrow)] text-center">
       <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy">Begin Your Journey</h2>
       <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -56,7 +60,7 @@ const socialLinks = [
         <a href=/contact class="whisper-link">Contact Admissions</a>
       </div>
     </div>
-  </div>
+  </div>}
 
   <!-- Footer body — slightly darker stone -->
   <div class="bg-[#DDD9D1] px-6 py-12 lg:py-16">

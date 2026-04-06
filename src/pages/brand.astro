@@ -18,61 +18,47 @@ const logoSets = [
   {
     label: 'Navy',
     colourKey: 'blue',
-    bg: 'bg-cream',
+    bg: 'bg-[#F7F5F0]',
     border: 'border-charcoal/10',
+    note: null,
   },
   {
     label: 'White',
     colourKey: 'white',
     bg: 'bg-navy',
     border: 'border-navy-light',
+    note: 'Transparent background — place on a dark surface.',
   },
   {
     label: 'Gold',
     colourKey: 'gold',
-    bg: 'bg-cream',
-    border: 'border-charcoal/10',
+    bg: 'bg-navy',
+    border: 'border-navy-light',
+    note: null,
   },
 ];
 
 const sizes = [400, 800, 1600];
 
 const houses = [
-  {
-    name: 'Lewis',
-    colours: ['#14967A', '#A8B89C'],
-    colourNames: ['Teal', 'Sage'],
-    mascot: 'Mouse',
-  },
-  {
-    name: 'Potter',
-    colours: ['#EAA01A', '#C9A01A'],
-    colourNames: ['Amber', 'Gold'],
-    mascot: 'Rabbit',
-  },
-  {
-    name: 'Rowling',
-    colours: ['#CE2611', '#FFFFFF'],
-    colourNames: ['Red', 'White'],
-    mascot: 'Stag',
-  },
-  {
-    name: 'Tolkien',
-    colours: ['#244780', '#7695C9'],
-    colourNames: ['Navy', 'Sky'],
-    mascot: 'Wizard',
-  },
+  { name: 'Lewis',   colours: ['#14967A', '#A8B89C'], mascot: 'Mouse'  },
+  { name: 'Potter',  colours: ['#EAA01A', '#C9A01A'], mascot: 'Rabbit' },
+  { name: 'Rowling', colours: ['#CE2611', '#FFFFFF'],  mascot: 'Stag'   },
+  { name: 'Tolkien', colours: ['#244780', '#7695C9'], mascot: 'Wizard' },
 ];
+
+const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
 ---
 
 <BaseLayout
   title="Brand Guide — ISJ"
   description="ISJ logo assets, colour palette, typography, and brand guidelines for staff use. Includes downloadable assets and usage rules."
   canonicalUrl="/brand"
+  hideCta={true}
 >
   <!-- Hero -->
-  <section class="section-pad px-6">
-    <div class="text-column">
+  <section class="pt-20 pb-12 px-6">
+    <div class="mx-auto max-w-[var(--content-narrow)] text-center">
       <p class="label label-gold mb-4">Staff Resource</p>
       <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy">Brand Guide</h1>
       <p class="mt-4 text-[length:var(--text-base)] text-charcoal-light leading-relaxed">
@@ -82,67 +68,113 @@ const houses = [
   </section>
 
   <!-- Logos -->
-  <section class="px-6 pb-[var(--space-section)]">
+  <section class="border-t border-charcoal/5 px-6 section-pad">
     <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-8">Logo Assets</p>
+      <p class="label mb-10">Logo Assets</p>
 
       {logoSets.map((set) => (
-        <div class="mb-16">
-          <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy mb-6">{set.label}</h2>
+        <div class="mb-16 last:mb-0">
+          <h2 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-6">{set.label}</h2>
 
-          <!-- Horizontal -->
-          <div class="mb-8">
-            <p class="label mb-3">Horizontal</p>
-            <div class={`${set.bg} ${set.border} border rounded-sm p-8 flex items-center justify-center`}>
-              <img
-                src={`/images/brand/isj-logo-horizontal-${set.colourKey}-800.png`}
-                alt={`ISJ logo horizontal — ${set.label}`}
-                width="400"
-                loading="lazy"
-                class="max-h-40 w-auto object-contain"
-              />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Horizontal -->
+            <div>
+              <p class="label mb-3 text-[length:var(--text-xs)]">Horizontal</p>
+              <div class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`} style="height: 140px;">
+                <img
+                  src={`/images/brand/isj-logo-horizontal-${set.colourKey}-800.png`}
+                  alt={`ISJ logo horizontal — ${set.label}`}
+                  loading="lazy"
+                  class="max-h-20 max-w-[280px] w-auto object-contain"
+                />
+              </div>
+              {set.note && (
+                <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-muted italic">{set.note}</p>
+              )}
+              <div class="mt-3 flex flex-wrap gap-2">
+                {sizes.map((s) => (
+                  <a
+                    href={`/images/brand/isj-logo-horizontal-${set.colourKey}-${s}.png`}
+                    download={`isj-logo-horizontal-${set.colourKey}-${s}.png`}
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                    set:html={`${downloadIcon} ${s}px`}
+                  />
+                ))}
+              </div>
             </div>
-            <div class="mt-3 flex flex-wrap gap-3">
-              {sizes.map((s) => (
-                <a
-                  href={`/images/brand/isj-logo-horizontal-${set.colourKey}-${s}.png`}
-                  download={`isj-logo-horizontal-${set.colourKey}-${s}.png`}
-                  class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  {s}px
-                </a>
-              ))}
-            </div>
-          </div>
 
-          <!-- Square -->
-          <div>
-            <p class="label mb-3">Square / Social</p>
-            <div class={`${set.bg} ${set.border} border rounded-sm p-8 flex items-center justify-center`}>
-              <img
-                src={`/images/brand/isj-logo-square-${set.colourKey}-800.png`}
-                alt={`ISJ logo square — ${set.label}`}
-                width="200"
-                loading="lazy"
-                class="max-h-48 w-auto object-contain"
-              />
-            </div>
-            <div class="mt-3 flex flex-wrap gap-3">
-              {sizes.map((s) => (
-                <a
-                  href={`/images/brand/isj-logo-square-${set.colourKey}-${s}.png`}
-                  download={`isj-logo-square-${set.colourKey}-${s}.png`}
-                  class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  {s}px
-                </a>
-              ))}
+            <!-- Square -->
+            <div>
+              <p class="label mb-3 text-[length:var(--text-xs)]">Square / Social</p>
+              <div class={`${set.bg} ${set.border} border rounded-sm flex items-center justify-center`} style="height: 140px;">
+                <img
+                  src={`/images/brand/isj-logo-square-${set.colourKey}-800.png`}
+                  alt={`ISJ logo square — ${set.label}`}
+                  loading="lazy"
+                  class="max-h-24 max-w-[120px] w-auto object-contain"
+                />
+              </div>
+              {set.note && (
+                <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-muted italic">{set.note}</p>
+              )}
+              <div class="mt-3 flex flex-wrap gap-2">
+                {sizes.map((s) => (
+                  <a
+                    href={`/images/brand/isj-logo-square-${set.colourKey}-${s}.png`}
+                    download={`isj-logo-square-${set.colourKey}-${s}.png`}
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+                    set:html={`${downloadIcon} ${s}px`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       ))}
+    </div>
+  </section>
+
+  <!-- Lion Mark -->
+  <section class="border-t border-charcoal/5 px-6 section-pad">
+    <div class="mx-auto max-w-[var(--content-wide)]">
+      <p class="label mb-3">Lion Mark</p>
+      <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
+        Standalone mark for contexts where the full lockup is too large — favicons, watermarks, embossing, social avatars.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <!-- Navy on cream -->
+        <div>
+          <div class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm flex items-center justify-center" style="height: 120px;">
+            <img src="/images/brand/isj-lion-blue.png" alt="ISJ lion mark — Navy" class="max-h-16 w-auto object-contain" loading="lazy" />
+          </div>
+          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Navy on cream</p>
+          <a href="/images/brand/isj-lion-blue.png" download="isj-lion-navy.png" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+        </div>
+        <!-- Gold on cream -->
+        <div>
+          <div class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm flex items-center justify-center" style="height: 120px;">
+            <img src="/images/brand/isj-lion-gold.png" alt="ISJ lion mark — Gold" class="max-h-16 w-auto object-contain" loading="lazy" />
+          </div>
+          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Gold on cream</p>
+          <a href="/images/brand/isj-lion-gold.png" download="isj-lion-gold.png" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+        </div>
+        <!-- Navy on navy (gold mark) -->
+        <div>
+          <div class="bg-navy border border-navy-light rounded-sm flex items-center justify-center" style="height: 120px;">
+            <img src="/images/brand/isj-lion-gold-800.png" alt="ISJ lion mark — Gold on navy" class="max-h-16 w-auto object-contain" loading="lazy" />
+          </div>
+          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Gold on navy</p>
+          <a href="/images/brand/isj-lion-gold-800.png" download="isj-lion-gold-800.png" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+        </div>
+        <!-- Watermark -->
+        <div>
+          <div class="bg-[#F7F5F0] border border-charcoal/10 rounded-sm flex items-center justify-center overflow-hidden" style="height: 120px;">
+            <img src="/images/brand/isj-lion-watermark.jpg" alt="ISJ lion watermark" class="max-h-20 w-auto object-contain opacity-60" loading="lazy" />
+          </div>
+          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Watermark</p>
+          <a href="/images/brand/isj-lion-watermark.jpg" download="isj-lion-watermark.jpg" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]" set:html={`${downloadIcon} Download`} />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -154,7 +186,7 @@ const houses = [
         {colours.map((c) => (
           <div class="group">
             <div
-              class="aspect-square rounded-sm border border-charcoal/10 flex items-end p-3 transition-transform duration-[var(--transition-base)] group-hover:scale-[1.02]"
+              class="aspect-square rounded-sm border border-charcoal/15 flex items-end p-3 transition-transform duration-[var(--transition-base)] group-hover:scale-[1.02]"
               style={`background-color: ${c.hex};`}
             >
               <span
@@ -165,7 +197,6 @@ const houses = [
               </span>
             </div>
             <p class="mt-2 text-[length:var(--text-sm)] text-charcoal font-medium">{c.name}</p>
-            <p class="text-[length:var(--text-xs)] text-charcoal-muted font-mono">{c.css}</p>
           </div>
         ))}
       </div>
@@ -178,61 +209,17 @@ const houses = [
       <p class="label mb-8">Typography</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
-          <p class="label mb-3">Headings</p>
+          <p class="label mb-4 text-[length:var(--text-xs)]">Headings</p>
           <p class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-tight">Cormorant Garamond</p>
-          <p class="mt-2 text-[length:var(--text-sm)] text-charcoal-light">Light 300 weight. Used for all headings and display text.</p>
+          <p class="font-heading text-[length:var(--text-lg)] font-light text-navy leading-tight mt-1">Light 300</p>
+          <p class="mt-3 text-[length:var(--text-sm)] text-charcoal-light">All headings and display text.</p>
         </div>
         <div>
-          <p class="label mb-3">Body</p>
+          <p class="label mb-4 text-[length:var(--text-xs)]">Body</p>
           <p class="text-[length:var(--text-xl)] text-charcoal">DM Sans</p>
-          <p class="mt-2 text-[length:var(--text-sm)] text-charcoal-light">Regular 400 weight. Used for body copy, labels, and UI elements.</p>
+          <p class="text-[length:var(--text-lg)] text-charcoal mt-1">Regular 400</p>
+          <p class="mt-3 text-[length:var(--text-sm)] text-charcoal-light">Body copy, labels, and UI elements.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lion Mark -->
-  <section class="border-t border-charcoal/5 px-6 section-pad">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <p class="label mb-8">Lion Mark</p>
-      <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
-        The standalone lion is used where the full ISJ lockup is too large — favicons, watermarks, embossing, and social avatars. Use navy on light backgrounds, gold on dark.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div>
-          <div class="bg-cream border border-charcoal/10 rounded-sm p-6 flex items-center justify-center aspect-square">
-            <img src="/images/brand/isj-lion-blue.png" alt="ISJ lion mark — Navy" class="max-h-24 w-auto object-contain" loading="lazy" />
-          </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Navy on cream</p>
-        </div>
-        <div>
-          <div class="bg-navy border border-navy-light rounded-sm p-6 flex items-center justify-center aspect-square">
-            <img src="/images/brand/isj-lion-blue-800.png" alt="ISJ lion mark — White" class="max-h-24 w-auto object-contain brightness-[100] invert" loading="lazy" />
-          </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">White on navy</p>
-        </div>
-        <div>
-          <div class="bg-cream border border-charcoal/10 rounded-sm p-6 flex items-center justify-center aspect-square">
-            <img src="/images/brand/isj-lion-gold.png" alt="ISJ lion mark — Gold" class="max-h-24 w-auto object-contain" loading="lazy" />
-          </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Gold on cream</p>
-        </div>
-        <div>
-          <div class="bg-navy border border-navy-light rounded-sm p-6 flex items-center justify-center aspect-square">
-            <img src="/images/brand/isj-lion-gold-800.png" alt="ISJ lion mark — Gold on navy" class="max-h-24 w-auto object-contain" loading="lazy" />
-          </div>
-          <p class="mt-2 text-[length:var(--text-xs)] text-charcoal-light">Gold on navy</p>
-        </div>
-      </div>
-      <div class="mt-4 flex flex-wrap gap-3">
-        <a href="/images/brand/isj-lion-blue.png" download="isj-lion-navy.png" class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Navy
-        </a>
-        <a href="/images/brand/isj-lion-gold.png" download="isj-lion-gold.png" class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Gold
-        </a>
       </div>
     </div>
   </section>
@@ -242,12 +229,12 @@ const houses = [
     <div class="mx-auto max-w-[var(--content-wide)]">
       <p class="label mb-3">Houses</p>
       <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
-        Four houses, each with a heraldic badge, diagonal-stripe background, and dedicated colour palette. Use house assets for certificates, scorecards, newsletters, and event materials.
+        Four houses, each with a dedicated badge and colour palette. Use for certificates, scorecards, newsletters, and event materials.
       </p>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {houses.map((house) => (
           <div>
-            <div class="rounded-sm overflow-hidden aspect-square">
+            <div class="rounded-sm overflow-hidden" style="aspect-ratio: 1;">
               <img
                 src={`/images/brand/houses/${house.name.toLowerCase()}-back.png`}
                 alt={`${house.name} house badge`}
@@ -255,28 +242,24 @@ const houses = [
                 loading="lazy"
               />
             </div>
-            <div class="mt-3 flex items-center gap-3">
-              {house.colours.map((hex, i) => (
+            <p class="mt-3 text-[length:var(--text-sm)] font-medium text-charcoal">{house.name}</p>
+            <div class="mt-1.5 flex items-center gap-3">
+              {house.colours.map((hex) => (
                 <div class="flex items-center gap-1.5">
                   <div
-                    class="w-4 h-4 rounded-full border border-charcoal/15 flex-shrink-0"
+                    class="w-3.5 h-3.5 rounded-full border border-charcoal/20 flex-shrink-0"
                     style={`background-color: ${hex};`}
                   />
                   <span class="text-[length:var(--text-xs)] text-charcoal-light font-mono">{hex}</span>
                 </div>
               ))}
             </div>
-            <p class="mt-1 text-[length:var(--text-xs)] text-charcoal-muted">{house.mascot}</p>
-            <div class="mt-2">
-              <a
-                href={`/images/brand/houses/${house.name.toLowerCase()}-back.png`}
-                download={`isj-house-${house.name.toLowerCase()}.png`}
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Badge
-              </a>
-            </div>
+            <a
+              href={`/images/brand/houses/${house.name.toLowerCase()}-back.png`}
+              download={`isj-house-${house.name.toLowerCase()}.png`}
+              class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)]"
+              set:html={`${downloadIcon} Badge`}
+            />
           </div>
         ))}
       </div>
@@ -288,27 +271,27 @@ const houses = [
     <div class="mx-auto max-w-[var(--content-wide)]">
       <p class="label mb-3">Lions — Sports Identity</p>
       <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8 max-w-prose">
-        The ISJ Lions badge is used for all competitive sports — kit, match programmes, fixture lists, and social posts. Colours are ISJ Navy and Gold, consistent with the main palette.
+        Used for all competitive sport — kit, match programmes, fixture lists, and social posts. Navy and Gold, consistent with the main palette.
       </p>
-      <div class="flex flex-col sm:flex-row gap-8 items-start">
-        <div class="bg-white border border-charcoal/10 rounded-sm p-10 flex items-center justify-center">
+      <div class="flex flex-col sm:flex-row gap-10 items-start">
+        <div class="bg-white border border-charcoal/10 rounded-sm flex items-center justify-center flex-shrink-0" style="width: 180px; height: 180px;">
           <img
             src="/images/brand/isj-lions-sports.jpg"
             alt="ISJ Lions sports badge"
-            class="max-h-48 w-auto object-contain"
+            class="max-h-36 max-w-[150px] w-auto object-contain"
             loading="lazy"
           />
         </div>
-        <div class="flex flex-col justify-center gap-4">
+        <div class="flex flex-col justify-center gap-4 pt-2">
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-sm" style="background-color: #1B2A4A;"></div>
+            <div class="w-7 h-7 rounded-sm border border-charcoal/10 flex-shrink-0" style="background-color: #1B2A4A;"></div>
             <div>
               <p class="text-[length:var(--text-sm)] text-charcoal font-medium">Navy</p>
               <p class="text-[length:var(--text-xs)] text-charcoal-muted font-mono">#1B2A4A</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-sm" style="background-color: #FFC43D;"></div>
+            <div class="w-7 h-7 rounded-sm border border-charcoal/10 flex-shrink-0" style="background-color: #FFC43D;"></div>
             <div>
               <p class="text-[length:var(--text-sm)] text-charcoal font-medium">Gold</p>
               <p class="text-[length:var(--text-xs)] text-charcoal-muted font-mono">#FFC43D</p>
@@ -317,11 +300,9 @@ const houses = [
           <a
             href="/images/brand/isj-lions-sports.jpg"
             download="isj-lions-sports.jpg"
-            class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)] w-fit"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download badge
-          </a>
+            class="mt-1 inline-flex items-center gap-1.5 px-3 py-1.5 border border-charcoal/15 rounded-sm text-[length:var(--text-xs)] text-charcoal-light hover:text-navy hover:border-navy/30 transition-colors duration-[var(--transition-base)] w-fit"
+            set:html={`${downloadIcon} Download badge`}
+          />
         </div>
       </div>
     </div>
@@ -330,14 +311,14 @@ const houses = [
   <!-- Usage Notes -->
   <section class="border-t border-charcoal/5 px-6 section-pad">
     <div class="mx-auto max-w-[var(--content-narrow)]">
-      <p class="label mb-8 text-center">Usage Notes</p>
+      <p class="label mb-8">Usage Notes</p>
       <ul class="space-y-4 text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">
         <li>Use the <strong class="text-charcoal font-medium">navy logo</strong> on light backgrounds (cream, white).</li>
-        <li>Use the <strong class="text-charcoal font-medium">white logo</strong> on dark backgrounds (navy, photography).</li>
-        <li>Use the <strong class="text-charcoal font-medium">gold logo</strong> sparingly for accent or special applications.</li>
-        <li>Maintain clear space around the logo equal to the height of the crown.</li>
-        <li>Never stretch, rotate, recolour, or add effects to the logo.</li>
-        <li>For web use, the 400px and 800px exports are sufficient. Use 1600px for print and large-format display.</li>
+        <li>Use the <strong class="text-charcoal font-medium">white logo</strong> on dark backgrounds (navy, photography). The file has a transparent background — it will appear invisible on white.</li>
+        <li>Use the <strong class="text-charcoal font-medium">gold logo</strong> sparingly — accent and special applications only.</li>
+        <li>Maintain clear space around the logo equal to the height of the crown element.</li>
+        <li>Never stretch, rotate, recolour, or add effects to any logo.</li>
+        <li>For web use, 400px and 800px exports are sufficient. Use 1600px for print and large-format.</li>
       </ul>
     </div>
   </section>

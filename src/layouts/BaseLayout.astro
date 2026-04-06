@@ -10,9 +10,10 @@ interface Props {
   description: string;
   ogImage?: string;
   canonicalUrl?: string;
+  hideCta?: boolean;
 }
 
-const { title, description, ogImage = '/images/og-default.jpg', canonicalUrl } = Astro.props;
+const { title, description, ogImage = '/images/og-default.jpg', canonicalUrl, hideCta = false } = Astro.props;
 const siteUrl = 'https://international-school-jakarta.id';
 const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : Astro.url.href;
 
@@ -185,7 +186,7 @@ for (const segment of pathSegments) {
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer hideCta={hideCta} />
   <WhatsAppButton />
   <CookieConsent />
 
