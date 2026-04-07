@@ -157,7 +157,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [ ] **Cloudflare Access setup** — protect `/staff/*` with email-based one-time PIN auth
 - [ ] **Staff policy pages** — build 12 internal policy pages at `/staff/policies/`
 - [ ] **Move image gallery behind auth** — currently public
-- [ ] **Staff brand assets** — downloadable logos, fonts, templates behind login
+- [x] **Staff brand assets** — live at `/brand`. Logos, colours, typography, houses. Public (no auth required).
 
 ---
 
@@ -334,7 +334,6 @@ All 8 Squarespace news articles redirect to `/news` hub. All zero traffic. Rebui
 
 ## Post-Launch
 
-- [ ] **CMS (TBD)** — Tiffany to publish news/insights and upload images without code access. Solution not yet chosen. Revisit when ready.
 - [ ] **Image refresh** — more photography as school grows, especially Senior School.
 - [ ] **A/B testing** — CTA copy, hero images, form placement.
 
