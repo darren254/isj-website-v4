@@ -110,54 +110,46 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 
 ---
 
-## Pre-Launch Tasks
+## Pending
 
-### Infrastructure
+### Host on isj.id
+- [ ] Transfer isj.id (OnlyDomains → Namecheap, DNS → Cloudflare). Update siteUrl + schema refs.
 
-- [x] **Automate build-deploy pipeline** — Cloudflare Pages auto-builds on push. GitHub Actions workflow and `asset()` helper removed. Done 3 April 2026.
-- [x] **Move to Cloudflare Pages** — project `isj-website-v4.pages.dev`. Custom domain `international-school-jakarta.id` active. `www` initialising. Done 3 April 2026.
-- [x] **Cloudflare proxy switch** — Cloudflare Pages handles SSL and proxying automatically. Done 3 April 2026.
-- [ ] **Domain decision** — host on isj.id (existing authority, brand consistency, staff email). Use international-school-jakarta.id as 301 redirect to isj.id. Transfer isj.id registration from OnlyDomains to Namecheap, DNS to Cloudflare. Update siteUrl + schema refs (5-min find-and-replace). Decision noted 4 April 2026.
-- [x] **Form handling** — mailto fallback is fine for now. Calendly embed will replace once Tiffany provides tour slot details. No interim form solution needed.
-- [x] **Tour booking system** — Calendly inline embeds live on `/admissions/arrange-a-tour`. Two event types: In-Person Visit (60 min) and Virtual Meeting (30 min). Tab switcher. Eileen and admissions@isj.id connected. Done 7 April 2026.
-- [x] **URL redirects** — 111 redirect rules in `public/_redirects`. Full audit against Squarespace sitemap + Search Console. All targets verified. Done 3 April 2026.
-- [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id. Needs Mailchimp dashboard access to get records.
-- [x] **Analytics** — GA4 gtag snippet added to BaseLayout (measurement ID `G-TDE52R9LB1`), gated behind cookie consent. Property ID 475879616. Google Search Console connected. Done 3 April 2026.
-- [x] **Cookie consent** — banner built and working. Fires GA4 on accept, suppresses on decline. Done 3 April 2026.
+### Pre-launch technical
+- [ ] **Mailchimp domain auth** — DKIM/SPF records in Cloudflare. Deferred until domain switch.
+- [ ] **Sitemap review** — verify all pages included, URLs correct.
+- [ ] **Full 301 redirect audit** — verify no pages with Search Console traffic are 404ing.
+- [ ] **Performance audit** — Lighthouse/CWV, target 90+.
+- [ ] **Accessibility audit** — contrast, alt text, keyboard nav, ARIA.
 
-### SEO & Quality
+### Ideas for the future
+- [ ] **Student/parent voice content** — testimonials, day-in-the-life, Q&As.
+- [ ] **Seasonal content** — term dates, end-of-term round-ups, results day.
+- [ ] **Individual activity pages** — swimming, football, athletics, house system.
+- [ ] **Parent resources section** — uniform guide, routines, lunch, term dates.
+- [ ] **Alumni/destinations section** — as Senior School grows.
+- [ ] **Subject pages for Senior School** — individual pages for each GCSE/A-Level subject.
 
-- [x] **Internal linking pass** — 13 in-content links added per SITE_ARCHITECTURE.xlsx audit. GCSEs/A-Levels cross-linked from Curriculum and Results, Terms & Conditions linked from How to Apply, legal pages fully cross-linked. All planned links covered by nav/footer + in-content links. Done 4 April 2026.
-- [x] **Breadcrumb component** — REMOVED. BreadcrumbList schema.org structured data already on all sub-pages (SEO value captured). Visible UI breadcrumbs dropped to preserve clean Aman-style layout.
-- [x] **Schema.org markup** — EducationalOrganization (all pages via BaseLayout), BreadcrumbList (all sub-pages), FAQPage (FAQs), Article (all insights + news via ArticleLayout). Domain refs fixed to international-school-jakarta.id. Trust URL fixed to schoolstrust.co.uk. Done 4 April 2026.
-- [ ] **Sitemap review** — Astro generates automatically. Verify all pages included, URLs correct.
-- [x] **Meta tags review** — all 79 pages audited. Titles ≤60 chars, descriptions 70–160 chars, canonicalUrl on every page, OG tags handled by BaseLayout. 34 files updated. Done 4 April 2026.
-- [x] **Homepage meta title** — already targets "British International School Jakarta" and "International School Jakarta". Current title: `ISJ | British International School Jakarta | Ages 2–18`. Done.
-- [x] **Canonical URLs** — all 14 policy pages confirmed with correct canonicalUrl. Done.
-- [x] **Image optimisation** — 35 images compressed (3.8MB total savings). early-years-play.png converted to JPG (665KB → 108KB). Done 4 April 2026.
-- [ ] **Performance audit** — Lighthouse, CWV. Target 90+ on all metrics.
-- [ ] **Accessibility audit** — colour contrast, alt text, keyboard navigation, ARIA labels.
+### CMS
+- [ ] **CMS (TBD)** — Tiffany to publish articles/images. Revisit when ready.
+
+### Language pages
+- [ ] **Bahasa Indonesia** — priority (81 clicks/90d).
+- [ ] **Japanese, Chinese, Korean** — targeted landing pages.
+- [ ] **European languages** — low priority, only if meaningful parent community.
+- [ ] **Language URL redirects** — 9 Squarespace language URLs need 301s.
 
 ---
 
 ## Policies
 
-- [x] **Supervision of Pupils Policy** — added to public Safeguarding and Welfare policy group. 6 April 2026.
-- [x] **All 12 policies now public** — decision made 6 April 2026. No login wall required. All policies built and published. Added to policies index in two new groups: Staff and Employment, Operations and Governance.
-- [ ] **Fees policy question** — fees page has detailed payment terms. Inspector might ask "where's your fees policy?" Consider adding a Fees & Payment Policy entry on the policies index linking to `/admissions/fees`.
-- [ ] **Admissions Policy as standalone** — currently using Admissions T&Cs as proxy. May want a formal document for the staff set.
-- [ ] **EAL and Attendance policies missing metadata** — no author/reviewed/next review. Get from Eileen.
-- [x] **Policy review dates** — checked April 2026. All lastReviewed dates are current. "2024" references in policy bodies are citations to UK legislation, not stale review dates.
-- [ ] **Policy preamble contact** — add a contact email or link to the contact page so people can request additional policies.
+- [x] All policies built and published. All 12 public. Done 6 April 2026.
 
 ---
 
-## Staff Portal (future)
+## Staff Portal
 
-- [ ] **Cloudflare Access setup** — protect `/staff/*` with email-based one-time PIN auth
-- [ ] **Staff policy pages** — build 12 internal policy pages at `/staff/policies/`
-- [ ] **Move image gallery behind auth** — currently public
-- [x] **Staff brand assets** — live at `/brand`. Logos, colours, typography, houses. Public (no auth required).
+- [x] Image library live at `/staff/image-library`. Brand assets at `/brand`. Both public.
 
 ---
 
@@ -165,26 +157,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 
 Downside ranks page 1 for "independent school UK" with 1,083 indexed pages. ISJ has 79. The gap is content volume and publishing frequency.
 
-### Content Phase 1: Low-hanging fruit
-
-- [ ] **Weekly news/event articles** — every school event, trip, concert, sports day becomes a page. 200+ words with photos. Target: 1/week minimum.
-- [ ] **Targeted landing pages:**
-  - [ ] `/expat-families/` — relocating expats, visa info, settling in, ISJ support
-  - [ ] University preparation page — UCAS, Common App, QTAC
-  - [ ] Boarding pathways — expand from existing news article to standalone page
-- [ ] **URL structure decision** — flat (`/prize-day-2025/`) vs nested (`/news/prize-day-2025/`). Downside uses flat for PageRank distribution.
-
-### Content Phase 2: Content engine (ongoing)
-
-- [ ] **Publishing cadence: 2-3 new pages per month minimum**
-- [ ] **Expand Jakarta life content:**
-  - Best neighbourhoods for expat families
-  - Weekend trips from Jakarta with kids
-  - Navigating the Indonesian school system as an expat
-  - International school fees comparison guide (without naming competitors)
-  - Moving to Jakarta checklist
-- [ ] **Student/parent voice content** — testimonials, day-in-the-life features, parent Q&As. Each as its own page.
-- [ ] **Seasonal content** — term dates, end-of-term round-ups, results day coverage
+### Content Phase 1 & 2
 
 ### Content Phase 2b: Jakarta Life Articles (in /insights/)
 
@@ -221,12 +194,7 @@ Originally planned as a separate `/explore-jakarta/` hub — **scrapped**. All J
 - Category label: "Jakarta Life" — same as existing Jakarta articles in /insights/.
 - Publish cadence: 2-3 per month.
 
-### Content Phase 3: Structural expansion
-
-- [ ] **Individual activity pages** — swimming, football, athletics, house system (Downside has 15+ individual sport pages)
-- [ ] **Parent resources section** — uniform guide, daily routines, lunch info, term dates detail
-- [ ] **Alumni/destinations section** — as Senior School grows
-- [ ] **Subject pages for Senior School** — individual pages for each GCSE/A-Level subject
+### Content Phase 3
 
 ### Content quality rules
 
@@ -276,7 +244,6 @@ Originally planned as a separate `/explore-jakarta/` hub — **scrapped**. All J
 - **Squarespace** — commerce API only. Content audit done via sitemap + Search Console (2 April 2026).
 
 ### Future (connect when ready to implement)
-- [ ] **CMS (TBD)** — Tiffany needs to publish news/insights articles and upload images. To be scoped later.
 - [ ] **Resend** — transactional email for tour/contact forms via Cloudflare Workers
 - [ ] **WhatsApp Business** — automate admissions enquiry responses beyond the floating button
 - [ ] **Ahrefs or DataForSEO** — keyword rank tracking, backlink monitoring, feeds content roadmap decisions
@@ -336,6 +303,7 @@ All 8 Squarespace news articles redirect to `/news` hub. All zero traffic. Rebui
 
 - [ ] **Image refresh** — more photography as school grows, especially Senior School.
 - [ ] **A/B testing** — CTA copy, hero images, form placement.
+- [ ] **Senior School photography refresh**
 
 ---
 
@@ -359,10 +327,7 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 
 ### Plan
 
-- [ ] **Bahasa Indonesia** — priority. Fast-follow after English launch (Decision #6). Full site translation or key pages (homepage, admissions, fees, tour).
-- [ ] **Japanese, Chinese, Korean** — the data shows real search demand. These don't need full translations, just targeted landing pages explaining ISJ in each language with a CTA to book a tour. Replicate the Squarespace approach but with v4 design.
-- [ ] **European languages (French, Italian, Spanish, German, Dutch)** — lower priority. Minimal traffic. Consider adding only if there's a meaningful parent community for each.
-- [ ] **301 redirects** — all 9 Squarespace language URLs must redirect to their v4 equivalents (or a holding page) to preserve any SEO equity.
+See ## Pending → Language pages above.
 
 ---
 
