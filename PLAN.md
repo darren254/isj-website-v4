@@ -147,7 +147,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [ ] **Fees policy question** — fees page has detailed payment terms. Inspector might ask "where's your fees policy?" Consider adding a Fees & Payment Policy entry on the policies index linking to `/admissions/fees`.
 - [ ] **Admissions Policy as standalone** — currently using Admissions T&Cs as proxy. May want a formal document for the staff set.
 - [ ] **EAL and Attendance policies missing metadata** — no author/reviewed/next review. Get from Eileen.
-- [ ] **Policy review dates** — several show review dates in 2024. Now publicly visible. Flag to Eileen.
+- [x] **Policy review dates** — checked April 2026. All lastReviewed dates are current. "2024" references in policy bodies are citations to UK legislation, not stale review dates.
 - [ ] **Policy preamble contact** — add a contact email or link to the contact page so people can request additional policies.
 
 ---
@@ -254,7 +254,7 @@ Originally planned as a separate `/explore-jakarta/` hub — **scrapped**. All J
 
 ## Image Library
 
-- [ ] **Cloud-hosted image library** — currently 477 images in GitHub repo (darren254/tst-image-library). Need a visual gallery where staff can browse, add, delete via web.
+- [x] **Image library** — built and live at `/staff/image-library`. Pulls from `darren254/tst-image-library` GitHub repo. NOTE: currently public — needs Cloudflare Access protection (see below).
 
 ---
 
