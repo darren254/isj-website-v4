@@ -119,7 +119,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 - [x] **Cloudflare proxy switch** — Cloudflare Pages handles SSL and proxying automatically. Done 3 April 2026.
 - [ ] **Domain decision** — host on isj.id (existing authority, brand consistency, staff email). Use international-school-jakarta.id as 301 redirect to isj.id. Transfer isj.id registration from OnlyDomains to Namecheap, DNS to Cloudflare. Update siteUrl + schema refs (5-min find-and-replace). Decision noted 4 April 2026.
 - [x] **Form handling** — mailto fallback is fine for now. Calendly embed will replace once Tiffany provides tour slot details. No interim form solution needed.
-- [ ] **Tour booking system** — add Calendly embed on `/admissions/arrange-a-tour` once Tiffany provides slot details and requirements.
+- [x] **Tour booking system** — Calendly inline embeds live on `/admissions/arrange-a-tour`. Two event types: In-Person Visit (60 min) and Virtual Meeting (30 min). Tab switcher. Eileen and admissions@isj.id connected. Done 7 April 2026.
 - [x] **URL redirects** — 111 redirect rules in `public/_redirects`. Full audit against Squarespace sitemap + Search Console. All targets verified. Done 3 April 2026.
 - [ ] **Mailchimp domain authentication** — set up DKIM/SPF DNS records in Cloudflare for international-school-jakarta.id. Needs Mailchimp dashboard access to get records.
 - [x] **Analytics** — GA4 gtag snippet added to BaseLayout (measurement ID `G-TDE52R9LB1`), gated behind cookie consent. Property ID 475879616. Google Search Console connected. Done 3 April 2026.
@@ -394,6 +394,22 @@ Squarespace has 9 language-specific landing pages targeting parents searching in
 ---
 
 ## Change Log
+
+### 7 April 2026 (session 5)
+- Calendly integrated on `/admissions/arrange-a-tour` — two inline embeds (In-Person Visit 60 min, Virtual Meeting 30 min), tab switcher, navy primary colour. Eileen Fisher + admissions@isj.id connected.
+- OG default image created (`public/images/og-default.jpg`) — gold lion centred on navy. Applies to all pages site-wide on link share.
+- Fixed all "2–13" / "age 13" references in `best-international-schools-jakarta.astro` — now shows 2–18 and A-Levels.
+- Footer bottom bar redesigned — socials centred above legal links, everything centred.
+- Parent quote on senior school page fixed — replaced fabricated fragment with real verbatim quote from `parent-quotes-2025.md`.
+- Migrated 8 Squarespace news articles to v4 with original images. Redirects updated.
+- Migrated 6 Squarespace insight articles to v4 with original images and charts. Redirects updated.
+- TL;DR block added to ArticleLayout — renders automatically from `summary` prop on all articles, gold label.
+- `docs/ARTICLE_STANDARDS.md` created — single reference for article design, copy, SEO, and quality checklist.
+- Jakarta Life article briefs added to `docs/PAGE_MESSAGING.md` for all 12 planned articles.
+- Best Neighbourhoods for Expat Families insight article published.
+- img-wide centring fix — charts and inline images now centred in article body.
+- `docs/DESIGN_PROCESS.md` copy rule clarified: no "we/our" applies to ISJ self-referencing in marketing copy only.
+- Supervision of Pupils Policy page added at `/policies/supervision-of-pupils`.
 
 ### 5 April 2026 (session 4)
 - Built `/senior-campus` dedicated page with architectural renders (hero, 2 asymmetric sections, full-bleed image break, testimonials, StatBar). Follows campus page patterns.
