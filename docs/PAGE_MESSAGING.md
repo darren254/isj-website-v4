@@ -272,3 +272,39 @@ All Jakarta Life insight articles follow this template.
 **Calendar** — Term dates, events. CMS-managed.
 
 **Virtual Tour** — Embed the existing tour.
+
+### Safeguarding at International Schools `/insights/safeguarding-international-schools-jakarta`
+**Job:** Educate governors, school leaders, and informed parents on what rigorous safeguarding looks like at a British school overseas.
+**SEO:** safeguarding international schools Jakarta
+**Core message:** Safeguarding at a BSO is not a policy exercise. It requires active governance, trained staff at every level, and systems built for the international context.
+**Target reader:** Governors, prospective parents doing due diligence, school leaders new to the international sector.
+**Tone:** Authoritative, practical. Assumes a knowledgeable reader.
+**Author:** Eileen Fisher
+**Status:** DONE.
+
+### Setting Children Up for Success `/insights/setting-children-up-for-success`
+**Job:** Give parents a clear, evidence-grounded framework for what actually matters in the 2–12 age range — beyond academic drilling.
+**SEO:** setting children up for success ages 2 to 12
+**Core message:** Executive function, emotional regulation, grit, and secure attachment are the foundations. Academic content sits on top of them.
+**Target reader:** Parents of children aged 2–12 considering or already enrolled at an international school.
+**Tone:** Knowledgeable, calm, direct. Not preachy.
+**Author:** Engelina Sutantio
+**Status:** DONE.
+
+### What Parents Ask About International Schools in Jakarta `/insights/questions-parents-ask-international-schools-jakarta`
+**Job:** Answer the real questions expat families have before arriving in Jakarta — traffic, fees, curriculum, health and community.
+**SEO:** questions parents ask international schools Jakarta / expat schools Jakarta
+**Core message:** The answers to the questions that take families weeks to find out by themselves.
+**Target reader:** Relocating expat families in the early research phase, pre-arrival.
+**Tone:** Knowledgeable local friend. Practical and honest about trade-offs.
+**Author:** Eileen Fisher
+**Status:** DONE.
+
+### Modern Teaching Practice in British Schools `/insights/modern-teaching-practice-british-schools`
+**Job:** Position ISJ's teaching approach within the current gold standard of British pedagogy. Builds confidence for parents unfamiliar with the British system.
+**SEO:** modern teaching practice British schools
+**Core message:** The shift from differentiation and learning styles to adaptive teaching and cognitive science represents a genuine improvement — and it is what ISJ's teachers do.
+**Target reader:** Parents evaluating ISJ's academic quality; families from non-UK education backgrounds.
+**Tone:** Clear, authoritative. Not jargon-heavy.
+**Author:** Engelina Sutantio
+**Status:** DONE.
