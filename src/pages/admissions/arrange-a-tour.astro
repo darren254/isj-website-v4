@@ -73,135 +73,49 @@ import Testimonial from '../../components/Testimonial.astro';
           </div>
         </div>
 
-        <!-- RIGHT: The form -->
+        <!-- RIGHT: Calendly booking -->
         <div class="reveal">
-          <div class="bg-white border border-charcoal/10 p-8 md:p-10">
-            <h2 class="font-heading text-[length:var(--text-xl)] font-light text-navy leading-[1.1] mb-2">Book a Tour</h2>
-            <p class="text-[length:var(--text-sm)] text-charcoal-light mb-8">
-              The admissions team will confirm your visit within one working day.
-            </p>
 
-            <form id="tour-form" class="space-y-5" novalidate>
-              <!-- Parent Name -->
-              <div>
-                <label for="parent-name" class="block text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-2">Your Name *</label>
-                <input
-                  type="text"
-                  id="parent-name"
-                  name="parent_name"
-                  required
-                  class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
-                  placeholder="Full name"
-                />
-              </div>
-
-              <!-- Email -->
-              <div>
-                <label for="email" class="block text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-2">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
-                  placeholder="you@example.com"
-                />
-              </div>
-
-              <!-- Phone -->
-              <div>
-                <label for="phone" class="block text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-2">Phone / WhatsApp</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
-                  placeholder="+62 xxx xxxx xxxx"
-                />
-              </div>
-
-              <!-- Children -->
-              <div id="children-section">
-                <p class="text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-3">Your Children</p>
-                <div class="space-y-3" id="children-list">
-                  <div class="grid grid-cols-2 gap-3 child-row">
-                    <div>
-                      <label class="block text-[length:var(--text-xs)] text-charcoal-light mb-1">Child's Name</label>
-                      <input
-                        type="text"
-                        name="child_name_1"
-                        class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
-                        placeholder="First name"
-                      />
-                    </div>
-                    <div>
-                      <label class="block text-[length:var(--text-xs)] text-charcoal-light mb-1">Date of Birth</label>
-                      <input
-                        type="text"
-                        name="child_dob_1"
-                        class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
-                        placeholder="e.g. March 2020"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  id="add-child-btn"
-                  class="mt-3 text-[length:var(--text-sm)] text-navy/60 hover:text-navy transition-colors flex items-center gap-1.5"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                  </svg>
-                  Add another child
-                </button>
-              </div>
-
-              <!-- Preferred Date -->
-              <div>
-                <label for="preferred-date" class="block text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-2">Preferred Date (optional)</label>
-                <input
-                  type="text"
-                  id="preferred-date"
-                  name="preferred_date"
-                  class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors"
-                  placeholder="e.g. Any Tuesday in April"
-                />
-              </div>
-
-              <!-- Message -->
-              <div>
-                <label for="message" class="block text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-2">Anything Else? (optional)</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="3"
-                  class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors resize-y"
-                  placeholder="Questions, current school, or anything that helps the team prepare."
-                ></textarea>
-              </div>
-
-              <!-- Submit -->
-              <div class="pt-1">
-                <button
-                  type="submit"
-                  class="inline-flex items-center justify-center px-10 py-3.5 border border-navy-light bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium hover:bg-navy transition-colors duration-[var(--transition-base)] w-full"
-                >
-                  Request a Tour
-                </button>
-              </div>
-
-              <!-- Success / Error -->
-              <div id="form-success" class="hidden bg-cream border border-gold/30 p-6 text-center">
-                <p class="text-[length:var(--text-base)] text-navy font-medium">Thank you for your enquiry.</p>
-                <p class="text-[length:var(--text-sm)] text-charcoal-light mt-2">The admissions team will be in touch within one working day to arrange your visit.</p>
-              </div>
-              <div id="form-error" class="hidden bg-red-50 border border-red-200 p-6 text-center">
-                <p class="text-[length:var(--text-base)] text-red-800 font-medium">Something went wrong.</p>
-                <p class="text-[length:var(--text-sm)] text-red-600 mt-2">Please email the admissions team directly at <a href="mailto:admissions@isj.id" class="underline">admissions@isj.id</a> or WhatsApp <a href="https://wa.me/6281110007672" class="underline">+62 811 1000 7672</a>.</p>
-              </div>
-            </form>
+          <!-- Tab switcher -->
+          <div class="flex gap-0 mb-6 border border-charcoal/15">
+            <button
+              id="tab-inperson"
+              class="flex-1 px-5 py-3 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors bg-navy text-cream"
+              onclick="showCalendly('inperson')"
+            >
+              In-Person Visit
+            </button>
+            <button
+              id="tab-virtual"
+              class="flex-1 px-5 py-3 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors bg-transparent text-navy hover:bg-charcoal/5"
+              onclick="showCalendly('virtual')"
+            >
+              Virtual Meeting
+            </button>
           </div>
+
+          <!-- Labels -->
+          <div id="label-inperson" class="mb-4">
+            <p class="text-[length:var(--text-sm)] text-charcoal-light">A one-hour visit to the Pondok Indah campus during a live school day.</p>
+          </div>
+          <div id="label-virtual" class="mb-4 hidden">
+            <p class="text-[length:var(--text-sm)] text-charcoal-light">A 30-minute Google Meet conversation with Eileen Fisher, Head of ISJ.</p>
+          </div>
+
+          <!-- Calendly inline embeds -->
+          <div
+            id="calendly-inperson"
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/d/cvpf-s5n-wft/in-person-visit-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
+            style="min-width:280px;height:660px;"
+          ></div>
+          <div
+            id="calendly-virtual"
+            class="calendly-inline-widget hidden"
+            data-url="https://calendly.com/d/cykv-b8z-qfy/virtual-tour-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
+            style="min-width:280px;height:660px;"
+          ></div>
+
         </div>
 
       </div>
@@ -258,7 +172,7 @@ import Testimonial from '../../components/Testimonial.astro';
         <div class="reveal">
           <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-3">Relocating to Jakarta?</h3>
           <p class="text-[length:var(--text-sm)] leading-relaxed text-charcoal-light">
-            ISJ offers live <a href="/admissions/virtual-tour" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">video tours</a> for families still overseas. The same personal experience, wherever you are.
+            Still overseas? Select "Virtual Meeting" above to book a 30-minute conversation with Eileen Fisher, Head of ISJ, over Google Meet.
           </p>
         </div>
         <div class="reveal">
@@ -273,78 +187,36 @@ import Testimonial from '../../components/Testimonial.astro';
 
 </BaseLayout>
 
+<!-- Calendly widget script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async is:inline></script>
+
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
-    var childCount = 1;
-    var addBtn = document.getElementById('add-child-btn');
-    var childrenList = document.getElementById('children-list');
+  function showCalendly(type) {
+    var inpersonEmbed = document.getElementById('calendly-inperson');
+    var virtualEmbed  = document.getElementById('calendly-virtual');
+    var inpersonLabel = document.getElementById('label-inperson');
+    var virtualLabel  = document.getElementById('label-virtual');
+    var tabInperson   = document.getElementById('tab-inperson');
+    var tabVirtual    = document.getElementById('tab-virtual');
 
-    if (addBtn && childrenList) {
-      addBtn.addEventListener('click', function() {
-        childCount++;
-        var row = document.createElement('div');
-        row.className = 'grid grid-cols-2 gap-3 child-row';
-        row.innerHTML = '<div>' +
-          '<label class="block text-[length:var(--text-xs)] text-charcoal-light mb-1">Child\'s Name</label>' +
-          '<input type="text" name="child_name_' + childCount + '" class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors" placeholder="First name" />' +
-          '</div><div>' +
-          '<label class="block text-[length:var(--text-xs)] text-charcoal-light mb-1">Date of Birth</label>' +
-          '<input type="text" name="child_dob_' + childCount + '" class="w-full border border-charcoal/20 bg-white px-4 py-3 text-[length:var(--text-base)] text-charcoal focus:border-navy focus:outline-none transition-colors" placeholder="e.g. March 2020" />' +
-          '</div>';
-        childrenList.appendChild(row);
-        if (childCount >= 5) addBtn.style.display = 'none';
-      });
+    if (type === 'inperson') {
+      inpersonEmbed.classList.remove('hidden');
+      virtualEmbed.classList.add('hidden');
+      inpersonLabel.classList.remove('hidden');
+      virtualLabel.classList.add('hidden');
+      tabInperson.classList.add('bg-navy', 'text-cream');
+      tabInperson.classList.remove('bg-transparent', 'text-navy');
+      tabVirtual.classList.remove('bg-navy', 'text-cream');
+      tabVirtual.classList.add('bg-transparent', 'text-navy');
+    } else {
+      virtualEmbed.classList.remove('hidden');
+      inpersonEmbed.classList.add('hidden');
+      virtualLabel.classList.remove('hidden');
+      inpersonLabel.classList.add('hidden');
+      tabVirtual.classList.add('bg-navy', 'text-cream');
+      tabVirtual.classList.remove('bg-transparent', 'text-navy');
+      tabInperson.classList.remove('bg-navy', 'text-cream');
+      tabInperson.classList.add('bg-transparent', 'text-navy');
     }
-
-    // Form handling — mailto fallback until Cloudflare Workers + Resend
-    var form = document.getElementById('tour-form');
-    if (!form) return;
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var name = form.querySelector('#parent-name').value.trim();
-      var email = form.querySelector('#email').value.trim();
-      var phone = form.querySelector('#phone').value.trim();
-      var prefDate = form.querySelector('#preferred-date').value.trim();
-      var message = form.querySelector('#message').value.trim();
-
-      if (!name || !email) {
-        form.querySelector('#parent-name').focus();
-        return;
-      }
-
-      // Gather children
-      var children = [];
-      var rows = form.querySelectorAll('.child-row');
-      rows.forEach(function(row, i) {
-        var cName = row.querySelector('input[name="child_name_' + (i+1) + '"]');
-        var cDob = row.querySelector('input[name="child_dob_' + (i+1) + '"]');
-        if (cName && cName.value.trim()) {
-          children.push(cName.value.trim() + (cDob && cDob.value.trim() ? ' (DOB: ' + cDob.value.trim() + ')' : ''));
-        }
-      });
-
-      var subject = 'Tour Request from ' + name;
-      var body = 'Tour Request\n\n';
-      body += 'Name: ' + name + '\n';
-      body += 'Email: ' + email + '\n';
-      if (phone) body += 'Phone/WhatsApp: ' + phone + '\n';
-      if (children.length) body += 'Children: ' + children.join(', ') + '\n';
-      if (prefDate) body += 'Preferred date: ' + prefDate + '\n';
-      if (message) body += '\nMessage: ' + message + '\n';
-
-      window.location.href = 'mailto:admissions@isj.id?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-      // Show success state
-      var formElements = form.querySelectorAll(':scope > div');
-      formElements.forEach(function(el) {
-        if (el.id !== 'form-success' && el.id !== 'form-error') {
-          el.style.display = 'none';
-        }
-      });
-      form.querySelector('.pt-1').style.display = 'none';
-      document.getElementById('form-success').classList.remove('hidden');
-    });
-  });
+  }
 </script>
