@@ -1,0 +1,52 @@
+---
+/**
+ * MobileCta — Aman-style fixed bottom bar on mobile.
+ * Full-width "Arrange a Tour" CTA pinned to the bottom of the viewport.
+ * Only visible below sm breakpoint (< 640px).
+ * Hides when user scrolls to the footer CTA to avoid redundancy.
+ */
+interface Props {
+  hideCta?: boolean;
+}
+const { hideCta = false } = Astro.props;
+---
+
+{!hideCta && (
+  <div id="mobile-cta-bar" class="sm:hidden fixed bottom-0 left-0 right-0 z-[60] translate-y-full transition-transform duration-500 ease-out">
+    <a
+      href="/admissions/arrange-a-tour"
+      class="flex items-center justify-center w-full bg-navy text-cream text-[length:var(--text-xs)] tracking-[0.2em] uppercase font-medium py-4 hover:bg-navy-light active:bg-navy-dark transition-colors"
+    >
+      Arrange a Tour
+    </a>
+    <!-- Safe area padding for phones with home indicator -->
+    <div class="bg-navy" style="padding-bottom: env(safe-area-inset-bottom, 0px)"></div>
+  </div>
+)}
+
+<script is:inline>
+(function() {
+  var bar = document.getElementById('mobile-cta-bar');
+  if (!bar) return;
+
+  // Show after a short delay (like cookie banner pattern)
+  setTimeout(function() {
+    bar.style.transform = 'translateY(0)';
+  }, 800);
+
+  // Hide when the footer CTA band is visible (avoid double CTA)
+  var footerCta = document.querySelector('footer');
+  if (footerCta) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          bar.style.transform = 'translateY(100%)';
+        } else {
+          bar.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(footerCta);
+  }
+})();
+</script>
