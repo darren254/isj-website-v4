@@ -9,36 +9,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   hideCta={true}
 >
 
-  <section class="section-pad px-6">
+  <section class="pt-8 lg:pt-12 px-6">
     <div class="max-w-[680px] mx-auto text-center">
 
       <!-- Heading -->
-      <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Arrange a Tour</h1>
+      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Arrange a Tour</h1>
 
-      <!-- Tabs -->
-      <div class="flex justify-center gap-8 mb-6">
+      <!-- Subtext -->
+      <div id="label-inperson" class="mb-6">
+        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A one-hour personalised visit to the Pondok Indah campus during a live school day.</p>
+      </div>
+      <div id="label-virtual" class="mb-6 hidden">
+        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A 30-minute video call with the admissions team. Ask questions, learn about the school, discuss your child's needs.</p>
+      </div>
+
+      <!-- Tabs — prominent pill-style -->
+      <div class="inline-flex border border-navy/15 mb-6">
         <button
           id="tab-inperson"
-          class="pb-2 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors border-b-2 border-navy text-navy"
+          class="px-6 py-3 text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium transition-all bg-navy-light text-cream"
           onclick="showCalendly('inperson')"
         >
           In-Person Visit
         </button>
         <button
           id="tab-virtual"
-          class="pb-2 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors border-b-2 border-transparent text-charcoal-light hover:text-navy"
+          class="px-6 py-3 text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium transition-all bg-transparent text-charcoal-light hover:text-navy"
           onclick="showCalendly('virtual')"
         >
           Virtual Meeting
         </button>
-      </div>
-
-      <!-- Subtext -->
-      <div id="label-inperson" class="mb-8">
-        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A one-hour personalised visit to the Pondok Indah campus during a live school day.</p>
-      </div>
-      <div id="label-virtual" class="mb-8 hidden">
-        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A 30-minute video call with the admissions team. Ask questions, learn about the school, discuss your child's needs.</p>
       </div>
 
       <!-- Calendly inline embeds -->
@@ -96,19 +96,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       virtualEmbed.classList.add('hidden');
       inpersonLabel.classList.remove('hidden');
       virtualLabel.classList.add('hidden');
-      tabInperson.classList.add('border-navy', 'text-navy');
-      tabInperson.classList.remove('border-transparent', 'text-charcoal-light');
-      tabVirtual.classList.remove('border-navy', 'text-navy');
-      tabVirtual.classList.add('border-transparent', 'text-charcoal-light');
+      tabInperson.classList.add('bg-navy-light', 'text-cream');
+      tabInperson.classList.remove('bg-transparent', 'text-charcoal-light');
+      tabVirtual.classList.remove('bg-navy-light', 'text-cream');
+      tabVirtual.classList.add('bg-transparent', 'text-charcoal-light');
     } else {
       virtualEmbed.classList.remove('hidden');
       inpersonEmbed.classList.add('hidden');
       virtualLabel.classList.remove('hidden');
       inpersonLabel.classList.add('hidden');
-      tabVirtual.classList.add('border-navy', 'text-navy');
-      tabVirtual.classList.remove('border-transparent', 'text-charcoal-light');
-      tabInperson.classList.remove('border-navy', 'text-navy');
-      tabInperson.classList.add('border-transparent', 'text-charcoal-light');
+      tabVirtual.classList.add('bg-navy-light', 'text-cream');
+      tabVirtual.classList.remove('bg-transparent', 'text-charcoal-light');
+      tabInperson.classList.remove('bg-navy-light', 'text-cream');
+      tabInperson.classList.add('bg-transparent', 'text-charcoal-light');
     }
   }
 </script>
