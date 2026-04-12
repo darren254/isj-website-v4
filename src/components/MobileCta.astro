@@ -42,27 +42,26 @@ const { hideCta = false } = Astro.props;
       right: 0;
       z-index: 90;
       display: block;
-      padding: 0.75rem 1rem;
-      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+      padding: 1rem 2.75rem;
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
       transition: transform 0.3s ease;
     }
     .mobile-bar-inner {
       display: flex;
       align-items: center;
-      background: var(--color-charcoal);
-      border-radius: 4px;
+      background: #4a4a48;
     }
     .mobile-bar-cta {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem 1.5rem;
+      height: 3.5rem;
       color: var(--color-cream);
       font-family: var(--font-body);
       font-size: var(--text-xs);
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-weight: 400;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
       transition: opacity 0.2s;
@@ -75,10 +74,10 @@ const { hideCta = false } = Astro.props;
       align-items: center;
       justify-content: center;
       width: 3.5rem;
+      height: 3.5rem;
       flex-shrink: 0;
-      padding: 1rem 0;
       color: #6B9B7D;
-      border-left: 1px solid rgba(255,255,255,0.12);
+      border-left: 1px solid rgba(255,255,255,0.1);
       text-decoration: none;
       transition: opacity 0.2s;
     }
