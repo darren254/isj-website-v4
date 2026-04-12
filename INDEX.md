@@ -19,6 +19,7 @@ Point any AI session here first. Lists every resource available and when to use 
 
 | File | What it is |
 |------|-----------|
+| `docs/CHARTS.md` | How to build charts and data visualisations on the ISJ site. Pure HTML/CSS, no chart libraries. Read before building any chart, graph, or data display. |
 | `docs/ARTICLE_STANDARDS.md` | Single source of truth for writing any Insights or News article. Full workflow: brief → keyword → write → props → SEO → quality check → commit. Read before starting any article. |
 | `docs/keyword-research.md` | **Required before any article or SEO task.** Tier 1–5 keyword targets with search volumes and competitive analysis. Use to confirm the right keyword before writing. |
 | `docs/PAGE_MESSAGING.md` | Briefs for all 34 pages — the one job, key messages, tone notes, and SEO keywords per page. Read before building or editing any page. |
