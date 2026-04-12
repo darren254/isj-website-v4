@@ -68,7 +68,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 | 3 | Pre-Prep | `/academics/pre-prep` | |
 | 4 | Prep School | `/academics/prep-school` | |
 | 5 | Senior School | `/academics/senior-school` | Biggest SEO opportunity |
-| 6 | Arrange a Tour | `/admissions/arrange-a-tour` | Rebuilt 4 April 2026 — form above fold, trust checklist, social proof adjacent to form. mailto fallback until Cloudflare Workers |
+| 6 | Arrange a Tour | `/admissions/arrange-a-tour` | Rebuilt 12 April 2026 — minimal Aman-style booking page, Calendly inline embeds, no hero/distractions. hideCta hides header CTA on this page. |
 | 7 | Fees | `/admissions/fees` | |
 | 8 | How to Apply | `/admissions/how-to-apply` | |
 | 9 | Age Guide | `/admissions/age-guide` | |

@@ -1,188 +1,79 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Hero from '../../components/Hero.astro';
-import Testimonial from '../../components/Testimonial.astro';
 ---
 
 <BaseLayout
   title="Arrange a Tour | Visit ISJ Pondok Indah"
   description="Arrange a personalised tour of ISJ. See the Pondok Indah campus, meet the teachers, and discover why families choose a British education in Jakarta."
   canonicalUrl="/admissions/arrange-a-tour"
-  preloadImage="/images/girls-playing-lawn.jpg"
+  hideCta={true}
 >
 
-  <!-- ═══════ Hero ═══════ -->
-  <Hero
-    imageSrc="/images/girls-playing-lawn.jpg"
-    imageAlt="Two girls in gingham dresses playing on the ISJ campus lawn"
-    aspectRatio="standard"
-    objectPosition="center 40%"
-  />
-
-  <!-- ═══════ Form + Contact — first thing after hero ═══════ -->
   <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+    <div class="max-w-[680px] mx-auto text-center">
 
-        <!-- LEFT: Heading + trust signals + direct contact -->
-        <div class="reveal">
-          <p class="label mb-5">Admissions</p>
-          <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-6">Come and See for Yourself</h1>
-          <p class="text-[length:var(--text-base)] leading-relaxed text-charcoal-light mb-8">
-            Most families say the visit is what made their decision. Walk the corridors, look in on a lesson, meet the teachers who will know your child by name.
-          </p>
+      <!-- Heading -->
+      <h1 class="font-heading text-[length:var(--text-2xl)] md:text-[length:var(--text-3xl)] font-light text-navy leading-[1.1] mb-8">Arrange a Tour</h1>
 
-          <!-- Trust signals -->
-          <div class="border-t border-charcoal/10 pt-8 mb-8 space-y-4">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light">Personalised — each tour covers the year groups and areas that matter to your family</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light">Guided by a senior member of staff who knows every child and classroom</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light">During a live school day — see ISJ as it really is, not a staged open day</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              <p class="text-[length:var(--text-sm)] text-charcoal-light">Children welcome — and <a href="/admissions/virtual-tour" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">video tours</a> available for families still overseas</p>
-            </div>
-          </div>
-
-          <!-- Parent quote — social proof next to the form -->
-          <blockquote class="border-l-2 border-gold/40 pl-5 mb-10">
-            <p class="text-[length:var(--text-sm)] text-charcoal-light italic leading-relaxed">"Small class sizes, strong pastoral care and warm staff — our children are genuinely cared for and encouraged."</p>
-            <cite class="block text-[length:var(--text-xs)] text-charcoal/50 mt-2 not-italic">ISJ Parent, 2025 Survey</cite>
-          </blockquote>
-
-          <!-- Direct contact — email & phone (WhatsApp is the floating button) -->
-          <div class="border-t border-charcoal/10 pt-8">
-            <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-4">Prefer to get in touch directly?</p>
-            <div class="space-y-3">
-              <a href="mailto:admissions@isj.id" class="flex items-center gap-3 text-[length:var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">
-                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                admissions@isj.id
-              </a>
-              <a href="tel:+622127826788" class="flex items-center gap-3 text-[length:var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">
-                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-                +62 21-2782-6788
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: Calendly booking -->
-        <div class="reveal">
-
-          <!-- Tab switcher -->
-          <div class="flex gap-0 mb-6 border border-charcoal/15">
-            <button
-              id="tab-inperson"
-              class="flex-1 px-5 py-3 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors bg-navy text-cream"
-              onclick="showCalendly('inperson')"
-            >
-              In-Person Visit
-            </button>
-            <button
-              id="tab-virtual"
-              class="flex-1 px-5 py-3 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors bg-transparent text-navy hover:bg-charcoal/5"
-              onclick="showCalendly('virtual')"
-            >
-              Virtual Meeting
-            </button>
-          </div>
-
-          <!-- Labels -->
-          <div id="label-inperson" class="mb-4">
-            <p class="text-[length:var(--text-sm)] text-charcoal-light">A one-hour visit to the Pondok Indah campus during a live school day.</p>
-          </div>
-          <div id="label-virtual" class="mb-4 hidden">
-            <p class="text-[length:var(--text-sm)] text-charcoal-light">A 30-minute Google Meet conversation with Eileen Fisher, Head of ISJ.</p>
-          </div>
-
-          <!-- Calendly inline embeds -->
-          <div
-            id="calendly-inperson"
-            class="calendly-inline-widget"
-            data-url="https://calendly.com/d/cvpf-s5n-wft/in-person-visit-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
-            style="min-width:280px;height:660px;"
-          ></div>
-          <div
-            id="calendly-virtual"
-            class="calendly-inline-widget hidden"
-            data-url="https://calendly.com/d/cykv-b8z-qfy/virtual-tour-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
-            style="min-width:280px;height:660px;"
-          ></div>
-
-        </div>
-
+      <!-- Tabs -->
+      <div class="flex justify-center gap-8 mb-6">
+        <button
+          id="tab-inperson"
+          class="pb-2 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors border-b-2 border-navy text-navy"
+          onclick="showCalendly('inperson')"
+        >
+          In-Person Visit
+        </button>
+        <button
+          id="tab-virtual"
+          class="pb-2 text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium transition-colors border-b-2 border-transparent text-charcoal-light hover:text-navy"
+          onclick="showCalendly('virtual')"
+        >
+          Virtual Meeting
+        </button>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══════ Testimonial ═══════ -->
-  <Testimonial
-    quote="A lovely campus with great teachers… it makes the place more joyful."
-    attribution="ISJ Parent, Annual Survey 2025"
-  />
+      <!-- Subtext -->
+      <div id="label-inperson" class="mb-8">
+        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A one-hour personalised visit to the Pondok Indah campus during a live school day.</p>
+      </div>
+      <div id="label-virtual" class="mb-8 hidden">
+        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A 30-minute video call with the admissions team. Ask questions, learn about the school, discuss your child's needs.</p>
+      </div>
 
-  <!-- ═══════ What to Expect — below form for those who want detail ═══════ -->
-  <section class="section-pad px-6">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center reveal">
-        <div>
-          <p class="label mb-5">What to Expect</p>
-          <h2 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">A Morning at ISJ</h2>
-          <div class="space-y-5 text-[length:var(--text-base)] leading-relaxed text-charcoal-light">
-            <p>
-              Tours run on school days between 8:30am and 11:00am, when lessons are in full swing. Each visit lasts around an hour.
-            </p>
-            <p>
-              Bring your child along. The admissions team will tailor the route to the year groups that matter to your family, and your guide can answer questions about the curriculum, class sizes, and daily routines as you walk.
-            </p>
-            <p>
-              If you decide ISJ is right, the admissions team will walk you through the <a href="/admissions/how-to-apply" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">next steps</a>. You can also explore <a href="/admissions/fees" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">fees</a> and the <a href="/admissions/age-guide" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">age guide</a> ahead of your visit.
-            </p>
-          </div>
-        </div>
-        <div class="overflow-hidden">
-          <img
-            src="/images/teacher-pupils.jpg"
-            alt="A teacher working with pupils at ISJ"
-            loading="lazy"
-            class="w-full object-cover"
-          />
+      <!-- Calendly inline embeds -->
+      <div
+        id="calendly-inperson"
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/d/cvpf-s5n-wft/in-person-visit-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
+        style="min-width:280px;height:700px;"
+      ></div>
+      <div
+        id="calendly-virtual"
+        class="calendly-inline-widget hidden"
+        data-url="https://calendly.com/d/cykv-b8z-qfy/virtual-tour-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
+        style="min-width:280px;height:700px;"
+      ></div>
+
+      <!-- Contact alternatives -->
+      <div class="border-t border-charcoal/10 pt-8 mt-8">
+        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-5">Prefer to get in touch directly?</p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="https://wa.me/6281110007672" class="flex items-center gap-2 text-[length:var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">
+            <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            +62 811 1000 7672
+          </a>
+          <a href="mailto:admissions@isj.id" class="flex items-center gap-2 text-[length:var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+            admissions@isj.id
+          </a>
+          <a href="tel:+622127826788" class="flex items-center gap-2 text-[length:var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+            +62 21-2782-6788
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══════ Practical Details ═══════ -->
-  <section class="section-pad px-6 border-t border-charcoal/10">
-    <div class="mx-auto max-w-[var(--content-wide)]">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-        <div class="reveal">
-          <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-3">Where to Find Us</h3>
-          <p class="text-[length:var(--text-sm)] leading-relaxed text-charcoal-light">
-            Jl. R.A. Kartini No. Kav. 12, Pondok Indah, South Jakarta. Reception will welcome you on arrival. Visitor parking available on site.
-          </p>
-        </div>
-        <div class="reveal">
-          <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-3">Relocating to Jakarta?</h3>
-          <p class="text-[length:var(--text-sm)] leading-relaxed text-charcoal-light">
-            Still overseas? Select "Virtual Meeting" above to book a 30-minute conversation with Eileen Fisher, Head of ISJ, over Google Meet.
-          </p>
-        </div>
-        <div class="reveal">
-          <h3 class="font-heading text-[length:var(--text-lg)] font-light text-navy mb-3">Questions First?</h3>
-          <p class="text-[length:var(--text-sm)] leading-relaxed text-charcoal-light">
-            Check the <a href="/faqs" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">FAQs</a> or reach the admissions team on <a href="https://wa.me/6281110007672" class="text-navy hover:text-navy/70 transition-colors underline underline-offset-2 decoration-charcoal/20">WhatsApp</a> for a quick answer.
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -205,19 +96,19 @@ import Testimonial from '../../components/Testimonial.astro';
       virtualEmbed.classList.add('hidden');
       inpersonLabel.classList.remove('hidden');
       virtualLabel.classList.add('hidden');
-      tabInperson.classList.add('bg-navy', 'text-cream');
-      tabInperson.classList.remove('bg-transparent', 'text-navy');
-      tabVirtual.classList.remove('bg-navy', 'text-cream');
-      tabVirtual.classList.add('bg-transparent', 'text-navy');
+      tabInperson.classList.add('border-navy', 'text-navy');
+      tabInperson.classList.remove('border-transparent', 'text-charcoal-light');
+      tabVirtual.classList.remove('border-navy', 'text-navy');
+      tabVirtual.classList.add('border-transparent', 'text-charcoal-light');
     } else {
       virtualEmbed.classList.remove('hidden');
       inpersonEmbed.classList.add('hidden');
       virtualLabel.classList.remove('hidden');
       inpersonLabel.classList.add('hidden');
-      tabVirtual.classList.add('bg-navy', 'text-cream');
-      tabVirtual.classList.remove('bg-transparent', 'text-navy');
-      tabInperson.classList.remove('bg-navy', 'text-cream');
-      tabInperson.classList.add('bg-transparent', 'text-navy');
+      tabVirtual.classList.add('border-navy', 'text-navy');
+      tabVirtual.classList.remove('border-transparent', 'text-charcoal-light');
+      tabInperson.classList.remove('border-navy', 'text-navy');
+      tabInperson.classList.add('border-transparent', 'text-charcoal-light');
     }
   }
 </script>
