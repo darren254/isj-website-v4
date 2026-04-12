@@ -76,13 +76,16 @@ const navItems = [
         <span class="lg:hidden font-heading text-navy text-xl tracking-[0.25em] uppercase font-light">ISJ</span>
       </a>
 
-      <!-- CTA -->
+      <!-- CTA — desktop: in header -->
       <a
         href=/admissions/arrange-a-tour
-        class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-2.5 bg-navy-light border border-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium font-[family-name:var(--font-body)] hover:bg-navy-light/80 transition-all duration-[var(--transition-base)]"
+        class="hidden sm:inline-flex items-center px-6 py-2.5 bg-navy-light border border-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium font-[family-name:var(--font-body)] hover:bg-navy-light/80 transition-all duration-[var(--transition-base)]"
       >
         Arrange a Tour
       </a>
+
+      <!-- Mobile: placeholder for layout balance (CTA is floating at bottom) -->
+      <div class="sm:hidden w-5"></div>
     </div>
   </div>
 </header>
