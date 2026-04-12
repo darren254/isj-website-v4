@@ -20,10 +20,10 @@
 <style>
   .whatsapp-float {
     position: fixed;
-    bottom: 1.5rem;
+    bottom: 2rem;
     right: 1.5rem;
     z-index: 90;
-    display: flex;
+    display: none; /* Hidden on mobile — WhatsApp is in the bottom bar */
     align-items: center;
     justify-content: center;
     width: 3.25rem;
@@ -38,9 +38,10 @@
     transform: scale(1.08);
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   }
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .whatsapp-float {
-      bottom: 3.5rem;
+      display: flex; /* Show on desktop */
+      bottom: 2rem;
       right: 2rem;
       width: 3.5rem;
       height: 3.5rem;
