@@ -45,31 +45,42 @@ import Testimonial from '../../components/Testimonial.astro';
           </p>
         </div>
 
-        <div class="mt-8 max-w-sm">
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-sm)] text-navy">English</span>
-            <span class="text-[length:var(--text-sm)] text-charcoal tabular-nums">122 <span class="text-charcoal-light">(norm: 104.6)</span></span>
+        <!-- Bar chart -->
+        <div class="mt-10 space-y-8" id="gl-chart">
+          <div class="gl-subject">
+            <p class="text-[length:var(--text-sm)] text-navy mb-2.5">English</p>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-[#E0DDD6]" style="width:0%" data-target="36.5%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">104.6 <span class="opacity-60">Norm</span></span></div>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-charcoal-muted/45" style="width:0%" data-target="56.25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">112.5 <span class="opacity-60">UK Selective</span></span></div>
+            <div class="flex items-center gap-2.5 h-3.5"><div class="gl-bar bg-navy" style="width:0%" data-target="80%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-navy font-medium whitespace-nowrap">122 <span class="opacity-70">ISJ</span></span></div>
           </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-sm)] text-navy">Mathematics</span>
-            <span class="text-[length:var(--text-sm)] text-charcoal tabular-nums">118.7 <span class="text-charcoal-light">(norm: 101)</span></span>
+          <div class="gl-subject">
+            <p class="text-[length:var(--text-sm)] text-navy mb-2.5">Mathematics</p>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-[#E0DDD6]" style="width:0%" data-target="27.5%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">101 <span class="opacity-60">Norm</span></span></div>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-charcoal-muted/45" style="width:0%" data-target="56.25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">112.5 <span class="opacity-60">UK Selective</span></span></div>
+            <div class="flex items-center gap-2.5 h-3.5"><div class="gl-bar bg-navy" style="width:0%" data-target="71.75%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-navy font-medium whitespace-nowrap">118.7 <span class="opacity-70">ISJ</span></span></div>
           </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-sm)] text-navy">Science</span>
-            <span class="text-[length:var(--text-sm)] text-charcoal tabular-nums">119.7 <span class="text-charcoal-light">(norm: 103.1)</span></span>
+          <div class="gl-subject">
+            <p class="text-[length:var(--text-sm)] text-navy mb-2.5">Science</p>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-[#E0DDD6]" style="width:0%" data-target="32.75%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">103.1 <span class="opacity-60">Norm</span></span></div>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-charcoal-muted/45" style="width:0%" data-target="56.25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">112.5 <span class="opacity-60">UK Selective</span></span></div>
+            <div class="flex items-center gap-2.5 h-3.5"><div class="gl-bar bg-navy" style="width:0%" data-target="74.25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-navy font-medium whitespace-nowrap">119.7 <span class="opacity-70">ISJ</span></span></div>
           </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-sm)] text-navy">Reading</span>
-            <span class="text-[length:var(--text-sm)] text-charcoal tabular-nums">113.1 <span class="text-charcoal-light">(norm: 100)</span></span>
+          <div class="gl-subject">
+            <p class="text-[length:var(--text-sm)] text-navy mb-2.5">Reading</p>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-[#E0DDD6]" style="width:0%" data-target="25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">100 <span class="opacity-60">Norm</span></span></div>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-charcoal-muted/45" style="width:0%" data-target="56.25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">112.5 <span class="opacity-60">UK Selective</span></span></div>
+            <div class="flex items-center gap-2.5 h-3.5"><div class="gl-bar bg-navy" style="width:0%" data-target="57.75%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-navy font-medium whitespace-nowrap">113.1 <span class="opacity-70">ISJ</span></span></div>
           </div>
-          <div class="flex justify-between items-baseline py-3 border-b border-charcoal/5">
-            <span class="text-[length:var(--text-sm)] text-navy">Spelling</span>
-            <span class="text-[length:var(--text-sm)] text-charcoal tabular-nums">116.7 <span class="text-charcoal-light">(norm: 100)</span></span>
+          <div class="gl-subject">
+            <p class="text-[length:var(--text-sm)] text-navy mb-2.5">Spelling</p>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-[#E0DDD6]" style="width:0%" data-target="25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">100 <span class="opacity-60">Norm</span></span></div>
+            <div class="flex items-center gap-2.5 mb-1 h-3.5"><div class="gl-bar bg-charcoal-muted/45" style="width:0%" data-target="56.25%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-charcoal-muted whitespace-nowrap">112.5 <span class="opacity-60">UK Selective</span></span></div>
+            <div class="flex items-center gap-2.5 h-3.5"><div class="gl-bar bg-navy" style="width:0%" data-target="66.75%"></div><span class="text-[length:var(--text-xs)] tabular-nums text-navy font-medium whitespace-nowrap">116.7 <span class="opacity-70">ISJ</span></span></div>
           </div>
         </div>
 
-        <p class="text-[length:var(--text-sm)] text-charcoal-light mt-6 max-w-sm">
-          These scores place ISJ in the range of leading British independent and prep schools (110-122). Selective independent schools in the UK typically score between 110 and 115.
+        <p class="text-[length:var(--text-sm)] text-charcoal-light mt-8">
+          Selective independent schools in the UK typically score between 110 and 115.
         </p>
       </div>
     </div>
@@ -159,3 +170,32 @@ import Testimonial from '../../components/Testimonial.astro';
   </section>
 
 </BaseLayout>
+
+<style>
+  .gl-bar {
+    height: 6px;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var bars = entry.target.querySelectorAll('.gl-bar');
+          bars.forEach(function(bar, i) {
+            setTimeout(function() {
+              bar.style.width = bar.dataset.target;
+            }, i * 80);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.gl-subject').forEach(function(group) {
+      observer.observe(group);
+    });
+  })();
+</script>
