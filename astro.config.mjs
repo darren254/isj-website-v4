@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://international-school-jakarta.id',
+  site: 'https://isj.id',
   output: 'static',
   integrations: [sitemap()],
   vite: {

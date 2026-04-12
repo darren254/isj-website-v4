@@ -113,7 +113,7 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 ## Pending
 
 ### Host on isj.id
-- [ ] Transfer isj.id (OnlyDomains → Namecheap, DNS → Cloudflare). Update siteUrl + schema refs.
+- [x] Transfer isj.id — siteUrl, canonicals, schema.org, robots.txt, CNAME all updated to isj.id. Done 12 April 2026.
 
 ### Pre-launch technical
 - [ ] **Mailchimp domain auth** — DKIM/SPF records in Cloudflare. Deferred until domain switch.
