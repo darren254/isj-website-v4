@@ -32,7 +32,7 @@ const {
 const hasHero = !!heroImage;
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} preloadImage={heroImage}>
 
   {hasHero ? (
     <!-- Style A: Full-bleed hero -->
@@ -41,6 +41,8 @@ const hasHero = !!heroImage;
         src={heroImage!}
         alt={heroAlt || ''}
         class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
       <div class="absolute bottom-0 left-0 right-0 px-6 pb-12 pt-24">

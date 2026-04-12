@@ -75,13 +75,13 @@ const { hideCta = false } = Astro.props;
               {links.map((link) => (
                 <li>
                   {'pending' in link && link.pending ? (
-                    <span class="text-[length:var(--text-sm)] text-navy/25 cursor-default">
+                    <span class="text-[length:var(--text-sm)] text-navy/50 cursor-default">
                       {link.label}
                     </span>
                   ) : (
                     <a
                       href={link.href}
-                      class="text-[length:var(--text-sm)] text-navy/45 hover:text-navy transition-colors duration-[var(--transition-base)]"
+                      class="text-[length:var(--text-sm)] text-navy/70 hover:text-navy transition-colors duration-[var(--transition-base)]"
                     >
                       {link.label}
                     </a>
@@ -94,19 +94,19 @@ const { hideCta = false } = Astro.props;
       </div>
 
       <!-- Contact + address — single row, no divider -->
-      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-[length:var(--text-xs)] text-navy/35">
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-[length:var(--text-xs)] text-navy/70">
         <div>
-          <p class="text-navy/50 font-medium mb-1">Reception</p>
+          <p class="text-navy/80 font-medium mb-1">Reception</p>
           <p>+62 21-2782-6788</p>
-          <a href="mailto:info@isj.id" class="hover:text-navy/60 transition-colors">info@isj.id</a>
+          <a href="mailto:info@isj.id" class="hover:text-navy transition-colors">info@isj.id</a>
         </div>
         <div>
-          <p class="text-navy/50 font-medium mb-1">Admissions</p>
+          <p class="text-navy/80 font-medium mb-1">Admissions</p>
           <p>+62 811 1000 7672 (WhatsApp)</p>
-          <a href="mailto:admissions@isj.id" class="hover:text-navy/60 transition-colors">admissions@isj.id</a>
+          <a href="mailto:admissions@isj.id" class="hover:text-navy transition-colors">admissions@isj.id</a>
         </div>
         <div>
-          <p class="text-navy/50 font-medium mb-1">Address</p>
+          <p class="text-navy/80 font-medium mb-1">Address</p>
           <p>Jl. R.A. Kartini No. Kav. 12<br />Pondok Indah, South Jakarta 12310</p>
         </div>
       </div>
@@ -120,24 +120,24 @@ const { hideCta = false } = Astro.props;
       <!-- Socials -->
       <div class="flex items-center gap-5 flex-wrap justify-center">
         {socialLinks.map((social) => (
-          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/25 hover:text-navy/50 transition-colors" aria-label={social.label}>
+          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-navy/70 hover:text-navy transition-colors" aria-label={social.label}>
             <span class="text-[length:var(--text-xs)] uppercase tracking-wider">{social.label}</span>
           </a>
         ))}
       </div>
       <!-- Legal -->
       <div class="flex items-center gap-5 flex-wrap justify-center">
-        <span class="text-[length:var(--text-xs)] text-navy/25">
+        <span class="text-[length:var(--text-xs)] text-navy/70">
           &copy; {new Date().getFullYear()} The Independent School of Jakarta
         </span>
-        <span class="text-[length:var(--text-xs)] text-navy/25">
-          Part of <a href="https://schoolstrust.co.uk" target="_blank" rel="noopener noreferrer" class="hover:text-navy/50 transition-colors">The Schools Trust</a>
+        <span class="text-[length:var(--text-xs)] text-navy/70">
+          Part of <a href="https://schoolstrust.co.uk" target="_blank" rel="noopener noreferrer" class="hover:text-navy transition-colors">The Schools Trust</a>
         </span>
-        <a href=/privacy class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Privacy</a>
-        <a href=/terms class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Terms</a>
-        <a href=/cookies class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Cookies</a>
-        <a href=/brand class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Brand Guide</a>
-        <a href=/staff/image-library class="text-[length:var(--text-xs)] text-navy/25 hover:text-navy/50 transition-colors">Image Library</a>
+        <a href=/privacy class="text-[length:var(--text-xs)] text-navy/70 hover:text-navy transition-colors">Privacy</a>
+        <a href=/terms class="text-[length:var(--text-xs)] text-navy/70 hover:text-navy transition-colors">Terms</a>
+        <a href=/cookies class="text-[length:var(--text-xs)] text-navy/70 hover:text-navy transition-colors">Cookies</a>
+        <a href=/brand class="text-[length:var(--text-xs)] text-navy/70 hover:text-navy transition-colors">Brand Guide</a>
+        <a href=/staff/image-library class="text-[length:var(--text-xs)] text-navy/70 hover:text-navy transition-colors">Image Library</a>
       </div>
     </div>
   </div>

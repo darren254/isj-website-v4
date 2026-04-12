@@ -1,6 +1,6 @@
 # ISJ Website v4 — Master Plan
 
-Last updated: 6 April 2026
+Last updated: 12 April 2026
 
 ---
 
@@ -117,10 +117,10 @@ Terminology mapping: 2s = Pre-Nursery, 3s = Nursery, 4s = Reception, 5s = Year 1
 
 ### Pre-launch technical
 - [ ] **Mailchimp domain auth** — DKIM/SPF records in Cloudflare. Deferred until domain switch.
-- [ ] **Sitemap review** — verify all pages included, URLs correct.
-- [ ] **Full 301 redirect audit** — verify no pages with Search Console traffic are 404ing.
-- [ ] **Performance audit** — Lighthouse/CWV, target 90+.
-- [ ] **Accessibility audit** — contrast, alt text, keyboard nav, ARIA.
+- [x] **Sitemap review** — verified 150 pages, all URLs correct. Done 12 April 2026.
+- [x] **Full 301 redirect audit** — cross-checked every URL with Search Console traffic; zero gaps. Done 12 April 2026.
+- [x] **Performance audit** — Lighthouse on homepage, arrange-a-tour, best-international-schools. Fixes applied 12 April 2026: self-hosted Google Fonts (eliminates 761ms render block), hero image preloads, WebP conversion for 15 oversized images, footer contrast fixed to WCAG AA (4.5:1), generic link text fixed.
+- [x] **Accessibility audit** — footer contrast fixed (navy/70 on #DDD9D1 = 4.62:1), generic link text fixed. Lighthouse accessibility 96. Done 12 April 2026.
 
 ### Ideas for the future
 - [ ] **Student/parent voice content** — testimonials, day-in-the-life, Q&As.
