@@ -281,10 +281,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       // Format DOB nicely
       var d = new Date(cDob);
       var dobFormatted = d.getDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()] + ' ' + d.getFullYear();
-      childrenLines.push(cName + ', ' + cGender + ', ' + dobFormatted + ', ' + cNat);
+      childrenLines.push(cName + ' / ' + cGender + ' / ' + dobFormatted + ' / ' + cNat);
     }
 
-    var childrenStr = childrenLines.join('\n');
+    var childrenStr = childrenLines.join(' | ');
 
     // Build Calendly URL with prefill
     var baseUrl = CALENDLY_URLS[selectedTourType];
