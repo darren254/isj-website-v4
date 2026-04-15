@@ -10,54 +10,123 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
 
   <section class="pt-8 lg:pt-12 px-6">
-    <div class="max-w-[680px] mx-auto text-center">
+    <div class="max-w-[520px] mx-auto">
 
       <!-- Heading -->
-      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-6">Arrange a Tour</h1>
+      <h1 class="font-heading text-[length:var(--text-2xl)] font-light text-navy leading-[1.1] mb-3 text-center">Arrange a Tour</h1>
+      <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed mb-8 text-center">Complete the form below and choose a date.</p>
 
-      <!-- Subtext -->
-      <div id="label-inperson" class="mb-6">
-        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A one-hour personalised visit to the Pondok Indah campus during a live school day.</p>
-      </div>
-      <div id="label-virtual" class="mb-6 hidden">
-        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">A 30-minute video call with the admissions team to discuss your child's needs.</p>
-      </div>
+      <!-- ═══════ STEP 1: Parent & Children Form ═══════ -->
+      <div id="intake-form">
 
-      <!-- Tabs — prominent pill-style -->
-      <div class="inline-flex border border-navy/15 mb-6">
+        <!-- Tour type tabs -->
+        <div class="flex border border-navy/15 mb-8">
+          <button
+            type="button"
+            id="tab-inperson"
+            class="flex-1 px-4 py-3 text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium transition-all bg-navy-light text-cream"
+            onclick="selectTourType('inperson')"
+          >
+            In-Person Visit
+          </button>
+          <button
+            type="button"
+            id="tab-virtual"
+            class="flex-1 px-4 py-3 text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium transition-all bg-transparent text-charcoal-light hover:text-navy"
+            onclick="selectTourType('virtual')"
+          >
+            Virtual Meeting
+          </button>
+        </div>
+
+        <!-- Parent details -->
+        <p class="text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-4">Parent / Guardian</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <div class="sm:col-span-2">
+            <label for="parent-name" class="form-label">Full Name</label>
+            <input type="text" id="parent-name" required class="form-input" placeholder="e.g. Sarah Johnson" />
+          </div>
+          <div>
+            <label for="parent-email" class="form-label">Email</label>
+            <input type="email" id="parent-email" required class="form-input" placeholder="e.g. sarah@example.com" />
+          </div>
+          <div>
+            <label for="parent-phone" class="form-label">Phone / WhatsApp</label>
+            <input type="tel" id="parent-phone" required class="form-input" placeholder="e.g. +62 812 3456 7890" />
+          </div>
+        </div>
+
+        <!-- Children -->
+        <p class="text-[length:var(--text-xs)] tracking-[0.12em] uppercase font-medium text-navy mb-4">Child Details</p>
+
+        <div id="children-container">
+          <!-- Child 1 (always shown) -->
+          <div class="child-block" data-index="1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="form-label">Child's Full Name</label>
+                <input type="text" required class="form-input child-name" placeholder="e.g. James Johnson" />
+              </div>
+              <div>
+                <label class="form-label">Gender</label>
+                <select required class="form-input child-gender">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Date of Birth</label>
+                <input type="date" required class="form-input child-dob" />
+              </div>
+              <div>
+                <label class="form-label">Nationality</label>
+                <input type="text" required class="form-input child-nationality" placeholder="e.g. British" />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <button
-          id="tab-inperson"
-          class="px-6 py-3 text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium transition-all bg-navy-light text-cream"
-          onclick="showCalendly('inperson')"
+          type="button"
+          id="add-child-btn"
+          onclick="addChild()"
+          class="flex items-center gap-2 text-[length:var(--text-xs)] tracking-[0.1em] uppercase font-medium text-navy/60 hover:text-navy transition-colors mb-8"
         >
-          In-Person Visit
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+          Add another child
         </button>
+
+        <!-- Submit -->
         <button
-          id="tab-virtual"
-          class="px-6 py-3 text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium transition-all bg-transparent text-charcoal-light hover:text-navy"
-          onclick="showCalendly('virtual')"
+          type="button"
+          id="continue-btn"
+          onclick="submitForm()"
+          class="w-full py-3.5 bg-navy-light text-cream text-[length:var(--text-xs)] tracking-[0.2em] uppercase font-medium hover:bg-navy-light/85 transition-all"
         >
-          Virtual Meeting
+          Continue to Select a Date
         </button>
+
+        <p id="form-error" class="text-red-600 text-[length:var(--text-xs)] mt-3 text-center hidden"></p>
       </div>
 
-      <!-- Calendly inline embeds -->
-      <div
-        id="calendly-inperson"
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/d/cvpf-s5n-wft/in-person-visit-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
-        style="min-width:280px;height:700px;"
-      ></div>
-      <div
-        id="calendly-virtual"
-        class="calendly-inline-widget hidden"
-        data-url="https://calendly.com/d/cykv-b8z-qfy/virtual-tour-isj?hide_gdpr_banner=1&primary_color=1a2b4a"
-        style="min-width:280px;height:700px;"
-      ></div>
+      <!-- ═══════ STEP 2: Calendly (hidden until form submitted) ═══════ -->
+      <div id="calendly-step" class="hidden">
+        <button
+          type="button"
+          onclick="goBackToForm()"
+          class="flex items-center gap-1.5 text-[length:var(--text-xs)] tracking-[0.1em] uppercase font-medium text-navy/50 hover:text-navy transition-colors mb-6"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          Back to form
+        </button>
+        <div id="calendly-container" style="min-width:280px;height:700px;"></div>
+      </div>
 
       <!-- Contact alternatives -->
       <div class="border-t border-charcoal/10 pt-8 mt-8 pb-16">
-        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-5">Prefer to get in touch directly?</p>
+        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase font-medium text-navy mb-5 text-center">Prefer to get in touch directly?</p>
         <div class="flex flex-wrap justify-center gap-6">
           <a href="https://wa.me/6281110007672" class="flex items-center gap-2 text-[length:var(--text-sm)] text-charcoal-light hover:text-navy transition-colors">
             <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -79,36 +148,174 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 </BaseLayout>
 
+<!-- Form styles -->
+<style is:global>
+  .form-label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-charcoal-light);
+    margin-bottom: 0.375rem;
+    letter-spacing: 0.02em;
+  }
+  .form-input {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9375rem;
+    font-family: var(--font-body);
+    color: var(--color-charcoal);
+    background: transparent;
+    border: 1px solid rgba(27,42,74,0.15);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus {
+    border-color: var(--color-navy-light);
+  }
+  .form-input::placeholder {
+    color: rgba(44,43,41,0.3);
+  }
+  .child-block + .child-block {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(27,42,74,0.08);
+    position: relative;
+  }
+  .remove-child-btn {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    font-size: var(--text-xs);
+    color: rgba(44,43,41,0.35);
+    cursor: pointer;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    letter-spacing: 0.05em;
+  }
+  .remove-child-btn:hover {
+    color: #c44;
+  }
+</style>
+
 <!-- Calendly widget script -->
 <script src="https://assets.calendly.com/assets/external/widget.js" async is:inline></script>
 
 <script is:inline>
-  function showCalendly(type) {
-    var inpersonEmbed = document.getElementById('calendly-inperson');
-    var virtualEmbed  = document.getElementById('calendly-virtual');
-    var inpersonLabel = document.getElementById('label-inperson');
-    var virtualLabel  = document.getElementById('label-virtual');
-    var tabInperson   = document.getElementById('tab-inperson');
-    var tabVirtual    = document.getElementById('tab-virtual');
+  var selectedTourType = 'inperson';
+  var childCount = 1;
 
+  var CALENDLY_URLS = {
+    inperson: 'https://calendly.com/d/cvpf-s5n-wft/in-person-visit-isj',
+    virtual: 'https://calendly.com/d/cykv-b8z-qfy/virtual-tour-isj'
+  };
+
+  function selectTourType(type) {
+    selectedTourType = type;
+    var tabIn = document.getElementById('tab-inperson');
+    var tabVi = document.getElementById('tab-virtual');
     if (type === 'inperson') {
-      inpersonEmbed.classList.remove('hidden');
-      virtualEmbed.classList.add('hidden');
-      inpersonLabel.classList.remove('hidden');
-      virtualLabel.classList.add('hidden');
-      tabInperson.classList.add('bg-navy-light', 'text-cream');
-      tabInperson.classList.remove('bg-transparent', 'text-charcoal-light');
-      tabVirtual.classList.remove('bg-navy-light', 'text-cream');
-      tabVirtual.classList.add('bg-transparent', 'text-charcoal-light');
+      tabIn.classList.add('bg-navy-light', 'text-cream');
+      tabIn.classList.remove('bg-transparent', 'text-charcoal-light');
+      tabVi.classList.remove('bg-navy-light', 'text-cream');
+      tabVi.classList.add('bg-transparent', 'text-charcoal-light');
     } else {
-      virtualEmbed.classList.remove('hidden');
-      inpersonEmbed.classList.add('hidden');
-      virtualLabel.classList.remove('hidden');
-      inpersonLabel.classList.add('hidden');
-      tabVirtual.classList.add('bg-navy-light', 'text-cream');
-      tabVirtual.classList.remove('bg-transparent', 'text-charcoal-light');
-      tabInperson.classList.remove('bg-navy-light', 'text-cream');
-      tabInperson.classList.add('bg-transparent', 'text-charcoal-light');
+      tabVi.classList.add('bg-navy-light', 'text-cream');
+      tabVi.classList.remove('bg-transparent', 'text-charcoal-light');
+      tabIn.classList.remove('bg-navy-light', 'text-cream');
+      tabIn.classList.add('bg-transparent', 'text-charcoal-light');
     }
+  }
+
+  function addChild() {
+    childCount++;
+    var container = document.getElementById('children-container');
+    var block = document.createElement('div');
+    block.className = 'child-block';
+    block.dataset.index = childCount;
+    block.innerHTML = '<button type="button" class="remove-child-btn" onclick="removeChild(this)">Remove</button>'
+      + '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">'
+      + '<div><label class="form-label">Child\'s Full Name</label><input type="text" required class="form-input child-name" placeholder="e.g. Sophie Johnson" /></div>'
+      + '<div><label class="form-label">Gender</label><select required class="form-input child-gender"><option value="" disabled selected>Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div>'
+      + '<div><label class="form-label">Date of Birth</label><input type="date" required class="form-input child-dob" /></div>'
+      + '<div><label class="form-label">Nationality</label><input type="text" required class="form-input child-nationality" placeholder="e.g. British" /></div>'
+      + '</div>';
+    container.appendChild(block);
+  }
+
+  function removeChild(btn) {
+    var block = btn.closest('.child-block');
+    block.remove();
+    childCount--;
+  }
+
+  function submitForm() {
+    var errEl = document.getElementById('form-error');
+    errEl.classList.add('hidden');
+
+    // Validate parent fields
+    var name = document.getElementById('parent-name').value.trim();
+    var email = document.getElementById('parent-email').value.trim();
+    var phone = document.getElementById('parent-phone').value.trim();
+
+    if (!name || !email || !phone) {
+      errEl.textContent = 'Please complete all parent/guardian fields.';
+      errEl.classList.remove('hidden');
+      return;
+    }
+
+    // Validate children
+    var blocks = document.querySelectorAll('.child-block');
+    var childrenLines = [];
+    for (var i = 0; i < blocks.length; i++) {
+      var cName = blocks[i].querySelector('.child-name').value.trim();
+      var cGender = blocks[i].querySelector('.child-gender').value;
+      var cDob = blocks[i].querySelector('.child-dob').value;
+      var cNat = blocks[i].querySelector('.child-nationality').value.trim();
+      if (!cName || !cGender || !cDob || !cNat) {
+        errEl.textContent = 'Please complete all fields for each child.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+      // Format DOB nicely
+      var d = new Date(cDob);
+      var dobFormatted = d.getDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()] + ' ' + d.getFullYear();
+      childrenLines.push(cName + ', ' + cGender + ', ' + dobFormatted + ', ' + cNat);
+    }
+
+    var childrenStr = childrenLines.join('\n');
+
+    // Build Calendly URL with prefill
+    var baseUrl = CALENDLY_URLS[selectedTourType];
+    var params = '?hide_gdpr_banner=1&primary_color=1a2b4a'
+      + '&name=' + encodeURIComponent(name)
+      + '&email=' + encodeURIComponent(email)
+      + '&a1=' + encodeURIComponent(phone)
+      + '&a2=' + encodeURIComponent(childrenStr);
+
+    // Hide form, show Calendly
+    document.getElementById('intake-form').classList.add('hidden');
+    var calendlyStep = document.getElementById('calendly-step');
+    calendlyStep.classList.remove('hidden');
+
+    // Init Calendly widget
+    var container = document.getElementById('calendly-container');
+    container.innerHTML = '';
+    if (window.Calendly) {
+      Calendly.initInlineWidget({
+        url: baseUrl + params,
+        parentElement: container
+      });
+    }
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goBackToForm() {
+    document.getElementById('calendly-step').classList.add('hidden');
+    document.getElementById('intake-form').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
