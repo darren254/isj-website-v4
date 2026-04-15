@@ -68,10 +68,8 @@ const hasHero = !!heroImage;
 
       <!-- TL;DR -->
       <div class="mb-8">
-        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase text-gold font-medium mb-3">TL;DR</p>
-        <p class="text-[length:var(--text-sm)] text-charcoal-light leading-relaxed">
-          {summary}
-        </p>
+        <p class="text-[length:var(--text-xs)] tracking-[0.15em] uppercase text-gold font-medium mb-4">TL;DR</p>
+        <div class="text-[length:var(--text-base)] text-charcoal leading-relaxed tldr-content" set:html={summary} />
       </div>
 
       <!-- Share + Meta bar -->
