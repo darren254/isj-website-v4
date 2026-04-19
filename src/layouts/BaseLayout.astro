@@ -127,10 +127,10 @@ for (const segment of pathSegments) {
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-  <!-- Google Analytics 4 — only loaded when cookies accepted -->
+  <!-- Google Analytics 4 — loads by default, respects opt-out -->
   <script is:inline>
   (function() {
-    if (localStorage.getItem('cookie-consent') !== 'accepted') return;
+    if (localStorage.getItem('cookie-consent') === 'declined') return;
     var id = 'G-TDE52R9LB1';
     var s = document.createElement('script');
     s.async = true;
